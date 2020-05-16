@@ -4,7 +4,7 @@
 
 > ![#1589F0](https://placehold.it/15/1589F0/000000?text=+) #Project-3 with MongoDB, Node, Express, ReactJS, Bootstrap, and MVC design pattern.
 
-These are the programming languages that we used to built this good developer profile generator
+These are the programming languages that we used to build this application:
 **node.js javascript OOP node modules express api and html routing and mongodb**
 
 
