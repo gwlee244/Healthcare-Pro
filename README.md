@@ -33,8 +33,7 @@ test
 - Github : [@keshavsavva](https://github.com/keshavsavva)
 
 **Gene Lee**
-- Github : [@gwlee244](https://github.com/gwlee244)
- minor change:  
+- Github : [@gwlee244](https://github.com/gwlee244) 
 
 ## License 
 MIT: ![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)
@@ -47,11 +46,9 @@ MIT: ![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgr
 **Keshav** 
 **Gene**
 
-Issues, Feature requests are most welcomed!. There are still issues and anyone can help to fixed the issues. Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
 ## Show your support :pray:
 Give a :star: or follow me if this project helped you.
-### Any suggestion or question are most welcome
+### Any suggestions or questions are welcome!
 <img src="https://avatars1.githubusercontent.com/u/7818024?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" /> Email : [umiasad2017@gmail.com](asadrauf)
 
 
