@@ -78,14 +78,21 @@ function Main() {
             <button> <Link to={"/results/"}>
               Medical Results
                       </Link></button>
+                      <br></br>
             <button> <Link to={"/message/"}>
               Ask a Question
                       </Link></button>
+                      <br></br>
             <button> <Link to={"/appointment/"}>
               Request An Appointment
                       </Link></button>
+                      <br></br>
             <button> <Link to={"/doctors/"}>
               Doctor Info
+                      </Link></button>
+                      <br></br>
+            <button> <Link to={"/summary/"}>
+              Health Summary
                       </Link></button>
           </Card>
         </Col>

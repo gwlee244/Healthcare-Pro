@@ -21,7 +21,7 @@ function LoginForm({login}) {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		login(userObject.username, userObject.password);
-		setRedirectTo('/books');
+		setRedirectTo('/main');
 	};
 
   if (redirectTo) {
@@ -32,7 +32,7 @@ function LoginForm({login}) {
         <Row>
           <Col size="md-3"></Col>
           <Col size="md-6">
-            <Card title="Login to React Reading List">
+            <Card title="Login to Healthcare Pro+">
               <form style={{marginTop: 10}}>
                 <label htmlFor="username">Username: </label>
                 <Input

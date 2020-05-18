@@ -19,10 +19,10 @@ class Home extends Component {
         <img className="home-bg" src={memory} alt="brushstrokes" />
         <Typed
           strings={[
-            "See your perscribtions...",
+            "See your perscriptions...",
             "See your future appointments...",
             "Flexible to use...",
-            "Save your patients history...",
+            "Save your patient history...",
             "Save and save all at once..."
           ]}
           typeSpeed={50}
