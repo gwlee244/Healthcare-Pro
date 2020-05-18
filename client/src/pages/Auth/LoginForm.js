@@ -21,7 +21,7 @@ function LoginForm({login}) {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		login(userObject.username, userObject.password);
-		setRedirectTo('/');
+		setRedirectTo('/books');
 	};
 
   if (redirectTo) {

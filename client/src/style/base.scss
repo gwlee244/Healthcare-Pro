@@ -1,0 +1,41 @@
+// Base Colors
+$white: #ffffff;
+$black: #000000;
+$lightGray: #dadada;
+$primaryGray: #aaaaaa;
+$primaryDark: #484848;
+$primaryBlue: hsl(235, 100%, 63%);
+$primaryRed: #d9605a;
+
+@mixin primaryGradient {
+  background: linear-gradient(270deg, #3f0d12 0%, #a71d31 50%, #fd9d52 100%);
+  background-image: linear-gradient(
+    270deg,
+    #3f0d12 0%,
+    #a71d31 50%,
+    #fd9d52 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+  
+
+
+@mixin primaryGradientBtn {
+  background: linear-gradient(270deg, #943cff 0%, #dd45d3 50%, #fd9d52 100%);
+  background-image: linear-gradient(
+    270deg,
+    #943cff 0%,
+    #dd45d3 50%,
+    #fd9d52 100%
+  );
+  color: $white;
+}
+
+// Font weights
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semibold: 600;
+$bold: 700;
+$heavy: 800;
