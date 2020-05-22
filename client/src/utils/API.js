@@ -48,5 +48,17 @@ export default {
   // adds patient to doctor's list of patients
   updatePatientDoc: function(id, docId) {
     return axios.put("/api/patients/updatedoc/" + docId + "/" + id)
+  },
+  getScrips: function(patId) {
+    return axios.get("/api/prescriptions/" + patId)
+  },
+  createsScrip: function(patId, scripData) {
+    return axios.post("/api/prescriptions/" + patId, scripData)
+  },
+  updateScrip: function(id, scripData) {
+    return axios.put("/api/prescriptions/" + id, scripData)
+  },
+  deleteScrip: function(patId, id) {
+    return axios.delete("/api/prescriptions/" + patId + "/" + id)
   }
 };
