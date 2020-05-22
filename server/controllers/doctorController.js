@@ -7,7 +7,7 @@ module.exports = {
         db.Doctor
             .create(req.body)
             .then((dbDoctor) => {
-                // If the User was updated successfully, send it back to the client
+                // If the Doctor was updated successfully, send it back to the client
                 res.json(dbDoctor);
             })
             .catch(err => {

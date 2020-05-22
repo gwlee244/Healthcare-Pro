@@ -1,4 +1,5 @@
 module.exports = {
   User: require("./user"),
-  Doctor: require("./doctor")
+  Doctor: require("./doctor"),
+  Patient: require("./patient")
 };
