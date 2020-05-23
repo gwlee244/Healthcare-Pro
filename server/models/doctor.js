@@ -13,12 +13,12 @@ const doctorSchema = new Schema({
         trim: true,
         required: [true, "Last name is required"]
     },
-    schools: [{
+    email: {
         type: String,
         required: [true, "At least one school is required"]
-    }],
-    dob: {
-        type: Date,
+    },
+    password: {
+        type: String,
         required: [true, "Date of Birth is required"]
     },
     patients: [{
@@ -26,12 +26,27 @@ const doctorSchema = new Schema({
         ref: 'Patient'
     }],
     appointments: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Appointment'
+        type: Schema.Types.Mixed,
     }],
-    type: {
+    typeOfUser: {
         type: String,
-        required: [true, "Physician Type is required"]
+    },
+    tokens : {
+        type: [String]
+    },
+    created: {
+        type: Date,
+        default: Date.now
+    },
+    settings: {
+        type: Schema.Types.Mixed
+    },
+    color: {
+        type: String
+    },
+    stars: {
+        type: [String],
+        default: ["0", "0", "0", "0", "0"]
     }
 });
 

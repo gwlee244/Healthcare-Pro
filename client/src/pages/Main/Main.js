@@ -12,29 +12,29 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 
 function Main() {
   // Setting our component's initial state
-  const [books, setBooks] = useState([]);
+  const [books, setDocs] = useState([]);
   const [formObject, setFormObject] = useState({});
   const formEl = useRef(null);
 
   // Load all books and store them with setBooks
   useEffect(() => {
-    loadBooks();
+    loadDoctors();
   }, []);
 
   // Loads all books and sets them to books
-  function loadBooks() {
-    API.getBooks()
+  function loadDoctors() {
+    API.getDocs()
       .then(res => {
         // console.log(res.data.books);
-        setBooks(res.data.books);
+        setDocs(res.data.books);
       })
       .catch(err => console.log(err));
   };
 
   // Deletes a book from the database with a given id, then reloads books from the db
-  function deleteBook(id) {
-    API.deleteBook(id)
-      .then(res => loadBooks())
+  function deleteDoc(id) {
+    API.deleteDoc(id)
+      .then(res => loadDoctors())
       .catch(err => console.log(err));
   }
 
@@ -49,14 +49,14 @@ function Main() {
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.title && formObject.author) {
-      API.saveBook({
+      API.saveDoc({
         title: formObject.title,
         author: formObject.author,
         synopsis: formObject.synopsis
       })
         .then(res => {
           formEl.current.reset();
-          loadBooks();
+          loadDoctors();
         })
         .catch(err => console.log(err));
     }

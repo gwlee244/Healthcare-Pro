@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import "./Home.scss";
 import { Link } from "react-router-dom";
-import LoginForm from "./LoginForm";
-import SignupForm from "./SignupForm";
 import memory from "../../img/image.gif";
 
 import Typed from "react-typed";
@@ -31,8 +29,8 @@ class Home extends Component {
           loop
           smartBackspace
         />
-        <Link to="/login">Sign In</Link>
-        <Link to="/signup">Create Account</Link>
+        <Link to="/login" className="home">Sign In</Link>
+        <Link to="/register" className="home">Create Account</Link>
       </div>
     );
   }

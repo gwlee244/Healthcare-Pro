@@ -10,11 +10,14 @@ const morgan = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const dbConnection = require('./db'); // loads our connection to the mongo database
-const routes = require("./routes");
-const passport = require('./passport');
+const routes = require("./routes/api");
+const passport = require('passport');
 const app = express();
-const PORT = process.env.PORT || 3001;
-
+const PORT = process.env.PORT || 5000;
+const api = require("./routes/api");
+// Routes
+const doctors = require("./routes/doctors");
+const patients = require("./routes/patients");
 // Middlewares
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: true}));
@@ -29,6 +32,11 @@ app.use(session({
 // Passport
 app.use(passport.initialize());
 app.use(passport.session()); // will call the deserializeUser
+
+// Use routers
+app.use("/api/user", api);
+app.use("/api/patients", patients);
+app.use("/api/doctors", doctors);
 
 // If its production environment!
 if (process.env.NODE_ENV === 'production') {
