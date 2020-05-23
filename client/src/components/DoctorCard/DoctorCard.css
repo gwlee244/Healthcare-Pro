@@ -1,0 +1,11 @@
+h1 {
+  text-align: left;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+.card {
+  text-align: left !important;
+}
+ul {
+  list-style-type: none;
+}
