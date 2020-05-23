@@ -1,99 +1,59 @@
-import React, { useState, useEffect } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import LoginForm from './pages/Auth/LoginForm';
-import SignupForm from './pages/Auth/SignupForm';
-import Nav from "./components/Nav";
-import Main from './pages/Main';
-import Appointment from "./pages/Appointment";
-import Message from "./pages/Message";
-import Results from "./pages/Results";
-import Summary from "./pages/Summary";
-import Doctors from "./pages/Doctors";
-import Detail from "./pages/Detail";
-import Home from "./pages/Auth/Home";
-import NoMatch from "./pages/NoMatch";
-import AUTH from './utils/AUTH';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [user, setUser] = useState(null);
-  
-  useEffect(() => {
-    AUTH.getUser().then(response => {
-        // console.log(response.data);
-        if (!!response.data.user) {
-          setLoggedIn(true);
-          setUser(response.data.user);
-        } else {
-          setLoggedIn(false);
-          setUser(null);
-        }
-      });
+import store from "./store";
+import { Provider } from "react-redux";
+import setAuthToken from "./helpers/setAuthToken";
+import jwt_decode from "jwt-decode";
+// Components
+import Home from "../src/pages/Auth/Home";
+import Login from "../src/pages/Auth/Login";
+import Register from "../src/pages/Auth/Register";
 
-      return () => {
-        setLoggedIn(false);
-        setUser(null);
-      };
-  }, []);
+import PrivateDoctorRoute from "./utils/PrivateDoctorRoute";
+import PrivatePatientRoute from "./utils/PrivatePatientRoute";
 
-	const logout = (event) => {
-    event.preventDefault();
-    
-		AUTH.logout().then(response => {
-			// console.log(response.data);
-			if (response.status === 200) {
-				setLoggedIn(false);
-        setUser(null);
-			}
-		});
-	};
+import DoctorHomepage from "./pages/doctor/DoctorHomepage";
+import PatientHomepage from "./pages/patient/PatientHomepage";
+// Actions
+import { setCurrentUser } from "./actions/authorizationAction";
 
-	const login = (username, password) => {
-		AUTH.login(username, password).then(response => {
-      console.log(response.data);
-      if (response.status === 200) {
-        // update the state
-        setLoggedIn(true);
-        setUser(response.data.user);
-      }
-    });
-	};
+// Check for token
+if (localStorage.jwtToken) {
+	// Set auth token header auth
+	setAuthToken(localStorage.jwtToken);
+	// Decode token and get user info
+	const decoded = jwt_decode(localStorage.jwtToken);
+	// Set user and isAuthenticated
+	store.dispatch(setCurrentUser(decoded));
+}
 
-  return (
-    <div className="App">
-      { loggedIn && (
-        <div>
-          <Nav user={user} logout={logout}/>
-          <div className="main-view">
-            <Switch>
-              <Route exact path="/" component={Home}/>
-              <Route exact path="/main" component={Main} />
-              <Route exact path="/doctors" component={Doctors} />
-              <Route exact path="/appointment" component={Appointment} />
-              <Route exact path="/message" component={Message} />
-              <Route exact path="/results" component={Results} />
-             
-              <Route exact path="/summary" component={Summary} />
-              <Route component={NoMatch} />
-            </Switch>
-          </div>
-        </div>
-      )}
-      { !loggedIn && (
-        <div className="auth-wrapper" style={{paddingTop:40}}>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/main" component={Home} />
-          <Route exact path="/doctors" component={Home} />
-          <Route exact path="/appointment" component={Home} />
-          <Route exact path="/message" component={Home} />
-          <Route exact path="/results" component={Home} />
-          <Route exact path="/summary" component={Home} />
-          <Route exact path="/login" component={() => <LoginForm login={login}/>} />
-          <Route exact path="/signup" component={SignupForm} />
-        </div>
-      )}
-    </div>
-  );
+class App extends Component {
+	render() {
+		return (
+			<Provider store={store}>
+				<Router>
+					<div className="App">
+						<Route exact path="/" component={Home} />
+						<Route exact path="/register" component={Register} />
+						<Route exact path="/login" component={Login} />
+						<Switch>
+							<PrivatePatientRoute
+								exact
+								path="/patient/home"
+								component={PatientHomepage}
+							/>
+							<PrivateDoctorRoute
+								exact
+								path="/doctor/home"
+								component={DoctorHomepage}
+							/>
+						</Switch>
+					</div>
+				</Router>
+			</Provider>
+		);
+	}
 }
 
 export default App;
