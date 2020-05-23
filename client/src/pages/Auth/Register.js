@@ -18,7 +18,8 @@ import FormLabel from "@material-ui/core/FormLabel";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import Radio from "@material-ui/core/Radio";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-
+// Helpers
+import getRandomMaterialColor from "../../helpers/getRandomMaterialColor";
 // Components
 import Header from "../../components/app-bar/Header";
 // Actions
