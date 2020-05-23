@@ -5,11 +5,11 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 
 // Load Doctor and Patient mongoose models
-const Doctor = require("../../../pracproj3/project3/server/models/DoctorModel");
-const Patient = require("../../../pracproj3/project3/server/models/PatientModel");
+const Doctor = require("../models/doctor");
+const Patient = require("../models/patient");
 
 // Load validtion
-const validateRegisterInput = require("../../../pracproj3/project3/server/validation/registerValidation");
+const validateRegisterInput = require("../validation/registerValidation");
 
 // @route 	POST /api/patients/register
 // @desc 	Register new patient
