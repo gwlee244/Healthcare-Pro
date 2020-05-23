@@ -32,6 +32,28 @@ $primaryRed: #d9605a;
   color: $white;
 }
 
+   //login form
+    .login-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column;
+    width: 10vw;
+    margin: 8vh auto 0 auto;
+}
+
+  .home {
+border: 2px solid $white;
+border-radius: 12px;
+
+    }
+
+      .home:hover {
+        background-color: #F08080;
+        text-decoration: none;
+        }
+          
+
 // Font weights
 $light: 300;
 $regular: 400;

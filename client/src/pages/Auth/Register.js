@@ -260,14 +260,13 @@ class Register extends Component {
 								<Button
 									className={classes.buttonLayout}
 									variant="contained"
-									color="secondary"
 									type="submit">
 									Register
 								</Button>
 								<Button
 									className={classes.buttonLayout}
 									variant="outlined"
-									color="secondary"
+									
 									onClick={this.onSubmit}
 									href="/">
 									Cancel

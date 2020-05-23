@@ -128,7 +128,7 @@ class Login extends Component {
 								}`
 							)}
 							<FormControl error={errors.email}>
-								<InputLabel>Enter your E-mail</InputLabel>
+								<InputLabel>Email here...</InputLabel>
 								<Input
 									name="email"
 									type="email"
@@ -141,7 +141,7 @@ class Login extends Component {
 								/>
 							</FormControl>
 							<FormControl error={errors.password}>
-								<InputLabel>Enter your password</InputLabel>
+								<InputLabel>Password here...</InputLabel>
 								<Input
 									name="password"
 									type="password"
@@ -155,7 +155,6 @@ class Login extends Component {
 							</FormControl>
 							<Button
 								variant="contained"
-								color="secondary"
 								className={`${classes.width} ${classes.margin}`}
 								onClick={this.onSubmit}>
 								Submit
