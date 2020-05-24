@@ -67,7 +67,7 @@ export default {
   getPatApps: function(patId) {
     return axios.get("/api/appointments/patient/" + patId)
   },
-  updateApp: function(id, AppData) {
+  updateApp: function(id, appData) {
     return axios.put("/api/appointments/" + id, appData)
   },
   deleteApp: function(patId, docId, id) {
