@@ -66,7 +66,7 @@ class Register extends Component {
 			email: "",
 			password: "",
 			password2: "",
-			typeOfUser: "",
+      typeOfUser: "",
 			errors: {}
 		};
 		this.onChange = this.onChange.bind(this);
@@ -95,7 +95,7 @@ class Register extends Component {
 			email: this.state.email,
 			password: this.state.password,
 			password2: this.state.password2,
-			typeOfUser: this.state.typeOfUser,
+      typeOfUser: this.state.typeOfUser,
 			color: getRandomMaterialColor()
 		};
 
