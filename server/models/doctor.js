@@ -15,11 +15,11 @@ const doctorSchema = new Schema({
     },
     email: {
         type: String,
-        required: [true, "At least one school is required"]
+        required: [true, "Email is required"]
     },
     password: {
         type: String,
-        required: [true, "Date of Birth is required"]
+        required: [true, "Password is required"]
     },
     patients: [{
         type: Schema.Types.ObjectId,

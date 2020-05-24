@@ -60,5 +60,20 @@ export default {
   },
   deleteScrip: function(patId, id) {
     return axios.delete("/api/prescriptions/" + patId + "/" + id)
+  },
+  getDocApps: function(docId) {
+    return axios.get("/api/appointments/doctor/" + docId)
+  },
+  getPatApps: function(patId) {
+    return axios.get("/api/appointments/patient/" + patId)
+  },
+  updateApp: function(id, AppData) {
+    return axios.put("/api/appointments/" + id, appData)
+  },
+  deleteApp: function(patId, docId, id) {
+    return axios.delete("/api/appointments/" + patId + "/" + docId + "/"+ id)
+  },
+  createApp: function(patId, docId, id, appData) {
+    return axios.post("/api/appointments/" + patId + "/" + docId + "/"+ id, appData)
   }
 };
