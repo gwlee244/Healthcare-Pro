@@ -1,6 +1,5 @@
 import React from "react";
 import { Col, Row, Container } from "../../../components/Grid";
-import Jumbotron from "../../../components/Jumbotron";
 import { Link } from "react-router-dom";
 import  RightNav  from "../../../components/RightNav";
 
@@ -8,7 +7,6 @@ const Schedule = () => (
   <Container fluid>
     <Row>
       <Col size="md-9">
-        <Jumbotron>
           <h1>Your Schedule</h1>
           <h1>
             <span>schedule details
@@ -17,7 +15,6 @@ const Schedule = () => (
           <button> <Link to={"/doctor/home"}>
               Back to Main
                       </Link></button>
-        </Jumbotron>
       </Col>
       <RightNav
         link1={"/doctor/patients"}

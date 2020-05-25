@@ -1,10 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { Col, Row, Container } from "../../../components/Grid";
 import { Card } from "../../../components/Card";
 import  RightNav  from "../../../components/RightNav/";
-import { Input, TextArea, FormBtn } from "../../../components/Form";
-import API from "../../../utils/API";
-import { withRouter } from "react-router-dom";
 
 function DoctorMain() {
 
@@ -41,4 +38,4 @@ function DoctorMain() {
 }
 
 
-export default withRouter(DoctorMain);
+export default DoctorMain;
