@@ -12,8 +12,6 @@ import Register from "../src/pages/Auth/Register";
 import PrivateDoctorRoute from "./utils/PrivateDoctorRoute";
 import PrivatePatientRoute from "./utils/PrivatePatientRoute";
 
-import DoctorHomepage from "./pages/doctor/DoctorHomepage";
-import PatientHomepage from "./pages/patient/PatientHomepage";
 import Main from './pages/patient/Main';
 import Appointment from "./pages/patient/Appointment";
 import Message from "./pages/patient/Message";
