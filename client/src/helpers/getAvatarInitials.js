@@ -1,5 +1,5 @@
-// export default function getAvatarInitials(firstName, lastName) {
-//     return [firstName.match, lastName.match]
-//     firstName.match[0]
-//     lastName.match[0]
-// }
+export default function getAvatarInitials(firstName, lastName) {
+    return [firstName.match[0].match(/\b\w/g) || [], lastName.match[0]
+.match(/\b\w/g) || []]
+    
+}
