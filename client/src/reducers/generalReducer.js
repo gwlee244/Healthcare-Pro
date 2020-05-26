@@ -1,3 +1,4 @@
+//fixed
 import {GET_PATIENTS_LIST, GET_DOCTORS_LIST, DOCTORS_LOADING, PATIENTS_LOADING} from "../actions/constants";
 
 const initialState = {
