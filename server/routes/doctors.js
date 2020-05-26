@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const mongoose = require("mongoose");
 const omitEmpty = require("omit-empty");
-
+const chartConfig = require("../config/charts");
 
 
 // Load Doctor & Patient mongoose models
