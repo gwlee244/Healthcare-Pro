@@ -1,7 +1,5 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { Col, Row, Container } from "../../../components/Grid";
-import Jumbotron from "../../../components/Jumbotron";
-import { Link } from "react-router-dom";
 import RightNav from "../../../components/RightNav";
 import "../../../index.css";
 import { withRouter } from "react-router-dom";
@@ -11,12 +9,8 @@ const Profile = (props) => {
   var doctorId = localStorage.getItem("doctorId");
   const [profile, setProfile] = useState([{name:"", field:"", schools:"", work:"", office:""}]);
   const [formObject, setFormObject] = useState({});
-
-  useEffect(() => {
   console.log(doctorId);
   loadProfile();
-
-  }, []);
 
   // Loads boxes with previous profile
   function loadProfile() {

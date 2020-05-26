@@ -1,6 +1,5 @@
-import React, { useEffect, Component } from "react";
+import React, { Component } from "react";
 import { Col, Row, Container } from "../../../components/Grid";
-import Jumbotron from "../../../components/Jumbotron";
 import { Link } from "react-router-dom";
 import RightNav from "../../../components/RightNav";
 import API from "../../../utils/API";
@@ -53,7 +52,6 @@ class Doctors extends Component {
       <Container fluid>
         <Row>
           <Col size="md-9">
-            <Jumbotron>
               <h1>Find A Doctor</h1>
 
               <h4 className="text-info mt-3 text-left">Doctor Search: </h4>
@@ -71,19 +69,12 @@ class Doctors extends Component {
                   work={doctor.work}
                   office={doctor.office}
                 />
-                // <div>
-                //   <p>Name: {doctor.name}</p>
-                //   <p>Field: {doctor.field}</p>
-                //   <p>Schools: {doctor.schools}</p>
-                //   <p>Work: {doctor.work}</p>
-                //   <p>Office: {doctor.office}</p>
-                //   </div>
+           
               ))}
 
               <button> <Link to={"/patient/home"}>
                 Back to Main
                       </Link></button>
-            </Jumbotron>
           </Col>
           <RightNav
             link1={"/patient/results"}

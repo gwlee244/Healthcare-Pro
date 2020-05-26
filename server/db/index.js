@@ -7,10 +7,16 @@ let MONGO_URL;
 const MONGO_LOCAL_URL = 'mongodb://localhost/healthcareProdb';
 
 if (process.env.MONGODB_URI) {
-	mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+	mongoose.connect(process.env.MONGODB_URI, { 
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true });
 	MONGO_URL = process.env.MONGODB_URI;
 } else {
-	mongoose.connect(MONGO_LOCAL_URL, { useNewUrlParser: true }); // local mongo url
+	mongoose.connect(MONGO_LOCAL_URL, { 
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true }); // local mongo url
 	MONGO_URL = MONGO_LOCAL_URL;
 }
 
