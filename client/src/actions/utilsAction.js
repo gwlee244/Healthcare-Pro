@@ -7,6 +7,7 @@ import {
         GET_USER_DATA, GET_PATIENT_RECORD
        } 
 from "./constants";
+import axios from "axios";
 
 // Get doctors list for patient
 export const getDoctorsList = patientId => dispatch => {
