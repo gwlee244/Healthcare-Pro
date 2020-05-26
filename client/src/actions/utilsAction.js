@@ -47,7 +47,7 @@ export const clearFinded = () => dispatch => {
 };
 
 //Gets the personalized recipes for each patient
-export const getPatientRecepies = patientId => dispatch => {
+export const getPatientsRecepies = patientId => dispatch => {
   dispatch({ type: PATIENTS_LOADING })
   axios
       .get(`/api/patients/recepies/${patientId}`)
@@ -124,5 +124,31 @@ export const getPatientsRecords = patientID => dispatch => {
 		})
 		.catch(err => console.log(err));
 };
+
+// Set recepie record to patient`s db
+export const sendRecepie = (recepie, patientID) => dispatch => {
+	axios
+		.post("/api/patients/setrecepie", { recepie, patientID })
+		.then(res => console.log(res))
+		.catch(err => console.log(err));
+};
+
+// Set rating star value for doctor
+export const setRating = (stars, doctorID) => {
+	axios
+		.post("/api/doctors/rating", { stars, doctorID })
+		.then(res => console.log(res))
+		.catch(err => console.log(err));
+};
+
+// Patient will be able to unsubscribe doctor
+export const unsubscribeFromDoctor = (patientID, doctorID) => {
+	axios
+		.post("/api/patients/unsubscribe", { patientID, doctorID })
+		.then(res => console.log(res))
+		.catch(err => console.log(err));
+};
+
+
 
 	
