@@ -4,7 +4,7 @@ import {
         DOCTORS_LOADING, PATIENTS_LOADING, 
         FIND_TOKEN,  CLEAR_FINDED_DOCTOR, 
         GET_PATIENT_RECEPIE, GET_STATS,
-        GET_USER_DATA 
+        GET_USER_DATA, GET_PATIENT_RECORD
        } 
 from "./constants";
 
@@ -103,6 +103,25 @@ export const merge = (doctor, patient) => dispatch => {
 	axios
 		.post("/api/patients/merge", { doctor, patient })
 		.then(res => console.log(res.data))
+		.catch(err => console.log(err));
+};
+
+// Set diary record to patient`s db
+export const sendDiaryRecord = (record, patientID) => dispatch => {
+	axios
+		.post("/api/patients/setdiaryrecord", { record, patientID })
+		.then(res => console.log(res))
+		.catch(err => console.log(err));
+};
+
+// Get patient`s records in diary
+export const getPatientsRecords = patientID => dispatch => {
+	dispatch({ type: PATIENTS_LOADING });
+	axios
+		.get(`/api/patients/records/${patientID}`)
+		.then(res => {
+			dispatch({ type: GET_PATIENT_RECORD, data: res.data });
+		})
 		.catch(err => console.log(err));
 };
 
