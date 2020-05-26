@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const Doctor = require("../models/doctor");
 const Patient = require("../models/patient");
 
-// Load validtion
+// Load validation
 const validateRegisterInput = require("../validation/registerValidation");
 
 // @route 	POST /api/patients/register
