@@ -41,7 +41,7 @@ export const findToken = token => dispatch => {
       .catch(err => console.log(err));
 };
 
-//Clears the token
+//Clears the token in search dialog box
 export const clearFinded = () => dispatch => {
   dispatch({ type: CLEAR_FINDED_DOCTOR });
 };
@@ -73,6 +73,36 @@ export const getUserData = id => dispatch => {
 	axios
 		.get(`/api/user/get/:${id}`)
 		.then(res => dispatch({ type: GET_USER_DATA, data: res.data }))
+		.catch(err => console.log(err));
+};
+
+// Set generated token for doctor
+export const setToken = (token, id) => dispatch => {
+	axios
+		.post("/api/doctors/tokens", { token, id })
+		.then(res => res.json())
+		.catch(err => console.log(err));
+};
+
+// Helper
+export const setPatientsLoading = () => {
+	return {
+		type: PATIENTS_LOADING
+	};
+};
+
+// Helper
+export const setDoctorsLoading = () => {
+	return {
+		type: DOCTORS_LOADING
+	};
+};
+
+// If token finded, merge patient and doctor
+export const merge = (doctor, patient) => dispatch => {
+	axios
+		.post("/api/patients/merge", { doctor, patient })
+		.then(res => console.log(res.data))
 		.catch(err => console.log(err));
 };
 
