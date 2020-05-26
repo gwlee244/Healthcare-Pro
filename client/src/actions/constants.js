@@ -19,3 +19,4 @@ export const GET_SETTINGS = "GET_SETTINGS";
 export const CLEAR_FINDED_DOCTOR = "CLEAR_FINDED_DOCTOR";
 export const GET_STATS = "GET_STATS";
 export const GET_USER_DATA = "GET_USER_DATA";
+export const SET_SETTINGS = "SET_SETTINGS";
