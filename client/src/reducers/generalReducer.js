@@ -25,7 +25,7 @@ export default function (state = initialState, action) {
     case CLEAR_FINDED_DOCTOR:
       return {
         ...state,
-        findedeDoctor: "",
+        findedDoctor: "",
         loading: false
         
       }

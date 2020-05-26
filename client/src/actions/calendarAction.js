@@ -21,7 +21,7 @@ export const getDoctorAppointments = doctorId => dispatch => {
         .catch(err => console.log(err));
 };
 
-export const getAddAppointment = (doctorID, patientID, appointment, day) => dispatch => {
+export const addAppointment = (doctorID, patientID, appointment, day) => dispatch => {
     dispatch({ type: APPOINTMENT_ADD });
     axios
         .post("/api/doctors/appointments/add", {doctorID, patientID, appointment, day})
