@@ -11,11 +11,11 @@ const initialState = {
 export default function(state = initialState, action) {
 	switch (action.type) {
 		case GET_APPOINTMENTS:
-			return action.data 
+			return action.data
     
 		case APPOINTMENT_ADD:
-            return action.data
             state[action.day].push(action.data.appointment)
+            return {...state};
 
 		default:
 			return state;

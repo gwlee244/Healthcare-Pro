@@ -1,9 +1,9 @@
-import  { SET_SETTINGS } from "../actions/constants";
+import  { GET_SETTINGS } from "../actions/constants";
 
 
-export default function(state = initialState, action) {
+export default (state = {}, action) => {
     switch (action.type) {
-        case SET_SETTINGS:
+        case GET_SETTINGS:
             return action.data
         default:
             return state
