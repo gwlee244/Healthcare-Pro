@@ -6,6 +6,7 @@
 
 These are the programming languages that we used to build this application:
 **node.js javascript OOP node modules express api and html routing and mongodb**
+alex was here
 
 
 ![Project Version](https://img.shields.io/badge/Version-version1.1-blue)  ![Documentation](https://img.shields.io/badge/Documentation-Yes-yellowgreen) ![Maintained](https://img.shields.io/badge/Maintained-Yes-yellowgreen)  ![License](https://img.shields.io/badge/License-MIT-green)
