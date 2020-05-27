@@ -25,9 +25,9 @@ const doctorSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Patient'
   }],
-  appointments: [{
-    type: Schema.Types.Mixed,
-  }],
+  appointments: {
+    type: Schema.Types.Mixed
+  },
   typeOfUser: {
     type: String,
   },
@@ -47,23 +47,7 @@ const doctorSchema = new Schema({
   stars: {
     type: [String],
     default: ["0", "0", "0", "0", "0"]
-  },
-  field: {
-    type: String,
-  },
-  work: {
-    type: String,
-  },
-  office: {
-    type: String,
-  },
-  name: {
-    type: String,
-  },
-  schools: [{
-    type: String,
-
-  }]
+  }
 });
 
 const Doctor = mongoose.model("Doctor", doctorSchema);
