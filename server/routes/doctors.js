@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 const omitEmpty = require("omit-empty");
 const chartConfig = require("../config/charts");
 
+// Helpers functions
+const statsHelpers = require("../../client/src/helpers/statsHelpers");
 
 // Load Doctor & Patient mongoose models
 const Doctor = require("../models/doctor");
