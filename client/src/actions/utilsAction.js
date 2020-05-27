@@ -21,10 +21,10 @@ export const getDoctorsList = patientId => dispatch => {
 };
 
 //get patient list for doctors
-export const getPatientsList = doctorId => dispatch => {
+export const getPatientsList = doctorID => dispatch => {
   dispatch({ type: PATIENTS_LOADING });
   axios
-      .get(`/api/doctors/${doctorId}`)
+      .get(`/api/doctors/${doctorID}`)
       .then(res => {
           dispatch({ type: GET_PATIENTS_LIST, data: res.data });
       })
@@ -48,10 +48,10 @@ export const clearFinded = () => dispatch => {
 };
 
 //Gets the personalized recipes for each patient
-export const getPatientsRecepies = patientId => dispatch => {
+export const getPatientsRecepies = patientID => dispatch => {
   dispatch({ type: PATIENTS_LOADING })
   axios
-      .get(`/api/patients/recepies/${patientId}`)
+      .get(`/api/patients/recepies/${patientID}`)
       .then(res => {
           dispatch({ type: GET_PATIENT_RECEPIE , data: res.data });
       })
