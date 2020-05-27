@@ -21,10 +21,12 @@ const doctorSchema = new Schema({
     type: String,
     required: [true, "Date of Birth is required"]
   },
-  patients: [{
-    type: Schema.Types.ObjectId,
-    ref: 'Patient'
-  }],
+  patients : [{
+    patient : {
+        type: Schema.Types.ObjectId,
+        ref: "patients"
+    }
+}],
   appointments: {
     type: Schema.Types.Mixed
   },

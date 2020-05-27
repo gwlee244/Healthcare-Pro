@@ -8,7 +8,7 @@ const initialState = {
     friday: []
 };
 
-export default function(state = initialState, action) {
+export default (state = initialState, action) => {
 	switch (action.type) {
 		case GET_APPOINTMENTS:
 			return action.data
@@ -20,4 +20,4 @@ export default function(state = initialState, action) {
 		default:
 			return state;
 	}
-}
+};

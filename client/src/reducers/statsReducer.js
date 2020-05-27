@@ -13,5 +13,7 @@ export default function (state = {}, action) {
         monthlyVisitors: action.data.monthlyVisitors,
         sexesBar: action.data.sexesBar
       }
+      default:
+			return state;
     }
   }
