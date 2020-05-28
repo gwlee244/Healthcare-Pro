@@ -1,0 +1,36 @@
+@import "colors";
+.flex {
+    display: flex;
+}
+.flex-direction-column {
+    flex-direction: column;
+}
+// Start CSS of / page
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.main-box {
+    display: flex;
+}
+.localProfileGrid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-row-gap: 3em;
+    padding: 2em;
+}
+
+.login-container-dimension {
+    width: 70%;
+    margin: 3vh auto;
+    font-size: 30px;
+}
+.searchCard {
+    justify-content: space-between;
+    align-items: baseline;
+}
+.flex-center {
+    align-items: center;
+}
+.flex-end {
+    justify-content: flex-end;
+}
