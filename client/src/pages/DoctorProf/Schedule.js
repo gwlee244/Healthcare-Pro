@@ -38,3 +38,62 @@ function createDay(day, from, to) {
     };
 }
 
+function DoctorSchedule(props) {
+    const { classes, timeTable } = props;
+    const rows = [
+        createData(
+            "Monday", 
+            timeTable.monday.fromMonday,  //need to create setMonday class
+            timeTable.monday.toMonday
+        ),
+        createData(
+            "Tuesday", 
+            timeTable.tuesday.fromTuesday,  //need to create setMonday class
+            timeTable.tuesday.toTuesday
+        ),
+        createData(
+            "Wednesday", 
+            timeTable.wednesday.fromWednesday,  //need to create setMonday class
+            timeTable.wednesday.toWednesday
+        ),
+        createData(
+            "Thursday", 
+            timeTable.thursday.fromThursday,  //need to create setMonday class
+            timeTable.thursday.toThursday
+        ),
+        createData(
+            "Friday", 
+            timeTable.friday.fromFriday,  //need to create setMonday class
+            timeTable.friday.toFriday
+        )
+    ];
+    return (
+        <Paper className={ classes.root }>
+            <Table className= { classes.table }>
+                <TableHead>
+                    <TableRow>
+                        <CustomTableCell>Day of Week</CustomTableCell>
+                        <CustomTableCell align="right">Start of Working Day</CustomTableCell>
+                        <CustomTableCell align="right">End of Working Day</CustomTableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {rows.map( row => {
+                        <TableRow key={ row.id }>
+                        <CustomTableCell>{row.day}</CustomTableCell>
+                        <CustomTableCell>{row.from}</CustomTableCell>
+                        <CustomTableCell>{row.to}</CustomTableCell>
+                    </TableRow>
+                    })}
+                </TableBody>
+            </Table>
+        </Paper>
+    )
+}
+
+DoctorSchedule.propTypes = {
+    classes: PropTypes.object.isRequired
+  }
+  
+  export default withStyles(styles)(DoctorSchedule);
+
