@@ -19,3 +19,4 @@ import SnackBar from "@material-ui/core/SnackBar";
 import CloseIcon from "@material-ui/core/Close";
 import IconButton from "@material-ui/core/Icon";
 import ProfileAction from "../../components/app-bar/ProfileActions";
+import {getPatientSettings, updatePatientSettings} from "../../actions/settingsActions";
