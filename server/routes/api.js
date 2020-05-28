@@ -16,6 +16,7 @@ const validateLoginInput = require("../validation/loginValdation");
 // @desc  login user
 // access Public
 router.post("/login", (req, res) => {
+  console.log(req.body);
 	const { errors, isValid } = validateLoginInput(req.body.userdata);
 	const { email, password } = req.body.userdata;
 	// Check validation

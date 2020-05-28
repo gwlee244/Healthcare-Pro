@@ -10,9 +10,10 @@ const morgan = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const dbConnection = require('./db'); // loads our connection to the mongo database
+const app = express();
 const routes = require("./routes/api");
 const passport = require('passport');
-const app = express();
+
 const PORT = process.env.PORT || 5000;
 const api = require("./routes/api");
 // Routes
