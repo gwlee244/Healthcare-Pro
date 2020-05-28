@@ -33,6 +33,17 @@ $primaryRed: #d9605a;
 }
 
    //login form
+ .login-err {
+    box-sizing: border-box;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid red;
+    margin: -7vh auto 0 auto;
+    padding: 10px;
+    width: 25vw;
+    position: absolute;
+  }
     .login-container {
     display: flex;
     flex-wrap: wrap;
@@ -42,16 +53,16 @@ $primaryRed: #d9605a;
     margin: 8vh auto 0 auto;
 }
 
-  .home {
-border: 2px solid $white;
-border-radius: 12px;
+.home {
+  border: 2px solid $white;
+  border-radius: 12px;
 
-    }
+}
 
-      .home:hover {
-        background-color: #F08080;
-        text-decoration: none;
-        }
+.home:hover {
+  background-color: #F08080;
+  text-decoration: none;
+}
           
 
 // Font weights

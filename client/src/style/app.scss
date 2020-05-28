@@ -19,11 +19,6 @@
     padding: 2em;
 }
 
-.login-container-dimension {
-    width: 70%;
-    margin: 3vh auto;
-    font-size: 30px;
-}
 .searchCard {
     justify-content: space-between;
     align-items: baseline;
@@ -65,18 +60,6 @@
 
 a {
     text-decoration: none;
-}
-
-.login-err {
-    box-sizing: border-box;
-    color: red;
-    font-weight: bold;
-    text-align: center;
-    border: 1px solid red;
-    margin: -7vh auto 0 auto;
-    padding: 10px;
-    width: 25vw;
-    position: absolute;
 }
 
 .emergencyPanel {
