@@ -29,11 +29,11 @@ import CloseIcon from "@material-ui/icons/Close";
 
 import getAvatarInitials from "../../helpers/getAvatarInitials";
 // Components
-import LocalPatientProfile from "../../pages/patient/LocalPatientProfile";
-import LocalDoctorProfile from "../../pages/doctor/LocalDoctorProfile";
+import LocalPatientProfile from "../../pages/PatientProf/LocalPatientProfile";
+import LocalDoctorProfile from "../../pages/DoctorProf/LocalDoctorProfile";
 // Actions
 import { logout } from "../../actions/authorizationAction";
-import { setToken, getUserData } from "../../actions/utilsActions";
+import { setToken, getUserData } from "../../actions/utilsAction";
 
 const TokenGenerator = require("uuid-token-generator");
 

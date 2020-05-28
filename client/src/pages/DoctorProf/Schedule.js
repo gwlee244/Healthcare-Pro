@@ -7,11 +7,11 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
-import { red } from "@material-ui/core/colors";
+
 
 const CustomTableCell = WithStyles(theme => ({
     head: {
-        backgroundColor: "#ADD8E6",
+        backgroundColor: "#1e4de973",
         color: theme.palette.common.white,
         fontSize: 18
     },
@@ -20,18 +20,19 @@ const CustomTableCell = WithStyles(theme => ({
     }
 }))(TableCell);
 
-const styles = {
-    root: {
-        width: "100%"
-    },
-    table: {
-        minWidth: 700
-    }
-};
+const styles = theme => ({
+	root: {
+		width: "100%",
+		overflowX: "auto"
+	},
+	table: {
+		minWidth: 700
+	}
+});
 
 let id = 0;
 
-function createDay(day, from, to) {
+function createData(day, from, to) {
     id += 1;
     return {
         id, day, from, to
@@ -78,17 +79,25 @@ function DoctorSchedule(props) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map( row => {
-                        <TableRow key={ row.id }>
-                        <CustomTableCell>{row.day}</CustomTableCell>
-                        <CustomTableCell>{row.from}</CustomTableCell>
-                        <CustomTableCell>{row.to}</CustomTableCell>
-                    </TableRow>
-                    })}
+                {rows.map(row => {
+						return (
+							<TableRow key={row.id}>
+								<CustomTableCell component="th" scope="row">
+									{row.day}
+								</CustomTableCell>
+								<CustomTableCell align="right">
+									{row.from}
+								</CustomTableCell>
+								<CustomTableCell align="right">
+									{row.to}
+								</CustomTableCell>
+							</TableRow>
+						);
+					})}
                 </TableBody>
             </Table>
         </Paper>
-    )
+    );
 }
 
 DoctorSchedule.propTypes = {

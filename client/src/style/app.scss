@@ -19,11 +19,6 @@
     padding: 2em;
 }
 
-.login-container-dimension {
-    width: 70%;
-    margin: 3vh auto;
-    font-size: 30px;
-}
 .searchCard {
     justify-content: space-between;
     align-items: baseline;
@@ -34,3 +29,106 @@
 .flex-end {
     justify-content: flex-end;
 }
+
+.grid-tab {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 1em;
+}
+
+.creditsPos {
+    margin-bottom: 1em;
+}
+
+.infoItemMargin {
+    margin-right: 1em;
+}
+
+.ml-auto {
+    margin-left : auto;
+}
+
+.iconMargin {
+    margin-right: 3px;
+}
+
+.profileGrid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-row-gap: 3em;
+}
+
+a {
+    text-decoration: none;
+}
+
+.emergencyPanel {
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.grid-schedule {
+    display: grid;
+    grid-template-columns: 50% auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
+    grid-row-gap: 1em;
+    grid-column-gap: 2vw;
+}
+
+.universityInfo {
+    grid-column: 1/4;
+}
+
+.gridCardProdile {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 1em;
+}
+
+.centerize {
+    grid-column: 2/4;
+    margin-top: 10vh;
+}    
+
+.grid-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-gap: 1em;
+}
+
+.stats-quantity {
+    grid-area: 1 / 1 / 2 / 2;
+
+}
+
+.register-err {
+    color: red;
+    font-size: 14px;
+}
+
+.stats-sex {
+    grid-area: 1 / 2 / 2 / 4;
+}
+
+
+
+.stats-ages {
+    grid-area: 1 / 4 / 2 / 7;
+}
+
+.stats-visits {
+    grid-area: 2 / 1 / 3 / 4;
+
+}
+
+.stats-satisfaction {
+    grid-area: 2 / 4 / 3 / 6;
+
+}
+
+.stats-month {
+    grid-area: 2 / 6 / 3 / 7;
+}
+
+@import "scheduler";

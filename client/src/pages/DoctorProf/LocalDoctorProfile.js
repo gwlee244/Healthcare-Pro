@@ -21,7 +21,7 @@ import CabinetIcon from "@material-ui/icons/MeetingRoom";
 import FolderSpecialIcon from "@material-ui/icons/FolderSpecial";
 import SchoolIcon from "@material-ui/icons/School";
 // Components
-import DoctorProfileTabs from "./DoctorProfileTabs";
+// import DoctorProfileTabs from "./DoctorProfileTabs";
 const NOT_AVAILABLE = "N/A";
 const styles = theme => ({
 	root: {

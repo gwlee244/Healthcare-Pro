@@ -12,17 +12,10 @@ import Register from "../src/pages/Auth/Register";
 import PrivateDoctorRoute from "./utils/PrivateDoctorRoute";
 import PrivatePatientRoute from "./utils/PrivatePatientRoute";
 
-import Main from './pages/patient/Main';
-import Appointment from "./pages/patient/Appointment";
-import Message from "./pages/patient/Message";
-import Results from "./pages/patient/Results";
-import Summary from "./pages/patient/Summary";
-import Doctors from "./pages/patient/Doctors";
-import DoctorMain from './pages/doctor/DoctorMain';
-import Connect from './pages/doctor/Connect';
-import Patients from './pages/doctor/Patients';
-import Schedule from './pages/doctor/Schedule';
-import Profile from './pages/doctor/Profile';
+import DoctorHomepage from "./pages/DoctorProf/DoctorHomepage";
+import PatientHomepage from "./pages/PatientProf/PatientHomepage";
+import PatientSettings from "./pages/settings/PatientSettings";
+import DoctorSettings from "./pages/settings/DoctorSettings";
 // Actions
 import { setCurrentUser } from "./actions/authorizationAction";
 
@@ -47,19 +40,26 @@ class App extends Component {
 						<Route exact path="/register" component={Register} />
 						<Route exact path="/login" component={Login} />
 						<Switch>
-							<PrivatePatientRoute exact path="/patient/home" component={Main} />
-              <PrivatePatientRoute exact path="/patient/appointment" component={Appointment} />
-              <PrivatePatientRoute exact path="/patient/message" component={Message} />
-              <PrivatePatientRoute exact path="/patient/results" component={Results} />
-              <PrivatePatientRoute exact path="/patient/doctors" component={Doctors} />
-              <PrivatePatientRoute exact path="/patient/summary" component={Summary} />
-      
-
-							<PrivateDoctorRoute exact path="/doctor/home" component={DoctorMain}/>
-              <PrivateDoctorRoute exact path="/doctor/connect" component={Connect}/>
-              <PrivateDoctorRoute exact path="/doctor/patients" component={Patients}/>
-              <PrivateDoctorRoute exact path="/doctor/schedule" component={Schedule}/>
-              <PrivateDoctorRoute exact path="/doctor/profile" component={Profile}/>
+						<PrivatePatientRoute
+								exact
+								path="/patient/home"
+								component={PatientHomepage}
+							/>
+							<PrivateDoctorRoute
+								exact
+								path="/doctor/home"
+								component={DoctorHomepage}
+							/>
+							<PrivatePatientRoute
+								exact
+								path="/patient/home/settings"
+								component={PatientSettings}
+							/>
+							<PrivateDoctorRoute
+								exact
+								path="/doctor/home/settings"
+								component={DoctorSettings}
+							/>
 						</Switch>
 					</div>
 				</Router>
