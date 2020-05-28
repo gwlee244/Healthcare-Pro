@@ -1,5 +1,4 @@
 /* Theme */
-
 $text-muted:#999;
 $font-size:14px;
 $text-color:#555;
@@ -8,6 +7,13 @@ $cell-height:40px;
 $cell-border-color:pink;
 $heading-font-family:'Roboto Condensed', sans-serif;
 $time-cell-width: 50px;
+$time-cell-dot-size: 4px;
+$active-color: #fc3d39;
+$weekend-cell-background-color: #fafafa;
+$appointment-background-color: #adebb2;
+$appointment-color: #0c881d;
+$appointment-border-color: #76db56;
+$appointment-line-height: 1.4em;
 
 .calendar__row {
     display:flex;
@@ -75,6 +81,82 @@ margin-top:1vh;
     flex:$time-cell-width 0 0;
 }
 
-/*
-.calendar__cell--
-*/
+/* INTERACTIONS */
+  .calendar__row:hover {
+    .calendar__cell--time {
+      color: $text-color;
+
+      &:after {
+        background-color: #aaa;
+      }
+    }
+  }
+
+
+       .calendar__cell--time {
+    font-family: $heading-font-family;
+    line-height: 1em;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: $text-muted;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:after {
+      content: '';
+      background: #ddd;
+      height: $time-cell-dot-size;
+      width: $time-cell-dot-size;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      border-radius: 50%;
+    }
+  }
+
+  .calendar__row--deco-last-row {
+    height: 0;
+
+    .calendar__cell--appointment {
+      height: 0;
+    }
+  }
+
+  .calendar__appointment {
+    background: $appointment-background-color;
+    color: $appointment-color;
+    border-left: $appointment-border-color solid 2px;
+    border-top: $appointment-border-color solid 2px;
+    font-size: 14px;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    left: 0;
+    z-index: 1;
+    min-height: 100%;
+  }
+
+  .calendar__appointment__name {
+    font-weight: bold;
+  }
+
+  .calendar__current-time {
+    height: 1px;
+    background-color: $active-color;
+    position: absolute;
+    right: 0px;
+    left: 10px;
+    z-index: 1;
+  }
+
+  .calendar__current-time__text {
+    font-family: $heading-font-family;
+    color: $active-color;
+    position: absolute;
+    top: 50%;
+    transform: translate3d(-100%, -50% , 0);
+    margin-left: -2px;
+
+  }
