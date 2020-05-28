@@ -1,0 +1,80 @@
+/* Theme */
+
+$text-muted:#999;
+$font-size:14px;
+$text-color:#555;
+$base-font-family:'Lato', sans-serif;
+$cell-height:40px;
+$cell-border-color:pink;
+$heading-font-family:'Roboto Condensed', sans-serif;
+$time-cell-width: 50px;
+
+.calendar__row {
+    display:flex;
+    flex-direction: row;
+}
+
+.calendar__cell {
+    flex:1;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+    color: $text-color;
+    font-family: $base-font-family;
+    font-size: $font-size;
+    box-sizing: border-box;
+}
+
+.weekend {
+    color:$text-muted;
+    border:none;
+}
+
+.calendar__body {
+    position:relative;
+}
+
+.calendar__cell {
+    height:$cell-height;
+}
+
+.calendar__cell--appointment{
+    position:relative;
+    display:flex;
+    border-top:$cell-border-color solid 1px;
+    border-right: lighten($cell-border-color, 6%) solid 1px;
+}
+
+.calendar__cell--time-spacing{
+    flex:6px 0 0;
+    border-right:none;
+}
+
+.calendar__cell--day-of-week{
+    text-align:center;
+    font-family:$heading-font-family;
+    height:$cell-height * 2;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.calendar__cell--day-of-week__day{
+    color:$text-muted;
+    font-size: 1.1em;
+}
+
+.calendar__cell--day-of-week__date{
+font-size:2.5em;
+margin-top:1vh;
+}
+
+.calendar__cell--time-col{
+    flex:$time-cell-width 0 0;
+}
+
+/*
+.calendar__cell--
+*/
