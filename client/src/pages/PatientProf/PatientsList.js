@@ -1,8 +1,11 @@
-import React from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getPatientsList } from "../../actions/utilsAction";
 
+//importing our components
+import ThinProfile from "./ThinProfile";
+import Loader from "../../utils/Loader";
 class PatientsTab extends Component {
   componentDidMount() {
     this.props.getPatientsList(this.props.auth.user.id)

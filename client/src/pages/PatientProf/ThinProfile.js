@@ -16,7 +16,7 @@ import IconButton from "@material-ui/core/IconButton";
 import ToolBar from "@material-ui/core/Toolbar";
 import Dialog from "@material-ui/core/Dialog";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-// import PatientProfile from "./PatientProfile";
+import PatientProfile from "./PatientProfile";
 
 const styles = theme => ({
 	root: {
