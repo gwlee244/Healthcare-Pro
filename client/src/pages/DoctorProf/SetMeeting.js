@@ -129,4 +129,119 @@ class SetMeeting extends Component {
 	componentWillUnmount = () => {
 		this.props.getPatientAppointments(this.props.auth.user.id);
 	};
-	
+	render() {
+		const { classes } = this.props;
+		return (
+			<div>
+				<Typography variant="subtitle1" align="center" gutterBottom>
+					Here you can set up meeting with your doctor. Just select
+					day, available time, and come that day
+				</Typography>
+				<div className={`${classes.container} flex`}>
+					<FormControl>
+						<InputLabel>Select day</InputLabel>
+						<Select
+							value={this.state.day}
+							name="weekdays"
+							autoWidth={true}
+							onChange={this.onSelectDay}
+							variant="outlined"
+							className={classes.marginBottom}>
+							<MenuItem value="Monday">
+								{this.formatWeekDay("Monday", week[0])}
+							</MenuItem>
+							<MenuItem value="Tuesday">
+								{this.formatWeekDay("Tuesday", week[1])}
+							</MenuItem>
+							<MenuItem value="Wednesday">
+								{this.formatWeekDay("Wednesday", week[2])}
+							</MenuItem>
+							<MenuItem value="Thursday">
+								{this.formatWeekDay("Thursday", week[3])}
+							</MenuItem>
+							<MenuItem value="Friday">
+								{this.formatWeekDay("Friday", week[4])}
+							</MenuItem>
+						</Select>
+					</FormControl>
+					<FormControl disabled={!this.state.allowed}>
+						<InputLabel>Select comfort available time</InputLabel>
+						<Select
+							value={this.state.time_start}
+							name="hours"
+							onChange={this.onHourSet}
+							variant="outlined"
+							className={classes.marginBottom}>
+							{HOURS ? (
+								HOURS.map(element => (
+									<MenuItem
+										value={element}
+										key={element + "dora"}>
+										{element}
+									</MenuItem>
+								))
+							) : (
+								<MenuItem value="olol">govno</MenuItem>
+							)}
+						</Select>
+					</FormControl>
+					<div className={`${classes.bottomButtons} flex`}>
+						<Button
+							variant="outlined"
+							color="secondary"
+							className={classes.cancelButton}
+							onClick={this.onCancel}>
+							Cancel
+						</Button>
+						<Button
+							variant="contained"
+							color="secondary"
+							className={classes.submitButton}
+							disabled={!this.state.allowedButton}
+							onClick={this.registerMeet}>
+							Register Meeting
+						</Button>
+					</div>
+				</div>
+				<Snackbar
+					anchorOrigin={{
+						vertical: "bottom",
+						horizontal: "left"
+					}}
+					open={this.state.openSnackBar}
+					autoHideDuration={4000}
+					onClose={this.handleCloseSnackBar}
+					ContentProps={{
+						"aria-describedby": "message-id"
+					}}
+					message={
+						<span id="message-id">Your visit registered!</span>
+					}
+					action={[
+						<IconButton
+							key="close"
+							aria-label="Close"
+							color="inherit"
+							className={classes.close}
+							onClick={this.handleCloseSnackBar}>
+							<CloseIcon />
+						</IconButton>
+					]}
+				/>
+			</div>
+		);
+	}
+}
+SetMeeting.propTypes = {
+	classes: PropTypes.object.isRequired,
+	auth: PropTypes.object.isRequired,
+	general: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+	auth: state.auth,
+	general: state.general
+});
+export default connect(
+	mapStateToProps,
+	{ appointmentAdd, getPatientAppointments }
+)(withStyles(styles)(SetMeeting));
