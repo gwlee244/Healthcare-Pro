@@ -27,7 +27,7 @@ function Header(props) {
 	const { classes } = props;
 	return (
 		<div className={classes.root}>
-			<AppBar position="static" color="primary">
+			<AppBar position="static">
 				<ToolBar>
 					{props.back ? (
 						<IconButton href={props.toLocation}>

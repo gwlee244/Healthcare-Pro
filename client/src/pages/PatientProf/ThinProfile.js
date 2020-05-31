@@ -68,6 +68,8 @@ class ThinProfile extends Component {
   }
 
   calculateAge(birthday) {
+    //getTime returns ms passed since jan1 1970
+    //var age gets your age relative so someone born in 1970.  That is then converted to a date and you subtract 1970 to get your actual age
     var age = Date.Now() - birthday.getTime();
     var ageDate = new Date(age);
     return Math.abs(ageDate.getUTCFullYear() - 1970);
