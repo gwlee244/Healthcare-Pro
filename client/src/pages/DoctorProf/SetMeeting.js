@@ -52,3 +52,81 @@ const styles = theme => ({
 		padding: theme.spacing.unit / 2
 	}
 });
+const week = startOfWeek(new Date());
+let HOURS = null;
+class SetMeeting extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			day: "",
+			time_start: "",
+			time_end: "",
+			name: `${this.props.auth.user.firstName} ${
+				this.props.auth.user.lastName
+			}`,
+			allowed: false,
+			allowedButton: false,
+			openSnackBar: false
+		};
+		this.handleCloseSnackBar = this.handleCloseSnackBar.bind(this);
+		this.formatWeekDay = this.formatWeekDay.bind(this);
+		this.onSelectDay = this.onSelectDay.bind(this);
+		this.onHourSet = this.onHourSet.bind(this);
+		this.onCancel = this.onCancel.bind(this);
+		this.registerMeet = this.registerMeet.bind(this);
+	}
+	handleCloseSnackBar = (event, reason) => {
+		if (reason === "clickaway") {
+			return;
+		}
+		this.setState({ openSnackBar: false });
+	};
+	formatWeekDay = (day, date) => {
+		return `${day} (${date.getDate()}.${date.getMonth() +
+			1}.${date.getFullYear()})`;
+	};
+	onSelectDay = ev => {
+		this.setState({ day: ev.target.value, allowed: true });
+		HOURS = getAvailableTime(
+			this.props.user.settings.schedule[ev.target.value.toLowerCase()],
+			this.props.user.appointments[ev.target.value.toLowerCase()],
+			ev.target.value.toLowerCase()
+		);
+	};
+	onHourSet = ev => {
+		this.setState({
+			time_start: ev.target.value,
+			time_end: getEndTime(ev.target.value),
+			allowedButton: true
+		});
+	};
+	onCancel = ev => {
+		this.setState({
+			day: "",
+			time_start: "",
+			time_end: "",
+			name: `${this.props.auth.user.firstName} ${
+				this.props.auth.user.lastName
+			}`,
+			allowed: false,
+			allowedButton: false
+		});
+	};
+	registerMeet = ev => {
+		let appointment = {
+			name: this.state.name,
+			time_start: this.state.time_start,
+			time_end: this.state.time_end
+		};
+		this.props.appointmentAdd(
+			appointment,
+			this.state.day.toLowerCase(),
+			this.props.user._id,
+			this.props.auth.user.id
+		);
+		this.setState({ openSnackBar: true });
+	};
+	componentWillUnmount = () => {
+		this.props.getPatientAppointments(this.props.auth.user.id);
+	};
+	
