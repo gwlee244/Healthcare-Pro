@@ -19,7 +19,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
 // Components
-//import DoctorProfileTabs from "./DoctorProfileTabs";
+import DoctorProfileTabs from "./DoctorProfileTabs";
 
 const styles = theme => ({
 	root: {
@@ -170,8 +170,8 @@ class DoctorProfile extends Component {
 					</Dialog>
 				</div>
 				<Paper className={classes.secondPaper} elevation={2}>
-
-					{/* <DoctorProfileTabs user={user} />  once fixed bug in tabs component will uncomment this*/}
+					
+					<DoctorProfileTabs user={user} />
 				</Paper>
 			</div>
 		);
