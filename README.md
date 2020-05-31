@@ -1,70 +1,110 @@
-![](mainpage.png)
- 
-### Projects-3 ![Maintained](https://img.shields.io/badge/burger-yellowgreen) ![Maintained](https://img.shields.io/badge/UNC-bootCamp-blue)
 
-> ![#1589F0](https://placehold.it/15/1589F0/000000?text=+) #Project-3 with MongoDB, Node, Express, ReactJS, Bootstrap, and MVC design pattern.
+# Healthcare Pro +  
 
-These are the programming languages that we used to build this application:
-**node.js javascript OOP node modules express api and html routing and mongodb**
-alex was here
+> ![#1589F0](https://placehold.it/15/1589F0/000000?text=+) #Project-3 for UNC Bootcamp utilizing Node, MongoDB, Mongoose, Express, ReactJS, Redux, Material-UI and MVC design.
 
 
-![Project Version](https://img.shields.io/badge/Version-version1.1-blue)  ![Documentation](https://img.shields.io/badge/Documentation-Yes-yellowgreen) ![Maintained](https://img.shields.io/badge/Maintained-Yes-yellowgreen)  ![License](https://img.shields.io/badge/License-MIT-green)
+## Table of Contents
 
-**This is a Healthcare application**
+* [Description](#description)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Screenshots](#screenshots)
+* [Built With](#built-with)
+* [License](#license)
+* [Contributing](#contributing)
 
-## Install  ![Maintained](https://img.shields.io/badge/npm-install-red)
-npm install
-npm install will download a package and it's dependencies. npm install can be run with or without arguments. When run without arguments, npm install downloads dependencies defined in a package.json file and generates a node_modules folder with the installed modules
+## Description
 
-## Run Tests  ![Maintained](https://img.shields.io/badge/npm-test-red)
-test
+We created a secure role-based healthcare application. Based on your personal role and needs, you can log in as a doctor or as a patients.  Doctors can see stats related to their patients, assign new patients, and perform a number of other tasks related to their patients.  Patients can set up appointments, see information related to thier visits, and connect with their doctors in many other ways, 
 
-## Author
-**Asad Rauf**
-- Github : [@asadrauf](https://github.com/asadrauf)
+ * This full-stack application is deployed on Heroku : https://HealthcarePro.herokuapp.com/
 
-**Alex Coulter**
-- Github : [@alexcoulter](https://github.com/alexcoulter)
+## Installation
 
-**Diantai Johnson**
-- Github : [@Alteredskull](https://github.com/Alteredskull)
+ * Clone this repository from Github from the command line by typing:  
+   `git clone git@github.com:gwlee244/project3.git`
+  * Navigate to the 'quaranstream' folder by typing:  
+  `cd project3` 
+  * Install dependencies by typing:  
+   `npm install`
+  * Run this application by typing:   
+  `npm start`
+  * The application will open on localhost:3000
 
-**Keshav Avva**
-- Github : [@keshavsavva](https://github.com/keshavsavva)
+  ## Usage
+  
+  * Once you have this application running on your local machine or Heroku you will be directed to the landing page. Next, ............
+  
+  ## Screenshots
+* Landing Page
+<div align="center"><img  alt= "Screenshot of Landing Page" src= "./public/assets/main.jpg" width="600px" /></div>
 
-**Gene Lee**
-- Github : [@gwlee244](https://github.com/gwlee244) 
+* Doctor Main Page
+<div align="center"><img  alt= "Screenshot of Doctor Main" src= "./public/assets/questionaire.jpg" width="600px" /></div>
+
+* Patient Main Page
+<div align="center"><img  alt= "Screenshot of Patient Main" src= "./public/assets/results.jpg" width="600px" /></div>
+
+* Profile
+<div align="center"><img  alt= "Screenshot of profile" src= "./public/assets/sidebar.jpg" width="600px" /></div>
+   
+   ## Built With  
+   ![Node.js](https://img.shields.io/badge/Built_with-Node.js-purple) &nbsp;&nbsp;&nbsp; 
+ ![Express](https://img.shields.io/badge/Server_Framework-Express-green) 
+ &nbsp;&nbsp;&nbsp;
+ ![MongoDB](https://img.shields.io/badge/Database-MongoDB-orange) &nbsp;&nbsp;&nbsp; 	 
+ ![Mongoose](https://img.shields.io/badge/Database_Management-Mongoose-blue) 
+ &nbsp;&nbsp;&nbsp;
+ ![React](https://img.shields.io/badge/UI-React_&_MaterialUI-purple) 
+ &nbsp;&nbsp;&nbsp;
+ ![Redux](https://img.shields.io/badge/State_Management-Redux-black) 
+ &nbsp;&nbsp;&nbsp;  	   	 
+ ![Styling](https://img.shields.io/badge/Styling-CSS_&_SAS-yellow) 	
+
+* **Node.js** -  JavaScript environment that executes JS code without needing a web browser
+* **Express** - Web application framework that helped with routes and requests
+* **MongoDB** - Flexible NoSQL database program
+* **Mongoose** - Object modeling library for MongoDB
+* **ORM** - *'Object Relational Mapping'* was used so that we didn't need to make sql queries
+* **MVC Design** - Model View Control architecture seperates the files in the app into these 3 areas for better organization of code
+* **React** - One of the most powerfull, popular Javascript libraries. Used for creating interactive UI.
+* **Redux** - A javascript library that maintains the state of an application
+* **Material-UI** - React framework for UI design
 
 ## License 
 MIT: ![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)
 ---
-**Express** [![devDependencies Status](https://david-dm.org/dwyl/hapi-auth-jwt2/dev-status.svg)](https://david-dm.org/dwyl/hapi-auth-jwt2?type=dev)
-## Contributing
-**Asad**
-**Diantai**
-**Alex**
-**Keshav** 
-**Gene**
 
-## Show your support :pray:
+
+## Contributing
+
+* Contributing Team Members
+
+**Asad Rauf**
+<img src="https://avatars1.githubusercontent.com/u/7818024?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" />    
+- Email : [umiasad2017@gmail.com](asadrauf)
+- Github : [@asadrauf](https://github.com/asadrauf)
+
+**Alex Coulter**
+<img src= "https://avatars1.githubusercontent.com/u/19214549?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" />    
+- Email : [alexcoulter.unc@gmail.com](alexcoulter)
+- Github : [@alexcoulter](https://github.com/alexcoulter)
+
+**Diantai Johnson**
+<img src= "https://avatars1.githubusercontent.com/u/23248472?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" />    
+- Email : [johnson.diantai@gmail.com](Alteredskull)
+- Github : [@Alteredskull](https://github.com/Alteredskull)
+
+**Keshav Avva**
+<img src= "https://avatars1.githubusercontent.com/u/58408384?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" />     
+- Email : [keshav.s.avva@gmail.com](keshavsavva)
+- Github : [@keshavsavva](https://github.com/keshavsavva)
+
+**Gene Lee**
+<img src= "https://avatars1.githubusercontent.com/u/55607961?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" /> 
+- Email : [gwlee244@gmail.com](gwlee244)
+- Github : [@gwlee244](https://github.com/gwlee244) 
+
 Give a :star: or follow me if this project helped you.
 ### Any suggestions or questions are welcome!
-<img src="https://avatars1.githubusercontent.com/u/7818024?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" /> Email : [umiasad2017@gmail.com](asadrauf)
-
-
-<img src= "https://avatars1.githubusercontent.com/u/58408384?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" /> Email : [keshav.s.avva@gmail.com](keshavsavva)
-
-
-<img src= "https://avatars1.githubusercontent.com/u/55607961?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" /> Email : [gwlee244@gmail.com](gwlee244)
-
-
-<img src= "https://avatars1.githubusercontent.com/u/19214549?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" /> Email : [alexcoulter.unc@gmail.com](alexcoulter)
-
-
-<img src= "https://avatars1.githubusercontent.com/u/23248472?v=4" style="border-radius: 18px" width="30px" style = "border: 2px solid green" /> Email : [johnson.diantai@gmail.com](Alteredskull)
-*This APP was generated with :heart: by Full Stack developer Asad Rauf, Diantai Johnson, Gene Lee, Alex Coulter, Keshav Avva*
-[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
-
-
-Testing
