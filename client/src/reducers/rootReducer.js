@@ -3,14 +3,14 @@ import authReducer from "./authReducer";
 import errorReducer from "./errorReducer";
 import generalReducer from "./generalReducer";
 // import settingsReducer from "./settingsReducer";
-// import statsReducer from "./statsReducer";
+import statsReducer from "./statsReducer";
 //import calendarReducer from "./calendarReducer";
 
 export default combineReducers({
     auth: authReducer,
     errors: errorReducer,
     general: generalReducer,
-    // stats: statsReducer,
+    stats: statsReducer,
     // settings: settingsReducer,
     // appointments: calendarReduce
 });
