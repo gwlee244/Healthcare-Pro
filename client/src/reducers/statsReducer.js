@@ -1,4 +1,4 @@
-import GET_STATS from "../actions/constants";
+import {GET_STATS} from "../actions/constants";
 
 export default function (state = {}, action) {
   switch (action.type) {

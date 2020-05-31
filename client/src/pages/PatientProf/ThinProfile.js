@@ -16,7 +16,26 @@ import IconButton from "@material-ui/core/IconButton";
 import ToolBar from "@material-ui/core/Toolbar";
 import Dialog from "@material-ui/core/Dialog";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-// import PatientProfile from "./PatientProfile";
+import PatientProfile from "./PatientProfile";
+
+const styles = theme => ({
+	root: {
+		...theme.mixins.gutters(),
+		paddingTop: theme.spacing.unit * 1.5,
+		paddingBottom: theme.spacing.unit * 1.5,
+		margin: "auto",
+		width: "85%",
+		display: "flex",
+		flexWrap: "wrap",
+		marginBottom: ".5em"
+	},
+	showBtn: {
+		marginLeft: "auto"
+	},
+	appBar: {
+		position: "relative"
+	}
+});
 
 class ThinProfile extends Component {
   constructor(props) {
@@ -75,8 +94,8 @@ class ThinProfile extends Component {
     let receivedDate = new Date(...pickedDate);
     return (
       <div>
-        <Paper className="" elevation={1} >
-          <div className="">
+        <Paper className={classes.root} elevation={1} >
+          <div className="flex flex-center infoItemMargin">
             <AccountCircleIcon className="iconMargin"
               fontSize="large" />
             <Typography variant="h6">
@@ -104,7 +123,7 @@ class ThinProfile extends Component {
             <WorkIcon className="iconMargin" />,
             `${user.settings.work}`
           )}
-          <Button className="" variant="outlined" color="secondary" onClick={() => this.setState({ open: true })}>
+          <Button className={classes.showBtn} variant="outlined" color="secondary" onClick={() => this.setState({ open: true })}>
             Show
           </Button>
         </Paper>
@@ -130,7 +149,6 @@ class ThinProfile extends Component {
 							</Typography>
 						</Toolbar>
 					</AppBar>
-        {/* component needs to be added */}
 					 <PatientProfile user={this.props.user} />
 				</Dialog>
       </div>
