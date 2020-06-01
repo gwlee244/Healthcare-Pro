@@ -60,7 +60,7 @@ class PatientProfile extends Component {
 					</div>
 				</Paper>
 				<Paper className={classes.secondPaper} elevation={2}>
-					<PatientProfileTabs user={user} />
+					{/* <PatientProfileTabs user={user} /> */}
 				</Paper>
 			</div>
 		);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { addAppointment } from "../../actions/calendarAction";
+import { appointmentAdd } from "../../actions/calendarAction";
 
 const DAYS_OF_WEEK = [
     "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
@@ -207,4 +207,4 @@ const AppointmentCell = props => {
 };
 const mapStateToProps = state => ({auth: state.auth, calendar: state.appointments})
 
-export default connect(mapStateToProps, {addAppointment}) (Calendar);
+export default connect(mapStateToProps, {appointmentAdd}) (Calendar);

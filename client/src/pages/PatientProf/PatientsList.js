@@ -26,7 +26,7 @@ class PatientsTab extends Component {
   }
 }
 
-PatientsTab.PropTypes = {
+PatientsTab.propTypes = {
   auth: PropTypes.object.isRequired,
   general: PropTypes.object.isRequired
 };

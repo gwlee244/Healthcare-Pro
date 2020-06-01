@@ -128,4 +128,4 @@ Stats.propTypes = {
   stats: PropTypes.object.isRequired
 }
 
-export default WithStyles(styles)(Stats);
+export default withStyles(styles)(Stats);
