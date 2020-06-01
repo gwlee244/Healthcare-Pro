@@ -11,11 +11,11 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import { connect } from "react-redux";
 // Components
-import DoctorsList from "../doctor/DoctorsList";
-import PatientDiaryTab from "./PatientDiaryTab";
-import PatientRecepiesTab from "./PatientRecepiesTab";
-import Calendar from "../calender/Calendar";
-import { getPatientAppointments } from "../../actions/calendarActions";
+import DoctorsList from "../DoctorProf/DoctorsList";
+import PatientDiaryTab from "./PatientDiaryTab";//will need to be write
+import PatientRecepiesTab from "./PatientRecepiesTab";//will need to be write
+import Calendar from "../Calendar/Calendar";
+import { getPatientAppointments } from "../../actions/calendarAction";
 import omitEmpty from "omit-empty";
 import isEmpty from "../../helpers/isempty";
 function TabContainer(props) {

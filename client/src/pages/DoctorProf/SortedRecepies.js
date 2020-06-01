@@ -143,29 +143,26 @@ const styles = theme => ({
 	}
 });
 
-render() {
-	const { classes } = this.props;
-	const { rowsPerPage, page } = this.state;
-	if (patientRecepie == null) {
-	} else {
-		if (rows.length === 0) {
-			for (let i = 0; i < patientRecepie.length; i++) {
-				if (
-					patientRecepie[i].doctor ===
-					`${this.props.user.firstName} ${
-						this.props.user.lastName
-					}`
-				) {
-					rows.unshift(
-						createData(
-							patientRecepie[i].doctor,
-							patientRecepie[i].meds,
-							patientRecepie[i].order,
-							patientRecepie[i].date
-						)
-					);
-				}
-			}
-		}
-	}
+class SortedRecepies extends Component {
+	state = {
+		page: 0,
+		rowsPerPage: 5
+	};
+
+	componentWillUnmount = () => {
+		rows = [];
+	};
+
+	handleChangePage = (event, page) => {
+		this.setState({ page });
+	};
+
+	handleChangeRowsPerPage = event => {
+		this.setState({ rowsPerPage: event.target.value });
+	};
+
+	componentDidMount = () => {
+		this.props.getPatientsRecepies(this.props.auth.user.id);
+	};
+
 }
