@@ -27,7 +27,7 @@ export class Stats extends Component {
               You have
           </Typography>
             <Chart
-              height="100%"
+              height="300px"
               width="100%"
               type="radialBar"
               options={quantity.options}
@@ -45,7 +45,7 @@ export class Stats extends Component {
               Gender
         </Typography>
             <Chart
-              height="100%"
+              height="300px"
               width="100%"
               type="pie"
               options={sexesPie.options}
@@ -60,7 +60,7 @@ export class Stats extends Component {
               Ages
         </Typography>
             <Chart
-              height="100%"
+              height="300px"
               width="100%"
               type="bar"
               options={sexesBar.options}
@@ -75,7 +75,7 @@ export class Stats extends Component {
               Visits
         </Typography>
             <Chart
-              height="100%"
+              height="300px"
               width="100%"
               type="line"
               options={business.options}
@@ -90,7 +90,7 @@ export class Stats extends Component {
               Patient satisfaction
         </Typography>
             <Chart
-              height="100%"
+              height="300px"
               width="100%"
               type="donut"
               options={satisfaction.options}
@@ -108,7 +108,7 @@ export class Stats extends Component {
               You have
           </Typography>
             <Chart
-              height="100%"
+              height="300px"
               width="100%"
               type="radialBar"
               options={monthlyVisitors.options}
