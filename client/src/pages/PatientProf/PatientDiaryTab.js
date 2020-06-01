@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import IconButton from '@material-ui/icons/IconButton';
+import IconButton from '@material-ui/core/IconButton';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
 import LastPageIcon from '@material-ui/icons/LastPage';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-
+import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import { Icon } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import TablePagination from '@material-ui/core/TablePagination';
+import {getPatientRecords} from '../../actions/utilsAction'
 const actionStyles = theme => 
     ({
         root: {
@@ -12,7 +15,7 @@ const actionStyles = theme =>
         }
     })
 
-export class PatientDiaryTab extends Component {
+export class TablePaginationAction extends Component {
     constructor(props) {
         super(props);
         this.handlePage1 = this.handlePage1.bind(this);
@@ -30,23 +33,84 @@ export class PatientDiaryTab extends Component {
     }
     render() {
 
-        const { classes, count, page } = this.props;
+        const { classes, count, page, rowsPerPage, theme, onChange } = this.props;
 
         return (
             <div>
                 <IconButton 
                 onClick={this.handlePage1}
-                disabled = {this.page === 0}
-                {theme.direction === "" ? (
-                    <LastPageIcon />
-                ) : (
-                    <FirstPageIcon />
-                )}
-                />
-
+                disabled = {this.page === 0}>
+                    {theme.direction === "" ? (
+                        <LastPageIcon />
+                    ) : (
+                        <FirstPageIcon />
+                    )}
+                </IconButton>
+                <IconButton 
+                onClick = {this.handleBackBtn}
+                disabled = {this.page === 0}>
+                    {theme.direction === "" ? (
+                        <KeyboardArrowRightIcon />
+                    ) : (
+                        <KeyboardArrowLeftIcon />
+                    )}
+                </IconButton>
+                <IconButton 
+                onClick={this.handleFwdBtn}
+                disabled = {this.page === 0}>
+                    {theme.direction === "" ? (
+                        <KeyboardArrowRightIcon />
+                    ) : (
+                        <KeyboardArrowLeftIcon />
+                    )}
+                </IconButton>
             </div>
         )
     }
 }
 
-export default PatientDiaryTab;
+TablePaginationAction.propTypes = {
+    classes: PropTypes.object.isRequired,
+    count: PropTypes.object.isRequired,
+    page: PropTypes.object.isRequired,
+    rowsPerPage: PropTypes.object.isRequired,
+    theme: PropTypes.object.isRequired,
+    onChange: PropTypes.object.isRequired
+};
+
+export class PatientDiaryTab extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            page: 0,
+            rowsPerPage: 5
+        }
+        this.handleChangePage = this.handleChangePage.bind(this);
+        this.handleChangeRowsPerPage = this.handleChangePage.bind(this);
+    };
+
+    componentDidMount() {
+        this.props.getPatientsRecords(this.props.auth.user.id)
+    }
+    handleChangePage = (page) => {
+        this.setState({
+            page
+        })
+    }  
+    handleChangeRowsPerPage = (e) => {
+        this.setState({
+            rowsPerPage: e.target.value
+        })
+    }  
+    render() {
+
+        return (
+            <div>
+                
+            </div>
+        )
+    }
+}
+
+export default PatientDiaryTab
+
