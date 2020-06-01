@@ -14,8 +14,8 @@ import PrivatePatientRoute from "./utils/PrivatePatientRoute";
 
 import DoctorHomepage from "./pages/DoctorProf/DoctorHomepage";
 import PatientHomepage from "./pages/PatientProf/PatientHomepage";
-import PatientSettings from "./pages/Settings/PatientSettings";
-import DoctorSettings from "./pages/Settings/DoctorSettings";
+import PatientSettings from "./pages/settings/PatientSettings";
+import DoctorSettings from "./pages/settings/DoctorSettings";
 // Actions
 import { setCurrentUser } from "./actions/authorizationAction";
 
