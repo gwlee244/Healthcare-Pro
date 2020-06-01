@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import {withStyles} from "@material-ui/core/styles";
 import IconButton from '@material-ui/core/IconButton';
 import FirstPageIcon from '@material-ui/icons/FirstPage';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
-import { Icon } from '@material-ui/core';
+import { Icon, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import TablePagination from '@material-ui/core/TablePagination';
 import {getPatientRecords} from '../../actions/utilsAction'
@@ -103,14 +104,49 @@ export class PatientDiaryTab extends Component {
         })
     }  
     render() {
+        const {classes} = this.props;
+        const {rowsPerPage, page} = this.state;
+        let {patientRecords} = this.props.general;
+        if (patientRecords == null) {
+
+        } else {
+            if (rows.length === 0) {
+                for(let i = 0; i < patientRecords.length; i++) {
+                    rows.unshift(
+                        createData(
+                            patientRecords[i].doctor,
+                            patientRecords[i].diaryRecord,
+                            patientRecords[i].date
+                        )
+                    )
+                }
+            }
+        }
+
 
         return (
             <div>
-                
+                <Paper>
+                    <Typography>
+                    {/* Need to get Props from other classes */}
+                    </Typography>
+                </Paper>
             </div>
         )
     }
 }
 
-export default PatientDiaryTab
+TablePaginationAction.propTypes = {
+    classes: PropTypes.object.isRequired,
+    auth: PropTypes.object.isRequired,
+    general: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+	auth: state.auth,
+	general: state.general
+});
 
+export default connect(
+	mapStateToProps,
+	{ getPatientRecords }
+)(withStyles(styles)(PatientDiaryTab));
