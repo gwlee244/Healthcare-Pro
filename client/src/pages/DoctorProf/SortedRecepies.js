@@ -143,3 +143,26 @@ const styles = theme => ({
 	}
 });
 
+class SortedRecepies extends Component {
+	state = {
+		page: 0,
+		rowsPerPage: 5
+	};
+
+	componentWillUnmount = () => {
+		rows = [];
+	};
+
+	handleChangePage = (event, page) => {
+		this.setState({ page });
+	};
+
+	handleChangeRowsPerPage = event => {
+		this.setState({ rowsPerPage: event.target.value });
+	};
+
+	componentDidMount = () => {
+		this.props.getPatientsRecepies(this.props.auth.user.id);
+	};
+
+}
