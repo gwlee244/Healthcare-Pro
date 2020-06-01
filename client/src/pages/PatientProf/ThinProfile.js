@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -13,7 +13,7 @@ import AppBar from "@material-ui/core/AppBar";
 import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import IconButton from "@material-ui/core/IconButton";
-import ToolBar from "@material-ui/core/Toolbar";
+import Toolbar from "@material-ui/core/Toolbar";
 import Dialog from "@material-ui/core/Dialog";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PatientProfile from "./PatientProfile";
@@ -75,61 +75,71 @@ class ThinProfile extends Component {
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
   render() {
-    const { classes, user } = this.props;
-    if (!user.settings) {
-      user.settings = {
-        birthday: "N/A",
-        address: {
-          city: "N/A",
-          street: "N/A",
-          number: "N/A"
-        },
-        phone: "N/A",
-        work: "N/A",
-        blood: {
-          type: "N/A",
-          rhesus: "N/A"
-        }
-      }
-    };
-    let pickedDate = user.settings ? user.settings.birthday.split("-") : "";
-    let receivedDate = new Date(...pickedDate);
-    return (
-      <div>
-        <Paper className={classes.root} elevation={1} >
-          <div className="flex flex-center infoItemMargin">
-            <AccountCircleIcon className="iconMargin"
-              fontSize="large" />
-            <Typography variant="h6">
-              {`${user.firstName} ${user.lastName}`}
-            </Typography>
-          </div>
-          {this.infoItem(
-            <HomeIcon className="iconMargin" />,
-            `${user.settings.address.city} ${user.settings.address.street} ${user.settings.address.number}`
-          )}
-          {this.infoItem(
-            <EventIcon className="iconMargin" />,
-            `${receivedDate.getDate()}.${receivedDate.getMonth()}.${receivedDate.getFullYear()}
-            (${this.calculateAge()} years)`
-          )}
-          {this.infoItem(
-            <PhoneIcon className="iconMargin" />,
-            `+1${user.settings.phone}`
-          )}
-          {this.infoItem(
-            <MailIcon className="iconMargin" />,
-            `${user.email}`
-          )}
-          {this.infoItem(
-            <WorkIcon className="iconMargin" />,
-            `${user.settings.work}`
-          )}
-          <Button className={classes.showBtn} variant="outlined" color="secondary" onClick={() => this.setState({ open: true })}>
-            Show
-          </Button>
-        </Paper>
-        <Dialog
+		const { classes, user } = this.props;
+		if (!user.settings) {
+			user.settings = {
+				birthday: "N/A",
+				address: {
+					city: "N/A",
+					street: "N/A",
+					number: "N/A"
+				},
+				phone: "N/A",
+				work: "N/A",
+				blood: {
+					type: "N/A",
+					rhesus: "N/A"
+				}
+			};
+		}
+		let pickedDate = user.settings ? user.settings.birthday.split("-") : "";
+		let recievedDate = new Date(...pickedDate);
+		return (
+			<div>
+				<Paper className={classes.root} elevation={1}>
+					<div className="flex flex-center infoItemMargin">
+						<AccountCircleIcon
+							className="iconMargin"
+							fontSize="large"
+						/>
+						<Typography variant="h6">
+							{`${user.firstName} ${user.lastName}`}
+						</Typography>
+					</div>
+					{this.infoItem(
+						<HomeIcon className="iconMargin" />,
+						`${user.settings.address.city}, ${
+							user.settings.address.street
+						} ${user.settings.address.number}`
+					)}
+					{this.infoItem(
+						<EventIcon className="iconMargin" />,
+						`${recievedDate.getDate()}.${recievedDate.getMonth() +
+							1}.${recievedDate.getFullYear()} (${this.calculateAge(
+							recievedDate
+						)} years)`
+					)}
+					{this.infoItem(
+						<PhoneIcon className="iconMargin" />,
+						`+38${user.settings.phone}`
+					)}
+					{this.infoItem(
+						<MailIcon className="iconMargin" />,
+						`${user.email}`
+					)}
+					{this.infoItem(
+						<WorkIcon className="iconMargin" />,
+						`${user.settings.work}`
+					)}
+					<Button
+						className={classes.showBtn}
+						variant="outlined"
+						color="secondary"
+						onClick={() => this.setState({ open: true })}>
+						Show
+					</Button>
+				</Paper>
+				<Dialog
 					fullScreen
 					open={this.state.open}
 					onClose={this.closeProfile}
@@ -147,18 +157,24 @@ class ThinProfile extends Component {
 								color="inherit"
 								className={classes.flex}>
 								{`${this.props.user.firstName} ${
-									this.props.user.lastName}`}
+									this.props.user.lastName
+								}`}
 							</Typography>
 						</Toolbar>
 					</AppBar>
-					 <PatientProfile user={this.props.user} />
+					<PatientProfile user={this.props.user} />
 				</Dialog>
-      </div>
-    );
-  }
-  }
-  ThinProfile.propTypes = {
-    classes: PropTypes.object.isRequired,
-    user: PropTypes.object.isRequired
+			</div>
+		);
+	}
 }
+
+ThinProfile.propTypes = {
+	classes: PropTypes.object.isRequired,
+	user: PropTypes.object.isRequired
+};
+
 export default withStyles(styles)(ThinProfile);
+
+
+

@@ -20,7 +20,7 @@ import LastPageIcon from "@material-ui/icons/LastPage";
 import { connect } from "react-redux";
 import TableHead from "@material-ui/core/TableHead";
 // Actions
-import { getPatientsRecepies } from "../../actions/utilsActions";
+import { getPatientsRecepies } from "../../actions/utilsAction";
 
 const actionsStyles = theme => ({
 	root: {
@@ -165,4 +165,123 @@ class SortedRecepies extends Component {
 		this.props.getPatientsRecepies(this.props.auth.user.id);
 	};
 
+	render() {
+		const { classes } = this.props;
+		const { rowsPerPage, page } = this.state;
+		const emptyRows =
+			rowsPerPage -
+			Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+		let { patientRecepie } = this.props.general;
+		if (patientRecepie == null) {
+		} else {
+			if (rows.length === 0) {
+				for (let i = 0; i < patientRecepie.length; i++) {
+					if (
+						patientRecepie[i].doctor ===
+						`${this.props.user.firstName} ${
+							this.props.user.lastName
+						}`
+					) {
+						rows.unshift(
+							createData(
+								patientRecepie[i].doctor,
+								patientRecepie[i].meds,
+								patientRecepie[i].order,
+								patientRecepie[i].date
+							)
+						);
+					}
+				}
+			}
+		}
+		return (
+			<Paper className={classes.root}>
+				<div className={classes.tableWrapper}>
+					<Table className={classes.table}>
+						<TableHead>
+							<TableRow>
+								<TableCell>Doctor</TableCell>
+								<TableCell>What medicines to use</TableCell>
+								<TableCell>In what order</TableCell>
+								<TableCell>Date</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableBody>
+							{rows
+								.slice(
+									page * rowsPerPage,
+									page * rowsPerPage + rowsPerPage
+								)
+								.map(row => {
+									return (
+										<TableRow key={row.id}>
+											<TableCell
+												style={{ fontSize: "1.2em" }}
+												component="th"
+												scope="row">
+												{row.doctor}
+											</TableCell>
+											<TableCell
+												style={{ fontSize: "1.2em" }}>
+												{row.meds}
+											</TableCell>
+											<TableCell
+												style={{ fontSize: "1.2em" }}>
+												{row.order}
+											</TableCell>
+											<TableCell
+												style={{ fontSize: "1.2em" }}>
+												{row.date}
+											</TableCell>
+										</TableRow>
+									);
+								})}
+							{emptyRows > 0 && (
+								<TableRow style={{ height: 48 * emptyRows }}>
+									<TableCell colSpan={6} />
+								</TableRow>
+							)}
+						</TableBody>
+						<TableFooter>
+							<TableRow>
+								<TablePagination
+									rowsPerPageOptions={[5, 10, 25]}
+									colSpan={3}
+									count={rows.length}
+									rowsPerPage={rowsPerPage}
+									page={page}
+									SelectProps={{
+										native: true
+									}}
+									onChangePage={this.handleChangePage}
+									onChangeRowsPerPage={
+										this.handleChangeRowsPerPage
+									}
+									ActionsComponent={
+										TablePaginationActionsWrapped
+									}
+								/>
+							</TableRow>
+						</TableFooter>
+					</Table>
+				</div>
+			</Paper>
+		);
+	}
 }
+
+SortedRecepies.propTypes = {
+	classes: PropTypes.object.isRequired,
+	auth: PropTypes.object.isRequired,
+	general: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+	auth: state.auth,
+	general: state.general
+});
+
+export default connect(
+	mapStateToProps,
+	{ getPatientsRecepies }
+)(withStyles(styles)(SortedRecepies));
