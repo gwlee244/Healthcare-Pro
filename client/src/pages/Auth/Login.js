@@ -20,7 +20,7 @@ import { loginUser } from "../../actions/authorizationAction";
 
 const styles = theme => ({
 	width: {
-		width: "25vw"
+		width: "350px"
 	},
 	margin: {
 		margin: "2vh auto"
@@ -128,7 +128,7 @@ class Login extends Component {
 								}`
 							)}
 							<FormControl error={errors.email}>
-								<InputLabel>Email here...</InputLabel>
+								<InputLabel>Email</InputLabel>
 								<Input
 									name="email"
 									type="email"
@@ -141,7 +141,7 @@ class Login extends Component {
 								/>
 							</FormControl>
 							<FormControl error={errors.password}>
-								<InputLabel>Password here...</InputLabel>
+								<InputLabel>Password</InputLabel>
 								<Input
 									name="password"
 									type="password"

@@ -1,0 +1,123 @@
+@import "../../style/base.scss";
+
+a {
+	text-decoration: none;
+	color: #9ca0b1;
+}
+
+@keyframes textclip {
+	to {
+		background-position: 200% center;
+	}
+}
+
+.wrapper {
+	text-align: center;
+	h1 {
+		color: #fff;
+		font-size: 92px;
+		font-family: "ubuntu";
+		text-transform: uppercase;
+		font-weight: 700;
+		font-family: "Josefin Sans", sans-serif;
+		background: linear-gradient(to right, #213A40 10%, #D9D0BF 50%, white 60%);
+		background-size: auto auto;
+		background-clip: border-box;
+		background-size: 200% auto;
+		color: #fff;
+		background-clip: text;
+		text-fill-color: transparent;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		animation: textclip 1.5s linear infinite;
+		display: inline-block;
+	}
+}
+
+body {
+  background: url("https://images.pexels.com/photos/1270327/pexels-photo-1270327.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 72px;
+  text-align: center;
+  color: $white;
+  background-color: rgba(0,0,0,0.5) !important;
+  
+
+  // Paint Brush Background
+  img {
+    user-select: none;
+  }
+
+  // Elements
+  div {
+    margin: 12px;
+  }
+
+  // Typed
+  span {
+    color: $white;
+    margin-top: 58px;
+    font-size: 20px;
+    font-weight: $medium;
+  }
+
+  // Auth Links
+  a {
+    color: $white;
+    padding: 8px;
+    margin-bottom: 4px;
+    font-weight: $heavy;
+  }
+}
+
+.home-header {
+  color: $white;
+  font-weight: $semibold;
+  font-size: 36px;
+}
+
+.home-snippet {
+ 
+  color: $white;
+  font-weight: $semibold;
+  
+}
+
+.home-paint {
+  position: absolute;
+  width: 300px;
+  z-index: -1;
+  opacity: 0;
+  filter: saturate(0.75);
+  transform: rotate(45deg);
+}
+
+.home-bg {
+  position: absolute;
+  height: 60%;
+  z-index: -1;
+  width: 50%;
+  min-width: 400px;
+  user-select: none;
+  border-radius: 50px;
+  
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        text-align: center;
+        h1 {
+            font-size: 30px;
+        }
+    }
+  }
