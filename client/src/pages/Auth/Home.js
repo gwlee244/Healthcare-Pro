@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Home.scss";
+import "./Test.scss";
 import { Link } from "react-router-dom";
-import memory from "../../img/image.gif";
 
 import Typed from "react-typed";
 
@@ -9,12 +9,13 @@ class Home extends Component {
   render() {
     return (
       <div className="home-container">
-        <div className="home-header">Healthcare Pro</div>
+        <div className="wrapper">
+          <h1>Healthcare Pro</h1>
+        </div>
         <div className="home-snippet">
           Rethinking how we manage Healthcare System
         </div>
        
-        <img className="home-bg" src={memory} alt="brushstrokes" />
         <Typed
           strings={[
             "See your perscriptions...",
