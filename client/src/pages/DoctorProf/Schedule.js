@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 
 
-const CustomTableCell = WithStyles(theme => ({
+const CustomTableCell = withStyles(theme => ({
     head: {
         backgroundColor: "#1e4de973",
         color: theme.palette.common.white,

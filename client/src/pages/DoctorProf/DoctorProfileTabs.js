@@ -20,9 +20,9 @@ import CabinetIcon from "@material-ui/icons/MeetingRoom";
 import FolderSpecialIcon from "@material-ui/icons/FolderSpecial";
 import SchoolIcon from "@material-ui/icons/School";
 // Components
-// import DoctorSchedule from "./Schedule";
-// import SortedRecepies from "./SortedRecepies";
-// import SetMeeting from "./SetMeeting";
+ import DoctorSchedule from "./Schedule";
+import SortedRecepies from "./SortedRecepies";
+import SetMeeting from "./SetMeeting";
 
 const NOT_AVAILABLE = "N/A";
 

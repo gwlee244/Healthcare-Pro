@@ -34,9 +34,9 @@ import Slide from "@material-ui/core/Slide";
 import getAvatarInitials from "../../helpers/getAvatarInitials";
 import { colors } from "../../helpers/palette";
 // Actions
-import { unsubscribeFromDoctor } from "../../actions/utilsActions";
+import { unsubscribeFromDoctor } from "../../actions/utilsAction";
 // Components
-// import DoctorProfile from "../doctor/DoctorProfile";
+ import DoctorProfile from "./DoctorProfile";
 const styles = {
 	card: {
 		width: "23vw"

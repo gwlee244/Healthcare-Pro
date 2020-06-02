@@ -18,44 +18,57 @@ import CardProfile from "./CardProfile";
 import Loader from "../../utils/Loader";
 import SearchTokenDialog from "./SearchTokenDialog";
 
+const styles = theme => ({
+	fab: {
+		position: "fixed",
+		bottom: theme.spacing.unit * 2,
+		right: theme.spacing.unit * 2
+	},
+	extendedIcon: {
+		marginRight: theme.spacing.unit
+	}
+});
+
 class DoctorsList extends Component {
-  constructor(props) {
-    super(props);
-    this.state({
-      dialogOpen: false,
-      token: ""
-    });
-    this.dialogOpen = this.dialogOpen.bind(this);
-    this.dialogClose = this.dialogClose.bind(this);
-    this.handleToken = this.handleToken.bind(this);
-    this.onChangeDialog = this.onChangeDialog.bind(this);
-  }
-  dialogueOpen = () => {
-    this.setState({
-      dialogOpen: true
-    });
+	constructor(props) {
+		super(props);
+		this.state = {
+			dialogOpen: false,
+			token: ""
+		};
+		this.dialogOpen = this.dialogOpen.bind(this);
+		this.dialogClose = this.dialogClose.bind(this);
+		this.handleFab = this.handleFab.bind(this);
+		this.handleToken = this.handleToken.bind(this);
+		this.onChangeDialog = this.onChangeDialog.bind(this);
+	}
 
-    dialogueClose = () => {
-      this.props.clearFinded();
-      this.setState({
-        dialogOpen: false,
-        token: ""
-      });
-    }
+	dialogOpen = () => {
+		this.setState({ dialogOpen: true });
+	};
 
-    handleToken = () => {
-      this.props.findToken(this.state.token);
-    }
+	dialogClose = () => {
+		this.props.clearFinded();
+		this.setState({ dialogOpen: false, token: "" });
+	};
 
-    onChangeDialog = event => {
-      this.setState({
-        token: event.target.value
-      });
-    }
-  }
-  componentDidMount() {
-    this.props.getDoctorList(this.props.auth.user.id);
-  }
+	handleFab = () => {
+		this.dialogOpen();
+	};
+
+	handleToken = () => {
+		this.props.findToken(this.state.token);
+	};
+
+	onChangeDialog = ev => {
+		this.setState({
+			token: ev.target.value
+		});
+	};
+
+	componentDidMount() {
+		this.props.getDoctorsList(this.props.auth.user.id);
+	}
   render() {
     let content = null;
     let { doctorData, findedDoctor } = this.props.general;
