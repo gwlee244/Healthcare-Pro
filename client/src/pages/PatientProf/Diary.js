@@ -26,7 +26,7 @@ import { connect } from "react-redux";
 import {
 	sendDiaryRecord,
 	getPatientsRecords
-} from "../../actions/utilsActions";
+} from "../../actions/utilsAction";
 
 const actionsStyles = theme => ({
 	root: {
@@ -108,3 +108,215 @@ class TablePaginationActions extends Component {
 		);
 	}
 }
+
+TablePaginationActions.propTypes = {
+	classes: PropTypes.object.isRequired,
+	count: PropTypes.number.isRequired,
+	onChangePage: PropTypes.func.isRequired,
+	page: PropTypes.number.isRequired,
+	rowsPerPage: PropTypes.number.isRequired,
+	theme: PropTypes.object.isRequired
+};
+
+const TablePaginationActionsWrapped = withStyles(actionsStyles, {
+	withTheme: true
+})(TablePaginationActions);
+
+let counter = 0,
+	rows = [];
+function createData(doctor, record, date) {
+	counter += 1;
+	return { id: counter, doctor, record, date };
+}
+
+const styles = theme => ({
+	root: {
+		width: "100%"
+	},
+	table: {
+		minWidth: 500
+	},
+	tableWrapper: {
+		overflowX: "auto"
+	},
+	inputAdjustment: {
+		width: "100%",
+		margin: "1em"
+	},
+	btnAdd: {
+		width: "20%",
+		marginRight: "2em"
+	}
+});
+
+class Diary extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			page: 0,
+			rowsPerPage: 5,
+			diaryRecord: ""
+		};
+		this.onAddRecord = this.onAddRecord.bind(this);
+		this.handleChangePage = this.handleChangePage.bind(this);
+		this.handleChangeRowsPerPage = this.handleChangeRowsPerPage.bind(this);
+	}
+
+	componentDidMount = () => {
+		this.props.getPatientsRecords(this.props.user._id);
+	};
+
+	onAddRecord = () => {
+		let now = new Date();
+		const record = {
+			diaryRecord: this.state.diaryRecord,
+			date: `${now.getHours()}:${now.getMinutes()}, ${now.getDate()}.${now.getMonth() +
+				1}.${now.getFullYear()}`,
+			doctor: `${this.props.auth.user.firstName} ${
+				this.props.auth.user.lastName
+			}`
+		};
+		this.props.sendDiaryRecord(record, this.props.user._id);
+		this.setState({ diaryRecord: "" });
+		rows.unshift(
+			createData(record.doctor, record.diaryRecord, record.date)
+		);
+	};
+
+	handleChangePage = (event, page) => {
+		this.setState({ page });
+	};
+
+	handleChangeRowsPerPage = event => {
+		this.setState({ rowsPerPage: event.target.value });
+	};
+
+	render() {
+		const { classes } = this.props;
+		const { rowsPerPage, page } = this.state;
+		let { patientRecords } = this.props.general;
+		if (patientRecords == null) {
+		} else {
+			if (rows.length === 0) {
+				for (let i = 0; i < patientRecords.length; i++) {
+					rows.unshift(
+						createData(
+							patientRecords[i].doctor,
+							patientRecords[i].diaryRecord,
+							patientRecords[i].date
+						)
+					);
+				}
+			}
+		}
+		const emptyRows =
+			rowsPerPage -
+			Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+		return (
+			<Paper className={classes.root}>
+				<div className="flex flex-center">
+					<TextField
+						multiline
+						placeholder="Symptoms, threatment, etc..."
+						value={this.state.diaryRecord}
+						label="Set record"
+						className={classes.inputAdjustment}
+						variant="outlined"
+						onChange={ev => {
+							this.setState({ diaryRecord: ev.target.value });
+						}}
+					/>
+					<Button
+						variant="contained"
+						onClick={this.onAddRecord}
+						className={classes.btnAdd}
+						color="secondary">
+						Add record
+					</Button>
+				</div>
+				<div className={classes.tableWrapper}>
+					<Table className={classes.table}>
+						<TableHead>
+							<TableRow>
+								<TableCell>Doctor</TableCell>
+								<TableCell>Diary records</TableCell>
+								<TableCell>Date</TableCell>
+							</TableRow>
+						</TableHead>
+						<TableBody>
+							{rows
+								.slice(
+									page * rowsPerPage,
+									page * rowsPerPage + rowsPerPage
+								)
+								.map(row => {
+									return (
+										<TableRow key={row.id}>
+											<TableCell
+												style={{ fontSize: "1.2em" }}
+												component="th"
+												scope="row">
+												{row.doctor}
+											</TableCell>
+											<TableCell
+												style={{ fontSize: "1.2em" }}>
+												{row.record}
+											</TableCell>
+											<TableCell
+												style={{ fontSize: "1.2em" }}>
+												{row.date}
+											</TableCell>
+										</TableRow>
+									);
+								})}
+							{emptyRows > 0 && (
+								<TableRow style={{ height: 48 * emptyRows }}>
+									<TableCell colSpan={6} />
+								</TableRow>
+							)}
+						</TableBody>
+						<TableFooter>
+							<TableRow>
+								<TablePagination
+									rowsPerPageOptions={[5, 10, 25]}
+									colSpan={3}
+									count={rows.length}
+									rowsPerPage={rowsPerPage}
+									page={page}
+									SelectProps={{
+										native: true
+									}}
+									onChangePage={this.handleChangePage}
+									onChangeRowsPerPage={
+										this.handleChangeRowsPerPage
+									}
+									ActionsComponent={
+										TablePaginationActionsWrapped
+									}
+								/>
+							</TableRow>
+						</TableFooter>
+					</Table>
+				</div>
+			</Paper>
+		);
+	}
+}
+
+Diary.propTypes = {
+	auth: PropTypes.object.isRequired,
+	general: PropTypes.object.isRequired,
+	classes: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => {
+	return {
+		auth: state.auth,
+		general: state.general
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	{ sendDiaryRecord, getPatientsRecords }
+)(withStyles(styles)(Diary));

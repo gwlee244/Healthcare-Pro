@@ -36,7 +36,7 @@ import { colors } from "../../helpers/palette";
 // Actions
 import { unsubscribeFromDoctor } from "../../actions/utilsActions";
 // Components
-// import DoctorProfile from "../doctor/DoctorProfile";
+ import DoctorProfile from "../doctor/DoctorProfile";
 const styles = {
 	card: {
 		width: "23vw"
