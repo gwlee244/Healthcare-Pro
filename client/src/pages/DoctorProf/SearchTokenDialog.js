@@ -56,7 +56,7 @@ class SearchCard extends Component {
   }
 }
 
-SearchCard.PropTypes= {
+SearchCard.propTypes= {
   auth: PropTypes.object.isRequired,
   general: PropTypes.object.isRequired,
   doctor: PropTypes.object.isRequired

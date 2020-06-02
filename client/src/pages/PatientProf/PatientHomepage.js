@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 //loading components
 import ProfileActions from "../../components/app-bar/ProfileActions";
-// import PatientTabs from "./PatientTabs"; //create PatientTabs
+import PatientTabs from "./PatientTabs"; //create PatientTabs
 
 
 export class PatientHomepage extends Component {
@@ -10,7 +10,7 @@ export class PatientHomepage extends Component {
     return (
       <div>
         <ProfileActions userRole="Patient" />
-        {/* <PatientTabs /> */}
+        <PatientTabs />
       </div>
     )
   }

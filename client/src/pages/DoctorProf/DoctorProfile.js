@@ -10,7 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import getAvatarInitials from "../../helpers/getAvatarInitials";
 import { colors } from "../../helpers/palette";
-import { setRating } from "../../actions/utilsActions";
+import { setRating } from "../../actions/utilsAction";
 import StarRatingComponent from "react-star-rating-component";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
