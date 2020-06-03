@@ -152,3 +152,169 @@
 // 		this.setState({ openSnackBar: true, expanded: null });
 // 		this.props.updatePatientSettings(this.state, this.props.auth.user.id);
 //     };
+    
+//     render() {
+// 		const { classes } = this.props;
+// 		const { expanded } = this.state;
+// 		return (
+// 			<div className={classes.root}>
+// 				<ProfileActions
+// 					userRole="Patient"
+// 					back={true}
+// 					toLocation="/patient/home"
+// 				/>
+// 				<Paper elevation={5} className={classes.paperConfig}>
+// 					<Typography variant="h4" className={classes.headerConfig}>
+// 						General Settings
+// 					</Typography>
+// 					<ExpansionPanel
+// 						expanded={expanded === "panel1"}
+// 						onChange={this.handleExpand("panel1")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								Address
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								Please input your address
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<div className={classes.spaceAround}>
+// 								<TextField
+// 									type="text"
+// 									onChange={this.onAddress}
+// 									name="city"
+// 									value={this.state.address.city}
+// 									variant="outlined"
+// 									label="Your city"
+// 									placeholder="i.e. Kyiv, Kharkiv, Odessa"
+// 								/>
+// 								<TextField
+// 									type="text"
+// 									onChange={this.onAddress}
+// 									name="street"
+// 									variant="outlined"
+// 									label="Your street"
+// 									value={this.state.address.street}
+// 									placeholder="i.e. Ivana Franka, Zelena"
+// 								/>
+// 								<TextField
+// 									type="text"
+// 									onChange={this.onAddress}
+// 									name="number"
+// 									variant="outlined"
+// 									value={this.state.address.number}
+// 									label="Your house number"
+// 									placeholder="i.e. 46"
+// 								/>
+// 							</div>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
+// 					<ExpansionPanel
+// 						expanded={expanded === "panel2"}
+// 						onChange={this.handleExpand("panel2")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								Date of Birth
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								Please input your birthday, so we know your age
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<TextField
+// 								type="date"
+// 								variant="outlined"
+// 								name="birthday"
+// 								value={this.state.birthday}
+// 								onChange={this.onChangeSettings}
+// 								className={classes.dateField}
+// 								label=""
+// 							/>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
+// 					<ExpansionPanel
+// 						expanded={expanded === "panel3"}
+// 						onChange={this.handleExpand("panel3")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								Sex
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								Set your sex
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<div className="flex flex-center">
+// 								<RadioGroup
+// 									aria-label="Gender"
+// 									name="sex"
+// 									value={this.state.sex}
+// 									onChange={this.onChangeSettings}>
+// 									<FormControlLabel
+// 										value="female"
+// 										control={<Radio />}
+// 										label="Female"
+// 									/>
+// 									<FormControlLabel
+// 										value="male"
+// 										control={<Radio />}
+// 										label="Male"
+// 									/>
+// 								</RadioGroup>
+// 							</div>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
+// 					<ExpansionPanel
+// 						expanded={expanded === "panel4"}
+// 						onChange={this.handleExpand("panel4")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								E-mail
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								Please input your e-mail, so we can send for you
+// 								different data
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<TextField
+// 								type="email"
+// 								fullWidth
+// 								name="email"
+// 								value={this.state.email}
+// 								onChange={this.onChangeSettings}
+// 								variant="outlined"
+// 								label="Your E-mail"
+// 								placeholder="example@example.com"
+// 							/>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
+// 					<ExpansionPanel
+// 						expanded={expanded === "panel5"}
+// 						onChange={this.handleExpand("panel5")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								Marital Status
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								Tell us about your maritial status
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<Select
+// 								value={this.state.maritalStatus}
+// 								name="maritalStatus"
+// 								onChange={this.onChangeSettings}
+// 								variant="outlined"
+// 								className={classes.dateField}>
+// 								<MenuItem value="">
+// 									<em>None</em>
+// 								</MenuItem>
+// 								<MenuItem value={"Single"}>Single</MenuItem>
+// 								<MenuItem value={"Married"}>Married</MenuItem>
+// 								<MenuItem value={"Divorced"}>Divorced</MenuItem>
+// 								<MenuItem value={"Widowed"}>Widowed</MenuItem>
+// 							</Select>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
