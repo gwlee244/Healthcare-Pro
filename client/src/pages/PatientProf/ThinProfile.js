@@ -107,28 +107,28 @@ class ThinProfile extends Component {
 					</div>
 					{this.infoItem(
 						<HomeIcon className="iconMargin" />,
-						`${user.settings.address.city}, ${
+						`Address: ${user.settings.address.number} ${
 							user.settings.address.street
-						} ${user.settings.address.number}`
+						}, ${user.settings.address.city}`
 					)}
 					{this.infoItem(
 						<EventIcon className="iconMargin" />,
-						`${recievedDate.getDate()}.${recievedDate.getMonth() +
+						`Date of Birth: ${recievedDate.getDate()}.${recievedDate.getMonth() +
 							1}.${recievedDate.getFullYear()} (${this.calculateAge(
 							recievedDate
-						)} years)`
+						)} years of age)`
 					)}
 					{this.infoItem(
 						<PhoneIcon className="iconMargin" />,
-						`+38${user.settings.phone}`
+						`Phone: ${user.settings.phone}`
 					)}
 					{this.infoItem(
 						<MailIcon className="iconMargin" />,
-						`${user.email}`
+						`Email: ${user.email}`
 					)}
 					{this.infoItem(
 						<WorkIcon className="iconMargin" />,
-						`${user.settings.work}`
+						`Occupation: ${user.settings.work}`
 					)}
 					<Button
 						className={classes.showBtn}
