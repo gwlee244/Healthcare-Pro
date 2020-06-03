@@ -21,10 +21,90 @@
 // import ProfileAction from "../../components/app-bar/ProfileActions";
 // import {getDoctorSettings, updateDoctorSettings} from "../../actions/settingsActions";
 
-
-// import React, { Component } from 'react'
+// let scheduleObj = {
+//     monday: {
+//         fromMonday: "08:00",
+//         toMonday: "18:00"
+//     },
+//     tuesday: {
+//         fromTuesday: "08:00",
+//         toTuesday: "18:00"
+//     },
+//     wednesday: {
+//         fromWednesday: "08:00",
+//         toWednesday: "18:00"
+//     },
+//     thursday: {
+//         fromThursday: "08:00",
+//         toThursday: "18:00"
+//     },
+//     friday: {
+//         fromFriday: "08:00",
+//         toFriday: "18:00"
+//     }
+// };
 
 // export class DoctorSettings extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             expanded: null,
+//             openSnackBar: false,
+//             birthday: "",
+//             sex: "",
+//             workPhone: "",
+//             yearsOfPractice: "",
+//             achievements: "",
+//             clinicName: "",
+//             cabinetNumber: "",
+//             specialty: "",
+//             address: {
+//                 number: "",
+//                 street: "",
+//                 city: "",
+//                 zip: ""
+//             },
+//             university: {
+//                 univName: "",
+//                 univCity: "",
+//                 yearOfEntry: "",
+//                 yearOfOut: "",
+//                 univSpecialty: ""
+//             },
+//             schedule: {
+//                 monday: {
+//                     fromMonday: "08:00",
+//                     toMonday: "18:00"
+//                 },
+//                 tuesday: {
+//                     fromTuesday: "08:00",
+//                     toTuesday: "18:00"
+//                 },
+//                 wednesday: {
+//                     fromWednesday: "08:00",
+//                     toWednesday: "18:00"
+//                 },
+//                 thursday: {
+//                     fromThursday: "08:00",
+//                     toThursday: "18:00"
+//                 },
+//                 friday: {
+//                     fromFriday: "08:00",
+//                     toFriday: "18:00"
+//                 }
+//             },
+//         }
+//         this.handleExpand = this.handleExpand.bind(this);
+//         this.handleCloseSnackBar = this.handleExpand.bind(this);
+//         this.onChangeSettings = this.onChangeSettings.bind(this);
+//         this.onChangeAddress = this.onChangeAddress.bind(this);
+//         this.onChangeUniversity = this.onChangeUniversity.bind(this);
+//         this.onSave = this.onSave.bind(this);
+//         this.setSchedule = this.setSchedule.bind(this);
+//         this.assignSchedule = this.assignSchedule.bind(this);
+//         this.handleDateChange = this.handleDateChange.bind(this);
+//     }
+
 //     render() {
 //         return (
 //             <div>
@@ -34,7 +114,7 @@
 //     }
 // }
 
-// export default DoctorSettings
+// export default DoctorSettings;
 
 
 
