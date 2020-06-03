@@ -20,6 +20,7 @@ import CloseIcon from "@material-ui/core/Close";
 import IconButton from "@material-ui/core/Icon";
 import ProfileAction from "../../components/app-bar/ProfileActions";
 import {getDoctorSettings, updateDoctorSettings} from "../../actions/settingsActions";
+import ProfileActions from "../../components/app-bar/ProfileActions";
 
 let scheduleObj = {
     monday: {
@@ -113,7 +114,7 @@ handleExpand = panel => (expanded) => {
 
 handleCloseSnackBar = () => {
     this.setState({
-        openSnackBar = false
+        openSnackBar: false
     })
 }
 
@@ -321,9 +322,38 @@ onSave = event => {
 }
 
     render() {
+        const {classes} = this.props;
+        const {expanded} = this.state;
+
         return (
-            <div>
-                
+            <div className={classes.root}>
+                <ProfileActions 
+                    userRole = "Doctor"
+                    back = {true}
+                    toLocation = "/doctor/home"
+                />
+                <Paper 
+                    elevation = {5}
+                    className = {classes.paperConfig}>
+                        <Typography 
+                            variant = "h4"
+                            className = {classes.headerConfig}>
+                            General Settings
+                        </Typography>
+                        <ExpansionPanel
+                            expanded = {expanded === "panel1"}
+                            onChange = {this.handleExpand("panel1")}>
+                                <ExpansionPanelSummary expandIcon = {<ExpandMoreIcon/>}>
+                                    <Typography className={classes.heading}>
+                                        Date of Birth
+                                    </Typography>
+                                    <Typography className={classes.secondaryHeading}>
+                                        Please Input Your Birthday
+                                    </Typography>
+                                </ExpansionPanelSummary>
+
+                        </ExpansionPanel>
+                </Paper>
             </div>
         )
     }
