@@ -30,6 +30,7 @@ class SearchCard extends Component {
   handleAdd = () => {
     this.props.merge(this.props.doctor, this.props.auth.user);
     this.props.close();
+    window.location.reload();
   };
   render() {
     const { classes, doctor } = this.props;
