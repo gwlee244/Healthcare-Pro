@@ -123,11 +123,12 @@ export const getPatientsRecords = patientID => dispatch => {
 	axios
 		.get(`/api/patients/records/${patientID}`)
 		.then(res => {
-      dispatch({ type: GET_PATIENT_RECORD, data: [{doctor: "smith", date:"3:00", diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00", diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00", diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00",
+      dispatch({ type: GET_PATIENT_RECORD, data: [{doctor: "smith", date:"12/24/2019", diaryRecord:"patient was dying.  I gave him som chips and he seemed happy.patient was dying.  I gave him som chips and he seemed happy.patient was dying.  I gave him som chips and he seemed happy.patient was dying.  I gave him som chips and he seemed happy"},{doctor: "Coulter", date:"4/7/2020", diaryRecord:"He said his knees were itchy.  I have him some Benadryl and he shut up."},{doctor: "smith", date:"3:00", diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00",
       diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00", 
       diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00", diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00", diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00", diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00", diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00",
       diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00", diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00", diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00", 
       diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00", diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00", diaryRecord:"patient was dying"},{doctor: "smith", date:"3:00",   diaryRecord:"patient was dying"}]});
+      //replace with res.data
 		})
 		.catch(err => console.log(err));
 };
