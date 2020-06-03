@@ -14,7 +14,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import SearchIcon from "@material-ui/icons/Search";
 import IconButton from "@material-ui/core/IconButton";
 import { getDoctorsList, clearFinded, findToken } from "../../actions/utilsAction";
-import cardProfile from "./cardProfile";
+import CardProfile from "./CardProfile";
 import Loader from "../../utils/Loader";
 import SearchTokenDialog from "./SearchTokenDialog";
 
@@ -83,7 +83,7 @@ class DoctorsList extends Component {
     else {
       content =
         doctorData.map((element, index) => {
-          return (<cardProfile parent={this.props.auth.user.id}
+          return (<CardProfile parent={this.props.auth.user.id}
             keys={index} user={element} />);
         });
     }

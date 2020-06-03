@@ -10,7 +10,7 @@ import { connect } from "react-redux";
 // Helpers
 import getAvatarInitials from "../../helpers/getAvatarInitials";
 // Actions
-import { merge, clearFinded } from "../../actions/utilsAction";
+import { merge } from "../../actions/utilsAction";
 const styles = theme => ({
   root: {
     ...theme.mixins.gutters(),
@@ -29,7 +29,6 @@ const styles = theme => ({
 class SearchCard extends Component {
   handleAdd = () => {
     this.props.merge(this.props.doctor, this.props.auth.user);
-    this.props.clearfinded();
     this.props.close();
   };
   render() {
@@ -67,6 +66,6 @@ const mapStateToProps = state => ({
   general: state.general
 })
 
-export default connect(mapStateToProps, { merge, clearFinded })
+export default connect(mapStateToProps, { merge })
 (withStyles(styles)
 (SearchCard));

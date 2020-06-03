@@ -108,7 +108,7 @@ export class Stats extends Component {
               You have
           </Typography>
             <Chart
-              height="300px"
+              height="400px"
               width="100%"
               type="radialBar"
               options={monthlyVisitors.options}
