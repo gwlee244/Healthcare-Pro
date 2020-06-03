@@ -22,6 +22,52 @@ import ProfileAction from "../../components/app-bar/ProfileActions";
 import {getDoctorSettings, updateDoctorSettings} from "../../actions/settingsActions";
 import ProfileActions from "../../components/app-bar/ProfileActions";
 
+const styles = theme => ({
+	root: {
+		width: "100%"
+	},
+	heading: {
+		fontSize: theme.typography.pxToRem(17),
+		flexBasis: "33.33%",
+		flexShrink: 0
+	},
+	secondaryHeading: {
+		fontSize: theme.typography.pxToRem(15),
+		color: theme.palette.text.secondary
+	},
+	paperConfig: {
+		width: "60vw",
+		height: "100%",
+		margin: "2em auto",
+		padding: "2em"
+	},
+	marginInput: {
+		margin: "1% 1% 1% 0"
+	},
+	headerConfig: {
+		marginBottom: "3vh",
+		marginTop: "3vh"
+	},
+	btn: {
+		margin: "3em 0 1em 1em",
+		width: "10vw"
+	},
+	halfWidth: {
+		width: "48%"
+	},
+	quarterWidth: {
+		width: "23.5%"
+	},
+	selectField: {
+		marginLeft: theme.spacing.unit,
+		marginRight: theme.spacing.unit,
+		width: 300
+	},
+	timeWidth: {
+		width: "7vw"
+	}
+});
+
 let scheduleObj = {
     monday: {
         fromMonday: "08:00",
@@ -343,7 +389,7 @@ onSave = event => {
                         <ExpansionPanel
                             expanded = {expanded === "panel1"}
                             onChange = {this.handleExpand("panel1")}>
-                                <ExpansionPanelSummary expandIcon = {<ExpandMoreIcon/>}>
+                                <ExpansionPanelSummary expandIcon = {<ExpansionMoreIcon/>}>
                                     <Typography className={classes.heading}>
                                         Date of Birth
                                     </Typography>
@@ -351,7 +397,118 @@ onSave = event => {
                                         Please Input Your Birthday
                                     </Typography>
                                 </ExpansionPanelSummary>
-
+                                <ExpansionPanelDetails>
+							<TextField
+								type="date"
+								variant="outlined"
+								value={this.state.birthday || "2000-01-01"}
+								inputProps={{
+									step: 300
+								}}
+								name="birthday"
+								onChange={this.onChangeSettings}
+								className={classes.dateField}
+								label=""
+							/>
+						</ExpansionPanelDetails>
+					</ExpansionPanel>
+					<ExpansionPanel
+						expanded={expanded === "panel2"}
+						onChange={this.handleExpand("panel2")}>
+						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+							<Typography className={classes.heading}>
+								Sex
+							</Typography>
+							<Typography className={classes.secondaryHeading}>
+								Set your sex
+							</Typography>
+						</ExpansionPanelSummary>
+						<ExpansionPanelDetails>
+							<div className="flex flex-center">
+								<RadioGroup
+									aria-label="Gender"
+									name="sex"
+									value={this.state.sex}
+									onChange={this.onChangeSettings}>
+									<FormControlLabel
+										value="female"
+										control={<Radio />}
+										label="Female"
+									/>
+									<FormControlLabel
+										value="male"
+										control={<Radio />}
+										label="Male"
+									/>
+								</RadioGroup>
+							</div>
+						</ExpansionPanelDetails>
+					</ExpansionPanel>
+                    <ExpansionPanel
+                        expanded = {expanded === "panel3"}
+                        onChange={this.handleExpand("panel3")}>
+                            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+							<Typography className={classes.heading}>
+								Education
+							</Typography>
+							<Typography className={classes.secondaryHeading}>
+								Give Us Details About Your Education
+							</Typography>
+						    </ExpansionPanelSummary>
+                            <ExpansionPanelDetails>
+							<div className="flex flex-wrap">
+								<TextField
+                                    
+                                    fullWidth
+                                    name = "univCity"
+                                    onChange = {this.onChangeUniversity}
+                                    variant = "outlined"
+                                    value = {this.state.university.univCity}
+                                    label = "City where you studied"
+                                    placeholder = "City Name"
+                                    className = {`${classes.halfWidth} ${classes.marginInput}`}
+                                    />
+                                <TextField 
+                                    fullWidth
+                                    name = "univName"
+                                    onChange = {this.onChangeUniversity}
+                                    variant = "outlined"
+                                    value = {this.state.university.univName}
+                                    label = "University where you studied"
+                                    placeholder = "University Name"
+                                    className = {`${classes.halfWidth} ${classes.marginInput}`}
+                                />
+                                <TextField 
+                                    name = "yearOfEntry"
+                                    type = "number"
+                                    onChange = {this.onChangeUniversity}
+                                    variant = "outlined"
+                                    value = {this.state.university.yearOfEntry}
+                                    label = "Year of Entry"
+                                    placeholder = "2012"
+                                    className = {`${classes.quarterWidth} ${classes.marginInput}`}
+                                />
+                                <TextField 
+                                    name = "yearOfOut"
+                                    type = "number"
+                                    onChange = {this.onChangeUniversity}
+                                    variant = "outlined"
+                                    value = {this.state.university.yearOfOut}
+                                    label = "Year of Exit"
+                                    placeholder = "2016"
+                                    className = {`${classes.quarterWidth} ${classes.marginInput}`}
+                                />
+                                 <TextField 
+                                    name = "univSpecialty"
+                                    onChange = {this.onChangeUniversity}
+                                    variant = "outlined"
+                                    value = {this.state.university.univSpecialty}
+                                    label = "Medical Specialty"
+                                    placeholder = "Cardiology"
+                                    className = {`${classes.halfWidth} ${classes.marginInput}`}
+                                />
+							</div>
+						</ExpansionPanelDetails>
                         </ExpansionPanel>
                 </Paper>
             </div>
