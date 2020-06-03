@@ -94,6 +94,10 @@ const styles = theme => ({
   },
   tableWrapper: {
     overflowX: 'auto'
+  },
+  tableHead: {
+    backgroundColor: '#708090',
+    color: 'white'
   }
 });
 
@@ -106,18 +110,19 @@ export class PatientDiaryTab extends Component {
       rows: []
     }
     this.handleChangePage = this.handleChangePage.bind(this);
-    this.handleChangeRowsPerPage = this.handleChangePage.bind(this);
+    this.handleChangeRowsPerPage = this.handleChangeRowsPerPage.bind(this);
   };
 
   componentDidMount() {
     this.props.getPatientsRecords(this.props.auth.user.id)
   }
-  handleChangePage = (page) => {
+  handleChangePage = (e, page) => {
     this.setState({
       page
     })
   }
   handleChangeRowsPerPage = (e) => {
+    console.log(e.target);
     this.setState({
       rowsPerPage: e.target.value
     })
@@ -125,6 +130,8 @@ export class PatientDiaryTab extends Component {
   render() {
     const { classes } = this.props;
     const { rowsPerPage, page, rows } = this.state;
+    console.log(rowsPerPage);
+    console.log(page);
     let { patientRecords } = this.props.general;
     console.log(patientRecords);
     if (patientRecords == null) {
@@ -148,64 +155,59 @@ export class PatientDiaryTab extends Component {
       }
     }
 
-      const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+    const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
 
-      return (
-        <div>
-          <Paper className={classes.root}>
-            <div className={classes.tableWrapper}>
-              <Table className={classes.table}>
-                <TableBody>
-                  {this.state.rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => <TableRow key={row.id}>
-                    <TableCell component="th" scope="row">
-                      {row.name}
-                    </TableCell>
-                    <TableCell align="left">{row.id}</TableCell>
-                    <TableCell align="left">{row.doctor}</TableCell>
-                    <TableCell align="left">{row.diaryRecord}</TableCell>
-                    <TableCell align="left">{row.date}</TableCell>
-                  </TableRow>)}
-                  {emptyRows > 0 && <TableRow style={{ height: 48 * emptyRows }}>
-                    <TableCell colSpan={6} />
-                  </TableRow>}
-                </TableBody>
-                <TableFooter>
-                  <TableRow>
-                    <TablePagination rowsPerPageOptions={[5, 10, 25]} colSpan={3} count={rows.length} rowsPerPage={rowsPerPage} page={page} SelectProps={{
-                      native: true
-                    }} onChangePage={this.handleChangePage} onChangeRowsPerPage={this.handleChangeRowsPerPage} ActionsComponent={TablePaginationActionsWrapped} />
-                  </TableRow>
-                </TableFooter>
-              </Table>
-            </div>
-          </Paper>
+    return (
+      <div>
+        <Paper className={classes.root}>
+          <div className={classes.tableWrapper}>
+            <Table className={classes.table}>
+              <TableBody>
+                <TableRow className={classes.tableHead} stickyHeader="true">
+                  <TableCell className={classes.tableHead} align="left">ID</TableCell>
+                  <TableCell className={classes.tableHead} align="left">Doctor</TableCell>
+                  <TableCell className={classes.tableHead} align="left">Patient Record</TableCell>
+                  <TableCell className={classes.tableHead} align="left">Date</TableCell>
+                </TableRow>
+                {this.state.rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => <TableRow key={row.id}>
 
-          {/* <Paper>
-      
-          {rows.map(ele => (
-          <p key={ele.id}>
-            {ele.id}{ele.doctor}{ele.diaryRecord}{ele.date}
-         </p>
-          ))}
-        
-        </Paper> */}
-        </div>
-      )
-    }
+                  <TableCell align="left">{row.id}</TableCell>
+                  <TableCell align="left">{row.doctor}</TableCell>
+                  <TableCell align="left">{row.diaryRecord}</TableCell>
+                  <TableCell align="left">{row.date}</TableCell>
+                </TableRow>)}
+                {emptyRows > 0 && <TableRow style={{ height: 48 * emptyRows }}>
+                  <TableCell colSpan={6} />
+                </TableRow>}
+              </TableBody>
+              <TableFooter>
+                <TableRow>
+                  <TablePagination rowsPerPageOptions={[5, 10, 25]} colSpan={3} count={rows.length} rowsPerPage={rowsPerPage} page={page} SelectProps={{
+                    native: true
+                  }} onChangePage={this.handleChangePage} onChangeRowsPerPage={this.handleChangeRowsPerPage} ActionsComponent={TablePaginationActionsWrapped} />
+                </TableRow>
+              </TableFooter>
+            </Table>
+          </div>
+        </Paper>
+      </div>
+    )
   }
+}
 
-  // TablePaginationAction.propTypes = {
-  //   classes: PropTypes.object.isRequired,
-  //   auth: PropTypes.object.isRequired,
-  //   general: PropTypes.object.isRequired
-  // };
-  const mapStateToProps = state => ({
-    auth: state.auth,
-    general: state.general
-  });
+// TablePaginationAction.propTypes = {
+//   classes: PropTypes.object.isRequired,
+//   auth: PropTypes.object.isRequired,
+//   general: PropTypes.object.isRequired
+// };
+const mapStateToProps = state => ({
+  auth: state.auth,
+  general: state.general
+});
 
-  export default connect(
-    mapStateToProps,
-    { getPatientsRecords }
-  )(withStyles(styles)(PatientDiaryTab));
+export default connect(
+  mapStateToProps,
+  { getPatientsRecords }
+)(withStyles(styles)(PatientDiaryTab));
+
