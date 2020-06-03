@@ -88,12 +88,12 @@ class DoctorProfileTabs extends Component {
 						variant="subtitle1">
 						{settings.university
 							? 	`Studied ${
-								user.settings.university.univSpecialty
-						  		} at ${user.settings.university.univName} in ${
-								user.settings.university.univCity
+								settings.university.univSpecialty
+						  		} at ${settings.university.univName} in ${
+								settings.university.univCity
 						 		} from ${
-								user.settings.university.yearOfEntry
-						  		} - ${user.settings.university.yearOfOut}`
+								settings.university.yearOfEntry
+						  		} - ${settings.university.yearOfOut}`
 								: NOT_AVAILABLE}
 					</Typography>
 				</div>
@@ -210,8 +210,8 @@ class DoctorProfileTabs extends Component {
 							variant="fullWidth">
 							<Tab label="General" />
 							<Tab label="Schedule" />
-							<Tab label="Meet" />
-							<Tab label="Recepies" />
+							<Tab label="Plan an Appointment" />
+							<Tab label="Prescriptions" />
 						</Tabs>
 					</AppBar>
 					{value === 0 && (
