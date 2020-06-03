@@ -137,9 +137,7 @@ onChangeUniversity = event => {
             [event.target.name]: event.target.value
         })
     })
-}
-
-// Need to write onSave //////// 
+} 
 
 assignSchedule(targetName, targetValue, day) {
     return Object.assign({}, this.state.schedule[day], {
@@ -178,9 +176,149 @@ handleDateChange = event => {
     this.setState(this.state);
 }
 
+setSchedule = () => {
+    const {classes} = this.props;
+    console.log(scheduleObj);
+    return (
+        <div className="grid-schedule">
+            <Typography variant="h6">Monday</Typography>
+            <Typography variant="body2">From: </Typography>
+            <TextField
+            id="time"
+            value={scheduleObj.monday.fromMonday}
+            inputProps={{
+                step: 300
+            }}
+            className={classes.timeWidth}
+            name="fromMonday"
+            onChange={this.handleDateChange}
+            type="time"
+            />
+            <Typography variant="body2">To: </Typography>
+            <TextField
+                id="time"
+                value={scheduleObj.monday.toMonday}
+                inputProps={{
+                    step: 300
+                }}
+                className={classes.timeWidth}
+                name="toMonday"
+                onChange={this.handleDateChange}
+                type="time"
+            />
+            <Typography variant="h6">Tuesday</Typography>
+            <Typography variant="body2">From: </Typography>
+            <TextField
+            id="time"
+            value={scheduleObj.tuesday.fromTuesday}
+            inputProps={{
+                step: 300
+            }}
+            className={classes.timeWidth}
+            name="fromTuesday"
+            onChange={this.handleDateChange}
+            type="time"
+            />
+            <Typography variant="body2">To: </Typography>
+            <TextField
+                id="time"
+                value={scheduleObj.tuesday.toTuesday}
+                inputProps={{
+                    step: 300
+                }}
+                className={classes.timeWidth}
+                name="toTuesday"
+                onChange={this.handleDateChange}
+                type="time"
+            />
+            <Typography variant="h6">Wednesday</Typography>
+            <Typography variant="body2">From: </Typography>
+            <TextField
+            id="time"
+            value={scheduleObj.wednesday.fromWednesday}
+            inputProps={{
+                step: 300
+            }}
+            className={classes.timeWidth}
+            name="fromWednesday"
+            onChange={this.handleDateChange}
+            type="time"
+            />
+            <Typography variant="body2">To: </Typography>
+            <TextField
+                id="time"
+                value={scheduleObj.wednesday.toWednesday}
+                inputProps={{
+                    step: 300
+                }}
+                className={classes.timeWidth}
+                name="toWednesday"
+                onChange={this.handleDateChange}
+                type="time"
+            />
+            <Typography variant="h6">Thursday</Typography>
+            <Typography variant="body2">From: </Typography>
+            <TextField
+            id="time"
+            value={scheduleObj.thursday.fromThursday}
+            inputProps={{
+                step: 300
+            }}
+            className={classes.timeWidth}
+            name="fromThursday"
+            onChange={this.handleDateChange}
+            type="time"
+            />
+            <Typography variant="body2">To: </Typography>
+            <TextField
+                id="time"
+                value={scheduleObj.thursday.toThursday}
+                inputProps={{
+                    step: 300
+                }}
+                className={classes.timeWidth}
+                name="toThursday"
+                onChange={this.handleDateChange}
+                type="time"
+            />
+            <Typography variant="h6">Friday</Typography>
+            <Typography variant="body2">From: </Typography>
+            <TextField
+            id="time"
+            value={scheduleObj.friday.fromFriday}
+            inputProps={{
+                step: 300
+            }}
+            className={classes.timeWidth}
+            name="fromFriday"
+            onChange={this.handleDateChange}
+            type="time"
+            />
+            <Typography variant="body2">To: </Typography>
+            <TextField
+                id="time"
+                value={scheduleObj.friday.toFriday}
+                inputProps={{
+                    step: 300
+                }}
+                className={classes.timeWidth}
+                name="toFriday"
+                onChange={this.handleDateChange}
+                type="time"
+            />
+        </div>
+    )
+}
 
-
-
+onSave = event => {
+    this.setState({
+        schedule: scheduleObj
+    })
+    this.props.updateDoctorSettings(this.state, this.props.auth.user.id);
+    this.setState({
+        openSnackBar: true
+    })
+}
 
     render() {
         return (
