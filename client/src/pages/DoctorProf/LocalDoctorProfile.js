@@ -56,11 +56,11 @@ class LocalDoctorProfile extends Component {
 						
 						variant="subtitle1">
 						{user.settings.university
-							? `Studied at ${user.settings.university.univName},in ${
-									user.settings.university.univCity
-							  } city, for ${
+							? `Studied ${
 									user.settings.university.univSpecialty
-							  }, years of study ${
+							  } at ${user.settings.university.univName} in ${
+									user.settings.university.univCity
+							  } from ${
 									user.settings.university.yearOfEntry
 							  } - ${user.settings.university.yearOfOut}`
 							: NOT_AVAILABLE}
@@ -73,7 +73,7 @@ class LocalDoctorProfile extends Component {
 					<Typography
 						
 						variant="subtitle1">
-						{`${user.settings.specialty || NOT_AVAILABLE}`}
+						{`Physician Type: ${user.settings.specialty || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 
@@ -83,7 +83,7 @@ class LocalDoctorProfile extends Component {
 					<Typography
 						
 						variant="subtitle1">
-						{`${user.settings.clinicName || NOT_AVAILABLE}`}
+						{`Place of Work: ${user.settings.clinicName || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 
@@ -92,11 +92,11 @@ class LocalDoctorProfile extends Component {
 					<PlaceIcon color="primary" fontSize="large" />
 					<Typography
 						
-						variant="subtitle1">
+						variant="subtitle1"> Business Address: 
 						{user.settings.address
-							? `${user.settings.address.city}, ${
+							? `  ${user.settings.address.number} ${
 									user.settings.address.street
-							  } ${user.settings.address.number}`
+							  }, ${user.settings.address.city}`
 							: NOT_AVAILABLE}
 					</Typography>
 				</div>
@@ -107,7 +107,7 @@ class LocalDoctorProfile extends Component {
 					<Typography
 						className={classes.infoItems}
 						variant="subtitle1">
-						{`${user.settings.workPhone || NOT_AVAILABLE}`}
+						{`Phone: ${user.settings.workPhone || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 
@@ -117,7 +117,7 @@ class LocalDoctorProfile extends Component {
 					<Typography
 						className={classes.infoItems}
 						variant="subtitle1">
-						{`${user.settings.birthday || NOT_AVAILABLE}`}
+						{`Date of Birth: ${user.settings.birthday || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 
@@ -127,7 +127,7 @@ class LocalDoctorProfile extends Component {
 					<Typography
 						className={classes.infoItems}
 						variant="subtitle1">
-						{`${user.settings.sex || NOT_AVAILABLE}`}
+						{`Sex: ${user.settings.sex || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 
@@ -137,7 +137,7 @@ class LocalDoctorProfile extends Component {
 					<Typography
 						className={classes.infoItems}
 						variant="subtitle1">
-						{`${user.settings.yearsOfPractice || NOT_AVAILABLE}`}
+						{`Years of Practice: ${user.settings.yearsOfPractice || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 
@@ -147,7 +147,7 @@ class LocalDoctorProfile extends Component {
 					<Typography
 						
 						variant="subtitle1">
-						{`Cabinet #${user.settings.cabinet || NOT_AVAILABLE}`}
+						{`Room #${user.settings.cabinet || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 
@@ -157,7 +157,7 @@ class LocalDoctorProfile extends Component {
 					<Typography
 					
 						variant="subtitle1">
-						{`${user.settings.achievments || NOT_AVAILABLE}`}
+						{`Achievements: ${user.settings.achievments || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 				
