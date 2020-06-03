@@ -4,6 +4,7 @@ import store from "./store";
 import { Provider } from "react-redux";
 import setAuthToken from "./helpers/setAuthToken";
 import jwt_decode from "jwt-decode";
+import "./style/App.scss";
 // Components
 import Home from "../src/pages/Auth/Home";
 import Login from "../src/pages/Auth/Login";

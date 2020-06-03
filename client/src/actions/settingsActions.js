@@ -1,4 +1,4 @@
-import  { GET_SETTINGS } from "../constants";
+import  { GET_SETTINGS } from "./constants";
 import axios from "axios";
 
 //update patient settings
