@@ -165,7 +165,7 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									{`${user.settings.clinicName || "N/A"}`}
+									{`Place of Work: ${user.settings.clinicName || "N/A"}`}
 								</Typography>
 							</div>
 							{/* Clinic address */}
@@ -176,10 +176,10 @@ class UserCard extends Component {
 									variant="body2"
 									className={classes.typoMargin}>
 									{user.settings
-										? `${user.settings.address.city ||
-												"N/A"}, ${user.settings.address
-												.street || "N/A"} ${user
-												.settings.address.number ||
+										? `Business Address: ${user.settings.address.number ||
+												"N/A"} ${user.settings.address
+												.street || "N/A"}, ${user
+												.settings.address.city ||
 												"N/A"}`
 										: "N/A"}
 								</Typography>
@@ -192,7 +192,7 @@ class UserCard extends Component {
 									variant="body2"
 									className={classes.typoMargin}>
 									{user.settings.cabinet
-										? `Cabinet #${user.settings.cabinet}`
+										? `Room #${user.settings.cabinet}`
 										: "N/A"}
 								</Typography>
 							</div>
@@ -203,7 +203,7 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									{birthday}
+									Date of Birth: {birthday}
 								</Typography>
 							</div>
 							{/* Phone number */}
@@ -213,7 +213,7 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									{user.settings.workPhone || "N/A"}
+									Phone: {user.settings.workPhone || "N/A"}
 								</Typography>
 							</div>
 							{/* Specialty */}
@@ -223,7 +223,7 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									{`${user.settings.specialty || "N/A"}`}
+									{`Physician Type: ${user.settings.specialty || "N/A"}`}
 								</Typography>
 							</div>
 							{/* Years of practice */}
