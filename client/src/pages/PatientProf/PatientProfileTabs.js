@@ -64,15 +64,15 @@ class PatientProfileTabs extends Component {
 					<HomeIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${user.settings.address.city}, ${
+						variant="subtitle1">{user.settings.address.number} {
 						user.settings.address.street
-					} ${user.settings.address.number}`}</Typography>
+					}, {user.settings.address.city}</Typography>
 				</div>
 				<div className="flex flex-center">
 					<PhoneIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${
+						variant="subtitle1">{`Phone: ${
 						user.settings.phone
 					}`}</Typography>
 				</div>
@@ -80,7 +80,7 @@ class PatientProfileTabs extends Component {
 					<EventIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${
+						variant="subtitle1">{`Date of Birth: ${
 						user.settings.birthday
 					}`}</Typography>
 				</div>
@@ -88,7 +88,7 @@ class PatientProfileTabs extends Component {
 					<FaceIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${
+						variant="subtitle1">{`Sex: ${
 						user.settings.sex
 					}`}</Typography>
 				</div>
@@ -96,7 +96,7 @@ class PatientProfileTabs extends Component {
 					<MailIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${
+						variant="subtitle1">{`Email: ${
 						user.settings.email
 					}`}</Typography>
 				</div>
@@ -104,7 +104,7 @@ class PatientProfileTabs extends Component {
 					<WorkIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${
+						variant="subtitle1">{`Occupation: ${
 						user.settings.work
 					}`}</Typography>
 				</div>
@@ -112,7 +112,7 @@ class PatientProfileTabs extends Component {
 					<ChildFriendlyIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${
+						variant="subtitle1">{`Marital Status: ${
 						user.settings.maritalStatus
 					}`}</Typography>
 				</div>
@@ -120,7 +120,7 @@ class PatientProfileTabs extends Component {
 					<AccessibilityIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${user.settings.height}cm/${
+						variant="subtitle1">{`Height/Weight: ${user.settings.height}cm/${
 						user.settings.weight
 					}kg`}</Typography>
 				</div>
@@ -128,8 +128,8 @@ class PatientProfileTabs extends Component {
 					<FavoriteIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${user.settings.blood.type} ${
-						user.settings.rhesus
+						variant="subtitle1">{`Blood Type: ${user.settings.blood.type} ${
+						user.settings.blood.rhesus
 					}`}</Typography>
 				</div>
 				<ExpansionPanel className="emergencyPanel">
@@ -142,11 +142,11 @@ class PatientProfileTabs extends Component {
 					</ExpansionPanelSummary>
 					<ExpansionPanelDetails>
 						<Typography variant="subtitle1">
-							{`Call contact ${user.settings.emergency.fName} ${
+							{`Contact ${user.settings.emergency.fName} ${
 								user.settings.emergency.lName
-							} which is ${
+							}, ${user.firstName} ${user.lastName}'s ${
 								user.settings.emergency.relation
-							}, Phone number: ${
+							}, by calling ${
 								user.settings.emergency.phoneNumber
 							}`}
 						</Typography>
