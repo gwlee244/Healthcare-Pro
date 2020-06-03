@@ -1,3 +1,7 @@
+/*
+  Doctor settings. very complicated, i know
+  @imported at App
+*/
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -15,12 +19,16 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import { connect } from "react-redux";
-import SnackBar from "@material-ui/core/Snackbar";
+import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/Icon";
 import CloseIcon from "@material-ui/icons/Close";
-
-import {getDoctorSettings, updateDoctorSettings} from "../../actions/settingsActions";
+// Components
 import ProfileActions from "../../components/app-bar/ProfileActions";
+// Actions
+import {
+	updateDoctorSettings,
+	getDoctorSettings
+} from "../../actions/settingsActions";
 
 const styles = theme => ({
 	root: {
@@ -69,338 +77,330 @@ const styles = theme => ({
 });
 
 let scheduleObj = {
-    monday: {
-        fromMonday: "08:00",
-        toMonday: "18:00"
-    },
-    tuesday: {
-        fromTuesday: "08:00",
-        toTuesday: "18:00"
-    },
-    wednesday: {
-        fromWednesday: "08:00",
-        toWednesday: "18:00"
-    },
-    thursday: {
-        fromThursday: "08:00",
-        toThursday: "18:00"
-    },
-    friday: {
-        fromFriday: "08:00",
-        toFriday: "18:00"
-    }
+	monday: {
+		fromMonday: "08:00",
+		toMonday: "18:00"
+	},
+	tuesday: {
+		fromTuesday: "08:00",
+		toTuesday: "18:00"
+	},
+	wednesday: {
+		fromWednesday: "08:00",
+		toWednesday: "18:00"
+	},
+	thursday: {
+		fromThursday: "08:00",
+		toThursday: "18:00"
+	},
+	friday: {
+		fromFriday: "08:00",
+		toFriday: "18:00"
+	}
 };
 
-export class DoctorSettings extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            expanded: null,
-            openSnackBar: false,
-            birthday: "",
-            sex: "",
-            workPhone: "",
-            yearsOfPractice: "",
-            achievements: "",
-            clinicName: "",
-            cabinetNumber: "",
-            specialty: "",
-            address: {
-                number: "",
-                street: "",
-                city: "",
-                zip: ""
-            },
-            university: {
-                univName: "",
-                univCity: "",
-                yearOfEntry: "",
-                yearOfOut: "",
-                univSpecialty: ""
-            },
-            schedule: {
-                monday: {
-                    fromMonday: "08:00",
-                    toMonday: "18:00"
-                },
-                tuesday: {
-                    fromTuesday: "08:00",
-                    toTuesday: "18:00"
-                },
-                wednesday: {
-                    fromWednesday: "08:00",
-                    toWednesday: "18:00"
-                },
-                thursday: {
-                    fromThursday: "08:00",
-                    toThursday: "18:00"
-                },
-                friday: {
-                    fromFriday: "08:00",
-                    toFriday: "18:00"
-                }
-            },
-        }
-        this.handleExpand = this.handleExpand.bind(this);
-        this.handleCloseSnackBar = this.handleExpand.bind(this);
-        this.onChangeSettings = this.onChangeSettings.bind(this);
-        this.onChangeAddress = this.onChangeAddress.bind(this);
-        this.onChangeUniversity = this.onChangeUniversity.bind(this);
-        this.onSave = this.onSave.bind(this);
-        this.setSchedule = this.setSchedule.bind(this);
-        this.assignSchedule = this.assignSchedule.bind(this);
-        this.handleDateChange = this.handleDateChange.bind(this);
-    }
+class DoctorSettings extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			expanded: null,
+			openSnackBar: false,
+			birthday: "",
+			sex: "",
+			workPhone: "",
+			yearsOfPractice: "",
+			achievements: "",
+			clinicName: "",
+			cabinet: "",
+			specialty: "",
+			address: {
+				street: "",
+				city: "",
+				number: ""
+			},
+			university: {
+				univCity: "",
+				univName: "",
+				yearOfEntry: "",
+				yearOfOut: "",
+				univSpecialty: ""
+			},
+			schedule: {
+				monday: {
+					fromMonday: "08:00",
+					toMonday: "18:00"
+				},
+				tuesday: {
+					fromTuesday: "08:00",
+					toTuesday: "18:00"
+				},
+				wednesday: {
+					fromWednesday: "08:00",
+					toWednesday: "18:00"
+				},
+				thursday: {
+					fromThursday: "08:00",
+					toThursday: "18:00"
+				},
+				friday: {
+					fromFriday: "08:00",
+					toFriday: "18:00"
+				}
+			}
+		};
+		this.handleExpand = this.handleExpand.bind(this);
+		this.handleCloseSnackBar = this.handleCloseSnackBar.bind(this);
+		this.onChangeSettings = this.onChangeSettings.bind(this);
+		this.onChangeAddress = this.onChangeAddress.bind(this);
+		this.onChangeUniversity = this.onChangeUniversity.bind(this);
+		this.assignSchedule = this.assignSchedule.bind(this);
+		this.handleDateChange = this.handleDateChange.bind(this);
+		this.SetSchedule = this.SetSchedule.bind(this);
+		this.onSave = this.onSave.bind(this);
+	}
 
-handleExpand = panel => (expanded) => {
-    this.setState({
-        expanded: expanded ? panel : false
-    })
-}
+	handleExpand = panel => (event, expanded) => {
+		this.setState({
+			expanded: expanded ? panel : false
+		});
+	};
 
-handleCloseSnackBar = () => {
-    this.setState({
-        openSnackBar: false
-    })
-}
+	handleCloseSnackBar = () => {
+		this.setState({ openSnackBar: false });
+	};
 
-onChangeSettings = event => {
-    this.setState({
-        [event.target.name]: event.target.value
-    })
-}
+	onChangeSettings = ev => {
+		this.setState({
+			[ev.target.name]: ev.target.value
+		});
+	};
 
-onChangeAddress = event => {
-    this.setState({
-        address: Object.assign({}, this.state.address, {
-            [event.target.name]: event.target.value
-        })
-    })
-}
+	onChangeAddress = ev => {
+		this.setState({
+			address: Object.assign({}, this.state.address, {
+				[ev.target.name]: ev.target.value
+			})
+		});
+	};
 
-onChangeUniversity = event => {
-    this.setState({
-        university: Object.assign({}, this.state.university, {
-            [event.target.name]: event.target.value
-        })
-    })
-} 
+	onChangeUniversity = ev => {
+		this.setState({
+			university: Object.assign({}, this.state.university, {
+				[ev.target.name]: ev.target.value
+			})
+		});
+	};
 
-assignSchedule(targetName, targetValue, day) {
-    return Object.assign({}, this.state.schedule[day], {
-        [targetName]: targetValue
-    })
-}
+	assignSchedule(targetName, targetValue, day) {
+		return Object.assign({}, this.state.schedule[day], {
+			[targetName]: targetValue
+		});
+	}
 
-componentDidMount = () => {
-    this.props.getDoctorSettings(this.props.auth.user.id)
-}
+	componentDidMount = () => {
+		this.props.getDoctorSettings(this.props.auth.user.id);
+	};
 
-componentWillReceiveProps(nextProps) {
-    if (nextProps.settings) {
-        this.setState(Object.assign({}, nextProps.settings));
-        this.scheduleObj = nextProps.settings.schedule;
-    }
-}
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.settings) {
+			this.setState(Object.assign({}, nextProps.settings));
+			this.scheduleObj = nextProps.settings.schedule;
+		}
+	}
 
-handleDateChange = event => {
-    let {name, value} = event.target;
-    let day = name.match(/[A-Z].+/g)[0].toLowerCase();
-    switch(day) {
-        case "monday": scheduleObj.monday = this.assignSchedule(name, value, day);
-        break;
-        case "tuesday": scheduleObj.tuesday = this.assignSchedule(name, value, day);
-        break;
-        case "wednesday": scheduleObj.wednesday = this.assignSchedule(name, value, day);
-        break;
-        case "thursday": scheduleObj.thursday = this.assignSchedule(name, value, day);
-        break;
-        case "friday": scheduleObj.friday = this.assignSchedule(name, value, day);
-        break;
-        default: 
-        throw new Error("Sorry, schedule has not been set by your doctor");
-    }
-    this.setState(this.state);
-}
+	handleDateChange = ev => {
+		let { name, value } = ev.target;
+		let day = name.match(/[A-Z].+/g)[0].toLowerCase();
+		switch (day) {
+			case "monday":
+				scheduleObj.monday = this.assignSchedule(name, value, day);
+				break;
+			case "tuesday":
+				scheduleObj.tuesday = this.assignSchedule(name, value, day);
+				break;
+			case "wednesday":
+				scheduleObj.wednesday = this.assignSchedule(name, value, day);
+				break;
+			case "thursday":
+				scheduleObj.thursday = this.assignSchedule(name, value, day);
+				break;
+			case "friday":
+				scheduleObj.friday = this.assignSchedule(name, value, day);
+				break;
+			default:
+				throw new Error("Shit in switch on doctor settings");
+		}
+		this.setState(this.state);
+	};
 
-setSchedule = () => {
-    const {classes} = this.props;
-    console.log(scheduleObj);
-    return (
-        <div className="grid-schedule">
-            <Typography variant="h6">Monday</Typography>
-            <Typography variant="body2">From: </Typography>
-            <TextField
-            id="time"
-            value={scheduleObj.monday.fromMonday}
-            inputProps={{
-                step: 300
-            }}
-            className={classes.timeWidth}
-            name="fromMonday"
-            onChange={this.handleDateChange}
-            type="time"
-            />
-            <Typography variant="body2">To: </Typography>
-            <TextField
-                id="time"
-                value={scheduleObj.monday.toMonday}
-                inputProps={{
-                    step: 300
-                }}
-                className={classes.timeWidth}
-                name="toMonday"
-                onChange={this.handleDateChange}
-                type="time"
-            />
-            <Typography variant="h6">Tuesday</Typography>
-            <Typography variant="body2">From: </Typography>
-            <TextField
-            id="time"
-            value={scheduleObj.tuesday.fromTuesday}
-            inputProps={{
-                step: 300
-            }}
-            className={classes.timeWidth}
-            name="fromTuesday"
-            onChange={this.handleDateChange}
-            type="time"
-            />
-            <Typography variant="body2">To: </Typography>
-            <TextField
-                id="time"
-                value={scheduleObj.tuesday.toTuesday}
-                inputProps={{
-                    step: 300
-                }}
-                className={classes.timeWidth}
-                name="toTuesday"
-                onChange={this.handleDateChange}
-                type="time"
-            />
-            <Typography variant="h6">Wednesday</Typography>
-            <Typography variant="body2">From: </Typography>
-            <TextField
-            id="time"
-            value={scheduleObj.wednesday.fromWednesday}
-            inputProps={{
-                step: 300
-            }}
-            className={classes.timeWidth}
-            name="fromWednesday"
-            onChange={this.handleDateChange}
-            type="time"
-            />
-            <Typography variant="body2">To: </Typography>
-            <TextField
-                id="time"
-                value={scheduleObj.wednesday.toWednesday}
-                inputProps={{
-                    step: 300
-                }}
-                className={classes.timeWidth}
-                name="toWednesday"
-                onChange={this.handleDateChange}
-                type="time"
-            />
-            <Typography variant="h6">Thursday</Typography>
-            <Typography variant="body2">From: </Typography>
-            <TextField
-            id="time"
-            value={scheduleObj.thursday.fromThursday}
-            inputProps={{
-                step: 300
-            }}
-            className={classes.timeWidth}
-            name="fromThursday"
-            onChange={this.handleDateChange}
-            type="time"
-            />
-            <Typography variant="body2">To: </Typography>
-            <TextField
-                id="time"
-                value={scheduleObj.thursday.toThursday}
-                inputProps={{
-                    step: 300
-                }}
-                className={classes.timeWidth}
-                name="toThursday"
-                onChange={this.handleDateChange}
-                type="time"
-            />
-            <Typography variant="h6">Friday</Typography>
-            <Typography variant="body2">From: </Typography>
-            <TextField
-            id="time"
-            value={scheduleObj.friday.fromFriday}
-            inputProps={{
-                step: 300
-            }}
-            className={classes.timeWidth}
-            name="fromFriday"
-            onChange={this.handleDateChange}
-            type="time"
-            />
-            <Typography variant="body2">To: </Typography>
-            <TextField
-                id="time"
-                value={scheduleObj.friday.toFriday}
-                inputProps={{
-                    step: 300
-                }}
-                className={classes.timeWidth}
-                name="toFriday"
-                onChange={this.handleDateChange}
-                type="time"
-            />
-        </div>
-    )
-}
+	SetSchedule = () => {
+		const { classes } = this.props;
+		console.log(scheduleObj);
+		return (
+			<div className="grid-schedule">
+				<Typography variant="h6">Monday</Typography>
+				<Typography variant="body2">From: </Typography>
+				<TextField
+					id="time"
+					value={scheduleObj.monday.fromMonday}
+					inputProps={{
+						step: 300
+					}}
+					className={classes.timeWidth}
+					name="fromMonday"
+					onChange={this.handleDateChange}
+					type="time"
+				/>
+				<Typography variant="body2">To: </Typography>
+				<TextField
+					id="time"
+					value={scheduleObj.monday.toMonday}
+					inputProps={{
+						step: 300
+					}}
+					className={classes.timeWidth}
+					name="toMonday"
+					onChange={this.handleDateChange}
+					type="time"
+				/>
 
-onSave = event => {
-    this.setState({
-        schedule: scheduleObj
-    })
-    this.props.updateDoctorSettings(this.state, this.props.auth.user.id);
-    this.setState({
-        openSnackBar: true
-    })
-}
+				<Typography variant="h6">Tuesday</Typography>
+				<Typography variant="body2">From: </Typography>
+				<TextField
+					id="time"
+					value={scheduleObj.tuesday.fromTuesday}
+					inputProps={{
+						step: 300
+					}}
+					name="fromTuesday"
+					onChange={this.handleDateChange}
+					type="time"
+				/>
+				<Typography variant="body2">To: </Typography>
+				<TextField
+					id="time"
+					value={scheduleObj.tuesday.toTuesday}
+					inputProps={{
+						step: 300
+					}}
+					name="toTuesday"
+					onChange={this.handleDateChange}
+					type="time"
+				/>
 
-    render() {
-        const {classes} = this.props;
-        const {expanded} = this.state;
+				<Typography variant="h6">Wednesday</Typography>
+				<Typography variant="body2">From: </Typography>
+				<TextField
+					id="time"
+					value={scheduleObj.wednesday.fromWednesday}
+					inputProps={{
+						step: 300
+					}}
+					name="fromWednesday"
+					onChange={this.handleDateChange}
+					type="time"
+				/>
+				<Typography variant="body2">To: </Typography>
+				<TextField
+					id="time"
+					value={scheduleObj.wednesday.toWednesday}
+					inputProps={{
+						step: 300
+					}}
+					name="toWednesday"
+					onChange={this.handleDateChange}
+					type="time"
+				/>
 
-        return (
-            <div className={classes.root}>
-                <ProfileActions 
-                    userRole = "Doctor"
-                    back = {true}
-                    toLocation = "/doctor/home"
-                />
-                <Paper 
-                    elevation = {5}
-                    className = {classes.paperConfig}>
-                        <Typography 
-                            variant = "h4"
-                            className = {classes.headerConfig}>
-                            General Settings
-                        </Typography>
-                        <ExpansionPanel
-                            expanded = {expanded === "panel1"}
-                            onChange = {this.handleExpand("panel1")}>
-                                <ExpansionPanelSummary expandIcon = {<ExpandMoreIcon/>}>
-                                    <Typography className={classes.heading}>
-                                        Date of Birth
-                                    </Typography>
-                                    <Typography className={classes.secondaryHeading}>
-                                        Please Input Your Birthday
-                                    </Typography>
-                                </ExpansionPanelSummary>
-                                <ExpansionPanelDetails>
+				<Typography variant="h6">Thursday</Typography>
+				<Typography variant="body2">From: </Typography>
+				<TextField
+					id="time"
+					value={scheduleObj.thursday.fromThursday}
+					inputProps={{
+						step: 300
+					}}
+					name="fromThursday"
+					onChange={this.handleDateChange}
+					type="time"
+				/>
+				<Typography variant="body2">To: </Typography>
+				<TextField
+					id="time"
+					value={scheduleObj.thursday.toThursday}
+					inputProps={{
+						step: 300
+					}}
+					name="toThursday"
+					onChange={this.handleDateChange}
+					type="time"
+				/>
+
+				<Typography variant="h6">Friday</Typography>
+				<Typography variant="body2">From: </Typography>
+				<TextField
+					id="time"
+					value={scheduleObj.friday.fromFriday}
+					inputProps={{
+						step: 300
+					}}
+					name="fromFriday"
+					onChange={this.handleDateChange}
+					type="time"
+				/>
+				<Typography variant="body2">To: </Typography>
+				<TextField
+					id="time"
+					value={scheduleObj.friday.toFriday}
+					inputProps={{
+						step: 300
+					}}
+					name="toFriday"
+					onChange={this.handleDateChange}
+					type="time"
+				/>
+			</div>
+		);
+	};
+
+	onSave = ev => {
+		this.setState({ schedule: scheduleObj });
+		this.props.updateDoctorSettings(this.state, this.props.auth.user.id);
+		this.setState({ openSnackBar: true });
+	};
+
+	render() {
+		const { classes } = this.props;
+		const { expanded } = this.state;
+
+		return (
+			<div className={classes.root}>
+				<ProfileActions
+					userRole="Doctor"
+					back={true}
+					toLocation="/doctor/home"
+				/>
+				<Paper elevation={5} className={classes.paperConfig}>
+					<Typography variant="h4" className={classes.headerConfig}>
+						General Settings
+					</Typography>
+
+					<ExpansionPanel
+						expanded={expanded === "panel1"}
+						onChange={this.handleExpand("panel1")}>
+						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+							<Typography className={classes.heading}>
+								Date of Birth
+							</Typography>
+							<Typography className={classes.secondaryHeading}>
+								Please input your birthday, so we know your age
+							</Typography>
+						</ExpansionPanelSummary>
+						<ExpansionPanelDetails>
 							<TextField
 								type="date"
 								variant="outlined"
+								// defaultValue="2000-01-01"
 								value={this.state.birthday || "2000-01-01"}
 								inputProps={{
 									step: 300
@@ -412,6 +412,7 @@ onSave = event => {
 							/>
 						</ExpansionPanelDetails>
 					</ExpansionPanel>
+
 					<ExpansionPanel
 						expanded={expanded === "panel2"}
 						onChange={this.handleExpand("panel2")}>
@@ -444,71 +445,82 @@ onSave = event => {
 							</div>
 						</ExpansionPanelDetails>
 					</ExpansionPanel>
-                    <ExpansionPanel
-                        expanded = {expanded === "panel3"}
-                        onChange={this.handleExpand("panel3")}>
-                            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+
+					<ExpansionPanel
+						expanded={expanded === "panel3"}
+						onChange={this.handleExpand("panel3")}>
+						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 							<Typography className={classes.heading}>
-								Education
+								Alma-mater
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Give Us Details About Your Education
+								Give us data about place where you were studying
 							</Typography>
-						    </ExpansionPanelSummary>
-                            <ExpansionPanelDetails className="flex flex-wrap">
-								<TextField
-                                    fullWidth
-                                    name = "univCity"
-                                    onChange = {this.onChangeUniversity}
-                                    variant = "outlined"
-                                    value = {this.state.university.univCity}
-                                    label = "City where you studied"
-                                    placeholder = "City Name"
-                                    className = {`${classes.halfWidth} ${classes.marginInput}`}
-                                    />
-                                <TextField 
-                                    fullWidth
-                                    name = "univName"
-                                    onChange = {this.onChangeUniversity}
-                                    variant = "outlined"
-                                    value = {this.state.university.univName}
-                                    label = "University where you studied"
-                                    placeholder = "University Name"
-                                    className = {`${classes.halfWidth} ${classes.marginInput}`}
-                                />
-                                <TextField 
-                                    name = "yearOfEntry"
-                                    type = "number"
-                                    onChange = {this.onChangeUniversity}
-                                    variant = "outlined"
-                                    value = {this.state.university.yearOfEntry}
-                                    label = "Year of Entry"
-                                    placeholder = "2012"
-                                    className = {`${classes.quarterWidth} ${classes.marginInput}`}
-                                />
-                                <TextField 
-                                    name = "yearOfOut"
-                                    type = "number"
-                                    onChange = {this.onChangeUniversity}
-                                    variant = "outlined"
-                                    value = {this.state.university.yearOfOut}
-                                    label = "Year of Exit"
-                                    placeholder = "2016"
-                                    className = {`${classes.quarterWidth} ${classes.marginInput}`}
-                                />
-                                 <TextField 
-                                    name = "univSpecialty"
-                                    onChange = {this.onChangeUniversity}
-                                    variant = "outlined"
-                                    value = {this.state.university.univSpecialty}
-                                    label = "Medical Specialty"
-                                    placeholder = "Cardiology"
-                                    className = {`${classes.halfWidth} ${classes.marginInput}`}
-                                />
-							
+						</ExpansionPanelSummary>
+						<ExpansionPanelDetails className="flex flex-wrap">
+							<TextField
+								fullWidth
+								name="univCity"
+								onChange={this.onChangeUniversity}
+								variant="outlined"
+								value={this.state.university.univCity}
+								label="Write the city where you were studying"
+								placeholder="i.e. Kyiv, Kharkiv, Warsaw"
+								className={`${classes.halfWidth} ${
+									classes.marginInput
+								}`}
+							/>
+							<TextField
+								fullWidth
+								name="univName"
+								onChange={this.onChangeUniversity}
+								variant="outlined"
+								value={this.state.university.univName}
+								label="Write name of your educational institution"
+								placeholder="i.e. Bogomolets Nationsl Medical University"
+								className={`${classes.halfWidth} ${
+									classes.marginInput
+								}`}
+							/>
+							<TextField
+								name="yearOfEntry"
+								variant="outlined"
+								type="number"
+								value={this.state.university.yearOfEntry}
+								label="Year of entry"
+								onChange={this.onChangeUniversity}
+								placeholder="i.e. 2006"
+								className={`${classes.marginInput} ${
+									classes.quarterWidth
+								}`}
+							/>
+							<TextField
+								name="yearOfOut"
+								variant="outlined"
+								type="number"
+								value={this.state.university.yearOfOut}
+								label="Graduation year"
+								onChange={this.onChangeUniversity}
+								placeholder="i.e. 2012"
+								className={`${classes.marginInput} ${
+									classes.quarterWidth
+								}`}
+							/>
+							<TextField
+								name="univSpecialty"
+								variant="outlined"
+								label="Your specialty"
+								value={this.state.university.univSpecialty}
+								onChange={this.onChangeUniversity}
+								placeholder="i.e. surgery"
+								className={`${classes.marginInput} ${
+									classes.halfWidth
+								}`}
+							/>
 						</ExpansionPanelDetails>
-                        </ExpansionPanel>
-                        <ExpansionPanel
+					</ExpansionPanel>
+
+					<ExpansionPanel
 						expanded={expanded === "panel4"}
 						onChange={this.handleExpand("panel4")}>
 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -549,7 +561,7 @@ onSave = event => {
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
 							<div className="flex flex-center">
-								<Typography variant="h6">01</Typography>
+								<Typography variant="h6">+38</Typography>
 								<TextField
 									type="number"
 									className={classes.dateField}
@@ -728,7 +740,7 @@ onSave = event => {
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
-							{this.setSchedule()}
+							{this.SetSchedule()}
 						</ExpansionPanelDetails>
 					</ExpansionPanel>
 
@@ -748,8 +760,8 @@ onSave = event => {
 							Save
 						</Button>
 					</div>
-                </Paper>
-                <SnackBar
+				</Paper>
+				<Snackbar
 					anchorOrigin={{
 						vertical: "bottom",
 						horizontal: "left"
@@ -772,9 +784,9 @@ onSave = event => {
 						</IconButton>
 					]}
 				/>
-            </div>
-        );
-    }
+			</div>
+		);
+	}
 }
 
 DoctorSettings.propTypes = {
@@ -794,6 +806,3 @@ export default connect(
 	mapStateToProps,
 	{ updateDoctorSettings, getDoctorSettings }
 )(withStyles(styles)(DoctorSettings));
-
-
-
