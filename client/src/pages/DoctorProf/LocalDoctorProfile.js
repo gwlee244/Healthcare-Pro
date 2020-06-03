@@ -41,6 +41,11 @@ const styles = theme => ({
 	secondPaper: {
 		width: "80%",
 		margin: "1em auto"
+  },
+  infoItems: {
+		marginLeft: ".5em",
+    fontSize: "1.3em", 
+    color: "black"
 	}
 });
 
@@ -104,11 +109,12 @@ class LocalDoctorProfile extends Component {
 				{/* work phone */}
 				<div className="flex flex-center">
 					<PhoneIcon color="primary" fontSize="large" />
-					<Typography
+					{/* <Typography
 						className={classes.infoItems}
 						variant="subtitle1">
 						{`${user.settings.workPhone || NOT_AVAILABLE}`}
-					</Typography>
+					</Typography> */}
+          <a className={classes.infoItems} href = {`tel:${user.settings.workPhone}`}> {user.settings.workPhone}</a>
 				</div>
 
 				{/* birthday */}

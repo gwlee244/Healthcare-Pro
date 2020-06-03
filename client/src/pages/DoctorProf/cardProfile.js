@@ -55,7 +55,10 @@ const styles = {
 	},
 	appBar: {
 		position: "relative"
-	}
+  },
+  infoItems: {
+    color: "black"
+  }
 };
 class UserCard extends Component {
 	constructor(props) {
@@ -213,7 +216,7 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									{user.settings.workPhone || "N/A"}
+									{ user.settings.workPhone ? <a className={classes.infoItems} href = {`tel:${user.settings.workPhone}`}>{user.settings.workPhone}</a> : "N/A" }
 								</Typography>
 							</div>
 							{/* Specialty */}

@@ -38,7 +38,10 @@ const styles = theme => ({
 	},
 	appBar: {
 		position: "relative"
-	}
+  },
+  infoItems: {
+    color: "black"
+  }
 });
 class ThinProfile extends Component {
 	constructor(props) {
@@ -120,11 +123,12 @@ class ThinProfile extends Component {
 					)}
 					{this.infoItem(
 						<PhoneIcon className="iconMargin" />,
-						`+38${user.settings.phone}`
+            
+            <a className={classes.infoItems} href = {`tel:${user.settings.phone}`}>{user.settings.phone}</a>
 					)}
 					{this.infoItem(
 						<MailIcon className="iconMargin" />,
-						`${user.email}`
+					  <a className={classes.infoItems} href = {`mailto:${user.settings.email}`}>{user.settings.email}</a>
 					)}
 					{this.infoItem(
 						<WorkIcon className="iconMargin" />,

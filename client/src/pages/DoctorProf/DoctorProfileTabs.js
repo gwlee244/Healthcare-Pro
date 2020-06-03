@@ -41,8 +41,12 @@ const styles = theme => ({
 	},
 	infoItems: {
 		marginLeft: ".5em",
-		fontSize: "1.3em"
-	}
+    fontSize: "1.3em"
+  },
+  phoneLink: {
+    color: "black"
+  }
+
 });
 
 class DoctorProfileTabs extends Component {
@@ -138,7 +142,8 @@ class DoctorProfileTabs extends Component {
 					<Typography
 						className={classes.infoItems}
 						variant="subtitle1">
-						{`${settings.workPhone || NOT_AVAILABLE}`}
+									{ settings.workPhone ? <a className={classes.phoneLink} href = {`tel:${settings.workPhone}`}>{settings.workPhone}</a> : "NOT_AVAILABLE" }
+						{/* {`${settings.workPhone || NOT_AVAILABLE}`} */}
 					</Typography>
 				</div>
 

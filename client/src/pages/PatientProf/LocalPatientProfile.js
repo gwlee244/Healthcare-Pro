@@ -52,7 +52,8 @@ const styles = theme => ({
 	},
 	infoItems: {
 		marginLeft: ".5em",
-		fontSize: "1.3em"
+    fontSize: "1.3em", 
+    color: "black"
 	}
 });
 class LocalPatientProfile extends Component {
@@ -69,11 +70,12 @@ class LocalPatientProfile extends Component {
 				</div>
 				<div className="flex flex-center">
 					<PhoneIcon color="primary" fontSize="large" />
-					<Typography
+					{/* <Typography
 						className={classes.infoItems}
 						variant="subtitle1">{`Phone: ${
 						user.settings.phone
-					}`}</Typography>
+					}`}</Typography> */}
+           <a className={classes.infoItems} href = {`tel:${user.settings.phone}`}> Phone: {user.settings.phone}</a>
 				</div>
 				<div className="flex flex-center">
 					<EventIcon color="primary" fontSize="large" />
@@ -93,11 +95,12 @@ class LocalPatientProfile extends Component {
 				</div>
 				<div className="flex flex-center">
 					<MailIcon color="primary" fontSize="large" />
-					<Typography
+					{/* <Typography
 						className={classes.infoItems}
 						variant="subtitle1">{`Email: ${
 						user.settings.email
-					}`}</Typography>
+					}`}</Typography> */}
+          <a className={classes.infoItems} href = {`mailto:${user.settings.email}`}> Email: {user.settings.email}</a>
 				</div>
 				<div className="flex flex-center">
 					<WorkIcon color="primary" fontSize="large" />
