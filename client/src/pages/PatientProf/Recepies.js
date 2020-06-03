@@ -1,7 +1,3 @@
-/*
-  Component fot patient, to see own recepies, without control functions
-  @imported at PatientTabs
-*/
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -17,9 +13,15 @@ import FirstPageIcon from "@material-ui/icons/FirstPage";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import LastPageIcon from "@material-ui/icons/LastPage";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 import { connect } from "react-redux";
-import { getPatientsRecepies } from "../../actions/utilsAction";
 import TableHead from "@material-ui/core/TableHead";
+// Actions
+import {
+	sendRecepie,
+	getPatientsRecepies
+} from "../../actions/utilsAction";
 const actionsStyles = theme => ({
 	root: {
 		flexShrink: 0,
@@ -130,15 +132,18 @@ const styles = theme => ({
 		marginRight: "2em"
 	}
 });
-class PatientRecepiesTab extends React.Component {
+class Recepies extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			page: 0,
-			rowsPerPage: 5
+			rowsPerPage: 5,
+			meds: "",
+			order: ""
 		};
 		this.handleChangePage = this.handleChangePage.bind(this);
 		this.handleChangeRowsPerPage = this.handleChangeRowsPerPage.bind(this);
+		this.onAddRecepie = this.onAddRecepie.bind(this);
 	}
 	handleChangePage = (event, page) => {
 		this.setState({ page });
@@ -147,7 +152,29 @@ class PatientRecepiesTab extends React.Component {
 		this.setState({ rowsPerPage: event.target.value });
 	};
 	componentDidMount = () => {
-		this.props.getPatientsRecepies(this.props.auth.user.id);
+		this.props.getPatientsRecepies(this.props.user._id);
+	};
+	onAddRecepie = () => {
+		let now = new Date();
+		const recepie = {
+			meds: this.state.meds,
+			order: this.state.order,
+			date: `${now.getHours()}:${now.getMinutes()}, ${now.getDate()}.${now.getMonth() +
+				1}.${now.getFullYear()}`,
+			doctor: `${this.props.auth.user.firstName} ${
+				this.props.auth.user.lastName
+			}`
+		};
+		this.props.sendRecepie(recepie, this.props.user._id);
+		this.setState({ meds: "", order: "" });
+		rows.unshift(
+			createData(
+				recepie.doctor,
+				recepie.meds,
+				recepie.order,
+				recepie.date
+			)
+		);
 	};
 	render() {
 		const { classes } = this.props;
@@ -173,6 +200,37 @@ class PatientRecepiesTab extends React.Component {
 		}
 		return (
 			<Paper className={classes.root}>
+				<div className="flex flex-center">
+					<TextField
+						multiline
+						value={this.state.meds}
+						onChange={ev =>
+							this.setState({ meds: ev.target.value })
+						}
+						placeholder="Write down medicines, that you think patient needs"
+						label="Medicines"
+						className={classes.inputAdjustment}
+						variant="outlined"
+					/>
+					<TextField
+						multiline
+						value={this.state.order}
+						onChange={ev =>
+							this.setState({ order: ev.target.value })
+						}
+						placeholder="In what order to take them"
+						label="Order"
+						className={classes.inputAdjustment}
+						variant="outlined"
+					/>
+					<Button
+						variant="contained"
+						onClick={this.onAddRecepie}
+						className={classes.btnAdd}
+						color="secondary">
+						Add
+					</Button>
+				</div>
 				<div className={classes.tableWrapper}>
 					<Table className={classes.table}>
 						<TableHead>
@@ -246,10 +304,10 @@ class PatientRecepiesTab extends React.Component {
 		);
 	}
 }
-PatientRecepiesTab.propTypes = {
+Recepies.propTypes = {
+	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired,
-	general: PropTypes.object.isRequired,
-	classes: PropTypes.object.isRequired
+	general: PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
 	auth: state.auth,
@@ -257,5 +315,6 @@ const mapStateToProps = state => ({
 });
 export default connect(
 	mapStateToProps,
-	{ getPatientsRecepies }
-)(withStyles(styles)(PatientRecepiesTab));
+	{ sendRecepie, getPatientsRecepies }
+)(withStyles(styles)(Recepies));
+
