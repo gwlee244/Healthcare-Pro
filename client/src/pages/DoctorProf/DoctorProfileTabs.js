@@ -87,14 +87,14 @@ class DoctorProfileTabs extends Component {
 						className={classes.infoItems}
 						variant="subtitle1">
 						{settings.university
-							? `Studied at ${settings.university.univName},in ${
-									settings.university.univCity
-							  } city, for ${
-									settings.university.univSpecialty
-							  }, years of study ${
-									settings.university.yearOfEntry
-							  } - ${settings.university.yearOfOut}`
-							: NOT_AVAILABLE}
+							? 	`Studied ${
+								settings.university.univSpecialty
+						  		} at ${settings.university.univName} in ${
+								settings.university.univCity
+						 		} from ${
+								settings.university.yearOfEntry
+						  		} - ${settings.university.yearOfOut}`
+								: NOT_AVAILABLE}
 					</Typography>
 				</div>
 
@@ -104,7 +104,7 @@ class DoctorProfileTabs extends Component {
 					<Typography
 						className={classes.infoItems}
 						variant="subtitle1">
-						{`${settings.specialty || NOT_AVAILABLE}`}
+						{`Physician Type: ${settings.specialty || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 
@@ -114,7 +114,7 @@ class DoctorProfileTabs extends Component {
 					<Typography
 						className={classes.infoItems}
 						variant="subtitle1">
-						{`${settings.clinicName || NOT_AVAILABLE}`}
+						{`Place of Work: ${settings.clinicName || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 
@@ -125,9 +125,9 @@ class DoctorProfileTabs extends Component {
 						className={classes.infoItems}
 						variant="subtitle1">
 						{settings.address
-							? `${settings.address.city}, ${
+							? `${settings.address.number} ${
 									settings.address.street
-							  } ${settings.address.number}`
+							  }, ${settings.address.city}`
 							: NOT_AVAILABLE}
 					</Typography>
 				</div>
@@ -138,7 +138,7 @@ class DoctorProfileTabs extends Component {
 					<Typography
 						className={classes.infoItems}
 						variant="subtitle1">
-						{`${settings.workPhone || NOT_AVAILABLE}`}
+						{`Phone: ${settings.workPhone || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 
@@ -148,7 +148,7 @@ class DoctorProfileTabs extends Component {
 					<Typography
 						className={classes.infoItems}
 						variant="subtitle1">
-						{`${settings.birthday || NOT_AVAILABLE}`}
+						{`Date of birth: ${settings.birthday || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 
@@ -158,7 +158,7 @@ class DoctorProfileTabs extends Component {
 					<Typography
 						className={classes.infoItems}
 						variant="subtitle1">
-						{`${settings.sex || NOT_AVAILABLE}`}
+						{`Sex: ${settings.sex || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 
@@ -168,7 +168,7 @@ class DoctorProfileTabs extends Component {
 					<Typography
 						className={classes.infoItems}
 						variant="subtitle1">
-						{`${settings.yearsOfPractice || NOT_AVAILABLE}`}
+						{`Years of Practice: ${settings.yearsOfPractice || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 
@@ -178,7 +178,7 @@ class DoctorProfileTabs extends Component {
 					<Typography
 						className={classes.infoItems}
 						variant="subtitle1">
-						{`Cabinet #${settings.cabinet || NOT_AVAILABLE}`}
+						{`Room #${settings.cabinet || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 
@@ -188,7 +188,7 @@ class DoctorProfileTabs extends Component {
 					<Typography
 						className={classes.infoItems}
 						variant="subtitle1">
-						{`${settings.achievments || NOT_AVAILABLE}`}
+						{`Achievements: ${settings.achievments || NOT_AVAILABLE}`}
 					</Typography>
 				</div>
 			</div>
@@ -210,8 +210,8 @@ class DoctorProfileTabs extends Component {
 							variant="fullWidth">
 							<Tab label="General" />
 							<Tab label="Schedule" />
-							<Tab label="Meet" />
-							<Tab label="Recepies" />
+							<Tab label="Plan an Appointment" />
+							<Tab label="Prescriptions" />
 						</Tabs>
 					</AppBar>
 					{value === 0 && (
