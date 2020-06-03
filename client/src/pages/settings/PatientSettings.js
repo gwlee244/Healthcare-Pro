@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
@@ -188,19 +189,19 @@ class PatientSettings extends React.Component {
 								Address
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Please input your address
+								Input your address
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
 							<div className={classes.spaceAround}>
-								<TextField
+              <TextField
 									type="text"
 									onChange={this.onAddress}
-									name="city"
-									value={this.state.address.city}
+									name="number"
 									variant="outlined"
-									label="Your city"
-									placeholder="Durham"
+									value={this.state.address.number}
+									label="Your house number"
+									placeholder="46"
 								/>
 								<TextField
 									type="text"
@@ -211,14 +212,14 @@ class PatientSettings extends React.Component {
 									value={this.state.address.street}
 									placeholder="Prince Street"
 								/>
-								<TextField
+                	<TextField
 									type="text"
 									onChange={this.onAddress}
-									name="number"
+									name="city"
+									value={this.state.address.city}
 									variant="outlined"
-									value={this.state.address.number}
-									label="Your house number"
-									placeholder="46"
+									label="Your city"
+									placeholder="Durham"
 								/>
 							</div>
 						</ExpansionPanelDetails>
@@ -232,7 +233,7 @@ class PatientSettings extends React.Component {
 								Date of Birth
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Please input your birthday, so we know your age
+								Input your birthday, so we know your age
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -253,10 +254,10 @@ class PatientSettings extends React.Component {
 						onChange={this.handleExpand("panel3")}>
 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 							<Typography className={classes.heading}>
-								Sex
+								Gender
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Set your sex
+								Select your gender
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -289,8 +290,7 @@ class PatientSettings extends React.Component {
 								E-mail
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Please input your e-mail, so we can send for you
-								different data
+								Input your e-mail
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -315,7 +315,7 @@ class PatientSettings extends React.Component {
 								Marital Status
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Tell us about your maritial status
+								Select your maritial status
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -344,8 +344,7 @@ class PatientSettings extends React.Component {
 								Work
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								If you want to give us additional data, you can
-								input your job place
+								Input your job
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -370,8 +369,8 @@ class PatientSettings extends React.Component {
 								Phone Number
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Give us your phone number, so that doctor can
-								contact with you
+								Input your phone number, so that you doctor can
+								contact you
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -400,7 +399,7 @@ class PatientSettings extends React.Component {
 								Height (cm)
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Give us information about your height
+								Input your height
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -425,7 +424,7 @@ class PatientSettings extends React.Component {
 								Weight (kg)
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Give us information about your weight
+								Input your weight
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -450,7 +449,7 @@ class PatientSettings extends React.Component {
 								In case of emergency
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Give us information about your trusted contact
+								Input information for an emergency contact
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -505,7 +504,7 @@ class PatientSettings extends React.Component {
 								Blood type
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Let us know your blood type
+								Select your blood type
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -539,7 +538,7 @@ class PatientSettings extends React.Component {
 								Allergies
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								What allergies do you have? (fruits, pets,
+								Do you have any allergies? (fruits, pets,
 								plants, etc)
 							</Typography>
 						</ExpansionPanelSummary>
@@ -565,7 +564,7 @@ class PatientSettings extends React.Component {
 								Medicine allergies
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Do you have some allergies on medicines?
+								Do you have any allergies to medications?
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -590,7 +589,7 @@ class PatientSettings extends React.Component {
 								Injuries
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Did you had some injuries in the past?
+								Have you had any serious injuries in  the past?
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -615,7 +614,7 @@ class PatientSettings extends React.Component {
 								Operations
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Did you had some operations in the past?
+							Have you had any medical operations in the past?
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -637,10 +636,10 @@ class PatientSettings extends React.Component {
 						onChange={this.handleExpand("panel16")}>
 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 							<Typography className={classes.heading}>
-								Currently meds
+								Current meds
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Taking any medications, currently?
+								Are you currently taking any medications?
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -658,6 +657,7 @@ class PatientSettings extends React.Component {
 					</ExpansionPanel>
 
 					<div className="flex flex-end">
+          <Link to="/patient/home/">
 						<Button
 							variant="outlined"
 							href="/patient/home"
@@ -665,6 +665,7 @@ class PatientSettings extends React.Component {
 							className={classes.btn}>
 							Cancel
 						</Button>
+            </Link>
 						<Button
 							variant="contained"
 							onClick={this.onSave}
