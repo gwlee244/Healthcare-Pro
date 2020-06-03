@@ -228,7 +228,7 @@ class DoctorSettings extends Component {
 				scheduleObj.friday = this.assignSchedule(name, value, day);
 				break;
 			default:
-				throw new Error("Shit in switch on doctor settings");
+				throw new Error("Sorry something went wrong");
 		}
 		this.setState(this.state);
 	};
@@ -451,7 +451,7 @@ class DoctorSettings extends Component {
 						onChange={this.handleExpand("panel3")}>
 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 							<Typography className={classes.heading}>
-								Alma-mater
+								Education Info
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
 								Give us data about place where you were studying
@@ -465,7 +465,7 @@ class DoctorSettings extends Component {
 								variant="outlined"
 								value={this.state.university.univCity}
 								label="Write the city where you were studying"
-								placeholder="i.e. Kyiv, Kharkiv, Warsaw"
+								placeholder="UNC Chapel Hill NC, USA"
 								className={`${classes.halfWidth} ${
 									classes.marginInput
 								}`}
@@ -477,7 +477,7 @@ class DoctorSettings extends Component {
 								variant="outlined"
 								value={this.state.university.univName}
 								label="Write name of your educational institution"
-								placeholder="i.e. Bogomolets Nationsl Medical University"
+								placeholder="UNC Chapel Hill NC, USA"
 								className={`${classes.halfWidth} ${
 									classes.marginInput
 								}`}
@@ -489,7 +489,7 @@ class DoctorSettings extends Component {
 								value={this.state.university.yearOfEntry}
 								label="Year of entry"
 								onChange={this.onChangeUniversity}
-								placeholder="i.e. 2006"
+								placeholder="2006"
 								className={`${classes.marginInput} ${
 									classes.quarterWidth
 								}`}
@@ -501,7 +501,7 @@ class DoctorSettings extends Component {
 								value={this.state.university.yearOfOut}
 								label="Graduation year"
 								onChange={this.onChangeUniversity}
-								placeholder="i.e. 2012"
+								placeholder="2012"
 								className={`${classes.marginInput} ${
 									classes.quarterWidth
 								}`}
@@ -512,7 +512,7 @@ class DoctorSettings extends Component {
 								label="Your specialty"
 								value={this.state.university.univSpecialty}
 								onChange={this.onChangeUniversity}
-								placeholder="i.e. surgery"
+								placeholder="surgery"
 								className={`${classes.marginInput} ${
 									classes.halfWidth
 								}`}
@@ -561,7 +561,7 @@ class DoctorSettings extends Component {
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
 							<div className="flex flex-center">
-								<Typography variant="h6">+38</Typography>
+								<Typography variant="h6">01</Typography>
 								<TextField
 									type="number"
 									className={classes.dateField}
@@ -570,7 +570,7 @@ class DoctorSettings extends Component {
 									name="workPhone"
 									InputProps={{ inputProps: { max: 10 } }}
 									onChange={this.onChangeSettings}
-									placeholder="(XXX)-123-45-67"
+									placeholder="(XXX)-238-2665"
 									variant="outlined"
 								/>
 							</div>
@@ -596,7 +596,7 @@ class DoctorSettings extends Component {
 								fullWidth
 								value={this.state.achievements}
 								onChange={this.onChangeSettings}
-								label="Your contests, diplomasm certificates, etc"
+								label="Your contests, diploma, certificates, etc"
 								variant="outlined"
 								placeholder="Separate with commas"
 							/>
@@ -626,7 +626,7 @@ class DoctorSettings extends Component {
 								onChange={this.onChangeSettings}
 								label="Full name"
 								variant="outlined"
-								placeholder="i.e. Kyiv City Clinical Hospital"
+								placeholder="UNC Family HealthCare"
 							/>
 						</ExpansionPanelDetails>
 					</ExpansionPanel>
@@ -652,7 +652,7 @@ class DoctorSettings extends Component {
 								value={this.state.address.city}
 								variant="outlined"
 								label="City"
-								placeholder="i.e. Kyiv, Kharkiv, Odessa"
+								placeholder="201, Manning Drive Chapel Hill"
 							/>
 
 							<TextField
@@ -664,7 +664,7 @@ class DoctorSettings extends Component {
 								variant="outlined"
 								value={this.state.address.street}
 								label="Street"
-								placeholder="i.e. Ivana Franka, Zelena"
+								placeholder="House#, st name, city, postal code"
 							/>
 
 							<TextField
