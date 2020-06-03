@@ -128,6 +128,10 @@ const styles = theme => ({
 	btnAdd: {
 		width: "20%",
 		marginRight: "2em"
+	},
+	tableHead: {
+		backgroundColor: '#708090',
+		color: 'white'
 	}
 });
 class PatientRecepiesTab extends React.Component {
@@ -176,11 +180,11 @@ class PatientRecepiesTab extends React.Component {
 				<div className={classes.tableWrapper}>
 					<Table className={classes.table}>
 						<TableHead>
-							<TableRow>
-								<TableCell>Doctor</TableCell>
-								<TableCell>What medicines to use</TableCell>
-								<TableCell>In what order</TableCell>
-								<TableCell>Date</TableCell>
+							<TableRow className={classes.tableHead} stickyHeader="true">
+								<TableCell className={classes.tableHead} align="left">Doctor</TableCell>
+								<TableCell className={classes.tableHead} align="left">What medicines to use</TableCell>
+								<TableCell className={classes.tableHead} align="left">In what order</TableCell>
+								<TableCell className={classes.tableHead} align="left">Date</TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
