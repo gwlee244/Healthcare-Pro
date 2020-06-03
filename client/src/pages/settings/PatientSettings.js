@@ -495,3 +495,370 @@
 // 								<MenuItem value={"B"}>B</MenuItem>
 // 								<MenuItem value={"AB"}>AB</MenuItem>
 // 							</Select>
+//                             <ExpansionPanel
+// 						expanded={expanded === "panel6"}
+// 						onChange={this.handleExpand("panel6")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								Work
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								If you want to give us additional data, you can
+// 								input your job place
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<TextField
+// 								type="text"
+// 								fullWidth
+// 								name="work"
+// 								value={this.state.work}
+// 								onChange={this.onChangeSettings}
+// 								variant="outlined"
+// 								label="Your Job"
+// 								placeholder="i.e main engineer in Mercedes-benz"
+// 							/>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
+// 					<ExpansionPanel
+// 						expanded={expanded === "panel7"}
+// 						onChange={this.handleExpand("panel7")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								Phone Number
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								Give us your phone number, so that doctor can
+// 								contact with you
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<div className="flex flex-center">
+// 								<Typography variant="h6">01</Typography>
+// 								<TextField
+// 									type="number"
+// 									className={classes.dateField}
+// 									label="Phone number"
+// 									name="phone"
+// 									value={this.state.phone}
+// 									InputProps={{ inputProps: { max: 10 } }}
+// 									onChange={this.onChangeSettings}
+// 									placeholder="(XXX)-123-45-67"
+// 									variant="outlined"
+// 								/>
+// 							</div>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
+// 					<ExpansionPanel
+// 						expanded={expanded === "panel8"}
+// 						onChange={this.handleExpand("panel8")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								Height (cm)
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								Give us information about your height
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<TextField
+// 								type="number"
+// 								className={classes.dateField}
+// 								placeholder="Your height in cm"
+// 								name="height"
+// 								value={this.state.height}
+// 								onChange={this.onChangeSettings}
+// 								variant="outlined"
+// 								inputProps={{ min: "0", max: "300" }}
+// 							/>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
+// 					<ExpansionPanel
+// 						expanded={expanded === "panel9"}
+// 						onChange={this.handleExpand("panel9")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								Weight (kg)
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								Give us information about your weight
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<TextField
+// 								type="number"
+// 								className={classes.dateField}
+// 								placeholder="Your weight in kg"
+// 								variant="outlined"
+// 								value={this.state.weight}
+// 								name="weight"
+// 								onChange={this.onChangeSettings}
+// 								inputProps={{ min: "0", max: "300" }}
+// 							/>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
+// 					<ExpansionPanel
+// 						expanded={expanded === "panel10"}
+// 						onChange={this.handleExpand("panel10")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								In case of emergency
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								Give us information about your trusted contact
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<TextField
+// 								type="text"
+// 								name="fName"
+// 								value={this.state.emergency.fName}
+// 								onChange={this.onEmergency}
+// 								className={classes.dateField}
+// 								placeholder="First name"
+// 								variant="outlined"
+// 							/>
+// 							<TextField
+// 								type="text"
+// 								name="lName"
+// 								value={this.state.emergency.lName}
+// 								onChange={this.onEmergency}
+// 								className={classes.dateField}
+// 								placeholder="Last Name"
+// 								variant="outlined"
+// 							/>
+// 							<TextField
+// 								type="text"
+// 								name="relation"
+// 								value={this.state.emergency.relation}
+// 								onChange={this.onEmergency}
+// 								className={classes.dateField}
+// 								placeholder="Relationship"
+// 								variant="outlined"
+// 							/>
+// 							<TextField
+// 								type="number"
+// 								name="phoneNumber"
+// 								value={this.state.emergency.phoneNumber}
+// 								onChange={this.onEmergency}
+// 								className={classes.dateField}
+// 								placeholder="Phone number"
+// 								variant="outlined"
+// 							/>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
+// 					<Typography variant="h4" className={classes.headerConfig}>
+// 						Medical questions
+// 					</Typography>
+// 					<ExpansionPanel
+// 						expanded={expanded === "panel11"}
+// 						onChange={this.handleExpand("panel11")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								Blood type
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								Let us know your blood type
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<Select
+// 								value={this.state.blood.type}
+// 								name="type"
+// 								onChange={this.onChangeBloodType}
+// 								className={classes.dateField}>
+// 								<MenuItem value={"0"}>0</MenuItem>
+// 								<MenuItem value={"A"}>A</MenuItem>
+// 								<MenuItem value={"B"}>B</MenuItem>
+// 								<MenuItem value={"AB"}>AB</MenuItem>
+// 							</Select>
+//                             <Select
+// 								value={this.state.blood.rhesus}
+// 								name="rhesus"
+// 								onChange={this.onChangeBloodType}
+// 								className={classes.dateField}>
+// 								<MenuItem value={"+"}>+</MenuItem>
+// 								<MenuItem value={"-"}>-</MenuItem>
+// 							</Select>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
+// 					<ExpansionPanel
+// 						expanded={expanded === "panel12"}
+// 						onChange={this.handleExpand("panel12")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								Allergies
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								What allergies do you have? (fruits, pets,
+// 								plants, etc)
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<TextField
+// 								type="text"
+// 								fullWidth
+// 								value={this.state.allergies}
+// 								name="allergies"
+// 								onChange={this.onChangeSettings}
+// 								variant="outlined"
+// 								label="Your allergies"
+// 								placeholder="i.e chocolate, dogs, lemons"
+// 							/>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
+// 					<ExpansionPanel
+// 						expanded={expanded === "panel13"}
+// 						onChange={this.handleExpand("panel13")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								Medicine allergies
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								Do you have some allergies on medicines?
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<TextField
+// 								type="text"
+// 								fullWidth
+// 								value={this.state.medAllergies}
+// 								name="medAllergies"
+// 								onChange={this.onChangeSettings}
+// 								variant="outlined"
+// 								label="Your medicine allergies"
+// 								placeholder="i.e amoxicillin, ampicillin, penicillin"
+// 							/>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
+// 					<ExpansionPanel
+// 						expanded={expanded === "panel14"}
+// 						onChange={this.handleExpand("panel14")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								Injuries
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								Did you had some injuries in the past?
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<TextField
+// 								type="text"
+// 								fullWidth
+// 								value={this.state.injuries}
+// 								name="injuries"
+// 								onChange={this.onChangeSettings}
+// 								variant="outlined"
+// 								label="Your injuries"
+// 								placeholder="i.e broke arm"
+// 							/>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
+// 					<ExpansionPanel
+// 						expanded={expanded === "panel15"}
+// 						onChange={this.handleExpand("panel15")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								Operations
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								Did you had some operations in the past?
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<TextField
+// 								type="text"
+// 								fullWidth
+// 								value={this.state.operations}
+// 								name="operations"
+// 								onChange={this.onChangeSettings}
+// 								variant="outlined"
+// 								label="Your past operations"
+// 								placeholder="i.e plastic operations, appendix"
+// 							/>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
+// 					<ExpansionPanel
+// 						expanded={expanded === "panel16"}
+// 						onChange={this.handleExpand("panel16")}>
+// 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+// 							<Typography className={classes.heading}>
+// 								Currently meds
+// 							</Typography>
+// 							<Typography className={classes.secondaryHeading}>
+// 								Taking any medications, currently?
+// 							</Typography>
+// 						</ExpansionPanelSummary>
+// 						<ExpansionPanelDetails>
+// 							<TextField
+// 								type="text"
+// 								fullWidth
+// 								name="currMeds"
+// 								value={this.state.currMeds}
+// 								onChange={this.onChangeSettings}
+// 								variant="outlined"
+// 								label="Are you taking some medicines right now?"
+// 								placeholder="if no, leave blank"
+// 							/>
+// 						</ExpansionPanelDetails>
+// 					</ExpansionPanel>
+// 					<div className="flex flex-end">
+// 						<Button
+// 							variant="outlined"
+// 							href="/patient/home"
+// 							color="secondary"
+// 							className={classes.btn}>
+// 							Cancel
+// 						</Button>
+// 						<Button
+// 							variant="contained"
+// 							onClick={this.onSave}
+// 							color="secondary"
+// 							className={classes.btn}>
+// 							Save
+// 						</Button>
+// 					</div>
+// 				</Paper>
+// 				<Snackbar
+// 					anchorOrigin={{
+// 						vertical: "bottom",
+// 						horizontal: "left"
+// 					}}
+// 					open={this.state.openSnackBar}
+// 					autoHideDuration={4000}
+// 					onClose={this.handleCloseSnackBar}
+// 					ContentProps={{
+// 						"aria-describedby": "message-id"
+// 					}}
+// 					message={<span id="message-id">Saved</span>}
+// 					action={[
+// 						<IconButton
+// 							key="close"
+// 							aria-label="Close"
+// 							color="inherit"
+// 							className={classes.close}
+// 							onClick={this.handleCloseSnackBar}>
+// 							<CloseIcon />
+// 						</IconButton>
+// 					]}
+// 				/>
+// 			</div>
+// 		);
+// 	}
+// }
+// PatientSettings.propTypes = {
+// 	auth: PropTypes.object.isRequired,
+// 	general: PropTypes.object.isRequired,
+// 	settings: PropTypes.object.isRequired,
+// 	classes: PropTypes.object.isRequired
+// };
+// const mapStateToProps = state => ({
+// 	auth: state.auth,
+// 	general: state.general,
+// 	settings: state.settings
+// });
+// export default connect(
+// 	mapStateToProps,
+// 	{ updatePatientSettings, getPatientSettings }
+// )(withStyles(styles)(PatientSettings));
