@@ -71,8 +71,8 @@ class PatientTabs extends Component {
 							centered>
 							<Tab label="Doctors" />
 							<Tab label="E-card" />
-							<Tab label="recepies" />
-							<Tab label="planned visits" />
+							<Tab label="Prescriptions" />
+							<Tab label="Planned Appointments" />
 						</Tabs>
 					</AppBar>
 					{value === 0 && (

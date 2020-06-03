@@ -5,7 +5,7 @@ import FirstPageIcon from '@material-ui/icons/FirstPage';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import { Icon, Typography } from '@material-ui/core';
+import { Icon, Typography, TableHead } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import Paper from "@material-ui/core/Paper";
 import Table from '@material-ui/core/Table';
@@ -87,7 +87,7 @@ function createData(doctor, diaryRecord, date) {
 const styles = theme => ({
   root: {
     width: '100%',
-    marginTop: theme.spacing.unit * 3
+    // marginTop: theme.spacing.unit * 3
   },
   table: {
     minWidth: 500
@@ -163,16 +163,17 @@ export class PatientDiaryTab extends Component {
         <Paper className={classes.root}>
           <div className={classes.tableWrapper}>
             <Table className={classes.table}>
-              <TableBody>
+              <TableHead>
                 <TableRow className={classes.tableHead} stickyHeader="true">
-                  <TableCell className={classes.tableHead} align="left">ID</TableCell>
+                  {/* <TableCell className={classes.tableHead} align="left">ID</TableCell> */}
                   <TableCell className={classes.tableHead} align="left">Doctor</TableCell>
-                  <TableCell className={classes.tableHead} align="left">Patient Record</TableCell>
+                  <TableCell className={classes.tableHead} align="left">Appointment Notes</TableCell>
                   <TableCell className={classes.tableHead} align="left">Date</TableCell>
                 </TableRow>
+              </TableHead>
+                <TableBody>
                 {this.state.rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => <TableRow key={row.id}>
-
-                  <TableCell align="left">{row.id}</TableCell>
+                  {/* <TableCell align="left">{row.id}</TableCell> */}
                   <TableCell align="left">{row.doctor}</TableCell>
                   <TableCell align="left">{row.diaryRecord}</TableCell>
                   <TableCell align="left">{row.date}</TableCell>

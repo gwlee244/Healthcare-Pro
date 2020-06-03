@@ -130,7 +130,11 @@ const styles = theme => ({
 	btnAdd: {
 		width: "20%",
 		marginRight: "2em"
-	}
+	},
+	tableHead: {
+		backgroundColor: '#708090',
+		color: 'white'
+	  }
 });
 class Recepies extends React.Component {
 	constructor(props) {
@@ -234,11 +238,11 @@ class Recepies extends React.Component {
 				<div className={classes.tableWrapper}>
 					<Table className={classes.table}>
 						<TableHead>
-							<TableRow>
-								<TableCell>Doctor</TableCell>
-								<TableCell>What medicines to use</TableCell>
-								<TableCell>In what order</TableCell>
-								<TableCell>Date</TableCell>
+							<TableRow className={classes.tableHead} stickyHeader="true">
+								<TableCell className={classes.tableHead}>Doctor</TableCell>
+								<TableCell className={classes.tableHead}>What medicines to use</TableCell>
+								<TableCell className={classes.tableHead}>In what order</TableCell>
+								<TableCell className={classes.tableHead}>Date</TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
