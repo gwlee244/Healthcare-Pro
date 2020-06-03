@@ -109,9 +109,9 @@ const TablePaginationActionsWrapped = withStyles(actionsStyles, {
 })(TablePaginationActions);
 let counter = 0,
 	rows = [];
-function createData(doctor, meds, order, date) {
+function createData(doctor, meds, dosage, units, instructions, date) {
 	counter += 1;
-	return { id: counter, doctor, meds, order, date };
+	return { id: counter, doctor, meds, dosage, units, instructions, date };
 }
 const styles = theme => ({
 	root: {
@@ -143,7 +143,9 @@ class Recepies extends React.Component {
 			page: 0,
 			rowsPerPage: 5,
 			meds: "",
-			order: ""
+			dosage: "",
+			units: "",
+			instructions: ""
 		};
 		this.handleChangePage = this.handleChangePage.bind(this);
 		this.handleChangeRowsPerPage = this.handleChangeRowsPerPage.bind(this);
@@ -162,7 +164,9 @@ class Recepies extends React.Component {
 		let now = new Date();
 		const recepie = {
 			meds: this.state.meds,
-			order: this.state.order,
+			dosage: this.state.dosage,
+			units: this.state.units,
+			instructions: this.state.instructions,
 			date: `${now.getHours()}:${now.getMinutes()}, ${now.getDate()}.${now.getMonth() +
 				1}.${now.getFullYear()}`,
 			doctor: `${this.props.auth.user.firstName} ${
@@ -170,12 +174,14 @@ class Recepies extends React.Component {
 			}`
 		};
 		this.props.sendRecepie(recepie, this.props.user._id);
-		this.setState({ meds: "", order: "" });
+		this.setState({ meds: "", dosage: "", units: "", instructions: "" });
 		rows.unshift(
 			createData(
 				recepie.doctor,
 				recepie.meds,
-				recepie.order,
+				recepie.dosage,
+				recepie.units,
+				recepie.instructions,
 				recepie.date
 			)
 		);
@@ -195,7 +201,9 @@ class Recepies extends React.Component {
 						createData(
 							patientRecepie[i].doctor,
 							patientRecepie[i].meds,
-							patientRecepie[i].order,
+							patientRecepie[i].dosage,
+							patientRecepie[i].units,
+							patientRecepie[i].instructions,
 							patientRecepie[i].date
 						)
 					);
@@ -211,19 +219,41 @@ class Recepies extends React.Component {
 						onChange={ev =>
 							this.setState({ meds: ev.target.value })
 						}
-						placeholder="Write down medicines, that you think patient needs"
+						placeholder="What medicine would you like to prescribe?"
 						label="Medicines"
 						className={classes.inputAdjustment}
 						variant="outlined"
 					/>
 					<TextField
 						multiline
-						value={this.state.order}
+						value={this.state.dosage}
 						onChange={ev =>
-							this.setState({ order: ev.target.value })
+							this.setState({ dosage: ev.target.value })
 						}
-						placeholder="In what order to take them"
-						label="Order"
+						placeholder="What is the dosage?"
+						label="Dosage"
+						className={classes.inputAdjustment}
+						variant="outlined"
+					/>
+					<TextField
+						multiline
+						value={this.state.units}
+						onChange={ev =>
+							this.setState({ units: ev.target.value })
+						}
+						placeholder="What are the units?"
+						label="Units"
+						className={classes.inputAdjustment}
+						variant="outlined"
+					/>
+					<TextField
+						multiline
+						value={this.state.instructions}
+						onChange={ev =>
+							this.setState({ instructions: ev.target.value })
+						}
+						placeholder="What are the instructions for use?"
+						label="Instructions"
 						className={classes.inputAdjustment}
 						variant="outlined"
 					/>
@@ -240,8 +270,10 @@ class Recepies extends React.Component {
 						<TableHead>
 							<TableRow className={classes.tableHead} stickyHeader="true">
 								<TableCell className={classes.tableHead}>Doctor</TableCell>
-								<TableCell className={classes.tableHead}>What medicines to use</TableCell>
-								<TableCell className={classes.tableHead}>In what order</TableCell>
+								<TableCell className={classes.tableHead}>Medicine</TableCell>
+								<TableCell className={classes.tableHead}>Dosage</TableCell>
+								<TableCell className={classes.tableHead}>Units</TableCell>
+								<TableCell className={classes.tableHead}>Instructions</TableCell>
 								<TableCell className={classes.tableHead}>Date</TableCell>
 							</TableRow>
 						</TableHead>
@@ -266,7 +298,15 @@ class Recepies extends React.Component {
 											</TableCell>
 											<TableCell
 												style={{ fontSize: "1.2em" }}>
-												{row.order}
+												{row.dosage}
+											</TableCell>
+											<TableCell
+												style={{ fontSize: "1.2em" }}>
+												{row.units}
+											</TableCell>
+											<TableCell
+												style={{ fontSize: "1.2em" }}>
+												{row.instructions}
 											</TableCell>
 											<TableCell
 												style={{ fontSize: "1.2em" }}>
