@@ -13,7 +13,7 @@ import deepPurple from "@material-ui/core/colors/deepPurple";
 import getAvatarInitials from "../../helpers/getAvatarInitials";
 import { colors } from "../../helpers/palette";
 // Components
-// import PatientProfileTabs from "./PatientProfileTabs";
+import PatientProfileTabs from "./PatientProfileTabs";
 
 const styles = theme => ({
 	root: {
@@ -60,7 +60,7 @@ class PatientProfile extends Component {
 					</div>
 				</Paper>
 				<Paper className={classes.secondPaper} elevation={2}>
-					{/* <PatientProfileTabs user={user} /> */}
+					<PatientProfileTabs user={user} />
 				</Paper>
 			</div>
 		);
