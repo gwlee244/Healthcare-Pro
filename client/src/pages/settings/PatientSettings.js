@@ -200,7 +200,7 @@ class PatientSettings extends React.Component {
 									value={this.state.address.city}
 									variant="outlined"
 									label="Your city"
-									placeholder="i.e. Kyiv, Kharkiv, Odessa"
+									placeholder="Durham"
 								/>
 								<TextField
 									type="text"
@@ -209,7 +209,7 @@ class PatientSettings extends React.Component {
 									variant="outlined"
 									label="Your street"
 									value={this.state.address.street}
-									placeholder="i.e. Ivana Franka, Zelena"
+									placeholder="Prince Street"
 								/>
 								<TextField
 									type="text"
@@ -218,7 +218,7 @@ class PatientSettings extends React.Component {
 									variant="outlined"
 									value={this.state.address.number}
 									label="Your house number"
-									placeholder="i.e. 46"
+									placeholder="46"
 								/>
 							</div>
 						</ExpansionPanelDetails>
@@ -357,7 +357,7 @@ class PatientSettings extends React.Component {
 								onChange={this.onChangeSettings}
 								variant="outlined"
 								label="Your Job"
-								placeholder="i.e main engineer in Mercedes-benz"
+								placeholder="Full Stack Developer"
 							/>
 						</ExpansionPanelDetails>
 					</ExpansionPanel>
@@ -385,7 +385,7 @@ class PatientSettings extends React.Component {
 									value={this.state.phone}
 									InputProps={{ inputProps: { max: 10 } }}
 									onChange={this.onChangeSettings}
-									placeholder="(XXX)-123-45-67"
+									placeholder="(XXX)-123-4567"
 									variant="outlined"
 								/>
 							</div>
@@ -627,7 +627,7 @@ class PatientSettings extends React.Component {
 								onChange={this.onChangeSettings}
 								variant="outlined"
 								label="Your past operations"
-								placeholder="i.e plastic operations, appendix"
+								placeholder=" appendix"
 							/>
 						</ExpansionPanelDetails>
 					</ExpansionPanel>
@@ -651,7 +651,7 @@ class PatientSettings extends React.Component {
 								value={this.state.currMeds}
 								onChange={this.onChangeSettings}
 								variant="outlined"
-								label="Are you taking some medicines right now?"
+								label="Are you on medication currently and what medications?"
 								placeholder="if no, leave blank"
 							/>
 						</ExpansionPanelDetails>
