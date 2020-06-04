@@ -133,7 +133,7 @@ class PatientProfileTabs extends Component {
 						variant="subtitle1">
               {user.settings.height ? `Height/Weight: ${user.settings.height}cm/${
 						user.settings.weight
-					}kg` : `Height/Wight: N/A`}</Typography>
+					}kg` : `Height/Weight: N/A`}</Typography>
 				</div>
 				<div className="flex flex-center">
 					<FavoriteIcon color="primary" fontSize="large" />
@@ -154,7 +154,7 @@ class PatientProfileTabs extends Component {
 					</ExpansionPanelSummary>
 					<ExpansionPanelDetails>
 						<Typography variant="subtitle1">
-							{user.settings.emergency ? `Contact ${user.settings.emergency.fName} ${
+							{user.settings.emergency.phoneNumber ? `Contact ${user.settings.emergency.fName} ${
 								user.settings.emergency.lName
 							}, ${user.firstName} ${user.lastName}'s ${
 								user.settings.emergency.relation
@@ -173,21 +173,21 @@ class PatientProfileTabs extends Component {
 			<div>
 				<div className="">
 					<Typography variant="h5">{`Allergies: ${
-						user.settings.allergies
+						user.settings.allergies || NOT_AVAILABLE
 					}`}</Typography>
 					<Typography variant="h5">
 						{`Allergies on medicines: ${
-							user.settings.medAllergies
+							user.settings.medAllergies || NOT_AVAILABLE 
 						}`}
 					</Typography>
 					<Typography variant="h5">{`Injuries: ${
 						user.settings.injuries || NOT_AVAILABLE
 					}`}</Typography>
 					<Typography variant="h5">{`Past operations: ${
-						user.settings.operations
+						user.settings.operations || NOT_AVAILABLE
 					}`}</Typography>
 					<Typography variant="h5">{`Current medicines: ${
-						user.settings.currMeds
+						user.settings.currMeds || NOT_AVAILABLE
 					}`}</Typography>
 				</div>
 			</div>
