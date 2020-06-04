@@ -215,8 +215,8 @@ class DoctorProfileTabs extends Component {
 							variant="fullWidth">
 							<Tab label="General" />
 							<Tab label="Schedule" />
-							<Tab label="Meet" />
-							<Tab label="Recepies" />
+							<Tab label="Plan an Appointment" />
+							<Tab label="Prescriptions" />
 						</Tabs>
 					</AppBar>
 					{value === 0 && (
