@@ -53,6 +53,7 @@ const styles = theme => ({
 	}
 });
 const week = startOfWeek(new Date());
+console.log(week);
 let HOURS = null;
 class SetMeeting extends Component {
 	constructor(props) {
@@ -82,8 +83,8 @@ class SetMeeting extends Component {
 		this.setState({ openSnackBar: false });
 	};
 	formatWeekDay = (day, date) => {
-		return `${day} (${date.getDate()}.${date.getMonth() +
-			1}.${date.getFullYear()})`;
+		return `${day} (${date.getMonth() +
+			1}/${date.getDate()}/${date.getFullYear()})`;
 	};
 	onSelectDay = ev => {
 		this.setState({ day: ev.target.value, allowed: true });
@@ -165,7 +166,7 @@ class SetMeeting extends Component {
 						</Select>
 					</FormControl>
 					<FormControl disabled={!this.state.allowed}>
-						<InputLabel>Select comfort available time</InputLabel>
+						<InputLabel>Select an available time</InputLabel>
 						<Select
 							value={this.state.time_start}
 							name="hours"
@@ -215,7 +216,7 @@ class SetMeeting extends Component {
 						"aria-describedby": "message-id"
 					}}
 					message={
-						<span id="message-id">Your visit registered!</span>
+						<span id="message-id">Your appointment has been set!</span>
 					}
 					action={[
 						<IconButton

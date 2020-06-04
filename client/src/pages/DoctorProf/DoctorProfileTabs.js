@@ -232,8 +232,8 @@ class DoctorProfileTabs extends Component {
 								/>
 							) : (
 								<Typography variant="h4" align="center">
-									Sorry, schedule not available. Our doctor
-									forget to set it(
+									Sorry, schedule not available. This doctor
+									has not set it yet.
 								</Typography>
 							)}
 						</TabContainer>

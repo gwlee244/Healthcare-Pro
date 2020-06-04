@@ -8,7 +8,7 @@ import Typed from "react-typed";
 class Home extends Component {
   render() {
     return (
-      <div class = "whole-page">
+      <div className = "whole-page">
       <div className="home-container">
         <div className="wrapper">
           <h1>Healthcare Pro</h1>

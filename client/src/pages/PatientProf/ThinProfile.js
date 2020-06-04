@@ -79,7 +79,7 @@ class ThinProfile extends Component {
 	render() {
 		const { classes, user } = this.props;
 		if (!user.settings) {
-      return(<p>This is it</p>)
+      return null;
     }
 		// 	user.settings = {
 		// 		birthday: "N/A",
