@@ -69,7 +69,8 @@ class DoctorTabs extends Component {
 		const { classes, appointments, stats } = this.props;
 		const { value } = this.state;
 		let content = null,
-			chartStats = null;
+      chartStats = null;
+      console.log(value);
 
 		if (isEmpty(omitEmpty(appointments))) {
 			content = null;
@@ -104,10 +105,11 @@ class DoctorTabs extends Component {
 							{chartStats ? (
 								<Stats stats={chartStats} />
 							) : (
-                <Paper>
-                <h2 className={classes.topText}>You don't have any statistics to view yet.  Try adding some patients.</h2>
-                <img className={classes.img} src={statis}></img>
-              </Paper>
+                <Loader />
+              //   <Paper>
+              //   <h2 className={classes.topText}>You don't have any statistics to view yet.  Try adding some patients.</h2>
+              //   <img className={classes.img} src={statis}></img>
+              // </Paper>
 							)}
 						</TabContainer>
 					)}

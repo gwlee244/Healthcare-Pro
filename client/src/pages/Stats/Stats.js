@@ -15,10 +15,7 @@ export class Stats extends Component {
   render() {
     const { classes } = this.props;
     const { quantity, sexesPie, business, satisfaction, monthlyVisitors, sexesBar } = this.props.stats;
-    if(quantity.series) {
-      console.log(quantity.options);
-      console.log(quantity.series);
-    }
+   
     return (
     
       <div className="grid-stats">

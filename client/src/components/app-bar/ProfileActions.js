@@ -102,9 +102,9 @@ class ProfileActions extends React.Component {
 		this.handleMobileMenuClose = this.handleMobileMenuClose.bind(this);
 		this.dialogOpen = this.dialogOpen.bind(this);
 		this.dialogClose = this.dialogClose.bind(this);
-		this.dialogCopy = this.dialogCopy.bind(this);
+		this.copyAndSubmit = this.copyAndSubmit.bind(this);
 		this.snackClose = this.snackClose.bind(this);
-		this.handleSend = this.handleSend.bind(this);
+		this.goBack = this.goBack.bind(this);
 		this.closeProfile = this.closeProfile.bind(this);
 		this.Transition = this.Transition.bind(this);
 	}
@@ -146,17 +146,17 @@ class ProfileActions extends React.Component {
 		this.setState({ open: false });
 	};
 
-	dialogCopy = () => {
-		this.setState({ snackOpen: true });
+	copyAndSubmit = () => {
+    this.setState({ snackOpen: true });
+    let id = this.props.auth.user.id;
+		this.props.setToken(token, id);
 	};
 
 	snackClose = () => {
 		this.setState({ snackOpen: false });
 	};
 
-	handleSend = () => {
-		let id = this.props.auth.user.id;
-		this.props.setToken(token, id);
+	goBack = () => {
 		this.setState({ open: false });
 	};
 
@@ -216,8 +216,7 @@ class ProfileActions extends React.Component {
 					</DialogTitle>
 					<DialogContent>
 						<DialogContentText>
-							Send this unrecognasible letters to your patient`s
-							email, to be sure that only him can be your client
+						Copy this jumbled token and send it to your patients to verify that they are your clients and can see your information
 						</DialogContentText>
 						<TextField
 							autoFocus
@@ -234,12 +233,12 @@ class ProfileActions extends React.Component {
 							Cancel
 						</Button>
 						<CopyToClipboard text={token}>
-							<Button onClick={this.dialogCopy} color="primary">
-								Copy
+							<Button onClick={this.copyAndSubmit} color="primary">
+								Copy and Submit
 							</Button>
 						</CopyToClipboard>
-						<Button onClick={this.handleSend} color="primary">
-							Submit
+						<Button onClick={this.goBack} color="primary">
+							Exit
 						</Button>
 					</DialogActions>
 				</Dialog>
