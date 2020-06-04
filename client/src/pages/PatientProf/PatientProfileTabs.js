@@ -70,9 +70,9 @@ class PatientProfileTabs extends Component {
 					<Typography
 						className={classes.infoItems}
 						variant="subtitle1">
-              {user.settings.address.street ? `Address: ${user.settings.address.number} ${
+              {user.settings.address.street ? `Home Address: ${user.settings.address.number} ${
 						user.settings.address.street
-					} ${user.settings.address.city}` : `Address: N/A`}</Typography>
+					} ${user.settings.address.city}` : `Home Address: N/A`}</Typography>
 				</div>
 				<div className="flex flex-center">
 					<PhoneIcon color="primary" fontSize="large" />
@@ -209,7 +209,7 @@ class PatientProfileTabs extends Component {
 							<Tab label="General" />
 							<Tab label="Medical questions" />
 							<Tab label="E-card" />
-							<Tab label="Recepies" />
+							<Tab label="Prescriptions" />
 						</Tabs>
 					</AppBar>
 					{value === 0 && (

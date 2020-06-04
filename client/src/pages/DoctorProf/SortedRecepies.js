@@ -118,10 +118,10 @@ const TablePaginationActionsWrapped = withStyles(actionsStyles, {
 
 let counter = 0,
 	rows = [];
-function createData(doctor, meds, order, date) {
-	counter += 1;
-	return { id: counter, doctor, meds, order, date };
-}
+	function createData(doctor, meds, dosage, units, instructions, date) {
+		counter += 1;
+		return { id: counter, doctor, meds, dosage, units, instructions, date };
+	}
 
 const styles = theme => ({
 	root: {
@@ -140,7 +140,11 @@ const styles = theme => ({
 	btnAdd: {
 		width: "20%",
 		marginRight: "2em"
-	}
+	},
+	tableHead: {
+		backgroundColor: '#708090',
+		color: 'white'
+	  }
 });
 
 class SortedRecepies extends Component {
@@ -186,7 +190,9 @@ class SortedRecepies extends Component {
 							createData(
 								patientRecepie[i].doctor,
 								patientRecepie[i].meds,
-								patientRecepie[i].order,
+								patientRecepie[i].dosage,
+								patientRecepie[i].units,
+								patientRecepie[i].instructions,
 								patientRecepie[i].date
 							)
 						);
@@ -198,12 +204,14 @@ class SortedRecepies extends Component {
 			<Paper className={classes.root}>
 				<div className={classes.tableWrapper}>
 					<Table className={classes.table}>
-						<TableHead>
-							<TableRow>
-								<TableCell>Doctor</TableCell>
-								<TableCell>What medicines to use</TableCell>
-								<TableCell>In what order</TableCell>
-								<TableCell>Date</TableCell>
+					<TableHead>
+							<TableRow className={classes.tableHead} stickyHeader="true">
+								<TableCell className={classes.tableHead}>Doctor</TableCell>
+								<TableCell className={classes.tableHead}>Medicine</TableCell>
+								<TableCell className={classes.tableHead}>Dosage</TableCell>
+								<TableCell className={classes.tableHead}>Units</TableCell>
+								<TableCell className={classes.tableHead}>Instructions</TableCell>
+								<TableCell className={classes.tableHead}>Date</TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
@@ -227,7 +235,15 @@ class SortedRecepies extends Component {
 											</TableCell>
 											<TableCell
 												style={{ fontSize: "1.2em" }}>
-												{row.order}
+												{row.dosage}
+											</TableCell>
+											<TableCell
+												style={{ fontSize: "1.2em" }}>
+												{row.units}
+											</TableCell>
+											<TableCell
+												style={{ fontSize: "1.2em" }}>
+												{row.instructions}
 											</TableCell>
 											<TableCell
 												style={{ fontSize: "1.2em" }}>
