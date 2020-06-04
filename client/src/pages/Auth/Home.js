@@ -8,6 +8,7 @@ import Typed from "react-typed";
 class Home extends Component {
   render() {
     return (
+      <div class = "whole-page">
       <div className="home-container">
         <div className="wrapper">
           <h1>Healthcare Pro</h1>
@@ -32,6 +33,7 @@ class Home extends Component {
         />
         <Link to="/login" className="home">Sign In</Link>
         <Link to="/register" className="home">Create Account</Link>
+      </div>
       </div>
     );
   }
