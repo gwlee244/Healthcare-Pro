@@ -754,7 +754,7 @@ class DoctorSettings extends Component {
               hred="/doctor/home"
               color="secondary"
               className={classes.btn}>
-              Cancel
+              Go Back
 						</Button>
             </Link>
             <Button

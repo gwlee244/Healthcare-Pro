@@ -38,7 +38,10 @@ const styles = theme => ({
 	},
 	appBar: {
 		position: "relative"
-	}
+  },
+  infoItems: {
+    color: "black"
+  }
 });
 class ThinProfile extends Component {
 	constructor(props) {
@@ -76,21 +79,23 @@ class ThinProfile extends Component {
 	render() {
 		const { classes, user } = this.props;
 		if (!user.settings) {
-			user.settings = {
-				birthday: "N/A",
-				address: {
-					city: "N/A",
-					street: "N/A",
-					number: "N/A"
-				},
-				phone: "N/A",
-				work: "N/A",
-				blood: {
-					type: "N/A",
-					rhesus: "N/A"
-				}
-			};
-		}
+      return(<p>This is it</p>)
+    }
+		// 	user.settings = {
+		// 		birthday: "N/A",
+		// 		address: {
+		// 			city: "N/A",
+		// 			street: "N/A",
+		// 			number: "N/A"
+		// 		},
+		// 		phone: "N/A",
+		// 		work: "N/A",
+		// 		blood: {
+		// 			type: "N/A",
+		// 			rhesus: "N/A"
+		// 		}
+		// 	};
+		// }
 		let pickedDate = user.settings ? user.settings.birthday.split("-") : "";
 		let recievedDate = new Date(...pickedDate);
 		return (
@@ -107,28 +112,29 @@ class ThinProfile extends Component {
 					</div>
 					{this.infoItem(
 						<HomeIcon className="iconMargin" />,
-						`Address: ${user.settings.address.number} ${
+						(user.settings.address.street ? `Address: ${user.settings.address.number} ${
 							user.settings.address.street
-						}, ${user.settings.address.city}`
+						}, ${user.settings.address.city}` : "Address: N/A")
 					)}
 					{this.infoItem(
 						<EventIcon className="iconMargin" />,
-						`Date of Birth: ${recievedDate.getDate()}.${recievedDate.getMonth() +
+						(user.settings.birthday ? `Date of Birth: ${recievedDate.getDate()}.${recievedDate.getMonth() +
 							1}.${recievedDate.getFullYear()} (${this.calculateAge(
 							recievedDate
-						)} years of age)`
+						)} years of age)` : "Date of Birth: N/A")
 					)}
 					{this.infoItem(
 						<PhoneIcon className="iconMargin" />,
-						`Phone: ${user.settings.phone}`
+            
+            <a className={classes.infoItems} href = {`tel:${user.settings.phone}`}>Phone: {user.settings.phone || "N/A"}</a>
 					)}
 					{this.infoItem(
 						<MailIcon className="iconMargin" />,
-						`Email: ${user.email}`
+					  <a className={classes.infoItems} href = {`mailto:${user.settings.email}`}>Email: {user.settings.email || "N/A"}</a>
 					)}
 					{this.infoItem(
 						<WorkIcon className="iconMargin" />,
-						`Occupation: ${user.settings.work}`
+						`Occupation: ${user.settings.work || "N/A"}`
 					)}
 					<Button
 						className={classes.showBtn}

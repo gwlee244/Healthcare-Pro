@@ -55,7 +55,10 @@ const styles = {
 	},
 	appBar: {
 		position: "relative"
-	}
+  },
+  infoItems: {
+    color: "black"
+  }
 };
 class UserCard extends Component {
 	constructor(props) {
@@ -99,18 +102,18 @@ class UserCard extends Component {
 			case "15+":
 				return "More than 15 years of med practice";
 			default:
-				return "N/A";
+				return "Med Experience: N/A";
 		}
 	}
 	render() {
 		const { classes, user } = this.props;
 		if (!user.settings) {
 			user.settings = {
-				birthday: "N/A",
+				// birthday: "N/A",
 				address: {
-					city: "N/A",
-					street: "N/A",
-					number: "N/A"
+				// 	city: "N/A",
+				// 	street: "N/A",
+				// 	number: "N/A"
 				},
 				phone: "N/A",
 				work: "N/A",
@@ -126,13 +129,14 @@ class UserCard extends Component {
 			""
 		);
 		if (user.settings.birthday) {
+      console.log(user.settings.birthday)
 			pickedDate = user.settings.birthday.split("-");
 			recievedDate = new Date(...pickedDate);
 			birthday = `${recievedDate.getDate()}.${recievedDate.getMonth() +
 				1}.${recievedDate.getFullYear()} (${this.calculateAge(
 				recievedDate
 			)} years)`;
-		} else birthday = "N/A";
+		} 
 		return (
 			<div>
 				<Card className={classes.card}>
@@ -165,7 +169,7 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									{`Place of Work: ${user.settings.clinicName || "N/A"}`}
+									{user.settings.clinicName ? `Place of Work: ${user.settings.clinicName}` : "Place of Work: N/A"}
 								</Typography>
 							</div>
 							{/* Clinic address */}
@@ -175,13 +179,11 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									{user.settings
-										? `Business Address: ${user.settings.address.number ||
-												"N/A"} ${user.settings.address
-												.street || "N/A"}, ${user
-												.settings.address.city ||
-												"N/A"}`
-										: "N/A"}
+									{user.settings.address.street
+										? `Business Address: ${user.settings.address.number} ${user.settings.address
+												.street} ${user
+												.settings.address.city}`
+										: "Business Address: N/A"}
 								</Typography>
 							</div>
 							{/* Cabinet */}
@@ -192,8 +194,8 @@ class UserCard extends Component {
 									variant="body2"
 									className={classes.typoMargin}>
 									{user.settings.cabinet
-										? `Room #${user.settings.cabinet}`
-										: "N/A"}
+										? `Room #: ${user.settings.cabinet}`
+										: "Room #: N/A"}
 								</Typography>
 							</div>
 							{/* Date of birth */}
@@ -203,7 +205,8 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									Date of Birth: {birthday}
+                    {user.settings.birthday ? `Date of Birth: ${birthday}` : `Date of Birth: N/A` }
+								
 								</Typography>
 							</div>
 							{/* Phone number */}
@@ -213,7 +216,7 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									Phone: {user.settings.workPhone || "N/A"}
+									 { user.settings.workPhone ? <a className={classes.infoItems} href = {`tel:${user.settings.workPhone}`}>Phone: {user.settings.workPhone}</a> : "Phone: N/A" }
 								</Typography>
 							</div>
 							{/* Specialty */}
@@ -223,7 +226,7 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									{`Physician Type: ${user.settings.specialty || "N/A"}`}
+									{user.settings.specialty ? `Specialty: ${user.settings.specialty}` : `Specialty: N/A`}
 								</Typography>
 							</div>
 							{/* Years of practice */}
@@ -234,7 +237,7 @@ class UserCard extends Component {
 									variant="body2"
 									className={classes.typoMargin}>
 									{this.renderSwitch(
-										user.settings.yearsOfPractice
+										user.settings.yearsOfPractice || "Years practicing: N/A"
 									)}
 								</Typography>
 							</div>

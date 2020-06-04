@@ -141,7 +141,7 @@ class DoctorProfile extends Component {
 						<DialogContent>
 							<Typography>
 								Let us know what you think about this person, it
-								will help us improve qualitty of our work
+								will help us improve the quality of our work
 							</Typography>
 							<div className={classes.star}>
 								<StarRatingComponent

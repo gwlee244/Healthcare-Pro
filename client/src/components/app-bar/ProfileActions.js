@@ -177,6 +177,7 @@ class ProfileActions extends React.Component {
 				onClose={this.handleMenuClose}>
 				<MenuItem
 					onClick={() => {
+
 						this.setState({ openProfile: true });
 					}}>
 					My Profile
