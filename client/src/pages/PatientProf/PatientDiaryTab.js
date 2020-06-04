@@ -140,7 +140,7 @@ export class PatientDiaryTab extends Component {
       console.log(classes);
       if (rows.length === 0) {
         for (let i = 0; i < patientRecords.length; i++) {
-          rows.push(
+          rows.unshift(
             createData(
               patientRecords[i].doctor,
               patientRecords[i].diaryRecord,
@@ -148,9 +148,9 @@ export class PatientDiaryTab extends Component {
             )
           )
         }
-        this.setState({
-          rows: rows
-        });
+        // this.setState({
+        //   rows: rows
+        // });
         console.log(this.state.rows);
       }
     }

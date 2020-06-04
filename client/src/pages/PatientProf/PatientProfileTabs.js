@@ -23,6 +23,8 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import Diary from "./Diary";
 import Recepies from "./Recepies";//Still work in progress
 
+const NOT_AVAILABLE = "N/A";
+
 function TabContainer(props) {
 	return (
 		<Typography component="div" style={{ padding: 8 * 3 }}>
@@ -39,6 +41,8 @@ const styles = theme => ({
 	infoItems: {
 		marginLeft: ".5em",
     fontSize: "1.3em",
+  },
+  emailLink: {
     color: "black"
 	}
 });
@@ -65,75 +69,80 @@ class PatientProfileTabs extends Component {
 					<HomeIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${user.settings.address.city}, ${
+						variant="subtitle1">
+              {user.settings.address.street ? `Address: ${user.settings.address.number} ${
 						user.settings.address.street
-					} ${user.settings.address.number}`}</Typography>
+					} ${user.settings.address.city}` : `Address: N/A`}</Typography>
 				</div>
 				<div className="flex flex-center">
 					<PhoneIcon color="primary" fontSize="large" />
-					{/* <Typography
+          <Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${
-						user.settings.phone
-					}`}</Typography> */}
-          <a className={classes.infoItems} href = {`tel:${user.settings.phone}`}>  {user.settings.phone}</a>
+						variant="subtitle1">
+									{ user.settings.phone ? <a className={classes.emailLink} href = {`tel:${user.settings.phone}`}>Phone: {user.settings.phone}</a> : `Phone: ${NOT_AVAILABLE}`}
+                  
+					</Typography>
 				</div>
 				<div className="flex flex-center">
 					<EventIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${
-						user.settings.birthday
-					}`}</Typography>
+						variant="subtitle1">
+              {user.settings.birthday ? `Date of Birth: ${
+						user.settings.birthday}` : `Date of Birth: N/A`
+					}</Typography>
 				</div>
 				<div className="flex flex-center">
 					<FaceIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${
-						user.settings.sex
-					}`}</Typography>
+						variant="subtitle1">
+              {user.settings.sex ? `Gender: ${
+						user.settings.sex}` : `Gender: N/A`}
+            </Typography>
 				</div>
 				<div className="flex flex-center">
 					<MailIcon color="primary" fontSize="large" />
-					{/* <Typography
+          <Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${
-						user.settings.email
-					}`}</Typography> */}
-          <a className={classes.infoItems} href={`mailto:${user.settings.email}`}>  {user.settings.email}</a>
+						variant="subtitle1">
+									{ user.settings.email ? <a className={classes.emailLink} href = {`mailto:${user.settings.email}`}>Email: {user.settings.email}</a> : `Email: ${NOT_AVAILABLE}`}
+                  
+					</Typography>
 				</div>
 				<div className="flex flex-center">
 					<WorkIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${
-						user.settings.work
-					}`}</Typography>
+						variant="subtitle1">
+              {user.settings.work ? `Occupation: ${
+						user.settings.work}`: `Occupation: N/A`}</Typography>
 				</div>
 				<div className="flex flex-center">
 					<ChildFriendlyIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${
-						user.settings.maritalStatus
-					}`}</Typography>
+            variant="subtitle1">{
+              user.settings.maritalStatus ? `Marital status: ${
+						user.settings.maritalStatus}` : `Marital status: N/A`}</Typography>
 				</div>
 				<div className="flex flex-center">
 					<AccessibilityIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${user.settings.height}cm/${
+						variant="subtitle1">
+              {user.settings.height ? `Height/Weight: ${user.settings.height}cm/${
 						user.settings.weight
-					}kg`}</Typography>
+					}kg` : `Height/Wight: N/A`}</Typography>
 				</div>
 				<div className="flex flex-center">
 					<FavoriteIcon color="primary" fontSize="large" />
 					<Typography
 						className={classes.infoItems}
-						variant="subtitle1">{`${user.settings.blood.type} ${
-						user.settings.rhesus
-					}`}</Typography>
+						variant="subtitle1">
+              {user.settings.blood.type ? `Blood Type: ${user.settings.blood.type} ${
+						user.settings.blood.rhesus
+					}` : `Blood Type: N/A`}</Typography>
 				</div>
 				<ExpansionPanel className="emergencyPanel">
 					<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -145,13 +154,13 @@ class PatientProfileTabs extends Component {
 					</ExpansionPanelSummary>
 					<ExpansionPanelDetails>
 						<Typography variant="subtitle1">
-							{`Call contact ${user.settings.emergency.fName} ${
+							{user.settings.emergency ? `Contact ${user.settings.emergency.fName} ${
 								user.settings.emergency.lName
-							} which is ${
+							}, ${user.firstName} ${user.lastName}'s ${
 								user.settings.emergency.relation
-							}, Phone number: ${
+							}, by calling ${
 								user.settings.emergency.phoneNumber
-							}`}
+							}` : `No Emergency Contact Provided`}
 						</Typography>
 					</ExpansionPanelDetails>
 				</ExpansionPanel>
@@ -172,7 +181,7 @@ class PatientProfileTabs extends Component {
 						}`}
 					</Typography>
 					<Typography variant="h5">{`Injuries: ${
-						user.settings.injuries
+						user.settings.injuries || NOT_AVAILABLE
 					}`}</Typography>
 					<Typography variant="h5">{`Past operations: ${
 						user.settings.operations

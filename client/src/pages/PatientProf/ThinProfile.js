@@ -110,29 +110,29 @@ class ThinProfile extends Component {
 					</div>
 					{this.infoItem(
 						<HomeIcon className="iconMargin" />,
-						`${user.settings.address.city}, ${
+						(user.settings.address.street ? `Address: ${user.settings.address.number} ${
 							user.settings.address.street
-						} ${user.settings.address.number}`
+						}, ${user.settings.address.city}` : "Address: N/A")
 					)}
 					{this.infoItem(
 						<EventIcon className="iconMargin" />,
-						`${recievedDate.getDate()}.${recievedDate.getMonth() +
+						(user.settings.birthday ? `Date of Birth: ${recievedDate.getDate()}.${recievedDate.getMonth() +
 							1}.${recievedDate.getFullYear()} (${this.calculateAge(
 							recievedDate
-						)} years)`
+						)} years of age)` : "Date of Birth: N/A")
 					)}
 					{this.infoItem(
 						<PhoneIcon className="iconMargin" />,
             
-            <a className={classes.infoItems} href = {`tel:${user.settings.phone}`}>{user.settings.phone}</a>
+            <a className={classes.infoItems} href = {`tel:${user.settings.phone}`}>Phone: {user.settings.phone || "N/A"}</a>
 					)}
 					{this.infoItem(
 						<MailIcon className="iconMargin" />,
-					  <a className={classes.infoItems} href = {`mailto:${user.settings.email}`}>{user.settings.email}</a>
+					  <a className={classes.infoItems} href = {`mailto:${user.settings.email}`}>Email: {user.settings.email || "N/A"}</a>
 					)}
 					{this.infoItem(
 						<WorkIcon className="iconMargin" />,
-						`${user.settings.work}`
+						`Occupation: ${user.settings.work || "N/A"}`
 					)}
 					<Button
 						className={classes.showBtn}

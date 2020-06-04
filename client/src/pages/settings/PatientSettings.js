@@ -663,7 +663,7 @@ class PatientSettings extends React.Component {
 							href="/patient/home"
 							color="secondary"
 							className={classes.btn}>
-							Cancel
+							Go Back
 						</Button>
             </Link>
 						<Button

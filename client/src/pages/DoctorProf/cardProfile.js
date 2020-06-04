@@ -168,7 +168,7 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									{`${user.settings.clinicName || "N/A"}`}
+									{user.settings.clinicName ? `Place of Work: ${user.settings.clinicName}` : "Place of Work: N/A"}
 								</Typography>
 							</div>
 							{/* Clinic address */}
@@ -178,13 +178,11 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									{user.settings
-										? `${user.settings.address.city ||
-												"N/A"}, ${user.settings.address
-												.street || "N/A"} ${user
-												.settings.address.number ||
-												"N/A"}`
-										: "N/A"}
+									{user.settings.address.street
+										? `Business Address: ${user.settings.address.number} ${user.settings.address
+												.street} ${user
+												.settings.address.city}`
+										: "Business Address: N/A"}
 								</Typography>
 							</div>
 							{/* Cabinet */}
@@ -195,8 +193,8 @@ class UserCard extends Component {
 									variant="body2"
 									className={classes.typoMargin}>
 									{user.settings.cabinet
-										? `Cabinet #${user.settings.cabinet}`
-										: "N/A"}
+										? `Room #: ${user.settings.cabinet}`
+										: "Room #: N/A"}
 								</Typography>
 							</div>
 							{/* Date of birth */}
@@ -206,7 +204,7 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									{birthday}
+									Date of Birth: {birthday}
 								</Typography>
 							</div>
 							{/* Phone number */}
@@ -216,7 +214,7 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									{ user.settings.workPhone ? <a className={classes.infoItems} href = {`tel:${user.settings.workPhone}`}>{user.settings.workPhone}</a> : "N/A" }
+									 { user.settings.workPhone ? <a className={classes.infoItems} href = {`tel:${user.settings.workPhone}`}>Phone: {user.settings.workPhone}</a> : "Phone: N/A" }
 								</Typography>
 							</div>
 							{/* Specialty */}
@@ -226,7 +224,7 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									{`${user.settings.specialty || "N/A"}`}
+									{user.settings.specialty ? `Specialty: ${user.settings.specialty}` : `Specialty: N/A`}
 								</Typography>
 							</div>
 							{/* Years of practice */}
@@ -237,7 +235,7 @@ class UserCard extends Component {
 									variant="body2"
 									className={classes.typoMargin}>
 									{this.renderSwitch(
-										user.settings.yearsOfPractice
+										user.settings.yearsOfPractice || "Years practicing: N/A"
 									)}
 								</Typography>
 							</div>
