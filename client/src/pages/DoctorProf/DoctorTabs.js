@@ -7,6 +7,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
+import Paper from "@material-ui/core/Paper";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import { connect } from "react-redux";
@@ -20,6 +21,8 @@ import Loader from "../../utils/Loader";
 // Actions
 import { getDoctorAppointments } from "../../actions/calendarAction";
 import { getStats } from "../../actions/utilsAction";
+import steth from "../../img/stethoscope.jpg";
+import statis from "../../img/stats.jpg";
 
 function TabContainer(props) {
 	return (
@@ -33,7 +36,15 @@ const styles = theme => ({
 	root: {
 		flexGrow: 1,
 		backgroundColor: theme.palette.background.paper
-	}
+  },
+  topText: {
+    textAlign: "center",
+    padding: "5%",
+
+  },
+  img: {
+    width: "100%"
+  }
 });
 
 class DoctorTabs extends Component {
@@ -67,9 +78,11 @@ class DoctorTabs extends Component {
 		}
 
 		if (isEmpty(omitEmpty(stats))) {
-			chartStats = null;
+      chartStats = null;
+      console.log(chartStats);
 		} else {
-			chartStats = stats;
+      chartStats = stats;
+      console.log(chartStats);
 		}
 
 		return (
@@ -91,7 +104,10 @@ class DoctorTabs extends Component {
 							{chartStats ? (
 								<Stats stats={chartStats} />
 							) : (
-								<Loader />
+                <Paper>
+                <h2 className={classes.topText}>You don't have any statistics to view yet.  Try adding some patients.</h2>
+                <img className={classes.img} src={statis}></img>
+              </Paper>
 							)}
 						</TabContainer>
 					)}
@@ -107,9 +123,12 @@ class DoctorTabs extends Component {
 							{content ? (
 								<Calendar appointments={content} />
 							) : (
-								<Loader />
+                <Paper>
+                <h2 className={classes.topText}>You don't have any scheduled appointments at this time.  Please try again later.</h2>
+                <img className={classes.img} src={steth}></img>
+              </Paper>
 							)}
-							}
+							
 						</TabContainer>
 					)}
 				</div>

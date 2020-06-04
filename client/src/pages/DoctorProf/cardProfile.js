@@ -102,18 +102,18 @@ class UserCard extends Component {
 			case "15+":
 				return "More than 15 years of med practice";
 			default:
-				return "N/A";
+				return "Med Experience: N/A";
 		}
 	}
 	render() {
 		const { classes, user } = this.props;
 		if (!user.settings) {
 			user.settings = {
-				birthday: "N/A",
+				// birthday: "N/A",
 				address: {
-					city: "N/A",
-					street: "N/A",
-					number: "N/A"
+				// 	city: "N/A",
+				// 	street: "N/A",
+				// 	number: "N/A"
 				},
 				phone: "N/A",
 				work: "N/A",
@@ -129,13 +129,14 @@ class UserCard extends Component {
 			""
 		);
 		if (user.settings.birthday) {
+      console.log(user.settings.birthday)
 			pickedDate = user.settings.birthday.split("-");
 			recievedDate = new Date(...pickedDate);
 			birthday = `${recievedDate.getDate()}.${recievedDate.getMonth() +
 				1}.${recievedDate.getFullYear()} (${this.calculateAge(
 				recievedDate
 			)} years)`;
-		} else birthday = "N/A";
+		} 
 		return (
 			<div>
 				<Card className={classes.card}>
@@ -204,7 +205,8 @@ class UserCard extends Component {
 									component="p"
 									variant="body2"
 									className={classes.typoMargin}>
-									Date of Birth: {birthday}
+                    {user.settings.birthday ? `Date of Birth: ${birthday}` : `Date of Birth: N/A` }
+								
 								</Typography>
 							</div>
 							{/* Phone number */}
