@@ -233,7 +233,7 @@ class PatientSettings extends React.Component {
 								Date of Birth
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Input your birthday, so we know your age
+								Input your birthday so we know your age
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -315,7 +315,7 @@ class PatientSettings extends React.Component {
 								Marital Status
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Select your maritial status
+								Select your marital status
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -369,8 +369,7 @@ class PatientSettings extends React.Component {
 								Phone Number
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Input your phone number, so that you doctor can
-								contact you
+								Enter your contact number
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -396,7 +395,7 @@ class PatientSettings extends React.Component {
 						onChange={this.handleExpand("panel8")}>
 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 							<Typography className={classes.heading}>
-								Height (cm)
+								Height (feet & inches)
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
 								Input your height
@@ -406,7 +405,7 @@ class PatientSettings extends React.Component {
 							<TextField
 								type="number"
 								className={classes.dateField}
-								placeholder="Your height in cm"
+								placeholder="Your height in feet & inches"
 								name="height"
 								value={this.state.height}
 								onChange={this.onChangeSettings}
@@ -421,7 +420,7 @@ class PatientSettings extends React.Component {
 						onChange={this.handleExpand("panel9")}>
 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 							<Typography className={classes.heading}>
-								Weight (kg)
+								Weight (lbs)
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
 								Input your weight
@@ -431,7 +430,7 @@ class PatientSettings extends React.Component {
 							<TextField
 								type="number"
 								className={classes.dateField}
-								placeholder="Your weight in kg"
+								placeholder="Your weight in lbs"
 								variant="outlined"
 								value={this.state.weight}
 								name="weight"
@@ -449,7 +448,7 @@ class PatientSettings extends React.Component {
 								In case of emergency
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Input information for an emergency contact
+								Enter emergency contact number
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -538,7 +537,7 @@ class PatientSettings extends React.Component {
 								Allergies
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Do you have any allergies? (fruits, pets,
+								Do you have any allergies? (foods, animals,
 								plants, etc)
 							</Typography>
 						</ExpansionPanelSummary>
@@ -561,7 +560,7 @@ class PatientSettings extends React.Component {
 						onChange={this.handleExpand("panel13")}>
 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 							<Typography className={classes.heading}>
-								Medicine allergies
+								Medicine Allergies
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
 								Do you have any allergies to medications?
@@ -589,7 +588,7 @@ class PatientSettings extends React.Component {
 								Injuries
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-								Have you had any serious injuries in  the past?
+								Have you had any serious injuries in the past?
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -611,10 +610,10 @@ class PatientSettings extends React.Component {
 						onChange={this.handleExpand("panel15")}>
 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 							<Typography className={classes.heading}>
-								Operations
+								Surgeries
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
-							Have you had any medical operations in the past?
+							Have you had any surgeries in the past?
 							</Typography>
 						</ExpansionPanelSummary>
 						<ExpansionPanelDetails>
@@ -636,7 +635,7 @@ class PatientSettings extends React.Component {
 						onChange={this.handleExpand("panel16")}>
 						<ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
 							<Typography className={classes.heading}>
-								Current meds
+								Current medications
 							</Typography>
 							<Typography className={classes.secondaryHeading}>
 								Are you currently taking any medications?
@@ -650,7 +649,7 @@ class PatientSettings extends React.Component {
 								value={this.state.currMeds}
 								onChange={this.onChangeSettings}
 								variant="outlined"
-								label="Are you on medication currently and what medications?"
+								label="Are you currenty taking any medications and which medications?"
 								placeholder="if no, leave blank"
 							/>
 						</ExpansionPanelDetails>

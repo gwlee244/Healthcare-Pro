@@ -14,16 +14,16 @@ class Home extends Component {
           <h1>Healthcare Pro</h1>
         </div>
         <div className="home-snippet">
-          Rethinking how we manage Healthcare System
+          Rethinking How We Manage Healthcare
         </div>
        
         <Typed
           strings={[
-            "See your perscriptions...",
-            "See your future appointments...",
+            "See your prescriptions...",
+            "Manage your appointments...",
             "Flexible to use...",
-            "Save your patient history...",
-            "Save and save all at once..."
+            "See your patient history...",
+            "Communicate with your care team..."
           ]}
           typeSpeed={50}
           backSpeed={50}

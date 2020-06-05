@@ -396,7 +396,7 @@ class DoctorSettings extends Component {
                 Date of Birth
 							</Typography>
               <Typography className={classes.secondaryHeading}>
-                Input your birthday, so we know your age
+                Input your birthday so we know your age
 							</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
@@ -457,7 +457,7 @@ class DoctorSettings extends Component {
                 Education Info
 							</Typography>
               <Typography className={classes.secondaryHeading}>
-                Input information about your educational background
+                Enter your medical school information
 							</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails className="flex flex-wrap">
@@ -467,7 +467,7 @@ class DoctorSettings extends Component {
                 onChange={this.onChangeUniversity}
                 variant="outlined"
                 value={this.state.university.univCity}
-                label="Write the city where you were studying"
+                label="Location of medical school"
                 placeholder="UNC Chapel Hill NC, USA"
                 className={`${classes.halfWidth} ${
                   classes.marginInput
@@ -479,7 +479,7 @@ class DoctorSettings extends Component {
                 onChange={this.onChangeUniversity}
                 variant="outlined"
                 value={this.state.university.univName}
-                label="Write name of your educational institution"
+                label="Name of medical school"
                 placeholder="UNC Chapel Hill NC, USA"
                 className={`${classes.halfWidth} ${
                   classes.marginInput
@@ -531,7 +531,7 @@ class DoctorSettings extends Component {
                 Years of practice
 							</Typography>
               <Typography className={classes.secondaryHeading}>
-                How many years of medical practice do you have?
+                Years practicing medicine
 							</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
@@ -558,8 +558,7 @@ class DoctorSettings extends Component {
                 Work Phone Number
 							</Typography>
               <Typography className={classes.secondaryHeading}>
-                Input your work phone number, so that patients
-                can contact you
+                Enter your office number
 							</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
@@ -588,8 +587,7 @@ class DoctorSettings extends Component {
                 Special achievements
 							</Typography>
               <Typography className={classes.secondaryHeading}>
-                Give details of special achievements you
-                are proud of
+                Personal and Professional achievements
 							</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
@@ -599,7 +597,7 @@ class DoctorSettings extends Component {
                 fullWidth
                 value={this.state.achievements}
                 onChange={this.onChangeSettings}
-                label="Your contests, diploma, certificates, etc"
+                label="Your awards, diploma, certificates, etc"
                 variant="outlined"
                 placeholder="Separate with commas"
               />
