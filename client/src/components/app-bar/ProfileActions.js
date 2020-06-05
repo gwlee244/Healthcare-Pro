@@ -247,7 +247,7 @@ class ProfileActions extends React.Component {
 					}}
 					message={<span id="message-id">Copied!</span>}
 				/>
-				<AppBar  position="static">
+				<AppBar className="bar" position="static">
 					<Toolbar>
 						{this.props.back ? (
 							<IconButton href={this.props.toLocation}>
