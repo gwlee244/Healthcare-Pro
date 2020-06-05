@@ -177,7 +177,7 @@ class ProfileActions extends React.Component {
 					}}>
 					My Profile
 				</MenuItem>
-				{this.props.userRole === "Doctor" ? (
+				{(this.props.userRole === "Doctor")} ? (
 					<div>
 						<MenuItem onClick={this.dialogOpen}>
 							Generate token
@@ -249,10 +249,21 @@ class ProfileActions extends React.Component {
 				/>
 				<AppBar className="bar" position="static">
 					<Toolbar>
-						{this.props.back ? (
-							<IconButton href={this.props.toLocation}>
+          {this.props.userRole === "Doctor" && this.props.back ? (
+						<Link to="/doctor/home">
+                <IconButton>
 								<ArrowBack />
-							</IconButton>
+                </IconButton>
+							</Link>
+						) : (
+							""
+						)}
+             {this.props.userRole === "Patient" && this.props.back ? (
+						<Link to="/patient/home">
+                <IconButton>
+								<ArrowBack />
+                </IconButton>
+							</Link>
 						) : (
 							""
 						)}

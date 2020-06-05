@@ -205,7 +205,7 @@ class SortedRecepies extends Component {
 				<div className={classes.tableWrapper}>
 					<Table className={classes.table}>
 					<TableHead>
-							<TableRow className={classes.tableHead} stickyHeader="true">
+							<TableRow className={classes.tableHead}>
 								<TableCell className={classes.tableHead}>Doctor</TableCell>
 								<TableCell className={classes.tableHead}>Medicine</TableCell>
 								<TableCell className={classes.tableHead}>Dosage</TableCell>

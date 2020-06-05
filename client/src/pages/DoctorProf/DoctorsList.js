@@ -97,7 +97,7 @@ class DoctorsList extends Component {
       content =
         doctorData.map((element, index) => {
           return (<CardProfile parent={this.props.auth.user.id}
-            keys={index} user={element} />);
+            key={index} user={element} />);
         });
     }
     else {

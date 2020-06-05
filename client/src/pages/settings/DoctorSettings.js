@@ -3,7 +3,7 @@
   @imported at App
 */
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
@@ -376,11 +376,13 @@ class DoctorSettings extends Component {
 
     return (
       <div className={classes.root}>
+       
         <ProfileActions
           userRole="Doctor"
           back={true}
           toLocation="/doctor/home"
         />
+      
         <Paper elevation={5} className={classes.paperConfig}>
           <Typography variant="h4" className={classes.headerConfig}>
             General Settings
