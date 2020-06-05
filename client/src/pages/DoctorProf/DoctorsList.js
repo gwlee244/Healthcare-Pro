@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import Fab from "@material-ui/core/Fab";
+import Paper from "@material-ui/core/Paper";
 import AddIcon from "@material-ui/icons/Add";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -17,6 +18,7 @@ import { getDoctorsList, clearFinded, findToken } from "../../actions/utilsActio
 import CardProfile from "./cardProfile";
 import Loader from "../../utils/Loader";
 import SearchTokenDialog from "./SearchTokenDialog";
+import noDoctor from "../../img/noPatient.jpg";
 
 const styles = theme => ({
 	fab: {
@@ -26,7 +28,16 @@ const styles = theme => ({
 	},
 	extendedIcon: {
 		marginRight: theme.spacing.unit
-	}
+  },
+  topText: {
+    textAlign: "center",
+    padding: "3%",
+    position: "absolute",
+    backgroundColor: "rgba(255,255,255,.3)"
+  },
+  img: {
+    width: "100%"
+  }
 });
 
 class DoctorsList extends Component {
@@ -71,6 +82,7 @@ class DoctorsList extends Component {
 	}
   render() {
     let content = null;
+    console.log(this.props.general);
     let { doctorData, findedDoctor } = this.props.general;
     const { classes } = this.props;
     if (doctorData == null) {
@@ -80,12 +92,19 @@ class DoctorsList extends Component {
         </div>
       );
     }
-    else {
+    else if(doctorData.length) {
+    
       content =
         doctorData.map((element, index) => {
           return (<CardProfile parent={this.props.auth.user.id}
             key={index} user={element} />);
         });
+    }
+    else {
+      content = <Paper>
+      <h3 className={classes.topText}>You don't have any doctors yet. If a doctor has given you a token, click on the '+' in the bottom-right corner of the screen to input your token and add a doctor.  Otherwise, you'll need to contact your doctor to get a verified token. </h3>
+      <img className={classes.img} src={noDoctor} />
+    </Paper>
     }
     return (
       <div className="doctorsTab">
