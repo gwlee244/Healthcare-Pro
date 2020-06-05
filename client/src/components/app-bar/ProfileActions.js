@@ -249,10 +249,21 @@ class ProfileActions extends React.Component {
 				/>
 				<AppBar  position="static">
 					<Toolbar>
-						{this.props.back ? (
-							<IconButton href={this.props.toLocation}>
+          {this.props.userRole === "Doctor" ? (
+						<Link to="/doctor/home">
+                <IconButton>
 								<ArrowBack />
-							</IconButton>
+                </IconButton>
+							</Link>
+						) : (
+							""
+						)}
+             {this.props.userRole === "Patient" ? (
+						<Link to="/patient/home">
+                <IconButton>
+								<ArrowBack />
+                </IconButton>
+							</Link>
 						) : (
 							""
 						)}

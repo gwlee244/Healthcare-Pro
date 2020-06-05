@@ -164,7 +164,7 @@ export class PatientDiaryTab extends Component {
           <div className={classes.tableWrapper}>
             <Table className={classes.table}>
               <TableHead>
-                <TableRow className={classes.tableHead} stickyHeader="true">
+                <TableRow className={classes.tableHead}>
                   {/* <TableCell className={classes.tableHead} align="left">ID</TableCell> */}
                   <TableCell className={classes.tableHead} align="left">Doctor</TableCell>
                   <TableCell className={classes.tableHead} align="left">Appointment Notes</TableCell>
