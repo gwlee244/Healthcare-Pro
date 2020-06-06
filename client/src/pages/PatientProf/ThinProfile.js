@@ -118,8 +118,7 @@ class ThinProfile extends Component {
 					)}
 					{this.infoItem(
 						<EventIcon className="iconMargin" />,
-						(user.settings.birthday ? `Date of Birth: ${recievedDate.getDate()}.${recievedDate.getMonth() +
-							1}.${recievedDate.getFullYear()} (${this.calculateAge(
+						(user.settings.birthday ? `Date of Birth: ${recievedDate.getMonth()}/${recievedDate.getDate()}/${recievedDate.getFullYear()} (${this.calculateAge(
 							recievedDate
 						)} years of age)` : "Date of Birth: N/A")
 					)}

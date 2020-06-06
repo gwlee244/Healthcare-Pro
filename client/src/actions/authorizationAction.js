@@ -28,6 +28,7 @@ export const registerDoctor = (userdata, history) => dispatch => {
 
 // Register patient
 export const registerPatient = (userdata, history) => dispatch => {
+  localStorage.setItem("patientId", userdata._id );
 	axios
 		.post("/api/patients/register", {
 			userdata
@@ -45,6 +46,7 @@ export const registerPatient = (userdata, history) => dispatch => {
 
 // Login user
 export const loginUser = userdata => dispatch => {
+  
 	axios
 		.post("/api/user/login", {
 			userdata

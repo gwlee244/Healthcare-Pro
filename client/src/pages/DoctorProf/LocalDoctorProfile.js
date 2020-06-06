@@ -59,6 +59,10 @@ class LocalDoctorProfile extends Component {
       return <Redirect to='/doctor/home/settings' />
     }
     else {
+      const splitBDay = user.settings.birthday.split("-");
+      const birthday = splitBDay[1] + '/' + splitBDay[2] + '/' + splitBDay[0];
+      console.log(birthday);
+
       return (
         <div className="localProfileGrid">
           {/* university */}
@@ -128,8 +132,8 @@ class LocalDoctorProfile extends Component {
             <Typography
               className={classes.infoItems}
               variant="subtitle1">
-              {user.settings.birthday ? `Birthday: ${user.settings.birthday}` : `Birthday: ${NOT_AVAILABLE}`}
-            </Typography>
+               {birthday ? `Date of Birth: ${birthday}` : `Date of Birth: ${NOT_AVAILABLE}`}
+                </Typography>
           </div>
 
           {/* sex */}

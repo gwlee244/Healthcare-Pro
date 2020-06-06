@@ -159,6 +159,7 @@ class ProfileActions extends React.Component {
 	};
 
 	render() {
+    console.log(this.props.userRole);
 		const { anchorEl } = this.state;
 		const { classes } = this.props;
 		const isMenuOpen = Boolean(anchorEl);
@@ -169,18 +170,17 @@ class ProfileActions extends React.Component {
 		const renderMenu = (
 			<Menu
 				anchorEl={anchorEl}
-				// anchorOrigin={{ vertical: "top", horizontal: "right" }}
-				// transformOrigin={{ vertical: "top", horizontal: "right" }}
+				anchorOrigin={{ vertical: "top", horizontal: "right" }}
+				transformOrigin={{ vertical: "top", horizontal: "right" }}
 				open={isMenuOpen}
 				onClose={this.handleMenuClose}>
 				<MenuItem
 					onClick={() => {
-
 						this.setState({ openProfile: true });
 					}}>
 					My Profile
 				</MenuItem>
-				{(this.props.userRole === "Doctor")} ? (
+				{this.props.userRole === "Doctor" ? (
 					<div>
 						<MenuItem onClick={this.dialogOpen}>
 							Generate token
@@ -264,7 +264,7 @@ class ProfileActions extends React.Component {
              {this.props.userRole === "Patient" && this.props.back ? (
 						<Link to="/patient/home">
                 <IconButton>
-								<ArrowBack />
+								<ArrowBack className={classes.arrow} />
                 </IconButton>
 							</Link>
 						) : (

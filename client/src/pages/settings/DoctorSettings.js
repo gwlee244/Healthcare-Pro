@@ -365,389 +365,390 @@ class DoctorSettings extends Component {
   };
 
   onSave = ev => {
+  
     this.setState({ schedule: scheduleObj });
     this.props.updateDoctorSettings(this.state, this.props.auth.user.id);
     this.setState({ openSnackBar: true });
   };
 
-  render() {
-    const { classes } = this.props;
-    const { expanded } = this.state;
+render() {
+  const { classes } = this.props;
+  const { expanded } = this.state;
 
-    return (
-      <div className={classes.root}>
-       
-        <ProfileActions
-          userRole="Doctor"
-          back={true}
-          toLocation="/doctor/home"
-        />
-      
-        <Paper elevation={5} className={classes.paperConfig}>
-          <Typography variant="h4" className={classes.headerConfig}>
-            General Settings
+  return (
+    <div className={classes.root}>
+
+      <ProfileActions
+        userRole="Doctor"
+        back={true}
+        toLocation="/doctor/home"
+      />
+
+      <Paper elevation={5} className={classes.paperConfig}>
+        <Typography variant="h4" className={classes.headerConfig}>
+          General Settings
 					</Typography>
 
-          <ExpansionPanel
-            expanded={expanded === "panel1"}
-            onChange={this.handleExpand("panel1")}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography className={classes.heading}>
-                Date of Birth
+        <ExpansionPanel
+          expanded={expanded === "panel1"}
+          onChange={this.handleExpand("panel1")}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.heading}>
+              Date of Birth
 							</Typography>
-              <Typography className={classes.secondaryHeading}>
-                Input your birthday so we know your age
+            <Typography className={classes.secondaryHeading}>
+              Input your birthday so we know your age
 							</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <TextField
-                type="date"
-                variant="outlined"
-                // defaultValue="2000-01-01"
-                value={this.state.birthday || "2000-01-01"}
-                inputProps={{
-                  step: 300
-                }}
-                name="birthday"
-                onChange={this.onChangeSettings}
-                className={classes.dateField}
-                label=""
-              />
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <TextField
+              type="date"
+              variant="outlined"
+              // defaultValue="2000-01-01"
+              value={this.state.birthday || "2000-01-01"}
+              inputProps={{
+                step: 300
+              }}
+              name="birthday"
+              onChange={this.onChangeSettings}
+              className={classes.dateField}
+              label=""
+            />
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
 
-          <ExpansionPanel
-            expanded={expanded === "panel2"}
-            onChange={this.handleExpand("panel2")}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography className={classes.heading}>
-                Gender
+        <ExpansionPanel
+          expanded={expanded === "panel2"}
+          onChange={this.handleExpand("panel2")}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.heading}>
+              Gender
 							</Typography>
-              <Typography className={classes.secondaryHeading}>
-                Select your Gender
+            <Typography className={classes.secondaryHeading}>
+              Select your Gender
 							</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <div className="flex flex-center">
-                <RadioGroup
-                  aria-label="Gender"
-                  name="sex"
-                  value={this.state.sex}
-                  onChange={this.onChangeSettings}>
-                  <FormControlLabel
-                    value="female"
-                    control={<Radio />}
-                    label="Female"
-                  />
-                  <FormControlLabel
-                    value="male"
-                    control={<Radio />}
-                    label="Male"
-                  />
-                </RadioGroup>
-              </div>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
-
-          <ExpansionPanel
-            expanded={expanded === "panel3"}
-            onChange={this.handleExpand("panel3")}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography className={classes.heading}>
-                Education Info
-							</Typography>
-              <Typography className={classes.secondaryHeading}>
-                Enter your medical school information
-							</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails className="flex flex-wrap">
-              <TextField
-                fullWidth
-                name="univCity"
-                onChange={this.onChangeUniversity}
-                variant="outlined"
-                value={this.state.university.univCity}
-                label="Location of medical school"
-                placeholder="UNC Chapel Hill NC, USA"
-                className={`${classes.halfWidth} ${
-                  classes.marginInput
-                  }`}
-              />
-              <TextField
-                fullWidth
-                name="univName"
-                onChange={this.onChangeUniversity}
-                variant="outlined"
-                value={this.state.university.univName}
-                label="Name of medical school"
-                placeholder="UNC Chapel Hill NC, USA"
-                className={`${classes.halfWidth} ${
-                  classes.marginInput
-                  }`}
-              />
-              <TextField
-                name="yearOfEntry"
-                variant="outlined"
-                type="number"
-                value={this.state.university.yearOfEntry}
-                label="Year of entry"
-                onChange={this.onChangeUniversity}
-                placeholder="2006"
-                className={`${classes.marginInput} ${
-                  classes.quarterWidth
-                  }`}
-              />
-              <TextField
-                name="yearOfOut"
-                variant="outlined"
-                type="number"
-                value={this.state.university.yearOfOut}
-                label="Graduation year"
-                onChange={this.onChangeUniversity}
-                placeholder="2012"
-                className={`${classes.marginInput} ${
-                  classes.quarterWidth
-                  }`}
-              />
-              <TextField
-                name="univSpecialty"
-                variant="outlined"
-                label="Your specialty"
-                value={this.state.university.univSpecialty}
-                onChange={this.onChangeUniversity}
-                placeholder="surgery"
-                className={`${classes.marginInput} ${
-                  classes.halfWidth
-                  }`}
-              />
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
-
-          <ExpansionPanel
-            expanded={expanded === "panel4"}
-            onChange={this.handleExpand("panel4")}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography className={classes.heading}>
-                Years of practice
-							</Typography>
-              <Typography className={classes.secondaryHeading}>
-                Years practicing medicine
-							</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <Select
-                value={this.state.yearsOfPractice}
-                name="yearsOfPractice"
-                onChange={this.onChangeSettings}
-                variant="outlined"
-                className={classes.selectField}>
-                <MenuItem value={"0-3"}>0-3 years</MenuItem>
-                <MenuItem value={"3-5"}>3-5 years</MenuItem>
-                <MenuItem value={"5-10"}>5-10 years</MenuItem>
-                <MenuItem value={"10-15"}>10-15 years</MenuItem>
-                <MenuItem value={"15+"}>15+ years</MenuItem>
-              </Select>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
-
-          <ExpansionPanel
-            expanded={expanded === "panel5"}
-            onChange={this.handleExpand("panel5")}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography className={classes.heading}>
-                Work Phone Number
-							</Typography>
-              <Typography className={classes.secondaryHeading}>
-                Enter your office number
-							</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <div className="flex flex-center">
-                <Typography variant="h6">01</Typography>
-                <TextField
-                  type="number"
-                  className={classes.dateField}
-                  label="Phone number"
-                  value={this.state.workPhone}
-                  name="workPhone"
-                  InputProps={{ inputProps: { max: 10 } }}
-                  onChange={this.onChangeSettings}
-                  placeholder="(XXX)-555-5555"
-                  variant="outlined"
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <div className="flex flex-center">
+              <RadioGroup
+                aria-label="Gender"
+                name="sex"
+                value={this.state.sex}
+                onChange={this.onChangeSettings}>
+                <FormControlLabel
+                  value="female"
+                  control={<Radio />}
+                  label="Female"
                 />
-              </div>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+                <FormControlLabel
+                  value="male"
+                  control={<Radio />}
+                  label="Male"
+                />
+              </RadioGroup>
+            </div>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
 
-          <ExpansionPanel
-            expanded={expanded === "panel6"}
-            onChange={this.handleExpand("panel6")}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography className={classes.heading}>
-                Special achievements
+        <ExpansionPanel
+          expanded={expanded === "panel3"}
+          onChange={this.handleExpand("panel3")}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.heading}>
+              Education Info
 							</Typography>
-              <Typography className={classes.secondaryHeading}>
-                Personal and Professional achievements
+            <Typography className={classes.secondaryHeading}>
+              Enter your medical school information
 							</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails className="flex flex-wrap">
+            <TextField
+              fullWidth
+              name="univCity"
+              onChange={this.onChangeUniversity}
+              variant="outlined"
+              value={this.state.university.univCity}
+              label="Location of medical school"
+              placeholder="UNC Chapel Hill NC, USA"
+              className={`${classes.halfWidth} ${
+                classes.marginInput
+                }`}
+            />
+            <TextField
+              fullWidth
+              name="univName"
+              onChange={this.onChangeUniversity}
+              variant="outlined"
+              value={this.state.university.univName}
+              label="Name of medical school"
+              placeholder="UNC Chapel Hill NC, USA"
+              className={`${classes.halfWidth} ${
+                classes.marginInput
+                }`}
+            />
+            <TextField
+              name="yearOfEntry"
+              variant="outlined"
+              type="number"
+              value={this.state.university.yearOfEntry}
+              label="Year of entry"
+              onChange={this.onChangeUniversity}
+              placeholder="2006"
+              className={`${classes.marginInput} ${
+                classes.quarterWidth
+                }`}
+            />
+            <TextField
+              name="yearOfOut"
+              variant="outlined"
+              type="number"
+              value={this.state.university.yearOfOut}
+              label="Graduation year"
+              onChange={this.onChangeUniversity}
+              placeholder="2012"
+              className={`${classes.marginInput} ${
+                classes.quarterWidth
+                }`}
+            />
+            <TextField
+              name="univSpecialty"
+              variant="outlined"
+              label="Your specialty"
+              value={this.state.university.univSpecialty}
+              onChange={this.onChangeUniversity}
+              placeholder="surgery"
+              className={`${classes.marginInput} ${
+                classes.halfWidth
+                }`}
+            />
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+
+        <ExpansionPanel
+          expanded={expanded === "panel4"}
+          onChange={this.handleExpand("panel4")}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.heading}>
+              Years of practice
+							</Typography>
+            <Typography className={classes.secondaryHeading}>
+              Years practicing medicine
+							</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Select
+              value={this.state.yearsOfPractice}
+              name="yearsOfPractice"
+              onChange={this.onChangeSettings}
+              variant="outlined"
+              className={classes.selectField}>
+              <MenuItem value={"0-3"}>0-3 years</MenuItem>
+              <MenuItem value={"3-5"}>3-5 years</MenuItem>
+              <MenuItem value={"5-10"}>5-10 years</MenuItem>
+              <MenuItem value={"10-15"}>10-15 years</MenuItem>
+              <MenuItem value={"15+"}>15+ years</MenuItem>
+            </Select>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+
+        <ExpansionPanel
+          expanded={expanded === "panel5"}
+          onChange={this.handleExpand("panel5")}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.heading}>
+              Work Phone Number
+							</Typography>
+            <Typography className={classes.secondaryHeading}>
+              Enter your office number
+							</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <div className="flex flex-center">
+              <Typography variant="h6"></Typography>
               <TextField
-                name="achievements"
-                multiline
-                fullWidth
-                value={this.state.achievements}
+                type="number"
+                className={classes.dateField}
+                label="Phone number"
+                value={this.state.workPhone}
+                name="workPhone"
+                InputProps={{ inputProps: { max: 10 } }}
                 onChange={this.onChangeSettings}
-                label="Your awards, diploma, certificates, etc"
+                placeholder="(XXX)-555-5555"
                 variant="outlined"
-                placeholder="Separate with commas"
               />
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+            </div>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
 
-          <Typography variant="h4" className={classes.headerConfig}>
-            About your current work organization
+        <ExpansionPanel
+          expanded={expanded === "panel6"}
+          onChange={this.handleExpand("panel6")}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.heading}>
+              Special achievements
+							</Typography>
+            <Typography className={classes.secondaryHeading}>
+              Personal and Professional achievements
+							</Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <TextField
+              name="achievements"
+              multiline
+              fullWidth
+              value={this.state.achievements}
+              onChange={this.onChangeSettings}
+              label="Your awards, diploma, certificates, etc"
+              variant="outlined"
+              placeholder="Separate with commas"
+            />
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
+
+        <Typography variant="h4" className={classes.headerConfig}>
+          About your current work organization
 					</Typography>
 
-          <ExpansionPanel
-            expanded={expanded === "panel7"}
-            onChange={this.handleExpand("panel7")}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography className={classes.heading}>
-                Name
+        <ExpansionPanel
+          expanded={expanded === "panel7"}
+          onChange={this.handleExpand("panel7")}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.heading}>
+              Name
 							</Typography>
-              <Typography className={classes.secondaryHeading}>
-                Input the name of the place where you work
+            <Typography className={classes.secondaryHeading}>
+              Input the name of the place where you work
 							</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <TextField
-                fullWidth
-                name="clinicName"
-                value={this.state.clinicName}
-                onChange={this.onChangeSettings}
-                label="Work name"
-                variant="outlined"
-                placeholder="UNC Family HealthCare"
-              />
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <TextField
+              fullWidth
+              name="clinicName"
+              value={this.state.clinicName}
+              onChange={this.onChangeSettings}
+              label="Work name"
+              variant="outlined"
+              placeholder="UNC Family HealthCare"
+            />
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
 
-          <ExpansionPanel
-            expanded={expanded === "panel8"}
-            onChange={this.handleExpand("panel8")}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography className={classes.heading}>
-                Address
+        <ExpansionPanel
+          expanded={expanded === "panel8"}
+          onChange={this.handleExpand("panel8")}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.heading}>
+              Address
 							</Typography>
-              <Typography className={classes.secondaryHeading}>
-                Input the address of your clinic / office
+            <Typography className={classes.secondaryHeading}>
+              Input the address of your clinic / office
 							</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
 
 
-              <TextField
-                type="text"
-                fullWidth
-                className={classes.marginInput}
-                onChange={this.onChangeAddress}
-                name="number"
-                value={this.state.address.number}
-                variant="outlined"
-                label="Building number"
-                placeholder="i.e. 46"
-              />
-              <TextField
-                type="text"
-                fullWidth
-                className={classes.marginInput}
-                onChange={this.onChangeAddress}
-                name="street"
-                variant="outlined"
-                value={this.state.address.street}
-                label="Street"
-                placeholder="House#, st name, city, postal code"
-              />
+            <TextField
+              type="text"
+              fullWidth
+              className={classes.marginInput}
+              onChange={this.onChangeAddress}
+              name="number"
+              value={this.state.address.number}
+              variant="outlined"
+              label="Building number"
+              placeholder="i.e. 46"
+            />
+            <TextField
+              type="text"
+              fullWidth
+              className={classes.marginInput}
+              onChange={this.onChangeAddress}
+              name="street"
+              variant="outlined"
+              value={this.state.address.street}
+              label="Street"
+              placeholder="House#, st name, city, postal code"
+            />
 
-              <TextField
-                type="text"
-                fullWidth
-                className={classes.marginInput}
-                onChange={this.onChangeAddress}
-                name="city"
-                value={this.state.address.city}
-                variant="outlined"
-                label="City"
-                placeholder="201, Manning Drive Chapel Hill"
-              />
+            <TextField
+              type="text"
+              fullWidth
+              className={classes.marginInput}
+              onChange={this.onChangeAddress}
+              name="city"
+              value={this.state.address.city}
+              variant="outlined"
+              label="City"
+              placeholder="201, Manning Drive Chapel Hill"
+            />
 
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
 
-          <ExpansionPanel
-            expanded={expanded === "panel9"}
-            onChange={this.handleExpand("panel9")}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography className={classes.heading}>
-                Office
+        <ExpansionPanel
+          expanded={expanded === "panel9"}
+          onChange={this.handleExpand("panel9")}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.heading}>
+              Office
 							</Typography>
-              <Typography className={classes.secondaryHeading}>
-                Room # within your workplace 
+            <Typography className={classes.secondaryHeading}>
+              Room # within your workplace
 							</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <TextField
-                name="cabinet"
-                onChange={this.onChangeSettings}
-                label="Number"
-                value={this.state.cabinet}
-                variant="outlined"
-                placeholder="i.e. 234"
-              />
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <TextField
+              name="cabinet"
+              onChange={this.onChangeSettings}
+              label="Number"
+              value={this.state.cabinet}
+              variant="outlined"
+              placeholder="i.e. 234"
+            />
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
 
-          <ExpansionPanel
-            expanded={expanded === "panel10"}
-            onChange={this.handleExpand("panel10")}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography className={classes.heading}>
-                Specialty
+        <ExpansionPanel
+          expanded={expanded === "panel10"}
+          onChange={this.handleExpand("panel10")}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.heading}>
+              Specialty
 							</Typography>
-              <Typography className={classes.secondaryHeading}>
-                Input your current specialty
+            <Typography className={classes.secondaryHeading}>
+              Input your current specialty
 							</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <TextField
-                fullWidth
-                name="specialty"
-                value={this.state.specialty}
-                onChange={this.onChangeSettings}
-                label="Current specialty"
-                variant="outlined"
-                placeholder="i.e. Physician"
-              />
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <TextField
+              fullWidth
+              name="specialty"
+              value={this.state.specialty}
+              onChange={this.onChangeSettings}
+              label="Current specialty"
+              variant="outlined"
+              placeholder="i.e. Physician"
+            />
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
 
-          <ExpansionPanel
-            expanded={expanded === "panel11"}
-            onChange={this.handleExpand("panel11")}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography className={classes.heading}>
-                Schedule
+        <ExpansionPanel
+          expanded={expanded === "panel11"}
+          onChange={this.handleExpand("panel11")}>
+          <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography className={classes.heading}>
+              Schedule
 							</Typography>
-              <Typography className={classes.secondaryHeading}>
-                Set your working schedule
+            <Typography className={classes.secondaryHeading}>
+              Set your working schedule
 							</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              {this.SetSchedule()}
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            {this.SetSchedule()}
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
 
-          <div className="flex flex-end">
+        <div className="flex flex-end">
           <Link to="/doctor/home/">
             <Button
               variant="outlined"
@@ -756,42 +757,42 @@ class DoctorSettings extends Component {
               className={classes.btn}>
               Go Back
 						</Button>
-            </Link>
-            <Button
-              variant="contained"
-              onClick={this.onSave}
-              color="secondary"
-              className={classes.btn}>
-              Save
+          </Link>
+          <Button
+            variant="contained"
+            onClick={this.onSave}
+            color="secondary"
+            className={classes.btn}>
+            Save
 						</Button>
-          </div>
-        </Paper>
-        <Snackbar
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "left"
-          }}
-          open={this.state.openSnackBar}
-          autoHideDuration={4000}
-          onClose={this.handleCloseSnackBar}
-          ContentProps={{
-            "aria-describedby": "message-id"
-          }}
-          message={<span id="message-id">Saved</span>}
-          action={[
-            <IconButton
-              key="close"
-              aria-label="Close"
-              color="inherit"
-              className={classes.close}
-              onClick={this.handleCloseSnackBar}>
-              <CloseIcon />
-            </IconButton>
-          ]}
-        />
-      </div>
-    );
-  }
+        </div>
+      </Paper>
+      <Snackbar
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left"
+        }}
+        open={this.state.openSnackBar}
+        autoHideDuration={4000}
+        onClose={this.handleCloseSnackBar}
+        ContentProps={{
+          "aria-describedby": "message-id"
+        }}
+        message={<span id="message-id">Saved</span>}
+        action={[
+          <IconButton
+            key="close"
+            aria-label="Close"
+            color="inherit"
+            className={classes.close}
+            onClick={this.handleCloseSnackBar}>
+            <CloseIcon />
+          </IconButton>
+        ]}
+      />
+    </div>
+  );
+}
 }
 
 DoctorSettings.propTypes = {

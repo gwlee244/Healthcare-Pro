@@ -49,6 +49,7 @@ class Login extends Component {
 	}
 
 	componentDidMount() {
+    console.log(this.props.auth.user);
 		if (this.props.auth.user.typeOfUser === "Doctor") {
 			if (this.props.auth.isAuthenticated) {
 				this.props.history.push("/doctor/home");

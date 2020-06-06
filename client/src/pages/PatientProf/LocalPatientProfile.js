@@ -29,6 +29,7 @@ import getAvatarInitials from "../../helpers/getAvatarInitials";
 import { colors } from "../../helpers/palette";
 
 const NOT_AVAILABLE = "N/A";
+
 // Components
 // Actions
 // import { getUserData } from "../../../actions/utilsActions";
@@ -65,12 +66,18 @@ const styles = theme => ({
   }
 });
 class LocalPatientProfile extends Component {
+ 
+ 
 
   generalInfo(user, classes) {
+
     if (!user.settings) {
       return <Redirect to='/patient/home/settings' />
     }
     else {
+      const splitBDay = user.settings.birthday.split("-");
+      const birthday = splitBDay[1] + '/' + splitBDay[2] + '/' + splitBDay[0];
+
       return (
         <div className="localProfileGrid">
           <div className="flex flex-center">
@@ -97,9 +104,9 @@ class LocalPatientProfile extends Component {
             <EventIcon color="primary" fontSize="large" />
             <Typography
               className={classes.infoItems}
-              variant="subtitle1">{`Date of Birth: ${
-                user.settings.birthday || "Date of Birth: N/A"
-                }`}</Typography>
+              variant="subtitle1">
+               {birthday ? `Date of Birth: ${birthday}` : `Date of Birth: ${NOT_AVAILABLE}`}
+                </Typography>
           </div>
           <div className="flex flex-center">
             <FaceIcon color="primary" fontSize="large" />
