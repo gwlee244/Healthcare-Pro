@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Paper from "@material-ui/core/Paper";
 import { connect } from "react-redux";
 import { appointmentAdd } from "../../actions/calendarAction";
 
@@ -108,7 +109,9 @@ class Calendar extends Component {
 		}
 		const monday = startOfWeek(new Date());
 		return (
-			<div className="calendar">
+      <Paper className="calendar"
+      elevation={5}
+      style={{ backgroundColor: "white",padding: "2%", margin:"2%" }}>
 				<Row>
 					<HeaderCell className="calendar__cell--time-col" />
 					<Cell className="calendar__cell--time-spacing" />
@@ -127,7 +130,7 @@ class Calendar extends Component {
 						<AppointmentCell />
 					</Row>
 				</div>
-			</div>
+			</Paper>
 		);
 	}
 }
