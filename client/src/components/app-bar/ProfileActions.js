@@ -83,7 +83,10 @@ const styles = theme => ({
 	},
 	appBar: {
 		position: "relative"
-	}
+  },
+  arrow: {
+    color: "white"
+  }
 });
 
 class ProfileActions extends React.Component {
@@ -166,8 +169,8 @@ class ProfileActions extends React.Component {
 		const renderMenu = (
 			<Menu
 				anchorEl={anchorEl}
-				anchorOrigin={{ vertical: "top", horizontal: "right" }}
-				transformOrigin={{ vertical: "top", horizontal: "right" }}
+				// anchorOrigin={{ vertical: "top", horizontal: "right" }}
+				// transformOrigin={{ vertical: "top", horizontal: "right" }}
 				open={isMenuOpen}
 				onClose={this.handleMenuClose}>
 				<MenuItem
@@ -252,7 +255,7 @@ class ProfileActions extends React.Component {
           {this.props.userRole === "Doctor" && this.props.back ? (
 						<Link to="/doctor/home">
                 <IconButton>
-								<ArrowBack />
+								<ArrowBack className={classes.arrow} />
                 </IconButton>
 							</Link>
 						) : (
