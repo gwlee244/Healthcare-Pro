@@ -29,6 +29,7 @@ const actionsStyles = theme => ({
 		marginLeft: theme.spacing.unit * 2.5
 	}
 });
+
 class TablePaginationActions extends React.Component {
 	handleFirstPageButtonClick = event => {
 		this.props.onChangePage(event, 0);
@@ -158,8 +159,13 @@ class Recepies extends React.Component {
 		this.setState({ rowsPerPage: event.target.value });
 	};
 	componentDidMount = () => {
+    rows = [];
 		this.props.getPatientsRecepies(this.props.user._id);
-	};
+  };
+  
+  componentWillUnmount= () => {
+    rows = [];
+  }
 	onAddRecepie = () => {
 		let now = new Date();
 		const recepie = {
@@ -191,10 +197,17 @@ class Recepies extends React.Component {
 		const { rowsPerPage, page } = this.state;
 		const emptyRows =
 			rowsPerPage -
-			Math.min(rowsPerPage, rows.length - page * rowsPerPage);
-		let { patientRecepie } = this.props.general;
+      Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+      let patientRecepie;
+      
+      if (this.props.general && this.props.general.loading == false) {
+        patientRecepie = this.props.general.patientRecepie;
+      }
+		
 		if (patientRecepie == null) {
-		} else {
+      return null;
+    } 
+    else {
 			if (rows.length === 0) {
 				for (let i = 0; i < patientRecepie.length; i++) {
 					rows.unshift(
@@ -268,7 +281,7 @@ class Recepies extends React.Component {
 				<div className={classes.tableWrapper}>
 					<Table className={classes.table}>
 						<TableHead>
-							<TableRow className={classes.tableHead} stickyHeader="true">
+							<TableRow className={classes.tableHead}>
 								<TableCell className={classes.tableHead}>Doctor</TableCell>
 								<TableCell className={classes.tableHead}>Medicine</TableCell>
 								<TableCell className={classes.tableHead}>Dosage</TableCell>

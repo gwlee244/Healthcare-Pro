@@ -37,7 +37,7 @@ const styles = theme => ({
 		marginLeft: "auto"
 	},
 	appBar: {
-		position: "relative"
+    position: "relative",
   },
   infoItems: {
     color: "black"
