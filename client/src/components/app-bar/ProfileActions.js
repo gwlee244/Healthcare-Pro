@@ -81,9 +81,6 @@ const styles = theme => ({
 			display: "flex"
 		}
 	},
-	appBar: {
-		position: "relative"
-  },
   arrow: {
     color: "white"
   }
@@ -301,7 +298,7 @@ class ProfileActions extends React.Component {
 					open={this.state.openProfile}
 					onClose={this.closeProfile}
 					TransitionComponent={this.Transition}>
-					<AppBar className={classes.appBar}>
+					<AppBar className= "profile-bar">
 						<Toolbar>
 							<IconButton
 								color="inherit"

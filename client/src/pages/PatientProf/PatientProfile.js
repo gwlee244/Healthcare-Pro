@@ -45,7 +45,7 @@ class PatientProfile extends Component {
 		);
 		return (
 			<div>
-				<Paper className={classes.root} elevation={1}>
+				<Paper className={classes.root} elevation={3}>
 					<div className="flex flex-center">
 						<Avatar
 							style={{
