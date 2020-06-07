@@ -139,3 +139,13 @@ a {
 }
 
 @import "scheduler";
+
+
+@media only screen and (max-width: 800px) {
+    .localProfileGrid {
+        display: flex;
+        flex-direction:column;
+        padding: 2em;
+        font-size:11px;
+    }
+  }
