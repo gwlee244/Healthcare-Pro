@@ -17,6 +17,7 @@ import omitEmpty from "omit-empty";
 import PatientsList from "../PatientProf/PatientsList";
 import Stats from "../Stats/Stats";
 import Calendar from "../Calendar/Calendar";
+import Scheduler from "../Calendar/Scheduler";
 import Loader from "../../utils/Loader";
 // Actions
 import { getDoctorAppointments } from "../../actions/calendarAction";
@@ -123,7 +124,7 @@ class DoctorTabs extends Component {
 					{value === 2 && (
 						<TabContainer>
 							{content ? (
-								<Calendar appointments={content} />
+								<Scheduler appointments={content} />
 							) : (
                 <Paper>
                 <h2 className={classes.topText}>You don't have any scheduled appointments at this time.  Please try again later.</h2>

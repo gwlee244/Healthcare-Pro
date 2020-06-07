@@ -24,7 +24,6 @@ export const getPatientAppointments = patientID => dispatch => {
 // Add appointment to db
 export const appointmentAdd = (
 	appointment,
-	day,
 	doctorID,
 	patientID
 ) => dispatch => {
@@ -32,10 +31,9 @@ export const appointmentAdd = (
 		.post("/api/doctors/appointments/add", {
 			doctorID,
 			patientID,
-			appointment,
-			day
+			appointment
 		})
 		.then(res => console.log(res))
 		.catch(err => console.log(err));
-	dispatch({ type: APPOINTMENT_ADD, data: appointment, day });
+	dispatch({ type: APPOINTMENT_ADD, data: appointment});
 };
