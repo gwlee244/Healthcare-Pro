@@ -113,7 +113,35 @@ height: 100%;
   min-width: 400px;
   user-select: none;
   border-radius: 50px;
-  
+}
+
+.whole-card {
+  padding:0 !important;
+  margin:0 !important;
+}
+
+.card-heading {
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 0px;
+}
+
+.card-heading h2 {
+margin-left: 5%;
+}
+
+.card-info {
+ margin-top:15px;
+  // padding-bottom:15px;
+  border-bottom: 1px solid black;
+  padding:5%;
+}
+
+.card-buttons {
+  padding:5% !important;
+}
+
+.unsubscribe-button {
+  margin-left: 5% !important;
 }
 
 @media screen and (max-width: 768px) {

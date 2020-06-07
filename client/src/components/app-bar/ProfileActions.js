@@ -112,8 +112,8 @@ class ProfileActions extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.getUserData(this.props.auth.user.id);
-	}
+    this.props.getUserData(this.props.auth.user.id);
+  }
 
 	Transition(props) {
 		return <Slide direction="up" {...props} />;
@@ -155,10 +155,12 @@ class ProfileActions extends React.Component {
 	};
 
 	snackClose = () => {
+    console.log("snack closed");
 		this.setState({ snackOpen: false });
 	};
 
 	render() {
+  
     console.log(this.props.userRole);
 		const { anchorEl } = this.state;
 		const { classes } = this.props;

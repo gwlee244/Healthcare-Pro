@@ -61,7 +61,6 @@ class LocalDoctorProfile extends Component {
     else {
       const splitBDay = user.settings.birthday.split("-");
       const birthday = splitBDay[1] + '/' + splitBDay[2] + '/' + splitBDay[0];
-      console.log(birthday);
 
       return (
         <div className="localProfileGrid">

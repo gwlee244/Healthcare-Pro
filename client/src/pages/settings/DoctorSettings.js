@@ -209,6 +209,7 @@ class DoctorSettings extends Component {
     }
   }
 
+
   handleDateChange = ev => {
     let { name, value } = ev.target;
     let day = name.match(/[A-Z].+/g)[0].toLowerCase();

@@ -21,65 +21,70 @@ import SearchTokenDialog from "./SearchTokenDialog";
 import noDoctor from "../../img/noPatient.jpg";
 
 const styles = theme => ({
-	fab: {
-		position: "fixed",
-		bottom: theme.spacing.unit * 2,
-		right: theme.spacing.unit * 2
-	},
-	extendedIcon: {
-		marginRight: theme.spacing.unit
+  fab: {
+    position: "fixed",
+    bottom: theme.spacing.unit * 2,
+    right: theme.spacing.unit * 2
+  },
+  extendedIcon: {
+    marginRight: theme.spacing.unit
   },
   topText: {
     textAlign: "center",
     padding: "3%",
     position: "absolute",
-    backgroundColor: "rgba(255,255,255,.3)"
+    // backgroundColor: "rgba(255,255,255,.3)"
   },
   img: {
     width: "100%"
+  },
+  cardContainer: {
+    textAlign: "center",
+    overflow: "hidden",
+    margin: "auto"
   }
 });
 
 class DoctorsList extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			dialogOpen: false,
-			token: ""
-		};
-		this.dialogOpen = this.dialogOpen.bind(this);
-		this.dialogClose = this.dialogClose.bind(this);
-		this.handleFab = this.handleFab.bind(this);
-		this.handleToken = this.handleToken.bind(this);
-		this.onChangeDialog = this.onChangeDialog.bind(this);
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      dialogOpen: false,
+      token: ""
+    };
+    this.dialogOpen = this.dialogOpen.bind(this);
+    this.dialogClose = this.dialogClose.bind(this);
+    this.handleFab = this.handleFab.bind(this);
+    this.handleToken = this.handleToken.bind(this);
+    this.onChangeDialog = this.onChangeDialog.bind(this);
+  }
 
-	dialogOpen = () => {
-		this.setState({ dialogOpen: true });
-	};
+  dialogOpen = () => {
+    this.setState({ dialogOpen: true });
+  };
 
-	dialogClose = () => {
-		this.props.clearFinded();
-		this.setState({ dialogOpen: false, token: "" });
-	};
+  dialogClose = () => {
+    this.props.clearFinded();
+    this.setState({ dialogOpen: false, token: "" });
+  };
 
-	handleFab = () => {
-		this.dialogOpen();
-	};
+  handleFab = () => {
+    this.dialogOpen();
+  };
 
-	handleToken = () => {
-		this.props.findToken(this.state.token);
-	};
+  handleToken = () => {
+    this.props.findToken(this.state.token);
+  };
 
-	onChangeDialog = ev => {
-		this.setState({
-			token: ev.target.value
-		});
-	};
+  onChangeDialog = ev => {
+    this.setState({
+      token: ev.target.value
+    });
+  };
 
-	componentDidMount() {
-		this.props.getDoctorsList(this.props.auth.user.id);
-	}
+  componentDidMount() {
+    this.props.getDoctorsList(this.props.auth.user.id);
+  }
   render() {
     let content = null;
     console.log(this.props.general);
@@ -92,19 +97,22 @@ class DoctorsList extends Component {
         </div>
       );
     }
-    else if(doctorData.length) {
-    
-      content =
-        doctorData.map((element, index) => {
-          return (<CardProfile parent={this.props.auth.user.id}
-            key={index} user={element} />);
-        });
+    else if (doctorData.length) {
+
+      return (
+        <div className={classes.cardContainer}>
+          {doctorData.map((element, index) => (
+            <CardProfile parent={this.props.auth.user.id}
+              key={index} user={element} />
+          ))};
+        </div>
+      )
     }
     else {
       content = <Paper>
-      <h3 className={classes.topText}>You don't have any doctors yet. If a doctor has given you a token, click on the '+' in the bottom-right corner of the screen to input your token and add a doctor.  Otherwise, you'll need to contact your doctor to get a verified token. </h3>
-      <img className={classes.img} src={noDoctor} />
-    </Paper>
+        <h3 className={classes.topText}>You don't have any doctors yet. If a doctor has given you a token, click on the '+' in the bottom-right corner of the screen to input your token and add a doctor.  Otherwise, you'll need to contact your doctor to get a verified token. </h3>
+        <img className={classes.img} src={noDoctor} />
+      </Paper>
     }
     return (
       <div className="doctorsTab">
@@ -160,7 +168,7 @@ class DoctorsList extends Component {
     );
   }
 }
-DoctorsList.propTypes= {
+DoctorsList.propTypes = {
   auth: PropTypes.object.isRequired,
   general: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired
@@ -172,7 +180,7 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, { getDoctorsList, findToken, clearFinded })
-(withStyles(styles)
-(DoctorsList));
+  (withStyles(styles)
+    (DoctorsList));
 
 
