@@ -36,9 +36,6 @@ const styles = theme => ({
 	showBtn: {
 		marginLeft: "auto"
 	},
-	appBar: {
-    position: "relative",
-  },
   infoItems: {
     color: "black"
   }
@@ -148,7 +145,7 @@ class ThinProfile extends Component {
 					open={this.state.open}
 					onClose={this.closeProfile}
 					TransitionComponent={this.Transition}>
-					<AppBar className={classes.appBar}>
+					<AppBar className="patient-bar">
 						<Toolbar>
 							<IconButton
 								color="inherit"

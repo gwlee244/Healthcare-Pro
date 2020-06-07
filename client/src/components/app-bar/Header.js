@@ -20,7 +20,10 @@ const styles = {
 	},
 	end: {
 		justifyContent: "flex-end"
-	}
+  },
+  arrow: {
+    color: "white"
+  }
 };
 
 function Header(props) {
@@ -31,7 +34,7 @@ function Header(props) {
 				<ToolBar>
 					{props.back ? (
 						<IconButton href={props.toLocation}>
-							<ArrowBack />
+							<ArrowBack className={classes.arrow} />
 						</IconButton>
 					) : (
 						""

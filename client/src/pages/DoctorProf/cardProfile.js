@@ -59,9 +59,6 @@ const styles = {
     marginBottom: "-6px",
     marginLeft: "1em"
   },
-  appBar: {
-    position: "relative"
-  },
   infoItems: {
     color: "black"
   }
@@ -270,7 +267,7 @@ class UserCard extends Component {
           open={this.state.profileOpen}
           onClose={this.closeProfile}
           TransitionComponent={this.Transition}>
-          <AppBar className={classes.appBar}>
+          <AppBar className="doctor-bar">
             <Toolbar>
               <IconButton
                 color="inherit"
