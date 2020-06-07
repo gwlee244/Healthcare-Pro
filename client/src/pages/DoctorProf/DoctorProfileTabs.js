@@ -23,6 +23,7 @@ import SchoolIcon from "@material-ui/icons/School";
 import DoctorSchedule from "./Schedule";
 import SortedRecepies from "./SortedRecepies";
 import SetMeeting from "./SetMeeting";
+import SetMeetingCopy from "./SetMeeting copy";
 
 const NOT_AVAILABLE = "N/A";
 
@@ -248,7 +249,7 @@ class DoctorProfileTabs extends Component {
           )}
           {value === 2 && (
             <TabContainer>
-              <SetMeeting user={user} />
+              <SetMeetingCopy user={user} />
             </TabContainer>
           )}
           {value === 3 && (

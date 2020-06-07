@@ -210,13 +210,13 @@ router.post(
 		session: false
 	}),
 	(req, res) => {
-		const { doctorID, patientID, appointment, day } = req.body;
+		const { doctorID, patientID, appointment} = req.body;
 		Doctor.findById(doctorID)
 			.then(doc => {
 				if (doc) {
 					// Reasigning because mongoose dont let assign directly nested objects i guess
 					let tempApps = doc.appointments;
-					tempApps[day].push(appointment);
+					tempApps.push(appointment);
 					doc.appointments = null;
 					doc.appointments = tempApps;
 					doc.save();
@@ -224,16 +224,16 @@ router.post(
 					// Adding appointment to patient, that initiates this
 					Patient.findById(patientID).then(patient => {
 						if (patient) {
-							appointment.name = `Dr. ${doc.firstName} ${
+							appointment.text = `Dr. ${doc.firstName} ${
 								doc.lastName
 							} ${
 								doc.settings.cabinet
-									? `cab. #${doc.settings.cabinet}`
+									? `Room #${doc.settings.cabinet}`
 									: ""
 							}`;
 							// Reasigning because mongoose dont let assign directly nested objects i guess
 							let tempApps = patient.appointments;
-							tempApps[day].push(appointment);
+							tempApps.push(appointment);
 							patient.appointments = null;
 							patient.appointments = tempApps;
 							patient.save();

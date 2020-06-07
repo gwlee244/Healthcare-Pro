@@ -15,6 +15,7 @@ import DoctorsList from "../DoctorProf/DoctorsList";
 import PatientDiaryTab from "./PatientDiaryTab";//will need to be write
 import PatientRecepiesTab from "./PatientRecepiesTab";//will need to be write
 import Calendar from "../Calendar/Calendar";
+import Scheduler from "../Calendar/Scheduler";
 import { getPatientAppointments } from "../../actions/calendarAction";
 import omitEmpty from "omit-empty";
 import isEmpty from "../../helpers/isempty";
@@ -94,7 +95,7 @@ class PatientTabs extends Component {
 					{value === 3 && (
 						<TabContainer>
 							{content ? (
-								<Calendar appointments={content} />
+								<Scheduler appointments={content} />
 							) : (
 								<Calendar appointments={defProps} />
 							)}
@@ -107,7 +108,7 @@ class PatientTabs extends Component {
 }
 PatientTabs.propTypes = {
 	auth: PropTypes.object.isRequired,
-	appointments: PropTypes.object,
+	appointments: PropTypes.array,
 	general: PropTypes.object.isRequired,
 	classes: PropTypes.object.isRequired
 };
