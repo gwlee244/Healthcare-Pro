@@ -109,63 +109,63 @@ module.exports = {
 			}
 		]
 	},
-	business: {
-		options: {
-			dataLabels: {
-				enabled: false
-			},
-			colors: ["#161aff"],
-			stroke: {
-				width: [10]
-			},
-			plotOptions: {
-				bar: {
-					columnWidth: "20%"
-				}
-			},
-			xaxis: {
-				categories: [
-					"Monday",
-					"Tuesday",
-					"Wednesday",
-					"Thursday",
-					"Friday"
-				]
-			},
-			yaxis: [
-				{
-					axisTicks: {
-						show: true
-					},
-					labels: {
-						style: {
-							color: "#FF1654",
-							fontSize: "1em"
-						}
-					},
-					title: {
-						text: "Visits",
-						style: {
-							fontSize: "15px"
-						}
-					}
-				}
-			],
-			tooltip: {
-				shared: false,
-				intersect: true,
-				x: {
-					show: true
-				}
-			}
-		},
-		series: [
-			{
-				name: "Visits",
-				data: [13, 15, 10, 25, 27]
-			}
-		]
-	},
+	// business: {
+	// 	options: {
+	// 		dataLabels: {
+	// 			enabled: false
+	// 		},
+	// 		colors: ["#161aff"],
+	// 		stroke: {
+	// 			width: [10]
+	// 		},
+	// 		plotOptions: {
+	// 			bar: {
+	// 				columnWidth: "20%"
+	// 			}
+	// 		},
+	// 		xaxis: {
+	// 			categories: [
+	// 				"Monday",
+	// 				"Tuesday",
+	// 				"Wednesday",
+	// 				"Thursday",
+	// 				"Friday"
+	// 			]
+	// 		},
+	// 		yaxis: [
+	// 			{
+	// 				axisTicks: {
+	// 					show: true
+	// 				},
+	// 				labels: {
+	// 					style: {
+	// 						color: "#FF1654",
+	// 						fontSize: "1em"
+	// 					}
+	// 				},
+	// 				title: {
+	// 					text: "Visits",
+	// 					style: {
+	// 						fontSize: "15px"
+	// 					}
+	// 				}
+	// 			}
+	// 		],
+	// 		tooltip: {
+	// 			shared: false,
+	// 			intersect: true,
+	// 			x: {
+	// 				show: true
+	// 			}
+	// 		}
+	// 	},
+	// 	series: [
+	// 		{
+	// 			name: "Visits",
+	// 			data: [13, 15, 10, 25, 27]
+	// 		}
+	// 	]
+	// },
 	satisfaction: {
 		options: {
 			labels: [

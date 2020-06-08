@@ -28,7 +28,7 @@ const doctorSchema = new Schema({
     }
 }],
   appointments: {
-    type: Schema.Types.Mixed
+    type: [Schema.Types.Mixed]
   },
   typeOfUser: {
     type: String,

@@ -49,7 +49,7 @@ const patientSchema = new Schema({
 		type: [Schema.Types.Mixed]
 	},
     appointments: {
-        type: Schema.Types.Mixed,
+        type: [Schema.Types.Mixed],
     }
 });
 

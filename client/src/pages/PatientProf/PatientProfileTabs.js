@@ -93,7 +93,7 @@ class PatientProfileTabs extends Component {
             <Typography
               className={classes.infoItems}
               variant="subtitle1">
-              {birthday ? `Date of Birth: ${birthday}` : `Date of Birth: ${NOT_AVAILABLE}`}
+              {user.settings.birthday ? `Date of Birth: ${birthday}` : `Date of Birth: ${NOT_AVAILABLE}`}
             </Typography>
           </div>
           <div className="flex flex-center">

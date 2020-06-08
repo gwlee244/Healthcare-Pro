@@ -143,7 +143,7 @@ class DoctorTabs extends Component {
 DoctorTabs.propTypes = {
 	classes: PropTypes.object.isRequired,
 	auth: PropTypes.object.isRequired,
-	appointments: PropTypes.object.isRequired,
+	appointments: PropTypes.array.isRequired,
 	general: PropTypes.object.isRequired,
 	stats: PropTypes.object.isRequired
 };

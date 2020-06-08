@@ -257,7 +257,6 @@ router.get(
 			quantity,
 			sexesPie,
 			sexesBar,
-			business,
 			satisfaction,
 			monthlyVisitors
 		} = chartConfig;
@@ -271,13 +270,13 @@ router.get(
 				// @quantity
 
 				// @monthly visits
-				monthlyVisitors.options.labels[0] = statsHelpers.getAppointmentsLength(
-					doc.appointments
-				);
+				// monthlyVisitors.options.labels[0] = statsHelpers.getAppointmentsLength(
+				// 	doc.appointments
+				// );
 				// @monthly visits
 
 				// @business
-				business.series = statsHelpers.getVisitsData(doc.appointments);
+				// business.series = statsHelpers.getVisitsData(doc.appointments);
 				// @business
 
 				// @satisfaction
@@ -320,7 +319,6 @@ router.get(
 							quantity,
 							sexesPie,
 							sexesBar,
-							business,
 							satisfaction,
 							monthlyVisitors
 						});
