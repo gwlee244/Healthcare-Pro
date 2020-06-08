@@ -17,10 +17,10 @@ function getAppointmentsLength(apps) {
     return l;
 }
 
-function getVisitsData(data) {
-    return [{name: "Visits",
-            data: [data.monday.length, data.tuesday.length, data.wednesday.length, data.thursday.length, data.friday.length]}]
-}
+// function getVisitsData(data) {
+//     return [{name: "Visits",
+//             data: [data.monday.length, data.tuesday.length, data.wednesday.length, data.thursday.length, data.friday.length]}]
+// }
 
 function howMuch(array, what) {
     var count = 0;
@@ -69,7 +69,7 @@ function calculateAge(birthday) {
 
 
 module.exports.getAppointmentsLength = getAppointmentsLength;
-module.exports.getVisitsData = getVisitsData;
+// module.exports.getVisitsData = getVisitsData;
 module.exports.countInArray = countInArray;
 module.exports.getAgesData = getAgesData;
 

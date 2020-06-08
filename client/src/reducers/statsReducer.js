@@ -8,7 +8,7 @@ export default function (state = {}, action) {
         ...state,
         quantity: action.data.quantity,
         sexesPie: action.data.sexesPie,
-        business: action.data.business,
+        // business: action.data.business,
         satisfaction: action.data.satisfaction,
         monthlyVisitors: action.data.monthlyVisitors,
         sexesBar: action.data.sexesBar

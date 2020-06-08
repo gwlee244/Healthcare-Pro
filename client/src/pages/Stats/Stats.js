@@ -14,7 +14,7 @@ export class Stats extends Component {
 
   render() {
     const { classes } = this.props;
-    const { quantity, sexesPie, business, satisfaction, monthlyVisitors, sexesBar } = this.props.stats;
+    const { quantity, sexesPie, satisfaction, monthlyVisitors, sexesBar } = this.props.stats;
    
     return (
     
@@ -70,7 +70,7 @@ export class Stats extends Component {
           </ Paper>
         </div>
 
-        <div className="stats-visits">
+        {/* <div className="stats-visits">
           <Paper elevation={3}>
             <Typography className={classes.headerMargin} variant="h5" align="center">
               Visits
@@ -83,7 +83,7 @@ export class Stats extends Component {
               series={business.series}
             />
           </ Paper>
-        </div>
+        </div> */}
 
         <div className="stats-satisfaction">
           <Paper elevation={3}>
@@ -100,7 +100,7 @@ export class Stats extends Component {
           </ Paper>
         </div>
 
-        <div className="stats-month">
+        {/* <div className="stats-month">
           <Paper elevation={3}>
             <Typography className={classes.headerMargin} variant="h5" align="center">
               Monthly Stats
@@ -119,7 +119,7 @@ export class Stats extends Component {
               Visits This Month
           </Typography>
           </ Paper>
-        </div>
+        </div> */}
       </div>
     );
   }

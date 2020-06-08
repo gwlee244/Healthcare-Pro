@@ -31,6 +31,21 @@
   margin-bottom: 100px;
 }
 
+.employee-find {
+  padding:20px !important;
+}
+.employee-table {
+  padding-left:50px !important;
+}
+
+.patient-table-row {
+padding-left: 30px !important;
+}
+
+th, td {
+  padding-left: 30px !important;
+}
+
 .searchCard {
     justify-content: space-between;
     align-items: baseline;
@@ -141,8 +156,8 @@ a {
 @import "scheduler";
 
 
-@media only screen and (max-width: 800px) {
-    .localProfileGrid {
+@media only screen and (max-width: 1000px) {
+    .localProfileGrid, .profileGrid {
         display: flex;
         flex-direction:column;
         padding: 2em;

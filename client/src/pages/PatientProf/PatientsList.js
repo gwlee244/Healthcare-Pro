@@ -41,11 +41,10 @@ class PatientsTab extends Component {
       content = <Loader />
     }
     else if(patientData.length){
-      console.log(patientData);
-      content = patientData.map((element, index) => {
-        return <ThinProfile key={index} user={element} />
-      });
-    }
+     
+        return <ThinProfile />
+      
+  }
     else {
       content = <Paper>
       <h2 className={classes.topText}>You don't have any patients yet.  Try clicking on the circular icon in the top-right corner of the screen and select 'Generate Token'. Give this token to a patient and you can see their information here.</h2>
