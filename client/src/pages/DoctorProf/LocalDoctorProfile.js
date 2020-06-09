@@ -53,12 +53,23 @@ const styles = theme => ({
 });
 
 class LocalDoctorProfile extends Component {
-
+  constructor(props) {
+		super(props);
+		this.state = {
+			apples: 0
+    };
+  }
+  componentDidMount = () => {
+    this.forceUpdate();
+    this.setState({ apples: 1 });
+    console.log(this.state.apples);
+  }
   generalInfo(user, classes) {
     if (!user.settings) {
       return <Redirect to='/doctor/home/settings' />
     }
     else {
+      console.log(this.state.apples);
       const splitBDay = user.settings.birthday.split("-");
       const birthday = splitBDay[1] + '/' + splitBDay[2] + '/' + splitBDay[0];
 
@@ -187,7 +198,7 @@ class LocalDoctorProfile extends Component {
       ""
     );
     return (
-      <div>
+      <div className = "whole-profile">
         <Paper className={classes.root} elevation={1}>
           <div className="flex flex-center">
             <Avatar

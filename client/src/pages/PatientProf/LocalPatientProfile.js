@@ -192,7 +192,7 @@ class LocalPatientProfile extends Component {
         ""
       );
       return (
-        <div>
+        <div className = "whole-profile">
           <Paper className={classes.root} elevation={1}>
             <div className="flex flex-center">
               <Avatar
