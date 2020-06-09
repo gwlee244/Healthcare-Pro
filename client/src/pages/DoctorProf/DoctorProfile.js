@@ -26,7 +26,7 @@ const styles = theme => ({
 		paddingTop: theme.spacing.unit * 2,
 		paddingBottom: theme.spacing.unit * 2,
 		width: "80%",
-		margin: "auto"
+    margin: "auto",
 	},
 	avatar: {
 		marginLeft: theme.spacing.unit * 2,
@@ -106,7 +106,7 @@ class DoctorProfile extends Component {
 			""
 		);
 		return (
-			<div>
+			<div className = "whole-profile">
 				<Paper className={classes.root} elevation={1}>
 					<div className="flex flex-center">
 						<Avatar

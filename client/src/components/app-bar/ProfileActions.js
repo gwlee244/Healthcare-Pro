@@ -6,6 +6,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
+import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -41,17 +42,17 @@ const token = new TokenGenerator().generate();
 
 const styles = theme => ({
 	root: {
-		width: "100%"
+    width: "100%",
 	},
 	grow: {
 		flexGrow: 1
 	},
 	menuButton: {
 		marginLeft: -12,
-		marginRight: 20
-	},
+    marginRight: 20,
+  },
 	title: {
-		display: "none",
+		// display: "none",
 		[theme.breakpoints.up("sm")]: {
 			display: "block"
 		}
@@ -62,8 +63,10 @@ const styles = theme => ({
 	},
 	avatar: {
 		color: "#fff",
-		backgroundColor: "#f15e09"
-	},
+    backgroundColor: "#f15e09",
+    padding:30,
+    marginRight:10
+  },
 	inputInput: {
 		paddingTop: theme.spacing.unit,
 		paddingRight: theme.spacing.unit,
@@ -73,13 +76,14 @@ const styles = theme => ({
 		width: "100%",
 		[theme.breakpoints.up("md")]: {
 			width: 200
-		}
+    },
+    
 	},
 	sectionDesktop: {
-		display: "none",
-		[theme.breakpoints.up("md")]: {
-			display: "flex"
-		}
+		// display: "none",
+		// [theme.breakpoints.up("md")]: {
+      display: "flex",
+		// }
 	},
   arrow: {
     color: "white"
@@ -278,6 +282,7 @@ class ProfileActions extends React.Component {
 						</Typography>
 						<div className={classes.grow} />
 						<div className={classes.sectionDesktop}>
+           
 							<IconButton
 								aria-owns={
 									isMenuOpen ? "material-appbar" : undefined
@@ -285,15 +290,18 @@ class ProfileActions extends React.Component {
 								aria-haspopup="true"
 								onClick={this.handleProfileMenuOpen}
 								color="inherit">
-								<Avatar className={classes.avatar}>
+                  <Avatar className={classes.avatar}>
 									{initials}
 								</Avatar>
+                <MenuIcon />
 							</IconButton>
+             
+               
 						</div>
 					</Toolbar>
 				</AppBar>
 				{renderMenu}
-				<Dialog
+				<Dialog className={classes.profile}
 					fullScreen
 					open={this.state.openProfile}
 					onClose={this.closeProfile}

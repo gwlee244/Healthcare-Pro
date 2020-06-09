@@ -34,10 +34,12 @@ function TabContainer(props) {
 }
 
 const styles = theme => ({
-	root: {
-		flexGrow: 1,
-		backgroundColor: theme.palette.background.paper
-  },
+	// root: {
+	// 	flexGrow: 1,
+  //   // backgroundColor: theme.palette.background.paper
+  //   backgroundColor: "blue",
+  //   // height: "100%"
+  // },
   topText: {
     textAlign: "center",
     padding: "5%",
@@ -89,7 +91,7 @@ class DoctorTabs extends Component {
 
 		return (
 			<div>
-				<div className={classes.root}>
+				<div className="main-doctortabs">
 					<AppBar position="static" color="default">
 						<Tabs
 							value={value}

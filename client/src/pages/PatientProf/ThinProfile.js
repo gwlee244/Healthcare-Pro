@@ -45,7 +45,7 @@ const actionsStyles = theme => ({
   root: {
     flexShrink: 0,
     color: theme.palette.text.secondary,
-    marginLeft: theme.spacing.unit * 2.5
+    marginLeft: theme.spacing.unit * 2.5,
   }
 });
 //Components
@@ -193,7 +193,7 @@ const styles = theme => ({
   showBtn: {
     marginLeft: "auto",
     zIndex: "100",
-    border: "1px solid red",
+    border: "2px solid red",
     color: "red",
     borderRadius: 10
   }
@@ -425,12 +425,12 @@ class ThinProfile extends Component {
                         <TableCell
                           className={classes.tableData}
                           style={{ fontSize: "1.2em" }}>
-                          {row.email}
+                          <a href={`mailto:${row.email}`}>{row.email}</a>
                         </TableCell>
                         <TableCell
                           className={classes.tableData}
                           style={{ fontSize: "1.2em" }}>
-                          {row.phone}
+                           <a href={`tel:${row.phone}`}>{row.phone}</a>
                         </TableCell>
                         <TableCell
                           className={classes.tableData}
@@ -442,7 +442,7 @@ class ThinProfile extends Component {
                             label="Show"
                             color="secondary"
                             onClick={this.btnClick}>
-                            Show
+                              Full Profile
 					                </button>
                         </TableCell>
                       </StyledTableRow>
@@ -484,6 +484,7 @@ class ThinProfile extends Component {
         </Paper>
 
         <Dialog
+        // className = "whole-profile"
           fullScreen
           open={this.state.open}
           onClose={this.closeProfile}
@@ -500,9 +501,8 @@ class ThinProfile extends Component {
                 variant="h6"
                 color="inherit"
                 className={classes.flex}>
-                {/* {filtered[0].firstName} {
-                  filtered[0].lastName
-                } */}
+                {`${filtered[id] ? filtered[id].firstName : ""} ${filtered[id] ? filtered[id].lastName : ""}`}
+                
               </Typography>
             </Toolbar>
           </AppBar>

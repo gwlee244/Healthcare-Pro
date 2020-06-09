@@ -104,6 +104,7 @@ class DoctorSettings extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      redirect: false,
       expanded: null,
       openSnackBar: false,
       birthday: "",
@@ -168,6 +169,8 @@ class DoctorSettings extends Component {
 
   handleCloseSnackBar = () => {
     this.setState({ openSnackBar: false });
+    this.setState({redirect: true});
+  
   };
 
   onChangeSettings = ev => {
@@ -237,7 +240,6 @@ class DoctorSettings extends Component {
 
   SetSchedule = () => {
     const { classes } = this.props;
-    console.log(scheduleObj);
     return (
       <div className="grid-schedule">
         <Typography variant="h6">Monday</Typography>
@@ -370,12 +372,16 @@ class DoctorSettings extends Component {
     this.setState({ schedule: scheduleObj });
     this.props.updateDoctorSettings(this.state, this.props.auth.user.id);
     this.setState({ openSnackBar: true });
+    // this.setState({redirect: true});
   };
 
 render() {
   const { classes } = this.props;
   const { expanded } = this.state;
 
+  if (this.state.redirect) {
+    return <Redirect push to="/doctor/home/settings" />;
+  }
   return (
     <div className={classes.root}>
 
