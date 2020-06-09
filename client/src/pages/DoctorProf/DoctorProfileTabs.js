@@ -38,7 +38,6 @@ function TabContainer(props) {
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper
   },
   infoItems: {
     marginLeft: ".5em",

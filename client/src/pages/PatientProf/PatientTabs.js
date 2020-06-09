@@ -27,11 +27,13 @@ function TabContainer(props) {
 	);
 }
 const styles = theme => ({
-	root: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.paper
-		// backgroundColor: "rgba(55,111,119,.1)"
-	}
+	// root: {
+  //   flexGrow: 1,
+  //   backgroundColor: theme.palette.background.paper,
+  //   // backgroundColor: "rgba(55,111,119,.1)",
+  //   backgroundColor: "blue",
+  //   // height: "100%"
+	// }
 });
 const defProps = {
 	monday: [],
@@ -65,7 +67,7 @@ class PatientTabs extends Component {
 		}
 		return (
 			<div>
-				<div className={classes.root}>
+				<div className="main-patienttabs">
 					<AppBar position="static" color="default">
 						<Tabs
 							value={value}
