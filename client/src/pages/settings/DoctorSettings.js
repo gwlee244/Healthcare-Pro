@@ -372,7 +372,6 @@ class DoctorSettings extends Component {
     this.setState({ schedule: scheduleObj });
     this.props.updateDoctorSettings(this.state, this.props.auth.user.id);
     this.setState({ openSnackBar: true });
-    // this.setState({redirect: true});
   };
 
 render() {

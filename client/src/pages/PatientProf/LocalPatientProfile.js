@@ -105,7 +105,7 @@ class LocalPatientProfile extends Component {
             <Typography
               className={classes.infoItems}
               variant="subtitle1">
-               {birthday ? `Date of Birth: ${birthday}` : `Date of Birth: ${NOT_AVAILABLE}`}
+               {user.settings.birthday ? `Date of Birth: ${birthday}` : `Date of Birth: ${NOT_AVAILABLE}`}
                 </Typography>
           </div>
           <div className="flex flex-center">
@@ -131,9 +131,9 @@ class LocalPatientProfile extends Component {
             <WorkIcon color="primary" fontSize="large" />
             <Typography
               className={classes.infoItems}
-              variant="subtitle1">{`Occupation: ${
-                user.settings.work || "Occupation: N/A"
-                }`}</Typography>
+              variant="subtitle1">{user.settings.work ? `Occupation: ${
+                user.settings.work}` : `Occupation: N/A`
+                }</Typography>
           </div>
           <div className="flex flex-center">
             <ChildFriendlyIcon color="primary" fontSize="large" />
@@ -149,9 +149,9 @@ class LocalPatientProfile extends Component {
             <Typography
               className={classes.infoItems}
               variant="subtitle1">
-                {user.settings.height ? `Height/Weight: ${user.settings.height}cm/${
-                user.settings.weight
-                }kg` : `Height/Weight: N/A`}</Typography>
+                {user.settings.heightFeet && user.settings.heightInches ? `Height: ${user.settings.heightFeet} ft ${user.settings.heightInches} in / Weight: ${
+                user.settings.weight || NOT_AVAILABLE
+                } lbs` : `Height/Weight: N/A`}</Typography>
           </div>
           <div className="flex flex-center">
             <FavoriteIcon color="primary" fontSize="large" />

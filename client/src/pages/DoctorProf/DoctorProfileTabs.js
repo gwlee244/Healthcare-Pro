@@ -132,7 +132,7 @@ class DoctorProfileTabs extends Component {
             <Typography
               className={classes.infoItems}
               variant="subtitle1">
-              {settings.address
+              {settings.address.street
                 ? `Address: ${settings.address.city} ${
                 settings.address.street
                 } ${settings.address.number}`
