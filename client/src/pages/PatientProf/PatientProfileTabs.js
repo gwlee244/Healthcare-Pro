@@ -135,9 +135,9 @@ class PatientProfileTabs extends Component {
             <Typography
               className={classes.infoItems}
               variant="subtitle1">
-              {user.settings.height ? `Height/Weight: ${user.settings.height}cm/${
-                user.settings.weight
-                }kg` : `Height/Weight: N/A`}</Typography>
+              {user.settings.heightFeet && user.settings.heightInches ? `Height: ${user.settings.heightFeet} ft ${user.settings.heightInches} in / Weight: ${
+                user.settings.weight || NOT_AVAILABLE
+                } lbs` : `Height/Weight: N/A`}</Typography>
           </div>
           <div className="flex flex-center">
             <FavoriteIcon color="primary" fontSize="large" />

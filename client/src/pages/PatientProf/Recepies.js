@@ -133,9 +133,16 @@ const styles = theme => ({
 		marginRight: "2em"
 	},
 	tableHead: {
-		backgroundColor: '#708090',
-		color: 'white'
-	  }
+		backgroundColor: '#DCDCDC',
+    color: 'black',
+    fontWeight: "bold",
+    padding: 6,
+      border: "1px solid #ccc",
+    },
+    tableData: {
+      padding: 6,
+      border: "1px solid #ccc",
+    }
 });
 class Recepies extends React.Component {
 	constructor(props) {
@@ -300,28 +307,33 @@ class Recepies extends React.Component {
 									return (
 										<TableRow key={row.id}>
 											<TableCell
+                        className={`${classes.tableData} ${classes.tableLeft}`}
 												style={{ fontSize: "1.2em" }}
 												component="th"
 												scope="row">
 												{row.doctor}
 											</TableCell>
-											<TableCell
+											<TableCell className={classes.tableData}
 												style={{ fontSize: "1.2em" }}>
 												{row.meds}
 											</TableCell>
 											<TableCell
+                       className={classes.tableData}
 												style={{ fontSize: "1.2em" }}>
 												{row.dosage}
 											</TableCell>
 											<TableCell
+                       className={classes.tableData}
 												style={{ fontSize: "1.2em" }}>
 												{row.units}
 											</TableCell>
 											<TableCell
+                       className={classes.tableData}
 												style={{ fontSize: "1.2em" }}>
 												{row.instructions}
 											</TableCell>
 											<TableCell
+                       className={classes.tableData}
 												style={{ fontSize: "1.2em" }}>
 												{row.date}
 											</TableCell>

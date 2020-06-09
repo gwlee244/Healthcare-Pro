@@ -176,7 +176,7 @@ const styles = theme => ({
   tableHead: {
     padding: 6,
     border: "1px solid #ccc",
-    backgroundColor: '#708090',
+    backgroundColor: '#787878',
     color: 'white',
     fontWeight: "bold",
     fontSize: 16,

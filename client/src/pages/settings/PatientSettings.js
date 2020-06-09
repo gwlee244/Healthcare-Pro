@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
@@ -71,6 +71,7 @@ class PatientSettings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      redirect: false,
       expanded: null,
       openSnackBar: false,
       address: {
@@ -95,7 +96,8 @@ class PatientSettings extends React.Component {
       injuries: "",
       operations: "",
       currMeds: "",
-      height: "",
+      heightFeet: "",
+      heightInches: "",
       weight: "",
       blood: {
         type: "",
@@ -119,6 +121,7 @@ class PatientSettings extends React.Component {
 
   handleCloseSnackBar = () => {
     this.setState({ openSnackBar: false });
+    this.setState({ redirect: true });
   };
 
   onAddress = ev => {
@@ -151,6 +154,7 @@ class PatientSettings extends React.Component {
     });
   };
 
+
   componentDidMount = () => {
     this.props.getPatientSettings(this.props.auth.user.id);
   };
@@ -169,6 +173,10 @@ class PatientSettings extends React.Component {
   render() {
     const { classes } = this.props;
     const { expanded } = this.state;
+
+    if (this.state.redirect) {
+      return <Redirect push to="/patient/home/settings" />;
+    }
 
     return (
       <div className={classes.root}>
@@ -390,13 +398,66 @@ class PatientSettings extends React.Component {
             </ExpansionPanelDetails>
           </ExpansionPanel>
 
-          <ExpansionPanel
+           <ExpansionPanel
+            expanded={expanded === "panel8"}
+            onChange={this.handleExpand("panel8")}>
+            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography className={classes.heading}>
+            Height
+							</Typography>
+          <Typography className={classes.secondaryHeading}>
+            Input your height in feet and inches
+							</Typography>
+              </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Select
+              value={this.state.heightFeet}
+              name="heightFeet"
+              onChange={this.onChangeSettings}
+              className={classes.dateField}>
+              <MenuItem value={"0"}>0</MenuItem>
+              <MenuItem value={"1"}>1</MenuItem>
+              <MenuItem value={"2"}>2</MenuItem>
+              <MenuItem value={"3"}>3</MenuItem>
+              <MenuItem value={"4"}>4</MenuItem>
+              <MenuItem value={"5"}>5</MenuItem>
+              <MenuItem value={"6"}>6</MenuItem>
+              <MenuItem value={"7"}>7</MenuItem>
+              <MenuItem value={"8"}>8</MenuItem>
+              <MenuItem value={"9"}>9</MenuItem>
+            </Select>
+
+            <Select
+              value={this.state.heightInches}
+              name="heightInches"
+              onChange={this.onChangeSettings}
+              className={classes.dateField}>
+              <MenuItem value={"0"}>0</MenuItem>
+              <MenuItem value={"1"}>1</MenuItem>
+              <MenuItem value={"2"}>2</MenuItem>
+              <MenuItem value={"3"}>3</MenuItem>
+              <MenuItem value={"4"}>4</MenuItem>
+              <MenuItem value={"5"}>5</MenuItem>
+              <MenuItem value={"6"}>6</MenuItem>
+              <MenuItem value={"7"}>7</MenuItem>
+              <MenuItem value={"8"}>8</MenuItem>
+              <MenuItem value={"9"}>9</MenuItem>
+              <MenuItem value={"10"}>10</MenuItem>
+              <MenuItem value={"11"}>11</MenuItem>
+            </Select>
+          </ExpansionPanelDetails>
+          </ExpansionPanel>
+
+
+
+          {/* <ExpansionPanel
             expanded={expanded === "panel8"}
             onChange={this.handleExpand("panel8")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
               <Typography className={classes.heading}>
                 Height (feet & inches)
 							</Typography>
+
               <Typography className={classes.secondaryHeading}>
                 Input your height
 							</Typography>
@@ -413,7 +474,7 @@ class PatientSettings extends React.Component {
                 inputProps={{ min: "0", max: "300" }}
               />
             </ExpansionPanelDetails>
-          </ExpansionPanel>
+          </ExpansionPanel> */}
 
           <ExpansionPanel
             expanded={expanded === "panel9"}

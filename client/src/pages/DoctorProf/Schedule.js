@@ -11,12 +11,17 @@ import { withStyles } from "@material-ui/core/styles";
 
 const CustomTableCell = withStyles(theme => ({
     head: {
-        backgroundColor: "#1e4de973",
-        color: theme.palette.common.white,
-        fontSize: 18
+      backgroundColor: '#DCDCDC',
+        color: "black",
+        fontSize: 15,
+        fontWeight: "bold",
+        textAlign: "left",
+        paddingLeft:20
     },
     body: {
         fontSize: 20,
+        paddingLeft:20,
+        textAlign: "left"
     }
 }))(TableCell);
 
