@@ -123,7 +123,7 @@ class Register extends Component {
 		const { classes } = this.props;
 		const { errors } = this.state;
 		return (
-			<div>
+			<div className="register-background">
 				<Header headerLabel="Register" back={true} toLocation="/" />
 				<Paper elevation={3} className={classes.paper}>
 					<Typography

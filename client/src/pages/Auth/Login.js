@@ -104,7 +104,7 @@ class Login extends Component {
 		const { classes } = this.props;
 		const { errors } = this.state;
 		return (
-			<div>
+			<div className="login-background">
 				<Header headerLabel={"Login"} back={true} toLocation="/" />
 
 				<Paper elevation={3} className={classes.paperWidth}>

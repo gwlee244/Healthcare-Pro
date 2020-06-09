@@ -20,7 +20,7 @@ a {
 		text-transform: uppercase;
 		font-weight: 700;
 		font-family: "Josefin Sans", sans-serif;
-		background: linear-gradient(to right, #213A40 10%, #D9D0BF 50%, white 60%);
+		background: linear-gradient(to right, #FF3333 10%, #FFCCE5 50%, white 60%);
 		background-size: auto auto;
 		background-clip: border-box;
 		background-size: 200% auto;
@@ -36,13 +36,41 @@ a {
 
 .whole-page {
   position: absolute;
-  background: url("https://images.pexels.com/photos/1270327/pexels-photo-1270327.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat center center fixed; 
+  background: url("https://images.squarespace-cdn.com/content/v1/54c11785e4b00c958789156d/1422051952480-TMFFYEYD0HZ0Y6ON18L9/ke17ZwdGBToddI8pDm48kKDD9K8EWjxZpuR9yHkNE4V7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0jRb3i7UjwNNySrgFE_nWavTQzA2ahqAmkdz52KBMJ8uLGt_Pq0peEvgS3RKfmm4cw/med_tech_banner.jpg?format=1500w") no-repeat center center fixed; 
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
 width: 100%;
 height: 100%;
+}
+
+.register-background {
+  position: absolute;
+  background: #00416a;
+  background: -webkit-linear-gradient(to top, #00416a, #e4e5e6);
+  background: linear-gradient(to top, #00416a, #e4e5e6);
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+width: 100%;
+height: 140%;
+background-attachment: scroll;
+}
+
+.login-background {
+  position: absolute;
+  background: #00416a;
+  background: -webkit-linear-gradient(to top, #00416a, #e4e5e6);
+  background: linear-gradient(to top, #00416a, #e4e5e6);
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+width: 100%;
+height: 100%;
+background-attachment: scroll;
 }
 
 .home-container {
