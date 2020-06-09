@@ -139,6 +139,17 @@ const styles = theme => ({
   tableWrapper: {
     overflowX: "auto"
   },
+  tableHead: {
+		backgroundColor: '#DCDCDC',
+    color: 'black',
+    fontWeight: "bold",
+    padding: 6,
+      border: "1px solid #ccc",
+    },
+    tableData: {
+      padding: 6,
+      border: "1px solid #ccc",
+    },
   inputAdjustment: {
     width: "100%",
     margin: "1em"
@@ -246,10 +257,19 @@ class Diary extends Component {
         <div className={classes.tableWrapper}>
           <Table className={classes.table}>
             <TableHead>
-              <TableRow>
-                <TableCell>Doctor</TableCell>
-                <TableCell>Diary records</TableCell>
-                <TableCell>Date</TableCell>
+              <TableRow className={classes.tableHead}>
+                <TableCell 
+                className={classes.tableHead}>
+                  Doctor
+                  </TableCell>
+                <TableCell 
+                className={classes.tableHead}
+                >Diary records
+                </TableCell>
+                <TableCell
+                className={classes.tableHead}
+                >Date
+                </TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -263,16 +283,19 @@ class Diary extends Component {
                   return (
                     <TableRow key={row.id}>
                       <TableCell
+                        className={`${classes.tableData} ${classes.tableLeft}`}
                         style={{ fontSize: "1.2em" }}
                         component="th"
                         scope="row">
                         {row.doctor}
                       </TableCell>
                       <TableCell
+                       className={classes.tableData}
                         style={{ fontSize: "1.2em" }}>
                         {row.record}
                       </TableCell>
                       <TableCell
+                       className={classes.tableData}
                         style={{ fontSize: "1.2em" }}>
                         {row.date}
                       </TableCell>

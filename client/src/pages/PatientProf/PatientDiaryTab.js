@@ -96,8 +96,15 @@ const styles = theme => ({
     overflowX: 'auto'
   },
   tableHead: {
-    backgroundColor: '#708090',
-    color: 'white'
+    backgroundColor: '#DCDCDC',
+    color: 'black',
+    fontWeight: "bold",
+    padding: 6,
+    border: "1px solid #ccc",
+  },
+  tableData: {
+    padding: 6,
+    border: "1px solid #ccc",
   }
 });
 
@@ -173,10 +180,15 @@ export class PatientDiaryTab extends Component {
               </TableHead>
                 <TableBody>
                 {this.state.rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => <TableRow key={row.id}>
-                  {/* <TableCell align="left">{row.id}</TableCell> */}
-                  <TableCell align="left">{row.doctor}</TableCell>
-                  <TableCell align="left">{row.diaryRecord}</TableCell>
-                  <TableCell align="left">{row.date}</TableCell>
+                  <TableCell 
+                     className={`${classes.tableData} ${classes.tableLeft}`}
+                    align="left">{row.doctor}</TableCell>
+                  <TableCell
+                  className={classes.tableData}
+                   align="left">{row.diaryRecord}</TableCell>
+                  <TableCell 
+                  className={classes.tableData}
+                  align="left">{row.date}</TableCell>
                 </TableRow>)}
                 {emptyRows > 0 && <TableRow style={{ height: 48 * emptyRows }}>
                   <TableCell colSpan={6} />
