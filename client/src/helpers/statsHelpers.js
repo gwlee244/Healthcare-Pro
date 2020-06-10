@@ -8,7 +8,9 @@ const categories = [
      30,
      40,
      50,
-     60
+     60,
+     70,
+     80
  ];
 
 function getAppointmentsLength(apps) {
@@ -36,8 +38,8 @@ function countInArray(stars){
 }
 
 function getAgesData(data) {
-	let menData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-		womenData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+	let menData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		womenData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	data.map(elem => {
         if(elem.settings) {
             if(elem.settings.sex === "male") {

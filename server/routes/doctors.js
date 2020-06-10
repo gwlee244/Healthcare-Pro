@@ -270,9 +270,8 @@ router.get(
 				// @quantity
 
 				// @monthly visits
-				// monthlyVisitors.options.labels[0] = statsHelpers.getAppointmentsLength(
-				// 	doc.appointments
-				// );
+				monthlyVisitors.options.labels[0] = doc.appointments.length;
+				
 				// @monthly visits
 
 				// @business

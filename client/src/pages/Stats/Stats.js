@@ -100,7 +100,7 @@ export class Stats extends Component {
           </ Paper>
         </div>
 
-        {/* <div className="stats-month">
+         <div className="stats-month">
           <Paper elevation={3}>
             <Typography className={classes.headerMargin} variant="h5" align="center">
               Monthly Stats
@@ -119,7 +119,7 @@ export class Stats extends Component {
               Visits This Month
           </Typography>
           </ Paper>
-        </div> */}
+        </div> 
       </div>
     );
   }
