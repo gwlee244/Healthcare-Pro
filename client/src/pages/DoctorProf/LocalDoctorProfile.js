@@ -56,7 +56,7 @@ class LocalDoctorProfile extends Component {
   constructor(props) {
 		super(props);
 		this.state = {
-			apples: 0
+			redirect: false
     };
   }
   componentDidMount = () => {

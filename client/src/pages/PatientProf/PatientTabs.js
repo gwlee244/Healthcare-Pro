@@ -73,10 +73,10 @@ class PatientTabs extends Component {
 							value={value}
 							onChange={this.handleChange}
 							centered>
-							<Tab label="Doctors" />
-							<Tab label="E-card" />
-							<Tab label="Prescriptions" />
-							<Tab label="Planned Appointments" />
+							<Tab className = "main-tabs" label="Doctors" />
+							<Tab className = "main-tabs" label="E-card" />
+							<Tab className = "main-tabs" label="Prescriptions" />
+							<Tab className = "main-tabs" label="Planned Appointments" />
 						</Tabs>
 					</AppBar>
 					{value === 0 && (
