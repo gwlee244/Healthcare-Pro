@@ -43,7 +43,7 @@ module.exports = {
 			dataLabels: {
 				enabled: false
 			},
-			colors: ["#FF1654", "#247BA0"],
+			colors: ["#0059ff", "#ff00bf"],
 			stroke: {
 				width: [5, 5]
 			},
