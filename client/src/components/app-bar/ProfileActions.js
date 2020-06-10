@@ -86,7 +86,7 @@ const styles = theme => ({
 		// }
 	},
   arrow: {
-    color: "white"
+    color: "#66FF99"
   }
 });
 
@@ -236,7 +236,7 @@ class ProfileActions extends React.Component {
 							</Button>
 						</CopyToClipboard>
             <Button onClick={this.dialogClose} color="primary">
-							Exit
+							Exit Profile
 						</Button>
 					</DialogActions>
 				</Dialog>
@@ -278,7 +278,7 @@ class ProfileActions extends React.Component {
 							variant="h6"
 							color="inherit"
 							noWrap>
-							{this.props.userRole}
+						Healthcare Pro
 						</Typography>
 						<div className={classes.grow} />
 						<div className={classes.sectionDesktop}>
@@ -309,7 +309,7 @@ class ProfileActions extends React.Component {
 					<AppBar className= "profile-bar">
 						<Toolbar>
 							<IconButton
-								color="inherit"
+								color="secondary"
 								onClick={this.closeProfile}
 								aria-label="Close">
 								<CloseIcon />
@@ -318,9 +318,7 @@ class ProfileActions extends React.Component {
 								variant="h6"
 								color="inherit"
 								className={classes.flex}>
-								{`${this.props.auth.user.firstName} ${
-									this.props.auth.user.lastName
-								}`}
+							Exit Profile
 							</Typography>
 						</Toolbar>
 					</AppBar>

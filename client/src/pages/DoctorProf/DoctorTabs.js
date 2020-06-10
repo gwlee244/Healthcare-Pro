@@ -94,12 +94,13 @@ class DoctorTabs extends Component {
 				<div className="main-doctortabs">
 					<AppBar position="static" color="default">
 						<Tabs
+            
 							value={value}
 							onChange={this.handleChange}
 							centered>
-							<Tab label="Stats" />
-							<Tab label="Patients" />
-							<Tab label="Upcoming visits" />
+							<Tab className = "main-tabs" label="Stats" />
+							<Tab className = "main-tabs" label="Patients" />
+							<Tab className = "main-tabs" label="Upcoming visits" />
 						</Tabs>
 					</AppBar>
 

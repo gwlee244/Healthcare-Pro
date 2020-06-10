@@ -41,7 +41,7 @@ router.post("/login", (req, res) => {
 						}; // Create JWT Payload
 						// Sign Token
 						jwt.sign(payload, keys.secretKey, {expiresIn: '1h'} ,(err, token) => {
-							if (err) console.log(err);
+							if (err) console.log(err + "ERROR");
 							res.json({
 								success: true,
 								token: "Bearer " + token
