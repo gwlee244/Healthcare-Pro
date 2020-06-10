@@ -99,7 +99,7 @@ class DoctorsList extends Component {
     }
     else if (doctorData.length) {
 
-      return (
+      content =  (
         <div className={classes.cardContainer}>
           {doctorData.map((element, index) => (
             <CardProfile parent={this.props.auth.user.id}
