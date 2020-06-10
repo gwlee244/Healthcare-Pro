@@ -47,15 +47,22 @@ const styles = theme => ({
   paperConfig: {
     width: "60vw",
     height: "100%",
-    margin: "2em auto",
-    padding: "2em"
+    margin: "20px auto",
+    padding: "20px",
+    backgroundColor: "#F8F8FF"
   },
   marginInput: {
     margin: "1% 1% 1% 0"
   },
   headerConfig: {
-    marginBottom: "3vh",
-    marginTop: "3vh"
+    marginTop:"4vh",
+    paddingBottom: "3vh",
+    paddingTop: "3vh",
+    paddingLeft: "20px",
+    fontWeight: "bold",
+    opacity: 0.9,
+    color: "white",
+    backgroundColor: "#00416a"
   },
   btn: {
     margin: "3em 0 1em 1em",
@@ -104,7 +111,6 @@ class DoctorSettings extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      redirect: false,
       expanded: null,
       openSnackBar: false,
       birthday: "",
@@ -169,7 +175,6 @@ class DoctorSettings extends Component {
 
   handleCloseSnackBar = () => {
     this.setState({ openSnackBar: false });
-    this.setState({redirect: true});
   
   };
 
@@ -378,9 +383,6 @@ render() {
   const { classes } = this.props;
   const { expanded } = this.state;
 
-  if (this.state.redirect) {
-    return <Redirect push to="/doctor/home/settings" />;
-  }
   return (
     <div className={classes.root}>
 
@@ -390,9 +392,10 @@ render() {
         toLocation="/doctor/home"
       />
 
-      <Paper elevation={5} className={classes.paperConfig}>
+      <Paper elevation={5} className={classes.paperConfig} 
+      >
         <Typography variant="h4" className={classes.headerConfig}>
-          General Settings
+          General Doctor Settings
 					</Typography>
 
         <ExpansionPanel
@@ -611,7 +614,7 @@ render() {
           </ExpansionPanelDetails>
         </ExpansionPanel>
 
-        <Typography variant="h4" className={classes.headerConfig}>
+        <Typography variant="h5"  className={classes.headerConfig}>
           About your current work organization
 					</Typography>
 

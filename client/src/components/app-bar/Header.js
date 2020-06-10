@@ -22,7 +22,7 @@ const styles = {
 		justifyContent: "flex-end"
   },
   arrow: {
-    color: "white"
+    color: "#66FF99"
   }
 };
 
@@ -40,8 +40,9 @@ function Header(props) {
 						""
 					)}
 					<Typography variant="h6" color="inherit">
-						{props.headerLabel}
+						{`${props.headerLabel}   |   Healthcare Pro`}
 					</Typography>
+        
 				</ToolBar>
 			</AppBar>
 		</div>

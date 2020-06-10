@@ -45,8 +45,9 @@ const styles = theme => ({
   paperConfig: {
     width: "60vw",
     height: "100%",
-    margin: "2em auto",
-    padding: "2em"
+    margin: "20px auto",
+    padding: "20px",
+    backgroundColor: "#F8F8FF"
   },
   dateField: {
     marginLeft: theme.spacing.unit,
@@ -54,8 +55,14 @@ const styles = theme => ({
     width: 300
   },
   headerConfig: {
-    marginBottom: "3vh",
-    marginTop: "3vh"
+    marginTop:"4vh",
+    paddingBottom: "4vh",
+    paddingTop: "4vh",
+    paddingLeft: "20px",
+    fontWeight: "bold",
+    opacity: 0.9,
+    color: "white",
+    backgroundColor: "#00416a"
   },
   btn: {
     margin: "3em 0 1em 1em",
@@ -71,7 +78,6 @@ class PatientSettings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      redirect: false,
       expanded: null,
       openSnackBar: false,
       address: {
@@ -121,7 +127,6 @@ class PatientSettings extends React.Component {
 
   handleCloseSnackBar = () => {
     this.setState({ openSnackBar: false });
-    this.setState({ redirect: true });
   };
 
   onAddress = ev => {
@@ -174,10 +179,6 @@ class PatientSettings extends React.Component {
     const { classes } = this.props;
     const { expanded } = this.state;
 
-    if (this.state.redirect) {
-      return <Redirect push to="/patient/home/settings" />;
-    }
-
     return (
       <div className={classes.root}>
         <ProfileActions
@@ -187,7 +188,7 @@ class PatientSettings extends React.Component {
         />
         <Paper elevation={5} className={classes.paperConfig}>
           <Typography variant="h4" className={classes.headerConfig}>
-            General Settings
+            General Patient Settings
 					</Typography>
           <ExpansionPanel
             expanded={expanded === "panel1"}
@@ -552,7 +553,7 @@ class PatientSettings extends React.Component {
             </ExpansionPanelDetails>
           </ExpansionPanel>
 
-          <Typography variant="h4" className={classes.headerConfig}>
+          <Typography variant="h5" className={classes.headerConfig}>
             Medical questions
 					</Typography>
 

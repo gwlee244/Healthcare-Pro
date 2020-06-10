@@ -270,7 +270,7 @@ class UserCard extends Component {
           <AppBar className="doctor-bar">
             <Toolbar>
               <IconButton
-                color="inherit"
+                color="secondary"
                 onClick={this.closeProfile}
                 aria-label="Close">
                 <CloseIcon />
@@ -279,9 +279,7 @@ class UserCard extends Component {
                 variant="h6"
                 color="inherit"
                 className={classes.flex}>
-                {`${this.props.user.firstName} ${
-                  this.props.user.lastName
-                  }`}
+               Exit Profile
               </Typography>
             </Toolbar>
           </AppBar>

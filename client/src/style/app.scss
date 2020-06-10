@@ -5,12 +5,11 @@ html, #root, .App {
   width: 100%
 }
 
-
 // these 2 classes change all the background-colors for our app
 body {
   min-height: 100%;
   width: 100%;
-  overflow: auto;
+  overflow: auto ;
 background: #00416A;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to bottom, #E4E5E6, #00416A);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to bottom, #E4E5E6, #00416A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -25,14 +24,18 @@ background: linear-gradient(to bottom, #E4E5E6, #00416A); /* W3C, IE 10+/ Edge, 
   height: 100%;
 }
 
-// / .main-doctortabs, .main-patienttabs {
-  //   flex-grow: 1;
-  //   height: 100%;
+ .main-doctortabs, .main-patienttabs {
+    flex-grow: 1;
+    // height: 100%;
   //   background: #00416A;  /* fallback for old browsers */
   // background: -webkit-linear-gradient(to bottom, #E4E5E6, #00416A);  /* Chrome 10-25, Safari 5.1-6 */
   // background: linear-gradient(to bottom, #E4E5E6, #00416A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ 
-  // }
+  }
 
+  .header-title {
+   
+    text-align: center !important;
+  }
 
 .flex {
     display: flex;
@@ -58,9 +61,10 @@ background: linear-gradient(to bottom, #E4E5E6, #00416A); /* W3C, IE 10+/ Edge, 
     background-color:#00416a !important;
     // background-color:rgb(55,111,119) !important;
     color: white;
+    align-items: "center" !important;
 }
 .profile-bar, .doctor-bar, .patient-bar {
-  background-color:#2F403E !important;
+  background-color:#00416a !important;
   // background-color:rgb(55,111,119) !important;
   position: relative !important;
 }
@@ -190,6 +194,41 @@ a {
 .stats-month {
     grid-area: 2 / 6 / 3 / 7;
 }
+
+.man-icon{
+  margin-left:30px;
+  margin-right: 10px;
+  margin-top: 20px;
+  margin-bottom: -3px;
+  color: #00416A;
+  }
+
+  .show-button {
+  background-color: #00416A;
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid #00416A;
+  cursor: pointer;
+  }
+
+  .show-button:hover {
+    background-color: #66FF99;
+    color: #00416A;
+    border: 1px solid black;
+  }
+
+  .main-tabs {
+    font-weight: bolder !important;
+    color: #00416A !important;
+  }
 
 @import "scheduler";
 

@@ -9,6 +9,7 @@ import { getPatientsList } from "../../actions/utilsAction";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
+import PeopleIcon from '@material-ui/icons/People';
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import HomeIcon from "@material-ui/icons/Home";
 import EventIcon from "@material-ui/icons/Event";
@@ -34,6 +35,8 @@ import LastPageIcon from "@material-ui/icons/LastPage";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
+import Grid from '@material-ui/core/Grid';
+import AccountCircle from '@material-ui/icons/AccountCircle';
 // import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
@@ -188,7 +191,9 @@ const styles = theme => ({
 
   },
   patientSearch: {
-    margin: 20
+    margin: 20,
+    padding:20,
+    border:"1px solid red"
   },
   showBtn: {
     marginLeft: "auto",
@@ -196,7 +201,7 @@ const styles = theme => ({
     border: "2px solid red",
     color: "red",
     borderRadius: 10
-  }
+  },
 });
 
 const StyledTableRow = withStyles((theme) => ({
@@ -206,7 +211,6 @@ const StyledTableRow = withStyles((theme) => ({
     },
   },
 }))(TableRow);
-
 
 
 class ThinProfile extends Component {
@@ -364,19 +368,25 @@ class ThinProfile extends Component {
       <>
         <br></br>
         <Paper className={classes.root}>
-          <ExpansionPanel
-            expanded={expanded === "panel7"}
-            onChange={this.handleExpand("panel7")}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography className={classes.heading}>
+         
+            <div className={classes.margin}>
+        <Grid  container spacing={8} alignItems="flex-end">
+          <Grid item>
+            <PeopleIcon className = "man-icon" />
+            {/* <AccountCircle className = "man-icon" /> */}
+          </Grid>
+          <Grid item>
+            <TextField className="patient-search" id="input-with-icon-grid" 
+            name="patientSearch"
+            value={this.state.term}
+            onChange={this.handleInputChange}
+            label="Patient Search"
+            placeholder="John Doe" />
+          </Grid>
+        </Grid>
+      </div>
 
-              </Typography>
-              <Typography className={classes.secondaryHeading}>
-                Search For a Specific Patient
-							</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <TextField
+              {/* <TextField
                 fullWidth
                 name="patientSearch"
                 value={this.state.term}
@@ -384,9 +394,8 @@ class ThinProfile extends Component {
                 label="Patient Search"
                 variant="outlined"
                 placeholder="John Doe"
-              />
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
+              /> */}
+        
           <br></br>
 
           <div className={classes.tableWrapper}>
@@ -436,8 +445,8 @@ class ThinProfile extends Component {
                           className={classes.tableData}
                           style={{ fontSize: "1.2em" }}>
                           <button
-                            className={classes.showBtn}
-                            variant="outlined"
+                            className="show-button"
+                            variant="filled"
                             value={row.id}
                             label="Show"
                             color="secondary"
@@ -492,7 +501,7 @@ class ThinProfile extends Component {
           <AppBar className="profile-bar">
             <Toolbar>
               <IconButton
-                color="inherit"
+                color="secondary"
                 onClick={this.closeProfile}
                 aria-label="Close">
                 <CloseIcon />
@@ -501,7 +510,7 @@ class ThinProfile extends Component {
                 variant="h6"
                 color="inherit"
                 className={classes.flex}>
-                {`${filtered[id] ? filtered[id].firstName : ""} ${filtered[id] ? filtered[id].lastName : ""}`}
+               Exit Profile
                 
               </Typography>
             </Toolbar>
