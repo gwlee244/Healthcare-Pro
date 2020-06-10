@@ -23,11 +23,11 @@ const styles = theme => ({
 		width: "350px"
 	},
 	margin: {
-		margin: "2vh auto"
+		margin: "1vh auto"
 	},
 	paperWidth: {
 		width: "400px",
-		height: "350px",
+		height: "400px",
 		margin: "10vh auto"
 	},
 	typographyPadding: {
