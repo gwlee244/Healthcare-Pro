@@ -129,7 +129,6 @@ export class PatientDiaryTab extends Component {
     })
   }
   handleChangeRowsPerPage = (e) => {
-    console.log(e.target);
     this.setState({
       rowsPerPage: e.target.value
     })
@@ -137,14 +136,10 @@ export class PatientDiaryTab extends Component {
   render() {
     const { classes } = this.props;
     const { rowsPerPage, page, rows } = this.state;
-    console.log(rowsPerPage);
-    console.log(page);
     let { patientRecords } = this.props.general;
-    console.log(patientRecords);
     if (patientRecords == null) {
 
     } else {
-      console.log(classes);
       if (rows.length === 0) {
         for (let i = 0; i < patientRecords.length; i++) {
           rows.unshift(
@@ -155,10 +150,6 @@ export class PatientDiaryTab extends Component {
             )
           )
         }
-        // this.setState({
-        //   rows: rows
-        // });
-        console.log(this.state.rows);
       }
     }
 
@@ -172,7 +163,6 @@ export class PatientDiaryTab extends Component {
             <Table className={classes.table}>
               <TableHead>
                 <TableRow className={classes.tableHead}>
-                  {/* <TableCell className={classes.tableHead} align="left">ID</TableCell> */}
                   <TableCell className={classes.tableHead} align="left">Doctor</TableCell>
                   <TableCell className={classes.tableHead} align="left">Appointment Notes</TableCell>
                   <TableCell className={classes.tableHead} align="left">Date</TableCell>

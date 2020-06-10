@@ -36,7 +36,7 @@ function TabContainer(props) {
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: "#F8F8FF"
   },
   infoItems: {
     marginLeft: ".5em",
@@ -66,8 +66,7 @@ class PatientProfileTabs extends Component {
     if (user.settings) {
       const splitBDay = user.settings.birthday.split("-");
       const birthday = splitBDay[1] + '/' + splitBDay[2] + '/' + splitBDay[0];
-      console.log(birthday);
-
+      
       return (
         <div className="profileGrid">
           <div className="flex flex-center">
@@ -208,14 +207,15 @@ class PatientProfileTabs extends Component {
         <div className={classes.root}>
           <AppBar position="static" color="inherit" elevation={0}>
             <Tabs
+            className="patient-tabs"
               value={value}
               onChange={this.handleChange}
               centered
               variant="fullWidth">
-              <Tab label="General" />
-              <Tab label="Medical questions" />
-              <Tab label="E-card" />
-              <Tab label="Prescriptions" />
+              <Tab className="patient-tab" label="General" />
+              <Tab className="patient-tab" label="Medical questions" />
+              <Tab className="patient-tab" label="E-card" />
+              <Tab className="patient-tab" label="Prescriptions" />
             </Tabs>
           </AppBar>
           {value === 0 && (

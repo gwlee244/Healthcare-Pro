@@ -41,25 +41,40 @@ const styles = theme => ({
     paddingBottom: theme.spacing.unit * 2,
     width: "80%",
     margin: "auto",
-    flexGrow: 1
+    flexGrow: 1,
+    backgroundColor: "#00416A",
+    justifyContent: 'center',
+    textAlign: "center",
   },
   purpleAvatar: {
     marginLeft: theme.spacing.unit * 2,
     marginRight: theme.spacing.unit * 2,
     color: "#fff",
-    width: 150,
-    fontSize: "50px",
-    height: 150,
-    backgroundColor: deepPurple[500]
+    width: "80px",
+		fontSize: "24px",
+		height: "80px",
+    backgroundColor: deepPurple[500],
+    position: "absolute",
+    marginTop: "1.7%",
+    marginBottom: "1.7%",
+    left:"10",
+    fontFamily: `'Ultra', serif`,
   },
   secondPaper: {
     width: "80%",
-    margin: "1em auto"
+    margin: "auto"
   },
   infoItems: {
     marginLeft: ".5em",
     fontSize: "1.3em",
     color: "black"
+  },
+  name: {
+    margin: "0 auto",
+    paddingTop: "3%",
+    paddingBottom: "3%",
+    fontWeight: "bolder",
+    color: "white"
   },
   emailLink: {
     color: "black"
@@ -186,7 +201,6 @@ class LocalPatientProfile extends Component {
                 }
     }
     render() {
-      console.log(this.props);
       const { classes, user } = this.props;
       let initials = getAvatarInitials(user.firstName, user.lastName).join(
         ""
@@ -194,7 +208,7 @@ class LocalPatientProfile extends Component {
       return (
         <div className = "whole-profile">
           <Paper className={classes.root} elevation={1}>
-            <div className="flex flex-center">
+            <div className="">
               <Avatar
                 style={{
                   backgroundColor: `${colors[user.color].bgc}`
@@ -202,7 +216,7 @@ class LocalPatientProfile extends Component {
                 className={classes.purpleAvatar}>
                 {initials}
               </Avatar>
-              <Typography variant="h3">{`${user.firstName} ${
+              <Typography className={classes.name} variant="h3">{`${user.firstName} ${
                 user.lastName
                 }`}</Typography>
             </div>

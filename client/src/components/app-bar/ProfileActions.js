@@ -56,7 +56,7 @@ const styles = theme => ({
 		[theme.breakpoints.up("sm")]: {
 			display: "block"
 		}
-	},
+  },
 	inputRoot: {
 		color: "inherit",
 		width: "100%"
@@ -66,6 +66,9 @@ const styles = theme => ({
     backgroundColor: "#f15e09",
     padding:30,
     marginRight:10
+  },
+  titleHealthcare: {
+    fontFamily: `'Ultra', serif`
   },
 	inputInput: {
 		paddingTop: theme.spacing.unit,
@@ -156,13 +159,10 @@ class ProfileActions extends React.Component {
 	};
 
 	snackClose = () => {
-    console.log("snack closed");
 		this.setState({ snackOpen: false });
 	};
 
 	render() {
-  
-    console.log(this.props.userRole);
 		const { anchorEl } = this.state;
 		const { classes } = this.props;
 		const isMenuOpen = Boolean(anchorEl);
@@ -274,11 +274,19 @@ class ProfileActions extends React.Component {
 							""
 						)}
 						<Typography
+							className={classes.titleHealthcare}
+							variant="h6"
+							color="inherit"
+							>
+						{`Healthcare Pro\u00A0\u00A0 |\u00A0`}
+						</Typography>
+            <Typography
 							className={classes.title}
 							variant="h6"
 							color="inherit"
-							noWrap>
-						Healthcare Pro
+							>
+						{`\u00A0\u00A0 ${this.props.auth.user.firstName} 
+						${this.props.auth.user.lastName}`}
 						</Typography>
 						<div className={classes.grow} />
 						<div className={classes.sectionDesktop}>

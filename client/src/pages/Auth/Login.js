@@ -20,19 +20,30 @@ import { loginUser } from "../../actions/authorizationAction";
 
 const styles = theme => ({
 	width: {
-		width: "350px"
+    width: "350px",
+    textAlign: "center",
 	},
 	margin: {
-		margin: "1vh auto"
+    margin: "1vh auto",
 	},
 	paperWidth: {
 		width: "400px",
-		height: "400px",
-		margin: "10vh auto"
+		// height: "400px",
+    margin: "10vh auto",
+    backgroundColor: "#f2f3f4",
+    paddingBottom: "3vh"
 	},
 	typographyPadding: {
-		paddingTop: "3vh"
-	}
+    paddingTop: "2vh",
+  },
+  button: {
+   backgroundColor: "#555555",
+   color: "white",
+  "&:hover": {
+    backgroundColor: "#00416A",
+    color: "white"
+   }
+  }
 });
 
 class Login extends Component {
@@ -49,7 +60,6 @@ class Login extends Component {
 	}
 
 	componentDidMount() {
-    console.log(this.props.auth.user);
 		if (this.props.auth.user.typeOfUser === "Doctor") {
 			if (this.props.auth.isAuthenticated) {
 				this.props.history.push("/doctor/home");
@@ -115,7 +125,7 @@ class Login extends Component {
 						Log In
 					</Typography>
 
-					<form onSubmit={this.onSubmit}>
+					<form className="form-container" onSubmit={this.onSubmit}>
 						<div className="login-container">
 							{this.loginErr(
 								`${
@@ -154,13 +164,15 @@ class Login extends Component {
 									onChange={this.onChange}
 								/>
 							</FormControl>
+              </div>
 							<Button
-								variant="contained"
-								className={`${classes.width} ${classes.margin}`}
+                variant="contained"
+                align="center"
+								className={`${classes.width} ${classes.margin} ${classes.button}`}
 								onClick={this.onSubmit}>
 								Submit
 							</Button>
-						</div>
+						
 					</form>
 				</Paper>
 			</div>

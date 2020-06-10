@@ -27,29 +27,53 @@ const styles = theme => ({
 		paddingBottom: theme.spacing.unit * 2,
 		width: "80%",
     margin: "auto",
+    backgroundColor: "#00416A",
+    justifyContent: 'center',
+    textAlign: "center",
+    // border: "5px solid #00416A"
 	},
 	avatar: {
 		marginLeft: theme.spacing.unit * 2,
 		marginRight: theme.spacing.unit * 2,
-		width: 150,
-		fontSize: "50px",
-		height: 150
+		width: "80px",
+		fontSize: "24px",
+		height: "80px",
+    // backgroundColor: deepPurple[500],
+    position: "absolute",
+    marginTop: "1.7%",
+    marginBottom: "1.7%",
+    left:"10",
+    fontFamily: `'Ultra', serif`,
 	},
 	secondPaper: {
 		width: "80%",
-		margin: "1em auto"
+		margin: "auto"
 	},
 	showBtn: {
 		marginLeft: "auto",
-		marginRight: "1em"
+    marginRight: "1em",
+    color: "orange",
+    border: "1px solid orange",
+    "&:hover": { 
+      color: "black",
+      backgroundColor: "orange"
+    }
 	},
 	star: {
 		display: "flex",
 		justifyContent: "center"
-	},
+  },
+  name: {
+    margin: "0 auto",
+    paddingTop: "3%",
+    paddingBottom: "3%",
+    fontWeight: "bolder",
+    color: "white"
+  },
 	rating: {
 		marginTop: "1em",
-		transform: "scale(2.5)"
+    transform: "scale(2.5)",
+    color: "orange"
 	}
 });
 
@@ -108,7 +132,7 @@ class DoctorProfile extends Component {
 		return (
 			<div className = "whole-profile">
 				<Paper className={classes.root} elevation={1}>
-					<div className="flex flex-center">
+					<div className="">
 						<Avatar
 							style={{
 								backgroundColor: `${colors[user.color].bgc}`
@@ -116,13 +140,14 @@ class DoctorProfile extends Component {
 							className={`${classes.avatar}`}>
 							{initials}
 						</Avatar>
-						<Typography variant="h3">{`Dr. ${user.firstName} ${
+						<Typography className={classes.name} variant="h3">{`Dr. ${user.firstName} ${
 							user.lastName
 						}`}</Typography>
+            
 						<Button
 							className={classes.showBtn}
 							variant="outlined"
-							color="primary"
+							
 							onClick={this.handleClickOpen}>
 							Rate this doctor
 						</Button>
