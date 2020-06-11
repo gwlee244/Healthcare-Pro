@@ -26,6 +26,7 @@ import SetMeeting from "./SetMeeting";
 import SetMeetingCopy from "./SetMeeting copy";
 
 const NOT_AVAILABLE = "N/A";
+var birthday;
 
 function TabContainer(props) {
   return (
@@ -82,9 +83,13 @@ class DoctorProfileTabs extends Component {
   };
 
   generalInfo(settings, classes) {
+
     if (settings) {
+      if(settings.birthday) {
       const splitBDay = settings.birthday.split("-");
-      const birthday = splitBDay[1] + '/' + splitBDay[2] + '/' + splitBDay[0];
+       birthday = splitBDay[1] + '/' + splitBDay[2] + '/' + splitBDay[0];
+      }
+    
 
       return (
         <div className="profileGrid">
@@ -157,7 +162,7 @@ class DoctorProfileTabs extends Component {
             <Typography
               className={classes.infoItems}
               variant="subtitle1">
-              {birthday ? `Date of Birth: ${birthday}` : `Date of Birth: ${NOT_AVAILABLE}`}
+              {settings.birthday ? `Date of Birth: ${birthday}` : `Date of Birth: ${NOT_AVAILABLE}`}
             </Typography>
           </div>
 

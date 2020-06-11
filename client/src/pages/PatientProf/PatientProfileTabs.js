@@ -24,6 +24,7 @@ import Diary from "./Diary";
 import Recepies from "./Recepies";//Still work in progress
 
 const NOT_AVAILABLE = "N/A";
+var birthday;
 
 function TabContainer(props) {
   return (
@@ -64,8 +65,10 @@ class PatientProfileTabs extends Component {
 
   generalInfo(user, classes) {
     if (user.settings) {
+      if(user.settings.birthday) {
       const splitBDay = user.settings.birthday.split("-");
-      const birthday = splitBDay[1] + '/' + splitBDay[2] + '/' + splitBDay[0];
+       birthday = splitBDay[1] + '/' + splitBDay[2] + '/' + splitBDay[0];
+      }
       
       return (
         <div className="profileGrid">
