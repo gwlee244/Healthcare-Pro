@@ -53,7 +53,6 @@ const styles = theme => ({
 	}
 });
 const week = startOfWeek(new Date());
-console.log(week);
 let HOURS = null;
 class SetMeeting extends Component {
 	constructor(props) {

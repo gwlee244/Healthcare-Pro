@@ -215,16 +215,16 @@ class DoctorProfileTabs extends Component {
     return (
       <div>
         <div className={classes.root}>
-          <AppBar position="static" color="inherit" elevation={0}>
+          <AppBar className= "doctor-tabs" position="static" color="inherit" elevation={0}>
             <Tabs
               value={value}
               onChange={this.handleChange}
               centered
               variant="fullWidth">
-              <Tab label="General" />
-              <Tab label="Schedule" />
-              <Tab label="Plan an Appointment" />
-              <Tab label="Prescriptions" />
+              <Tab className="doctor-tab" label="General" />
+              <Tab className="doctor-tab" label="Schedule" />
+              <Tab className="doctor-tab" label="Plan an Appointment" />
+              <Tab className="doctor-tab" label="Prescriptions" />
             </Tabs>
           </AppBar>
           {value === 0 && (

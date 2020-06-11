@@ -273,14 +273,11 @@ class ThinProfile extends Component {
     this.setState({ page });
   };
   handleChangeRowsPerPage = event => {
-    console.log(event.target.value);
     const rpp = parseInt(event.target.value)
     this.setState({ rowsPerPage: rpp });
   };
   removeBadPatients(patient, i) {
-    console.log(patient + i);
     const goodPatients = patient.splice(i, 1);
-    console.log(goodPatients);
     this.setState({ patients: goodPatients,
     filtered: goodPatients })
   }
@@ -321,7 +318,6 @@ class ThinProfile extends Component {
       searchTerm: newSearch
     },
       () => {
-        console.log(this.state.filtered);
         this.setState({
           filtered: this.state.patients.filter(person =>
             person.firstName.toLowerCase().includes(this.state.searchTerm) || person.lastName.toLowerCase().includes(this.state.searchTerm) || person.settings.phone.toString().includes(this.state.searchTerm) || person.settings.email.toLowerCase().includes(this.state.searchTerm))
@@ -342,7 +338,6 @@ class ThinProfile extends Component {
     if (patientData == null) {
     }
     else {
-      // console.log(patientData);
       if (rows.length === 0) {
 
         for (let i = 0; i < filtered.length; i++)
@@ -360,9 +355,6 @@ class ThinProfile extends Component {
           }
       }
     }
-    // console.log(rows);
-
-
 
     return (
       <>
@@ -373,7 +365,6 @@ class ThinProfile extends Component {
         <Grid  container spacing={8} alignItems="flex-end">
           <Grid item>
             <PeopleIcon className = "man-icon" />
-            {/* <AccountCircle className = "man-icon" /> */}
           </Grid>
           <Grid item>
             <TextField className="patient-search" id="input-with-icon-grid" 

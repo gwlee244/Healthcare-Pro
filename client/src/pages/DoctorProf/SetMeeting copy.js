@@ -59,7 +59,6 @@ const styles = theme => ({
 	  }
 });
 const week = startOfWeek(new Date());
-console.log(week);
 let HOURS = ["08:30",
 "08:45",
 "09:00",

@@ -87,7 +87,6 @@ class DoctorsList extends Component {
   }
   render() {
     let content = null;
-    console.log(this.props.general);
     let { doctorData, findedDoctor } = this.props.general;
     const { classes } = this.props;
     if (doctorData == null) {

@@ -132,7 +132,6 @@ class UserCard extends Component {
       ""
     );
     if (user.settings.birthday) {
-      console.log(user.settings.birthday)
       pickedDate = user.settings.birthday.split("-");
       recievedDate = new Date(...pickedDate);
       birthday = `${recievedDate.getMonth()}/${recievedDate.getDate()}/${recievedDate.getFullYear()} (${this.calculateAge(

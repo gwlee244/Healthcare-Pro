@@ -30,18 +30,28 @@ const styles = theme => ({
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
     width: "80%",
-    margin: "auto"
+    margin: "auto",
+    flexGrow: 1,
+    backgroundColor: "#00416A",
+    justifyContent: 'center',
+    textAlign: "center",
   },
   avatar: {
     marginLeft: theme.spacing.unit * 2,
     marginRight: theme.spacing.unit * 2,
-    width: 150,
-    fontSize: "50px",
-    height: 150
+    color: "#fff",
+    width: "80px",
+		fontSize: "24px",
+		height: "80px",
+    position: "absolute",
+    marginTop: "1%",
+    marginBottom: "1%",
+    left:"10",
+    fontFamily: `'Ultra', serif`,
   },
   secondPaper: {
     width: "80%",
-    margin: "1em auto"
+    margin: "auto"
   },
   infoItems: {
     marginLeft: ".5em",
@@ -49,7 +59,14 @@ const styles = theme => ({
   },
   phoneLink: {
     color: "black"
-  }
+  },
+  name: {
+    margin: "0 auto",
+    paddingTop: "3%",
+    paddingBottom: "3%",
+    fontWeight: "bolder",
+    color: "white"
+  },
 });
 
 class LocalDoctorProfile extends Component {
@@ -62,14 +79,12 @@ class LocalDoctorProfile extends Component {
   componentDidMount = () => {
     this.forceUpdate();
     this.setState({ apples: 1 });
-    console.log(this.state.apples);
   }
   generalInfo(user, classes) {
     if (!user.settings) {
       return <Redirect to='/doctor/home/settings' />
     }
     else {
-      console.log(this.state.apples);
       const splitBDay = user.settings.birthday.split("-");
       const birthday = splitBDay[1] + '/' + splitBDay[2] + '/' + splitBDay[0];
 
@@ -142,7 +157,7 @@ class LocalDoctorProfile extends Component {
             <Typography
               className={classes.infoItems}
               variant="subtitle1">
-               {birthday ? `Date of Birth: ${birthday}` : `Date of Birth: ${NOT_AVAILABLE}`}
+               {user.settings.birthday ? `Date of Birth: ${birthday}` : `Date of Birth: ${NOT_AVAILABLE}`}
                 </Typography>
           </div>
 
@@ -199,21 +214,21 @@ class LocalDoctorProfile extends Component {
     );
     return (
       <div className = "whole-profile">
-        <Paper className={classes.root} elevation={1}>
-          <div className="flex flex-center">
+        <Paper className="profile-root" elevation={1}>
+          <div className="">
             <Avatar
               style={{
                 backgroundColor: `${colors[user.color].bgc}`
               }}
-              className={`${classes.avatar}`}>
+              className="profile-avatar">
               {initials}
             </Avatar>
-            <Typography variant="h3">{`Dr. ${user.firstName} ${
+            <Typography className="profile-name"  variant="h3">{`Dr. ${user.firstName} ${
               user.lastName
               }`}</Typography>
           </div>
         </Paper>
-        <Paper className={classes.secondPaper} elevation={2}>
+        <Paper className="profile-info" elevation={2}>
           {this.generalInfo(user, classes)}
         </Paper>
       </div>

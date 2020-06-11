@@ -31,7 +31,6 @@ module.exports = {
         db.Prescription
           .findOneAndUpdate({ _id: req.params.id }, req.body)
           .then(dbScrip => {
-            console.log(dbScrip);
             res.json(dbScrip);
           })
           .catch(err => res.status(422).json(err));

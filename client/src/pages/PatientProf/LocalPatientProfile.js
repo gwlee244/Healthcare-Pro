@@ -41,25 +41,41 @@ const styles = theme => ({
     paddingBottom: theme.spacing.unit * 2,
     width: "80%",
     margin: "auto",
-    flexGrow: 1
+    flexGrow: 1,
+    backgroundColor: "#00416A",
+    justifyContent: 'center',
+    textAlign: "center",
   },
   purpleAvatar: {
     marginLeft: theme.spacing.unit * 2,
     marginRight: theme.spacing.unit * 2,
+    margin: "0 auto",
     color: "#fff",
-    width: 150,
-    fontSize: "50px",
-    height: 150,
-    backgroundColor: deepPurple[500]
+    width: "80px",
+		fontSize: "24px",
+		height: "80px",
+    position: "absolute",
+    marginTop: "1%",
+    marginBottom: "1%",
+    left:"10",
+    fontFamily: `'Ultra', serif`,
   },
   secondPaper: {
     width: "80%",
-    margin: "1em auto"
+    margin: "auto"
   },
   infoItems: {
     marginLeft: ".5em",
     fontSize: "1.3em",
     color: "black"
+  },
+  name: {
+    margin: "0 auto",
+    paddingTop: "3%",
+    paddingBottom: "3%",
+    fontWeight: "bolder",
+    display: "inline-block",
+    color: "white"
   },
   emailLink: {
     color: "black"
@@ -186,28 +202,27 @@ class LocalPatientProfile extends Component {
                 }
     }
     render() {
-      console.log(this.props);
       const { classes, user } = this.props;
       let initials = getAvatarInitials(user.firstName, user.lastName).join(
         ""
       );
       return (
         <div className = "whole-profile">
-          <Paper className={classes.root} elevation={1}>
-            <div className="flex flex-center">
+          <Paper className="profile-root" elevation={1}>
+            <div className="">
               <Avatar
                 style={{
                   backgroundColor: `${colors[user.color].bgc}`
                 }}
-                className={classes.purpleAvatar}>
+                className="profile-avatar">
                 {initials}
               </Avatar>
-              <Typography variant="h3">{`${user.firstName} ${
+              <Typography className="profile-name" variant="h3">{`${user.firstName} ${
                 user.lastName
                 }`}</Typography>
             </div>
           </Paper>
-          <Paper className={classes.secondPaper} elevation={2}>
+          <Paper className="profile-info" elevation={2}>
             {this.generalInfo(user, classes)}
           </Paper>
         </div>

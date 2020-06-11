@@ -6,7 +6,6 @@ import 'devextreme/dist/css/dx.light.css';
 import { data } from './data.js';
 
 const currentDate = new Date();
-console.log(currentDate);
 const views = ['week', 'month'];
 const realData = [];
 function createData(appointment, day) {

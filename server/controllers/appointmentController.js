@@ -42,7 +42,6 @@ module.exports = {
         db.Appointment
           .findOneAndUpdate({ _id: req.params.id }, req.body)
           .then(dbApp => {
-            console.log(dbApp);
             res.json(dbApp);
           })
           .catch(err => res.status(422).json(err));
