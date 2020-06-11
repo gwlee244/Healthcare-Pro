@@ -49,14 +49,14 @@ const styles = theme => ({
   purpleAvatar: {
     marginLeft: theme.spacing.unit * 2,
     marginRight: theme.spacing.unit * 2,
+    margin: "0 auto",
     color: "#fff",
     width: "80px",
 		fontSize: "24px",
 		height: "80px",
-    backgroundColor: deepPurple[500],
     position: "absolute",
-    marginTop: "1.7%",
-    marginBottom: "1.7%",
+    marginTop: "1%",
+    marginBottom: "1%",
     left:"10",
     fontFamily: `'Ultra', serif`,
   },
@@ -74,6 +74,7 @@ const styles = theme => ({
     paddingTop: "3%",
     paddingBottom: "3%",
     fontWeight: "bolder",
+    display: "inline-block",
     color: "white"
   },
   emailLink: {
@@ -207,21 +208,21 @@ class LocalPatientProfile extends Component {
       );
       return (
         <div className = "whole-profile">
-          <Paper className={classes.root} elevation={1}>
+          <Paper className="profile-root" elevation={1}>
             <div className="">
               <Avatar
                 style={{
                   backgroundColor: `${colors[user.color].bgc}`
                 }}
-                className={classes.purpleAvatar}>
+                className="profile-avatar">
                 {initials}
               </Avatar>
-              <Typography className={classes.name} variant="h3">{`${user.firstName} ${
+              <Typography className="profile-name" variant="h3">{`${user.firstName} ${
                 user.lastName
                 }`}</Typography>
             </div>
           </Paper>
-          <Paper className={classes.secondPaper} elevation={2}>
+          <Paper className="profile-info" elevation={2}>
             {this.generalInfo(user, classes)}
           </Paper>
         </div>

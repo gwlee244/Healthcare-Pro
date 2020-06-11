@@ -68,7 +68,8 @@ const styles = theme => ({
     paddingTop: "3%",
     paddingBottom: "3%",
     fontWeight: "bolder",
-    color: "white"
+    color: "white",
+    marginRight: -40
   },
 	rating: {
 		marginTop: "1em",
@@ -131,16 +132,16 @@ class DoctorProfile extends Component {
 		);
 		return (
 			<div className = "whole-profile">
-				<Paper className={classes.root} elevation={1}>
+				<Paper className="profile-root" elevation={1}>
 					<div className="">
 						<Avatar
 							style={{
 								backgroundColor: `${colors[user.color].bgc}`
 							}}
-							className={`${classes.avatar}`}>
+							className="profile-avatar">
 							{initials}
 						</Avatar>
-						<Typography className={classes.name} variant="h3">{`Dr. ${user.firstName} ${
+						<Typography className="profile-name" variant="h3">{`Dr. ${user.firstName} ${
 							user.lastName
 						}`}</Typography>
             
@@ -194,7 +195,7 @@ class DoctorProfile extends Component {
 						</DialogActions>
 					</Dialog>
 				</div>
-				<Paper className={classes.secondPaper} elevation={2}>
+				<Paper className="profile-info" elevation={2}>
 					
 					<DoctorProfileTabs user={user} />
 				</Paper>

@@ -263,6 +263,45 @@ a {
     background-color: #536878 !important;
   }
 
+.profile-root {
+  width: 80%;
+  margin: auto;
+  flex-grow: 1;
+  background-color: #00416A !important;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.profile-info {
+  width: 80%;
+  margin: auto;
+}
+
+.profile-avatar {
+  margin: 0 auto !important;
+  color: #fff;
+  width: 80px !important;
+  font-size:  !important;
+  height: 80px !important;
+  position: absolute !important;
+  margin-top: 15px !important;
+  margin-bottom: 10px !important;
+  margin-left: 5%;
+  left: 12% !important;
+  font-family: 'Ultra', serif !important;
+}
+
+.profile-name {
+  margin: 0 auto !important ;
+  padding-top: 30px !important;
+  padding-bottom: 30px;
+  font-weight: bolder;
+  display: inline-block;
+  color: white !important;
+}
+
+
 @import "scheduler"; 
 
 
@@ -270,7 +309,41 @@ a {
     .localProfileGrid, .profileGrid {
         display: flex;
         flex-direction:column;
-        padding: 2em;
-        font-size:11px;
+        padding: 4em;
+        font-size:14px;
     }
+
+    .profile-avatar {
+      margin-top: 5px !important;
+    }
+
+    .profile-root, .profile-info {
+      width: 98%;
+    }
+
+    .profile-name {
+      font-size: 30px !important;
+      padding-top: 30px !important;
+      padding-bottom: 30px;
+    }
+    h3 {
+      font-size: 18px;
+    }
+    h6 {
+      font-size:15px !important;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .profile-avatar {
+      display: none !important;
+    }
+
+    h3 {
+      font-size: 15px;
+    }
+    h6 {
+      font-size:12px !important;
+    }
+
   }

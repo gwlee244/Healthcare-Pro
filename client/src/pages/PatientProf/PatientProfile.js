@@ -54,7 +54,9 @@ const styles = theme => ({
   }, 
   allergies: {
     color: "orange",
-    fontSize: 22
+    fontSize: 22,
+    margin: 0,
+   PaddingBottom: "20px"
   }
 });
 
@@ -68,23 +70,23 @@ class PatientProfile extends Component {
 		);
 		return (
 			<div className = "whole-profile">
-				<Paper className={classes.root} elevation={3}>
+				<Paper className="profile-root" elevation={3}>
 					<div className="">
 						<Avatar
 							style={{
 								backgroundColor: `${colors[user.color].bgc}`
 							}}
-							className={classes.purpleAvatar}>
+							className="profile-avatar">
 							{initials}
 						</Avatar>
-						<Typography className={classes.name} variant="h3">{`${user.firstName} ${
+						<Typography className="profile-name" variant="h3">{`${user.firstName} ${
 							user.lastName
 						}`}</Typography>
             <p className={classes.allergies}>** General Allergies: {user.settings.allergies ? user.settings.allergies : `N/A`} **</p>
             <p className={classes.allergies}>** Medical Allergies: {user.settings.medAllergies ? user.settings.medAllergies : `N/A`} **</p>
 					</div>
 				</Paper>
-				<Paper className={classes.secondPaper} elevation={2}>
+				<Paper className="profile-info" elevation={2}>
 					<PatientProfileTabs user={user} />
 				</Paper>
 			</div>
