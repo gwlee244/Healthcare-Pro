@@ -38,16 +38,16 @@ We created a secure role-based healthcare application. Based on your personal ro
   
   ## Screenshots
 * Landing Page
-<div align="center"><img  alt= "Screenshot of Landing Page" src= "./public/assets/main.jpg" width="600px" /></div>
+<div align="center"><img  alt= "Screenshot of Landing Page" src= "./client/public/assets/main.jpg" width="600px" /></div>
 
 * Doctor Main Page
-<div align="center"><img  alt= "Screenshot of Doctor Main" src= "./public/assets/questionaire.jpg" width="600px" /></div>
+<div align="center"><img  alt= "Screenshot of Doctor Main" src= "./client/public/assets/questionaire.jpg" width="600px" /></div>
 
 * Patient Main Page
-<div align="center"><img  alt= "Screenshot of Patient Main" src= "./public/assets/results.jpg" width="600px" /></div>
+<div align="center"><img  alt= "Screenshot of Patient Main" src= "./client/public/assets/results.jpg" width="600px" /></div>
 
 * Profile
-<div align="center"><img  alt= "Screenshot of profile" src= "./public/assets/sidebar.jpg" width="600px" /></div>
+<div align="center"><img  alt= "Screenshot of profile" src= "./client/public/assets/sidebar.jpg" width="600px" /></div>
    
    ## Built With  
    ![Node.js](https://img.shields.io/badge/Built_with-Node.js-purple) &nbsp;&nbsp;&nbsp; 
