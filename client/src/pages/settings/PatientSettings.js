@@ -36,7 +36,7 @@ const styles = theme => ({
   heading: {
     fontSize: theme.typography.pxToRem(17),
     flexBasis: "33.33%",
-    flexShrink: 0
+    flexShrink: 0,
   },
   secondaryHeading: {
     fontSize: theme.typography.pxToRem(15),
@@ -45,9 +45,9 @@ const styles = theme => ({
   paperConfig: {
     width: "60vw",
     height: "100%",
-    margin: "20px auto",
-    padding: "20px",
-    backgroundColor: "#F8F8FF"
+    margin: "50px auto",
+    padding: "50px",
+    backgroundColor: "#f5f5f5"
   },
   dateField: {
     marginLeft: theme.spacing.unit,
@@ -55,9 +55,9 @@ const styles = theme => ({
     width: 300
   },
   headerConfig: {
-    marginTop:"4vh",
-    paddingBottom: "4vh",
-    paddingTop: "4vh",
+    marginTop: "4vh",
+    paddingBottom: "3vh",
+    paddingTop: "3vh",
     paddingLeft: "20px",
     fontWeight: "bold",
     opacity: 0.9,
@@ -67,6 +67,9 @@ const styles = theme => ({
   btn: {
     margin: "3em 0 1em 1em",
     width: "10vw"
+  },
+  expansion: {
+    backgroundColor: "#f2f3f4"
   },
   spaceAround: {
     display: "flex",
@@ -78,6 +81,7 @@ class PatientSettings extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      redirect: false,
       expanded: null,
       openSnackBar: false,
       address: {
@@ -127,6 +131,7 @@ class PatientSettings extends React.Component {
 
   handleCloseSnackBar = () => {
     this.setState({ openSnackBar: false });
+    // this.setState({ redirect: true });
   };
 
   onAddress = ev => {
@@ -179,6 +184,10 @@ class PatientSettings extends React.Component {
     const { classes } = this.props;
     const { expanded } = this.state;
 
+    if (this.state.redirect) {
+      return <Redirect push to="/patient/home/settings" />;
+    }
+
     return (
       <div className={classes.root}>
         <ProfileActions
@@ -188,9 +197,11 @@ class PatientSettings extends React.Component {
         />
         <Paper elevation={5} className={classes.paperConfig}>
           <Typography variant="h4" className={classes.headerConfig}>
-            General Patient Settings
+            General Settings
 					</Typography>
+
           <ExpansionPanel
+             className={classes.expansion}
             expanded={expanded === "panel1"}
             onChange={this.handleExpand("panel1")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -235,6 +246,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
+             className={classes.expansion}
             expanded={expanded === "panel2"}
             onChange={this.handleExpand("panel2")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -259,6 +271,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
+             className={classes.expansion}
             expanded={expanded === "panel3"}
             onChange={this.handleExpand("panel3")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -292,6 +305,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
+             className={classes.expansion}
             expanded={expanded === "panel4"}
             onChange={this.handleExpand("panel4")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -317,6 +331,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
+            className={classes.expansion}
             expanded={expanded === "panel5"}
             onChange={this.handleExpand("panel5")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -346,6 +361,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
+            className={classes.expansion}
             expanded={expanded === "panel6"}
             onChange={this.handleExpand("panel6")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -371,6 +387,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
+            className={classes.expansion}
             expanded={expanded === "panel7"}
             onChange={this.handleExpand("panel7")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -399,85 +416,59 @@ class PatientSettings extends React.Component {
             </ExpansionPanelDetails>
           </ExpansionPanel>
 
-           <ExpansionPanel
-            expanded={expanded === "panel8"}
-            onChange={this.handleExpand("panel8")}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>
-            Height
-							</Typography>
-          <Typography className={classes.secondaryHeading}>
-            Input your height in feet and inches
-							</Typography>
-              </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Select
-              value={this.state.heightFeet}
-              name="heightFeet"
-              onChange={this.onChangeSettings}
-              className={classes.dateField}>
-              <MenuItem value={"0"}>0</MenuItem>
-              <MenuItem value={"1"}>1</MenuItem>
-              <MenuItem value={"2"}>2</MenuItem>
-              <MenuItem value={"3"}>3</MenuItem>
-              <MenuItem value={"4"}>4</MenuItem>
-              <MenuItem value={"5"}>5</MenuItem>
-              <MenuItem value={"6"}>6</MenuItem>
-              <MenuItem value={"7"}>7</MenuItem>
-              <MenuItem value={"8"}>8</MenuItem>
-              <MenuItem value={"9"}>9</MenuItem>
-            </Select>
-
-            <Select
-              value={this.state.heightInches}
-              name="heightInches"
-              onChange={this.onChangeSettings}
-              className={classes.dateField}>
-              <MenuItem value={"0"}>0</MenuItem>
-              <MenuItem value={"1"}>1</MenuItem>
-              <MenuItem value={"2"}>2</MenuItem>
-              <MenuItem value={"3"}>3</MenuItem>
-              <MenuItem value={"4"}>4</MenuItem>
-              <MenuItem value={"5"}>5</MenuItem>
-              <MenuItem value={"6"}>6</MenuItem>
-              <MenuItem value={"7"}>7</MenuItem>
-              <MenuItem value={"8"}>8</MenuItem>
-              <MenuItem value={"9"}>9</MenuItem>
-              <MenuItem value={"10"}>10</MenuItem>
-              <MenuItem value={"11"}>11</MenuItem>
-            </Select>
-          </ExpansionPanelDetails>
-          </ExpansionPanel>
-
-
-
-          {/* <ExpansionPanel
+          <ExpansionPanel
+            className={classes.expansion}
             expanded={expanded === "panel8"}
             onChange={this.handleExpand("panel8")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
               <Typography className={classes.heading}>
-                Height (feet & inches)
+                Height
 							</Typography>
-
               <Typography className={classes.secondaryHeading}>
-                Input your height
+                Input your height in feet and inches
 							</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
-              <TextField
-                type="number"
-                className={classes.dateField}
-                placeholder="Your height in feet & inches"
-                name="height"
-                value={this.state.height}
+              <Select
+                value={this.state.heightFeet}
+                name="heightFeet"
                 onChange={this.onChangeSettings}
-                variant="outlined"
-                inputProps={{ min: "0", max: "300" }}
-              />
+                className={classes.dateField}>
+                <MenuItem value={"0"}>0</MenuItem>
+                <MenuItem value={"1"}>1</MenuItem>
+                <MenuItem value={"2"}>2</MenuItem>
+                <MenuItem value={"3"}>3</MenuItem>
+                <MenuItem value={"4"}>4</MenuItem>
+                <MenuItem value={"5"}>5</MenuItem>
+                <MenuItem value={"6"}>6</MenuItem>
+                <MenuItem value={"7"}>7</MenuItem>
+                <MenuItem value={"8"}>8</MenuItem>
+                <MenuItem value={"9"}>9</MenuItem>
+              </Select>
+
+              <Select
+                value={this.state.heightInches}
+                name="heightInches"
+                onChange={this.onChangeSettings}
+                className={classes.dateField}>
+                <MenuItem value={"0"}>0</MenuItem>
+                <MenuItem value={"1"}>1</MenuItem>
+                <MenuItem value={"2"}>2</MenuItem>
+                <MenuItem value={"3"}>3</MenuItem>
+                <MenuItem value={"4"}>4</MenuItem>
+                <MenuItem value={"5"}>5</MenuItem>
+                <MenuItem value={"6"}>6</MenuItem>
+                <MenuItem value={"7"}>7</MenuItem>
+                <MenuItem value={"8"}>8</MenuItem>
+                <MenuItem value={"9"}>9</MenuItem>
+                <MenuItem value={"10"}>10</MenuItem>
+                <MenuItem value={"11"}>11</MenuItem>
+              </Select>
             </ExpansionPanelDetails>
-          </ExpansionPanel> */}
+          </ExpansionPanel>
 
           <ExpansionPanel
+            className={classes.expansion}
             expanded={expanded === "panel9"}
             onChange={this.handleExpand("panel9")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -503,6 +494,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
+             className={classes.expansion}
             expanded={expanded === "panel10"}
             onChange={this.handleExpand("panel10")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -553,11 +545,12 @@ class PatientSettings extends React.Component {
             </ExpansionPanelDetails>
           </ExpansionPanel>
 
-          <Typography variant="h5" className={classes.headerConfig}>
+          <Typography variant="h4" className={classes.headerConfig}>
             Medical questions
 					</Typography>
 
           <ExpansionPanel
+             className={classes.expansion}
             expanded={expanded === "panel11"}
             onChange={this.handleExpand("panel11")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -592,6 +585,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
+             className={classes.expansion}
             expanded={expanded === "panel12"}
             onChange={this.handleExpand("panel12")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -618,6 +612,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
+             className={classes.expansion}
             expanded={expanded === "panel13"}
             onChange={this.handleExpand("panel13")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -643,6 +638,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
+             className={classes.expansion}
             expanded={expanded === "panel14"}
             onChange={this.handleExpand("panel14")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -668,6 +664,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
+             className={classes.expansion}
             expanded={expanded === "panel15"}
             onChange={this.handleExpand("panel15")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -693,6 +690,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
+             className={classes.expansion}
             expanded={expanded === "panel16"}
             onChange={this.handleExpand("panel16")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -721,7 +719,6 @@ class PatientSettings extends React.Component {
             <Link to="/patient/home/">
               <Button
                 variant="outlined"
-                href="/patient/home"
                 color="secondary"
                 className={classes.btn}>
                 Go Back

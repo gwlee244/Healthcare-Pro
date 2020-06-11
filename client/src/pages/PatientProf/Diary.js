@@ -264,7 +264,7 @@ class Diary extends Component {
                   </TableCell>
                 <TableCell 
                 className={classes.tableHead}
-                >Diary records
+                >Visit Notes
                 </TableCell>
                 <TableCell
                 className={classes.tableHead}

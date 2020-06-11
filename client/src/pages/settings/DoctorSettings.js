@@ -47,9 +47,9 @@ const styles = theme => ({
   paperConfig: {
     width: "60vw",
     height: "100%",
-    margin: "20px auto",
-    padding: "20px",
-    backgroundColor: "#F8F8FF"
+    margin: "50px auto",
+    padding: "50px",
+    backgroundColor: "#f5f5f5"
   },
   marginInput: {
     margin: "1% 1% 1% 0"
@@ -78,6 +78,9 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     width: 300
+  },
+  expansion: {
+    backgroundColor: "#f2f3f4"
   },
   timeWidth: {
     width: "7vw"
@@ -399,6 +402,7 @@ render() {
 					</Typography>
 
         <ExpansionPanel
+           className={classes.expansion}    
           expanded={expanded === "panel1"}
           onChange={this.handleExpand("panel1")}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -427,6 +431,7 @@ render() {
         </ExpansionPanel>
 
         <ExpansionPanel
+           className={classes.expansion}
           expanded={expanded === "panel2"}
           onChange={this.handleExpand("panel2")}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -460,6 +465,7 @@ render() {
         </ExpansionPanel>
 
         <ExpansionPanel
+           className={classes.expansion}
           expanded={expanded === "panel3"}
           onChange={this.handleExpand("panel3")}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -534,6 +540,7 @@ render() {
         </ExpansionPanel>
 
         <ExpansionPanel
+           className={classes.expansion}
           expanded={expanded === "panel4"}
           onChange={this.handleExpand("panel4")}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -561,6 +568,7 @@ render() {
         </ExpansionPanel>
 
         <ExpansionPanel
+           className={classes.expansion}
           expanded={expanded === "panel5"}
           onChange={this.handleExpand("panel5")}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -590,6 +598,7 @@ render() {
         </ExpansionPanel>
 
         <ExpansionPanel
+           className={classes.expansion}
           expanded={expanded === "panel6"}
           onChange={this.handleExpand("panel6")}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -619,6 +628,7 @@ render() {
 					</Typography>
 
         <ExpansionPanel
+           className={classes.expansion}
           expanded={expanded === "panel7"}
           onChange={this.handleExpand("panel7")}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -643,6 +653,7 @@ render() {
         </ExpansionPanel>
 
         <ExpansionPanel
+           className={classes.expansion}
           expanded={expanded === "panel8"}
           onChange={this.handleExpand("panel8")}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -695,6 +706,7 @@ render() {
         </ExpansionPanel>
 
         <ExpansionPanel
+           className={classes.expansion}
           expanded={expanded === "panel9"}
           onChange={this.handleExpand("panel9")}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -718,6 +730,7 @@ render() {
         </ExpansionPanel>
 
         <ExpansionPanel
+           className={classes.expansion}
           expanded={expanded === "panel10"}
           onChange={this.handleExpand("panel10")}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -742,6 +755,7 @@ render() {
         </ExpansionPanel>
 
         <ExpansionPanel
+           className={classes.expansion}
           expanded={expanded === "panel11"}
           onChange={this.handleExpand("panel11")}>
           <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -761,7 +775,6 @@ render() {
           <Link to="/doctor/home/">
             <Button
               variant="outlined"
-              hred="/doctor/home"
               color="secondary"
               className={classes.btn}>
               Go Back

@@ -3,7 +3,6 @@ const db = require("../models");
 
 module.exports = {
     createDoc: function(req, res) {
-        console.log(req.body)
         db.Doctor
             .create(req.body)
             .then((dbDoctor) => {
@@ -18,7 +17,6 @@ module.exports = {
         db.Doctor
             .findOneAndUpdate({ _id: req.params.id }, req.body)
             .then(dbDoctor => {
-                console.log(dbDoctor);
                 res.json(dbDoctor);
             })
             .catch(err => {

@@ -73,8 +73,7 @@ class DoctorTabs extends Component {
 		const { value } = this.state;
 		let content = null,
       chartStats = null;
-      console.log(value);
-
+      
 		if (isEmpty(omitEmpty(appointments))) {
 			content = null;
 		} else {
@@ -83,10 +82,8 @@ class DoctorTabs extends Component {
 
 		if (isEmpty(omitEmpty(stats))) {
       chartStats = null;
-      console.log(chartStats);
 		} else {
       chartStats = stats;
-      console.log(chartStats);
 		}
 
 		return (

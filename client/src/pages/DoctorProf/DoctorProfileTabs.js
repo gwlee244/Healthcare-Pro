@@ -26,6 +26,7 @@ import SetMeeting from "./SetMeeting";
 import SetMeetingCopy from "./SetMeeting copy";
 
 const NOT_AVAILABLE = "N/A";
+var birthday;
 
 function TabContainer(props) {
   return (
@@ -82,9 +83,13 @@ class DoctorProfileTabs extends Component {
   };
 
   generalInfo(settings, classes) {
+
     if (settings) {
+      if(settings.birthday) {
       const splitBDay = settings.birthday.split("-");
-      const birthday = splitBDay[1] + '/' + splitBDay[2] + '/' + splitBDay[0];
+       birthday = splitBDay[1] + '/' + splitBDay[2] + '/' + splitBDay[0];
+      }
+    
 
       return (
         <div className="profileGrid">
@@ -157,7 +162,7 @@ class DoctorProfileTabs extends Component {
             <Typography
               className={classes.infoItems}
               variant="subtitle1">
-              {birthday ? `Date of Birth: ${birthday}` : `Date of Birth: ${NOT_AVAILABLE}`}
+              {settings.birthday ? `Date of Birth: ${birthday}` : `Date of Birth: ${NOT_AVAILABLE}`}
             </Typography>
           </div>
 
@@ -215,16 +220,16 @@ class DoctorProfileTabs extends Component {
     return (
       <div>
         <div className={classes.root}>
-          <AppBar position="static" color="inherit" elevation={0}>
+          <AppBar className= "doctor-tabs" position="static" color="inherit" elevation={0}>
             <Tabs
               value={value}
               onChange={this.handleChange}
               centered
               variant="fullWidth">
-              <Tab label="General" />
-              <Tab label="Schedule" />
-              <Tab label="Plan an Appointment" />
-              <Tab label="Prescriptions" />
+              <Tab className="doctor-tab" label="General" />
+              <Tab className="doctor-tab" label="Schedule" />
+              <Tab className="doctor-tab" label="Plan an Appointment" />
+              <Tab className="doctor-tab" label="Prescriptions" />
             </Tabs>
           </AppBar>
           {value === 0 && (

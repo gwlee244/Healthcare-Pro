@@ -36,6 +36,14 @@ background: linear-gradient(to bottom, #E4E5E6, #00416A); /* W3C, IE 10+/ Edge, 
    
     text-align: center !important;
   }
+.login-container {
+  margin-top: 5vh !important;
+  margin-bottom: 2vh !important;
+}
+
+.form-container {
+  text-align: center !important;
+}
 
 .flex {
     display: flex;
@@ -134,6 +142,8 @@ a {
 .emergencyPanel {
     grid-column-start: 1;
     grid-column-end: 4;
+    border: 3px solid #DC143C;
+    margin-top: 20px;
 }
 
 .grid-schedule {
@@ -230,14 +240,110 @@ a {
     color: #00416A !important;
   }
 
-@import "scheduler";
+  .dx-scheduler {
+    margin-top: 50px;
+    height: 100% !important;
+  }
+
+  .patient-tabs, .doctor-tabs {
+    background-color: #778899 !important;
+    color: white;
+    // border: 1px solid black;
+  }
+  .patient-tab, .doctor-tab {
+    border: 1px solid #d3d3d3 !important;
+  }
+  .patient-tab:active, .doctor-tab:active {
+    background-color: #536878 !important;
+    border-left: 1px solid black !important;
+    border-right: 1px solid black !important;
+  }
+
+  .patient-tab:hover, .doctor-tab:hover {
+    background-color: #536878 !important;
+  }
+
+.profile-root {
+  width: 80%;
+  margin: auto;
+  flex-grow: 1;
+  background-color: #00416A !important;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.profile-info {
+  width: 80%;
+  margin: auto;
+}
+
+.profile-avatar {
+  margin: 0 auto !important;
+  color: #fff;
+  width: 80px !important;
+  font-size:  !important;
+  height: 80px !important;
+  position: absolute !important;
+  margin-top: 15px !important;
+  margin-bottom: 10px !important;
+  margin-left: 5%;
+  left: 12% !important;
+  font-family: 'Ultra', serif !important;
+}
+
+.profile-name {
+  margin: 0 auto !important ;
+  padding-top: 30px !important;
+  padding-bottom: 30px;
+  font-weight: bolder;
+  display: inline-block;
+  color: white !important;
+}
+
+
+@import "scheduler"; 
 
 
 @media only screen and (max-width: 1000px) {
     .localProfileGrid, .profileGrid {
         display: flex;
         flex-direction:column;
-        padding: 2em;
-        font-size:11px;
+        padding: 4em;
+        font-size:14px;
     }
+
+    .profile-avatar {
+      margin-top: 5px !important;
+    }
+
+    .profile-root, .profile-info {
+      width: 98%;
+    }
+
+    .profile-name {
+      font-size: 30px !important;
+      padding-top: 30px !important;
+      padding-bottom: 30px;
+    }
+    h3 {
+      font-size: 18px;
+    }
+    h6 {
+      font-size:15px !important;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .profile-avatar {
+      display: none !important;
+    }
+
+    h3 {
+      font-size: 15px;
+    }
+    h6 {
+      font-size:12px !important;
+    }
+
   }

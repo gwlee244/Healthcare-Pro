@@ -40,7 +40,6 @@ module.exports = {
     db.Patient
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbPatient => {
-        console.log(dbPatient);
         res.json(dbPatient);
       })
       .catch(err => res.status(422).json(err));

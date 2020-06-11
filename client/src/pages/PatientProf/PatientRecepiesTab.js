@@ -23,7 +23,7 @@ import TableHead from "@material-ui/core/TableHead";
 const actionsStyles = theme => ({
 	root: {
 		flexShrink: 0,
-		color: theme.palette.text.secondary,
+    color: theme.palette.text.secondary,
 		marginLeft: theme.spacing.unit * 2.5
 	}
 });
@@ -162,14 +162,12 @@ class PatientRecepiesTab extends React.Component {
 	};
 	render() {
     const { classes } = this.props;
-    console.log(classes + "CLASSES");
 		const { rowsPerPage, page } = this.state;
 		const emptyRows =
 			rowsPerPage -
 			Math.min(rowsPerPage, rows.length - page * rowsPerPage);
     let { patientRecepie } = this.props.general;
-    console.log(patientRecepie);
-    console.log("here");
+    
 		if (patientRecepie == null) {
 		} else {
 			if (rows.length === 0) {

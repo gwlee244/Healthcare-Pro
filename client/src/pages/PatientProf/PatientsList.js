@@ -26,11 +26,11 @@ const styles = theme => ({
   }
 });
 class PatientsTab extends Component {
+ 
   componentDidMount() {
     this.props.getPatientsList(this.props.auth.user.id);
-    console.log(this.props.general);
-
   }
+  
   render() {
 
     const { classes } = this.props;

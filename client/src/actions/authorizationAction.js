@@ -5,7 +5,6 @@ import setAuthToken from "../helpers/setAuthToken";
 
 // Register doctor
 export const registerDoctor = (userdata, history) => dispatch => {
-  console.log(history);
  
   localStorage.setItem("doctorId", userdata._id );
 	axios
@@ -13,7 +12,6 @@ export const registerDoctor = (userdata, history) => dispatch => {
 			userdata
 		})
 		.then(res => {
-      console.log(res.data._id);
       localStorage.setItem("doctorId", res.data._id );
 
 			history.push("/login");
