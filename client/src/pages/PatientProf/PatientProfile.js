@@ -64,7 +64,6 @@ class PatientProfile extends Component {
   
 	render() {
     const { classes, user } = this.props;
-    console.log(user);
 		let initials = getAvatarInitials(user.firstName, user.lastName).join(
 			""
     );
