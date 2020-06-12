@@ -18,8 +18,6 @@ import CloseIcon from "@material-ui/icons/Close";
 import TextField from "@material-ui/core/TextField";
 //Helpers
 import getEndTime from "../../helpers/getEndTime";
-import getAvailableTime from "../../helpers/getAvailableTime";
-import startOfWeek from "../../helpers/startOfWeek";
 // Actions
 import {
 	appointmentAdd,
@@ -36,7 +34,7 @@ const styles = theme => ({
 		margin: "1em auto"
 	},
 	marginBottom: {
-		marginBottom: "5vh"
+	
 	},
 	bottomButtons: {
 		width: "100%"
@@ -55,10 +53,10 @@ const styles = theme => ({
 	dateField: {
 		marginLeft: theme.spacing.unit,
 		marginRight: theme.spacing.unit,
-		width: 300
+    width: 300,
+    marginBottom: "5vh"
 	  }
 });
-const week = startOfWeek(new Date());
 let HOURS = ["08:30",
 "08:45",
 "09:00",
@@ -129,11 +127,6 @@ class SetMeeting extends Component {
 		  [ev.target.name]: ev.target.value,
 		  allowed: true
 		});
-		// HOURS = getAvailableTime(
-		// 	this.props.user.settings.schedule[ev.target.value.toLowerCase()],
-		// 	this.props.user.appointments[ev.target.value.toLowerCase()],
-		// 	ev.target.value.toLowerCase()
-		// );
 	  };
 	formatWeekDay = (day, date) => {
 		return `${day} (${date.getMonth() +
@@ -141,11 +134,6 @@ class SetMeeting extends Component {
 	};
 	onSelectDay = ev => {
 		this.setState({ day: ev.target.value, allowed: true });
-		// HOURS = getAvailableTime(
-		// 	this.props.user.settings.schedule[ev.target.value.toLowerCase()],
-		// 	this.props.user.appointments[ev.target.value.toLowerCase()],
-		// 	ev.target.value.toLowerCase()
-		// );
 	};
 	testZero = thing => {
 		console.log(thing[0]);
@@ -175,7 +163,6 @@ class SetMeeting extends Component {
 		});
 	};
 	registerMeet = ev => {
-		let name = this.state.name;
 		let time_start = this.state.time_start;
 		let day = this.state.day;
 		let year = day.slice(0,4);
@@ -234,7 +221,7 @@ class SetMeeting extends Component {
 							onChange={this.onHourSet}
 							variant="outlined"
 							onClick = {console.log(this.state.time_start)}
-							className={classes.dateField, classes.marginBottom}>
+							className={classes.dateField}>
 							{HOURS ? (
 								HOURS.map((element, index) => (
 									<MenuItem

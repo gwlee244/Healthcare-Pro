@@ -1,3 +1,5 @@
+//Component on doctor side where you can add prescriptions for a specific patient and they are displayed in a table @imported in PatientProfileTabs
+
 import React from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -30,6 +32,7 @@ const actionsStyles = theme => ({
 	}
 });
 
+//Divides the prescriptions table into pages and provides navigation and options for how many items per page
 class TablePaginationActions extends React.Component {
 	handleFirstPageButtonClick = event => {
 		this.props.onChangePage(event, 0);

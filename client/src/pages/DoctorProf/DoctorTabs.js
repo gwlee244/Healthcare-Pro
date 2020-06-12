@@ -1,5 +1,5 @@
 /*
-	Component for doctor, that takes logic of all tabs for main page
+	Component for doctor, that takes logic for all tabs for main page
 	@imported in DoctorHomepage
 */
 import React, { Component } from "react";
@@ -16,14 +16,12 @@ import omitEmpty from "omit-empty";
 // Components
 import PatientsList from "../PatientProf/PatientsList";
 import Stats from "../Stats/Stats";
-import Calendar from "../Calendar/Calendar";
 import Scheduler from "../Calendar/Scheduler";
 import Loader from "../../utils/Loader";
 // Actions
 import { getDoctorAppointments } from "../../actions/calendarAction";
 import { getStats } from "../../actions/utilsAction";
 import steth from "../../img/stethoscope.jpg";
-import statis from "../../img/stats.jpg";
 
 function TabContainer(props) {
 	return (
@@ -34,12 +32,6 @@ function TabContainer(props) {
 }
 
 const styles = theme => ({
-	// root: {
-	// 	flexGrow: 1,
-  //   // backgroundColor: theme.palette.background.paper
-  //   backgroundColor: "blue",
-  //   // height: "100%"
-  // },
   topText: {
     textAlign: "center",
     padding: "5%",
@@ -85,13 +77,12 @@ class DoctorTabs extends Component {
 		} else {
       chartStats = stats;
 		}
-
+    //renders the 3 main tabs on the doctor side and defaults to showing the `stats` tab which shows charts
 		return (
 			<div>
 				<div className="main-doctortabs">
 					<AppBar position="static" color="default">
 						<Tabs
-            
 							value={value}
 							onChange={this.handleChange}
 							centered>
@@ -107,10 +98,6 @@ class DoctorTabs extends Component {
 								<Stats stats={chartStats} />
 							) : (
                 <Loader />
-              //   <Paper>
-              //   <h2 className={classes.topText}>You don't have any statistics to view yet.  Try adding some patients.</h2>
-              //   <img className={classes.img} src={statis}></img>
-              // </Paper>
 							)}
 						</TabContainer>
 					)}
@@ -128,7 +115,7 @@ class DoctorTabs extends Component {
 							) : (
                 <Paper>
                 <h2 className={classes.topText}>You don't have any scheduled appointments at this time.  Please try again later.</h2>
-                <img className={classes.img} src={steth}></img>
+                <img className={classes.img} src={steth} alt = "stethescope"></img>
               </Paper>
 							)}
 							

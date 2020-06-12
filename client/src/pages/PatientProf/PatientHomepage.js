@@ -1,9 +1,9 @@
+//Main page for patients once you login
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 //loading components
 import ProfileActions from "../../components/app-bar/ProfileActions";
 import PatientTabs from "./PatientTabs"; //create PatientTabs
-
 
 export class PatientHomepage extends Component {
   render() {

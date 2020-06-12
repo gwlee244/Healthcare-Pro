@@ -1,3 +1,4 @@
+//in the doctor portal this shows you your specific patients
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -40,15 +41,17 @@ class PatientsTab extends Component {
     if (patientData == null) {
       content = <Loader />
     }
+    //If there is doctor data, map and render that data inside the thinprofile component
     else if(patientData.length){
      
         return <ThinProfile />
       
   }
+  //If there is no data, send a warning to user
     else {
       content = <Paper>
       <h2 className={classes.topText}>You don't have any patients yet.  Try clicking on the circular icon in the top-right corner of the screen and select 'Generate Token'. Give this token to a patient and you can see their information here.</h2>
-      <img className={classes.img} src={noPatient} />
+      <img className={classes.img} src={noPatient} alt="lego stormtroopers carrying a stretcher" /> 
     </Paper>
     }
 return <div>{content}</div>

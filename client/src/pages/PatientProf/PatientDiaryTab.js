@@ -1,3 +1,5 @@
+//Renders the E-Card component on the Patient side which shows visit notes
+//@ imported in patientTabs
 import React, { Component } from 'react';
 import { withStyles } from "@material-ui/core/styles";
 import IconButton from '@material-ui/core/IconButton';
@@ -5,7 +7,7 @@ import FirstPageIcon from '@material-ui/icons/FirstPage';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
-import { Icon, Typography, TableHead } from '@material-ui/core';
+import { TableHead } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import Paper from "@material-ui/core/Paper";
 import Table from '@material-ui/core/Table';
@@ -16,7 +18,6 @@ import TableRow from '@material-ui/core/TableRow';
 import TableFooter from '@material-ui/core/TableFooter';
 import { getPatientsRecords } from '../../actions/utilsAction';
 import { connect } from "react-redux";
-// 
 
 const actionsStyles = theme => ({
   root: {
@@ -26,6 +27,7 @@ const actionsStyles = theme => ({
   }
 });
 
+//Divides the visit notes table into pages and provides navigation and options for how many items per page
 class TablePaginationActions extends React.Component {
   handleFirstPageButtonClick = event => {
     this.props.onChangePage(event, 0);
@@ -77,7 +79,6 @@ const TablePaginationActionsWrapped = withStyles(actionsStyles, { withTheme: tru
 
 
 let counter = 0;
-let rows = [];
 
 function createData(doctor, diaryRecord, date) {
   counter += 1;
@@ -108,6 +109,7 @@ const styles = theme => ({
   }
 });
 
+//Pulls the patient's visit notes using a Redux action and displays it in a table
 export class PatientDiaryTab extends Component {
   constructor(props) {
     super(props);
@@ -168,17 +170,17 @@ export class PatientDiaryTab extends Component {
                   <TableCell className={classes.tableHead} align="left">Date</TableCell>
                 </TableRow>
               </TableHead>
-                <TableBody>
+              <TableBody>
                 {this.state.rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => <TableRow key={row.id}>
-                  <TableCell 
-                     className={`${classes.tableData} ${classes.tableLeft}`}
+                  <TableCell
+                    className={`${classes.tableData} ${classes.tableLeft}`}
                     align="left">{row.doctor}</TableCell>
                   <TableCell
-                  className={classes.tableData}
-                   align="left">{row.diaryRecord}</TableCell>
-                  <TableCell 
-                  className={classes.tableData}
-                  align="left">{row.date}</TableCell>
+                    className={classes.tableData}
+                    align="left">{row.diaryRecord}</TableCell>
+                  <TableCell
+                    className={classes.tableData}
+                    align="left">{row.date}</TableCell>
                 </TableRow>)}
                 {emptyRows > 0 && <TableRow style={{ height: 48 * emptyRows }}>
                   <TableCell colSpan={6} />
@@ -199,11 +201,6 @@ export class PatientDiaryTab extends Component {
   }
 }
 
-// TablePaginationAction.propTypes = {
-//   classes: PropTypes.object.isRequired,
-//   auth: PropTypes.object.isRequired,
-//   general: PropTypes.object.isRequired
-// };
 const mapStateToProps = state => ({
   auth: state.auth,
   general: state.general

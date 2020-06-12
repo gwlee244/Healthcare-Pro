@@ -67,7 +67,8 @@ class PatientProfile extends Component {
     console.log(user);
 		let initials = getAvatarInitials(user.firstName, user.lastName).join(
 			""
-		);
+    );
+    // Loads the patient's heading with their name, avatar, and allergies
 		return (
 			<div className = "whole-profile">
 				<Paper className="profile-root" elevation={3}>

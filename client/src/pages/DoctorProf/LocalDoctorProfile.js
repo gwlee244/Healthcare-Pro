@@ -21,38 +21,10 @@ import PlaceIcon from "@material-ui/icons/Place";
 import CabinetIcon from "@material-ui/icons/MeetingRoom";
 import FolderSpecialIcon from "@material-ui/icons/FolderSpecial";
 import SchoolIcon from "@material-ui/icons/School";
-// Components
-import DoctorProfileTabs from "./DoctorProfileTabs";
 
 const NOT_AVAILABLE = "N/A";
 const styles = theme => ({
-  root: {
-    paddingTop: theme.spacing.unit * 2,
-    paddingBottom: theme.spacing.unit * 2,
-    width: "80%",
-    margin: "auto",
-    flexGrow: 1,
-    backgroundColor: "#00416A",
-    justifyContent: 'center',
-    textAlign: "center",
-  },
-  avatar: {
-    marginLeft: theme.spacing.unit * 2,
-    marginRight: theme.spacing.unit * 2,
-    color: "#fff",
-    width: "80px",
-		fontSize: "24px",
-		height: "80px",
-    position: "absolute",
-    marginTop: "1%",
-    marginBottom: "1%",
-    left:"10",
-    fontFamily: `'Ultra', serif`,
-  },
-  secondPaper: {
-    width: "80%",
-    margin: "auto"
-  },
+
   infoItems: {
     marginLeft: ".5em",
     fontSize: "1.3em",
@@ -60,20 +32,13 @@ const styles = theme => ({
   phoneLink: {
     color: "black"
   },
-  name: {
-    margin: "0 auto",
-    paddingTop: "3%",
-    paddingBottom: "3%",
-    fontWeight: "bolder",
-    color: "white"
-  },
 });
 
 class LocalDoctorProfile extends Component {
   constructor(props) {
-		super(props);
-		this.state = {
-			redirect: false
+    super(props);
+    this.state = {
+      redirect: false
     };
   }
   componentDidMount = () => {
@@ -81,31 +46,32 @@ class LocalDoctorProfile extends Component {
     this.setState({ apples: 1 });
   }
   generalInfo(user, classes) {
+    //if the user hasn't created a profile, then redirect them to the profile creater
     if (!user.settings) {
       return <Redirect to='/doctor/home/settings' />
     }
+    //if they have a profile, then format birthday in a pleasant way and render all their information
     else {
       const splitBDay = user.settings.birthday.split("-");
       const birthday = splitBDay[1] + '/' + splitBDay[2] + '/' + splitBDay[0];
-
       return (
         <div className="localProfileGrid">
           {/* university */}
           <div className="flex flex-center universityInfo">
             <SchoolIcon color="primary" fontSize="large" />
             <Typography
-						className={classes.infoItems}
-						variant="subtitle1">
-						{user.settings.university
-							? `Studied at ${user.settings.university.univName}, in the city of ${
-									user.settings.university.univCity
-							  } for ${
-									user.settings.university.univSpecialty
-							  }. Years of study: (${
-									user.settings.university.yearOfEntry
-							  } - ${user.settings.university.yearOfOut})`
-							: `Studied at: ${NOT_AVAILABLE}`}
-					</Typography>
+              className={classes.infoItems}
+              variant="subtitle1">
+              {user.settings.university
+                ? `Studied at ${user.settings.university.univName}, in the city of ${
+                user.settings.university.univCity
+                } for ${
+                user.settings.university.univSpecialty
+                }. Years of study: (${
+                user.settings.university.yearOfEntry
+                } - ${user.settings.university.yearOfOut})`
+                : `Studied at: ${NOT_AVAILABLE}`}
+            </Typography>
           </div>
 
           {/* specialty */}
@@ -157,8 +123,8 @@ class LocalDoctorProfile extends Component {
             <Typography
               className={classes.infoItems}
               variant="subtitle1">
-               {user.settings.birthday ? `Date of Birth: ${birthday}` : `Date of Birth: ${NOT_AVAILABLE}`}
-                </Typography>
+              {user.settings.birthday ? `Date of Birth: ${birthday}` : `Date of Birth: ${NOT_AVAILABLE}`}
+            </Typography>
           </div>
 
           {/* sex */}
@@ -206,14 +172,14 @@ class LocalDoctorProfile extends Component {
       );
     }
   }
-
+  //renders the doctor's heading with their name and avatar
   render() {
     const { classes, user } = this.props;
     let initials = getAvatarInitials(user.firstName, user.lastName).join(
       ""
     );
     return (
-      <div className = "whole-profile">
+      <div className="whole-profile">
         <Paper className="profile-root" elevation={1}>
           <div className="">
             <Avatar
@@ -223,7 +189,7 @@ class LocalDoctorProfile extends Component {
               className="profile-avatar">
               {initials}
             </Avatar>
-            <Typography className="profile-name"  variant="h3">{`Dr. ${user.firstName} ${
+            <Typography className="profile-name" variant="h3">{`Dr. ${user.firstName} ${
               user.lastName
               }`}</Typography>
           </div>

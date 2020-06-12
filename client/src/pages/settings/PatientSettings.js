@@ -1,4 +1,7 @@
-
+/*
+  in patient portal, this page is how you update your profile and other settings
+  @imported at App
+*/
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -201,7 +204,7 @@ class PatientSettings extends React.Component {
 					</Typography>
 
           <ExpansionPanel
-             className={classes.expansion}
+            className={classes.expansion}
             expanded={expanded === "panel1"}
             onChange={this.handleExpand("panel1")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -246,7 +249,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
-             className={classes.expansion}
+            className={classes.expansion}
             expanded={expanded === "panel2"}
             onChange={this.handleExpand("panel2")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -271,7 +274,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
-             className={classes.expansion}
+            className={classes.expansion}
             expanded={expanded === "panel3"}
             onChange={this.handleExpand("panel3")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -305,7 +308,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
-             className={classes.expansion}
+            className={classes.expansion}
             expanded={expanded === "panel4"}
             onChange={this.handleExpand("panel4")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -494,7 +497,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
-             className={classes.expansion}
+            className={classes.expansion}
             expanded={expanded === "panel10"}
             onChange={this.handleExpand("panel10")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -550,7 +553,7 @@ class PatientSettings extends React.Component {
 					</Typography>
 
           <ExpansionPanel
-             className={classes.expansion}
+            className={classes.expansion}
             expanded={expanded === "panel11"}
             onChange={this.handleExpand("panel11")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -585,7 +588,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
-             className={classes.expansion}
+            className={classes.expansion}
             expanded={expanded === "panel12"}
             onChange={this.handleExpand("panel12")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -612,7 +615,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
-             className={classes.expansion}
+            className={classes.expansion}
             expanded={expanded === "panel13"}
             onChange={this.handleExpand("panel13")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -638,7 +641,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
-             className={classes.expansion}
+            className={classes.expansion}
             expanded={expanded === "panel14"}
             onChange={this.handleExpand("panel14")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -664,7 +667,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
-             className={classes.expansion}
+            className={classes.expansion}
             expanded={expanded === "panel15"}
             onChange={this.handleExpand("panel15")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
@@ -690,7 +693,7 @@ class PatientSettings extends React.Component {
           </ExpansionPanel>
 
           <ExpansionPanel
-             className={classes.expansion}
+            className={classes.expansion}
             expanded={expanded === "panel16"}
             onChange={this.handleExpand("panel16")}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>

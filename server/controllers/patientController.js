@@ -1,7 +1,6 @@
 const ObjectId = require("mongoose").Types.ObjectId;
 const db = require("../models");
 
-// Defining methods for the booksController
 module.exports = {
   findAllPatients: function(req, res) {
     if (req.params.docId) {

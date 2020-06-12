@@ -1,28 +1,17 @@
 /*
-  Component, that show in My patients tab for doctor, thin and long, opens Patient profile component
+  Component in doctor portal that shows in My patients tab and displays a searchable list of all your patients
   @imported in PatientsList
 */
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getPatientsList } from "../../actions/utilsAction";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import PeopleIcon from '@material-ui/icons/People';
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import HomeIcon from "@material-ui/icons/Home";
-import EventIcon from "@material-ui/icons/Event";
-import PhoneIcon from "@material-ui/icons/Phone";
-import MailIcon from "@material-ui/icons/Mail";
-import WorkIcon from "@material-ui/icons/Work";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
+import PeopleIcon from '@material-ui/icons/People';
+import TextField from "@material-ui/core/TextField";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -36,8 +25,6 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import Grid from '@material-ui/core/Grid';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-// import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import TableFooter from "@material-ui/core/TableFooter";
@@ -51,27 +38,8 @@ const actionsStyles = theme => ({
     marginLeft: theme.spacing.unit * 2.5,
   }
 });
-//Components
 
-// const styles = theme => ({
-// 	root: {
-// 		...theme.mixins.gutters(),
-// 		paddingTop: theme.spacing.unit * 1.5,
-// 		paddingBottom: theme.spacing.unit * 1.5,
-// 		margin: "auto",
-// 		width: "85%",
-// 		display: "flex",
-// 		flexWrap: "wrap",
-// 		marginBottom: ".5em"
-// 	},
-// showBtn: {
-// 	marginLeft: "auto"
-// },
-//   infoItems: {
-//     color: "black"
-//   }
-// });
-
+//Divides the patients table into pages and provides navigation and options for how many items per page
 class TablePaginationActions extends React.Component {
   handleFirstPageButtonClick = event => {
     this.props.onChangePage(event, 0);
@@ -212,7 +180,7 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-
+//Pulls this doctor's list of patients using a Redux action and displays it in a table
 class ThinProfile extends Component {
 
   constructor(props) {
@@ -240,6 +208,27 @@ class ThinProfile extends Component {
     this.btnClick = this.btnClick.bind(this);
     this.handleExpand = this.handleExpand.bind(this);
   }
+
+  componentDidMount = () => {
+    this.props.getPatientsList(this.props.auth.user.id)
+
+  };
+
+  componentWillReceiveProps(nextProps) {
+    const goodPatients = [];
+    const patients = nextProps.general.patientData;
+    for(let i=0;i <patients.length; i++) {
+      if (patients[i].settings) {
+        goodPatients.push(patients[i]);
+      }
+    }
+    this.setState({
+      loading: false,
+      patients: goodPatients,
+      filtered: goodPatients
+    });
+  }
+
   infoItem = (icon, text) => {
     return (
       <div className="flex flex-center infoItemMargin">
@@ -262,12 +251,6 @@ class ThinProfile extends Component {
   Transition(props) {
     return <Slide direction="up" {...props} />;
   }
-  // calculateAge(birthday) {
-  //   // birthday is a date
-  //   var ageDifMs = Date.now() - birthday.getTime();
-  //   var ageDate = new Date(ageDifMs); // miliseconds from epoch
-  //   return Math.abs(ageDate.getUTCFullYear() - 1970);
-  // }
 
   handleChangePage = (event, page) => {
     this.setState({ page });
@@ -281,25 +264,6 @@ class ThinProfile extends Component {
     this.setState({ patients: goodPatients,
     filtered: goodPatients })
   }
-  componentDidMount = () => {
-    this.props.getPatientsList(this.props.auth.user.id)
-
-  };
-
-  componentWillReceiveProps(nextProps) {
-    const goodPatients = [];
-    const patients = nextProps.general.patientData;
-    for(let i=0;i <patients.length; i++) {
-      if (patients[i].settings) {
-        goodPatients.push(patients[i]);
-      }
-    }
-    this.setState({
-      loading: false,
-      patients: goodPatients,
-      filtered: goodPatients
-    });
-  }
 
   btnClick = (event) => {
     this.setState({
@@ -307,7 +271,6 @@ class ThinProfile extends Component {
       open: true
     })
   }
-
 
   //filter employees by user search
   handleInputChange = (event) => {
@@ -330,7 +293,7 @@ class ThinProfile extends Component {
     const { classes } = this.props;
     let { patientData } = this.props.general
 
-    const { rowsPerPage, page, patients, id, filtered, expanded } = this.state;
+    const { rowsPerPage, page,  id, filtered } = this.state;
     const emptyRows =
       rowsPerPage -
       Math.min(rowsPerPage, rows.length - page * rowsPerPage);
@@ -376,17 +339,6 @@ class ThinProfile extends Component {
           </Grid>
         </Grid>
       </div>
-
-              {/* <TextField
-                fullWidth
-                name="patientSearch"
-                value={this.state.term}
-                onChange={this.handleInputChange}
-                label="Patient Search"
-                variant="outlined"
-                placeholder="John Doe"
-              /> */}
-        
           <br></br>
 
           <div className={classes.tableWrapper}>
@@ -455,8 +407,6 @@ class ThinProfile extends Component {
                     </TableRow>
                   )
                 }
-
-
               </TableBody>
               <TableFooter>
                 <TableRow>
@@ -502,16 +452,13 @@ class ThinProfile extends Component {
                 color="inherit"
                 className={classes.flex}>
                Exit Profile
-                
               </Typography>
             </Toolbar>
           </AppBar>
           <PatientProfile user={filtered[id]} />
         </Dialog>
-
       </>
     );
-
   }
 }
 ThinProfile.propTypes = {

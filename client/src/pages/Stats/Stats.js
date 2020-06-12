@@ -1,3 +1,4 @@
+//Component used to render the charts in the doctor portal / @imported in doctorTabs
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Chart from "react-apexcharts";
@@ -69,22 +70,6 @@ export class Stats extends Component {
             />
           </ Paper>
         </div>
-
-        {/* <div className="stats-visits">
-          <Paper elevation={3}>
-            <Typography className={classes.headerMargin} variant="h5" align="center">
-              Visits
-        </Typography>
-            <Chart
-              height="300px"
-              width="100%"
-              type="line"
-              options={business.options}
-              series={business.series}
-            />
-          </ Paper>
-        </div> */}
-
         <div className="stats-satisfaction">
           <Paper elevation={3}>
             <Typography className={classes.headerMargin} variant="h5" align="center">
