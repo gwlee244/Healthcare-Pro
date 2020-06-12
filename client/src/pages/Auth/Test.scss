@@ -36,13 +36,69 @@ a {
 
 .whole-page {
   position: absolute;
-  background: url("https://images.squarespace-cdn.com/content/v1/54c11785e4b00c958789156d/1422051952480-TMFFYEYD0HZ0Y6ON18L9/ke17ZwdGBToddI8pDm48kKDD9K8EWjxZpuR9yHkNE4V7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0jRb3i7UjwNNySrgFE_nWavTQzA2ahqAmkdz52KBMJ8uLGt_Pq0peEvgS3RKfmm4cw/med_tech_banner.jpg?format=1500w") no-repeat center center fixed; 
+  // background: url("https://images.squarespace-cdn.com/content/v1/54c11785e4b00c958789156d/1422051952480-TMFFYEYD0HZ0Y6ON18L9/ke17ZwdGBToddI8pDm48kKDD9K8EWjxZpuR9yHkNE4V7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0jRb3i7UjwNNySrgFE_nWavTQzA2ahqAmkdz52KBMJ8uLGt_Pq0peEvgS3RKfmm4cw/med_tech_banner.jpg?format=1500w") no-repeat center center fixed;
+  // background-color:violet; 
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
 width: 100%;
 height: 100%;
+}
+
+.buttonSide {
+  display:flex;
+  flex-direction:row;
+  justify-content:space-around !important;
+  margin:20px;
+}
+
+.home {
+  width:190px;
+  height:50px;
+}
+
+.typed {
+  margin-top:20px !important;
+}
+
+p {
+  color:#00416A;
+  text-align:center;
+  font-size:24px;
+}
+
+.home-snippet {
+  font-family:sans-serif;
+}
+
+.textloop {
+  margin-right:10px;
+}
+
+.fa-heartbeat {
+padding:10px;
+}
+
+.github {
+  color:white;
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  justify-content: space-around;
+  margin-top:250px;
+  background-color: #e4e5e6;
+  border-top:15px solid #e4e5e6;
+}
+
+.gitId {
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  background-color:#00416A;
+  width:400px;
+  border-right:5px solid #e4e5e6;
+  
 }
 
 .register-background {
@@ -121,6 +177,7 @@ background-attachment: scroll;
  
   color: $white;
   font-weight: $semibold;
+  font-size:17px
   
 }
 
