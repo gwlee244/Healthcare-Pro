@@ -1,4 +1,7 @@
-
+/*
+  Doctor Portal Component that shows in Patient profile, under name card, to give access to additional info, and features
+  @imported inPatientProfile
+*/
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -205,6 +208,8 @@ class PatientProfileTabs extends Component {
   render() {
     const { classes, user } = this.props;
     const { value } = this.state;
+    
+    //creates the patient tabs and links to their respective components
     return (
       <div>
         <div className={classes.root}>

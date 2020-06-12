@@ -1,3 +1,4 @@
+//displays a spinning circle if a page is loading
 import React from "react";
 import { withStyles } from "@material-ui/core/styles"; 
 import CircularProgress from "@material-ui/core/CircularProgress"; 

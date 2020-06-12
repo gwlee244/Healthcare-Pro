@@ -10,7 +10,6 @@ import { Redirect } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
-import deepPurple from "@material-ui/core/colors/deepPurple";
 import HomeIcon from "@material-ui/icons/Home";
 import PhoneIcon from "@material-ui/icons/Phone";
 import EventIcon from "@material-ui/icons/Event";
@@ -29,11 +28,6 @@ import getAvatarInitials from "../../helpers/getAvatarInitials";
 import { colors } from "../../helpers/palette";
 
 const NOT_AVAILABLE = "N/A";
-
-// Components
-// Actions
-// import { getUserData } from "../../../actions/utilsActions";
-
 
 const styles = theme => ({
   root: {
@@ -82,14 +76,13 @@ const styles = theme => ({
   }
 });
 class LocalPatientProfile extends Component {
- 
- 
 
   generalInfo(user, classes) {
-
+//if the user hasn't created a profile, then redirect them to the profile creater
     if (!user.settings) {
       return <Redirect to='/patient/home/settings' />
     }
+    //if they have a profile, then format birthday in a pleasant way and render all their information
     else {
       const splitBDay = user.settings.birthday.split("-");
       const birthday = splitBDay[1] + '/' + splitBDay[2] + '/' + splitBDay[0];
@@ -201,6 +194,7 @@ class LocalPatientProfile extends Component {
       );
                 }
     }
+    
     render() {
       const { classes, user } = this.props;
       let initials = getAvatarInitials(user.firstName, user.lastName).join(

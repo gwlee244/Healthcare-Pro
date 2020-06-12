@@ -4,7 +4,7 @@
 */
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { withStyles, withTheme } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
@@ -42,11 +42,7 @@ const styles = {
     width: "400px",
     display: "inline-block",
     margin: "3%",
-    // border: "5px solid rgb(55,111,119)"
   },
-  // media: {
-  //   height: 10,
-  // },
   bigAvatar: {
     width: 60,
     height: 60,
@@ -141,12 +137,12 @@ class UserCard extends Component {
     return (
       <>
         <Card elevation={5} className={classes.card}>
-          <CardActionArea className = "whole-card">
+          <CardActionArea className="whole-card">
             <CardMedia
               className={`${classes.media} ${user.color}`}
               src="none"
             />
-            <CardContent className = "whole-card">
+            <CardContent className="whole-card">
               {/* Title */}
               <div className="flex flex-center card-heading">
                 <Avatar
@@ -247,13 +243,13 @@ class UserCard extends Component {
             </CardContent>
           </CardActionArea>
           <CardActions className="card-buttons">
-          <Button variant="contained" color="primary"
+            <Button variant="contained" color="primary"
               onClick={() => {
                 this.setState({ profileOpen: true });
               }}>
               Show profile
 						</Button>
-            <Button className = "unsubscribe-button" variant="contained" color="secondary"
+            <Button className="unsubscribe-button" variant="contained" color="secondary"
               onClick={() =>
                 this.setState({ openConfirmUnsubscribe: true })
               }>
@@ -278,7 +274,7 @@ class UserCard extends Component {
                 variant="h6"
                 color="inherit"
                 className={classes.flex}>
-               Exit Profile
+                Exit Profile
               </Typography>
             </Toolbar>
           </AppBar>

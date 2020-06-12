@@ -1,3 +1,4 @@
+//pops up when you click to add a doctor and assigns them as your doctor in the database
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";

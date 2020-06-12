@@ -1,3 +1,4 @@
+//reducers used for authentication pf patients and doctors
 import {
 	SET_DOCTOR,
 	SET_PATIENT,

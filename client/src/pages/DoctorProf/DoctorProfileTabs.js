@@ -1,5 +1,5 @@
 /*
-  Component that shows in Doctor profile, under name card, to give access to additional indo, and features
+  Patient Portal Component that shows in Doctor profile, under name card, to give access to additional info, and features
   @imported in DoctorProfile
 */
 import React, { Component } from "react";
@@ -22,8 +22,7 @@ import SchoolIcon from "@material-ui/icons/School";
 // Components
 import DoctorSchedule from "./Schedule";
 import SortedRecepies from "./SortedRecepies";
-import SetMeeting from "./SetMeeting";
-import SetMeetingCopy from "./SetMeeting copy";
+import SetMeeting from "./SetMeeting copy";
 
 const NOT_AVAILABLE = "N/A";
 var birthday;
@@ -47,7 +46,6 @@ const styles = theme => ({
   phoneLink: {
     color: "black"
   }
-
 });
 
 class DoctorProfileTabs extends Component {
@@ -217,10 +215,12 @@ class DoctorProfileTabs extends Component {
     const { classes, user } = this.props;
     const { value } = this.state;
     const settings = user.settings;
+
+    //creates the doctor tabs and links to their respective components
     return (
       <div>
         <div className={classes.root}>
-          <AppBar className= "doctor-tabs" position="static" color="inherit" elevation={0}>
+          <AppBar className="doctor-tabs" position="static" color="inherit" elevation={0}>
             <Tabs
               value={value}
               onChange={this.handleChange}
@@ -253,7 +253,7 @@ class DoctorProfileTabs extends Component {
           )}
           {value === 2 && (
             <TabContainer>
-              <SetMeetingCopy user={user} />
+              <SetMeeting user={user} />
             </TabContainer>
           )}
           {value === 3 && (

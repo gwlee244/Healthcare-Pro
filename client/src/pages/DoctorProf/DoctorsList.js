@@ -1,3 +1,4 @@
+//In the patient portal, this shows you your personal doctors
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -33,7 +34,6 @@ const styles = theme => ({
     textAlign: "center",
     padding: "3%",
     position: "absolute",
-    // backgroundColor: "rgba(255,255,255,.3)"
   },
   img: {
     width: "100%"
@@ -96,8 +96,8 @@ class DoctorsList extends Component {
         </div>
       );
     }
+    //If there is doctor data, map and render that data inside the cardProfile component
     else if (doctorData.length) {
-
       content =  (
         <div className={classes.cardContainer}>
           {doctorData.map((element, index) => (
@@ -107,12 +107,14 @@ class DoctorsList extends Component {
         </div>
       )
     }
+    //If there is no data, send a warning to user
     else {
       content = <Paper>
         <h3 className={classes.topText}>You don't have any doctors yet. If a doctor has given you a token, click on the '+' in the bottom-right corner of the screen to input your token and add a doctor.  Otherwise, you'll need to contact your doctor to get a verified token. </h3>
-        <img className={classes.img} src={noDoctor} />
+        <img className={classes.img} src={noDoctor} alt="lego stormtroopers carrying a stretcher" />
       </Paper>
     }
+    //A button that allows you to add a doctor if you have their token
     return (
       <div className="doctorsTab">
         <div>

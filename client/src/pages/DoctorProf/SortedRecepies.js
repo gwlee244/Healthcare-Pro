@@ -1,5 +1,5 @@
 /*
-	Component, where displayed sorted patient`s recepies
+	Displays a patient`s prescriptions from a specific doctor
 	@imported at DoctorProfileTabs
 */
 import React, { Component } from "react";
@@ -29,7 +29,7 @@ const actionsStyles = theme => ({
     marginLeft: theme.spacing.unit * 2.5
   }
 });
-
+//Divides the prescriptions table into pages and provides navigation and options for how many items per page
 class TablePaginationActions extends Component {
   handleFirstPageButtonClick = event => {
     this.props.onChangePage(event, 0);
@@ -154,6 +154,7 @@ const styles = theme => ({
   }
 });
 
+//pulls the perscriptions info using a Redux action and renders it to a table
 class SortedRecepies extends Component {
   state = {
     page: 0,

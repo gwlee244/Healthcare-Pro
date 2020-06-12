@@ -1,3 +1,4 @@
+// Shows the range of times that this specific doctor is willing to have patients
 import React from "react";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -7,7 +8,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
-
 
 const CustomTableCell = withStyles(theme => ({
     head: {
@@ -49,27 +49,27 @@ function DoctorSchedule(props) {
     const rows = [
         createData(
             "Monday", 
-            timeTable.monday.fromMonday,  //need to create setMonday class
+            timeTable.monday.fromMonday,
             timeTable.monday.toMonday
         ),
         createData(
             "Tuesday", 
-            timeTable.tuesday.fromTuesday,  //need to create setMonday class
+            timeTable.tuesday.fromTuesday,
             timeTable.tuesday.toTuesday
         ),
         createData(
             "Wednesday", 
-            timeTable.wednesday.fromWednesday,  //need to create setMonday class
+            timeTable.wednesday.fromWednesday,
             timeTable.wednesday.toWednesday
         ),
         createData(
             "Thursday", 
-            timeTable.thursday.fromThursday,  //need to create setMonday class
+            timeTable.thursday.fromThursday,
             timeTable.thursday.toThursday
         ),
         createData(
             "Friday", 
-            timeTable.friday.fromFriday,  //need to create setMonday class
+            timeTable.friday.fromFriday,
             timeTable.friday.toFriday
         )
     ];

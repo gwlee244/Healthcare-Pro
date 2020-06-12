@@ -1,4 +1,5 @@
 import {createStore, applyMiddleware, compose} from "redux";
+//thunk is middleware that allows for async operations in actions
 import thunk from "redux-thunk";
 import rootReducer from "./reducers/rootReducer";
 

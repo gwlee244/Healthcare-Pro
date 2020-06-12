@@ -28,7 +28,6 @@ import {
   getPatientsRecords
 } from "../../actions/utilsAction";
 
-var stuff;
 const actionsStyles = theme => ({
   root: {
     flexShrink: 0,
@@ -36,6 +35,7 @@ const actionsStyles = theme => ({
     marginLeft: theme.spacing.unit * 2.5
   }
 });
+//Divides the visit notes table into pages and provides navigation and options for how many items per page
 class TablePaginationActions extends Component {
   handleFirstPageButtonClick = event => {
     this.props.onChangePage(event, 0);
@@ -140,16 +140,16 @@ const styles = theme => ({
     overflowX: "auto"
   },
   tableHead: {
-		backgroundColor: '#DCDCDC',
+    backgroundColor: '#DCDCDC',
     color: 'black',
     fontWeight: "bold",
     padding: 6,
-      border: "1px solid #ccc",
-    },
-    tableData: {
-      padding: 6,
-      border: "1px solid #ccc",
-    },
+    border: "1px solid #ccc",
+  },
+  tableData: {
+    padding: 6,
+    border: "1px solid #ccc",
+  },
   inputAdjustment: {
     width: "100%",
     margin: "1em"
@@ -160,6 +160,7 @@ const styles = theme => ({
   }
 });
 
+//Pulls this patient's visit notes using a Redux action and displays it in a table
 class Diary extends Component {
   constructor(props) {
     super(props);
@@ -167,7 +168,7 @@ class Diary extends Component {
       page: 0,
       rowsPerPage: 5,
       diaryRecord: ""
-      
+
     };
     this.onAddRecord = this.onAddRecord.bind(this);
     this.handleChangePage = this.handleChangePage.bind(this);
@@ -176,7 +177,7 @@ class Diary extends Component {
 
   componentDidMount = () => {
     rows = [];
-   this.props.getPatientsRecords(this.props.user._id);
+    this.props.getPatientsRecords(this.props.user._id);
   }
 
   onAddRecord = () => {
@@ -258,16 +259,16 @@ class Diary extends Component {
           <Table className={classes.table}>
             <TableHead>
               <TableRow className={classes.tableHead}>
-                <TableCell 
-                className={classes.tableHead}>
+                <TableCell
+                  className={classes.tableHead}>
                   Doctor
                   </TableCell>
-                <TableCell 
-                className={classes.tableHead}
+                <TableCell
+                  className={classes.tableHead}
                 >Visit Notes
                 </TableCell>
                 <TableCell
-                className={classes.tableHead}
+                  className={classes.tableHead}
                 >Date
                 </TableCell>
               </TableRow>
@@ -290,12 +291,12 @@ class Diary extends Component {
                         {row.doctor}
                       </TableCell>
                       <TableCell
-                       className={classes.tableData}
+                        className={classes.tableData}
                         style={{ fontSize: "1.2em" }}>
                         {row.record}
                       </TableCell>
                       <TableCell
-                       className={classes.tableData}
+                        className={classes.tableData}
                         style={{ fontSize: "1.2em" }}>
                         {row.date}
                       </TableCell>

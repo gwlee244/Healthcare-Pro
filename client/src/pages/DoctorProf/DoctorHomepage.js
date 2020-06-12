@@ -1,8 +1,9 @@
+//Main page for doctors once you login
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom";
 //loading components
 import ProfileActions from "../../components/app-bar/ProfileActions";
-import DoctorTabs from "./DoctorTabs"; //create DoctorTabs
+import DoctorTabs from "./DoctorTabs";
 
 
 export class DoctorHomepage extends Component {
